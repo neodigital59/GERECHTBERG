@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { useTranslation } from "react-i18next";
 import PageContent from "@/components/PageContent";
+import Link from "next/link";
 
 const PRICES = {
   basic: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC!,
@@ -163,7 +164,7 @@ export default function TarifsPage() {
       </div>
 
       <div className="mt-5 sm:mt-6">
-        <a href="/documents" className="px-4 py-2.5 sm:py-3 border rounded">{t("actions.backToDashboard")}</a>
+        <Link href="/documents" className="px-4 py-2.5 sm:py-3 border rounded">{t("actions.backToDashboard")}</Link>
       </div>
       <div className="mt-5 sm:mt-6 border rounded p-4 sm:p-5">
         <h2 className="font-medium mb-2">{t("pricing.coaching.title")}</h2>

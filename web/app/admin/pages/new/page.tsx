@@ -1,4 +1,5 @@
 import { createPage } from "../actions";
+import Link from "next/link";
 
 export default function NewPage() {
   return (
@@ -25,7 +26,7 @@ export default function NewPage() {
         </div>
         <div className="flex gap-2">
           <button type="submit" className="px-3 py-2 rounded bg-brand text-white">Créer</button>
-          <a href="/admin/pages" className="px-3 py-2 rounded border">Annuler</a>
+          <Link href="/admin/pages" className="px-3 py-2 rounded border">Annuler</Link>
         </div>
       </form>
     </div>

@@ -62,40 +62,7 @@ export default function DocumentDetailPage() {
   }
 
   async function sendToDocuSign() {
-    setLoading(true);
-    setMessage(null);
-    try {
-      if (!doc) throw new Error(t("documentDetail.notFound"));
-      const signerName = doc?.signer_name || doc?.auteur || "Signataire";
-      const signerEmail = doc?.signer_email || doc?.email || "";
-      if (!signerEmail) throw new Error("Email du signataire manquant");
-  
-      function toBase64(text: string): string {
-        const encoder = new TextEncoder();
-        const bytes = encoder.encode(text);
-        let binary = "";
-        for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-        return btoa(binary);
-      }
-      const base64Doc = toBase64(content || "Document à signer");
-      const res = await fetch("/api/signature/docusign/envelopes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: signerEmail, name: signerName, documentId: id, docName: doc?.titre || "Document", returnUrl: location.href, base64Doc, embedded })
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Échec de la création d’enveloppe");
-  
-      if (json.redirectUrl) {
-        // Embedded signing: open in new tab
-        window.open(json.redirectUrl, "_blank");
-      }
-      setMessage("Enveloppe créée" + (json.demo ? " (mode démo)" : ""));
-    } catch (e: any) {
-      setMessage(e.message || "Erreur d’envoi DocuSign");
-    } finally {
-      setLoading(false);
-    }
+    setMessage("La signature DocuSign est désactivée dans cette installation.");
   }
 
   async function timestampDocument() {
@@ -256,16 +223,16 @@ export default function DocumentDetailPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="rounded-xl border bg-white shadow-sm">
           <div className="p-4 border-b">
-            <div className="font-semibold">Signature électronique (DocuSign)</div>
-            <div className="text-black/60 text-sm">Authentification sécurisée, traçabilité et conformité</div>
+            <div className="font-semibold">Signature électronique (désactivée)</div>
+            <div className="text-black/60 text-sm">Cette fonctionnalité a été retirée de cette installation.</div>
           </div>
           <div className="p-4 space-y-3">
 +            <label className="flex items-center gap-2 text-sm">
 +              <input type="checkbox" checked={embedded} onChange={(e)=>setEmbedded(e.target.checked)} />
 +              <span>Signature embarquée (sinon envoi par email)</span>
 +            </label>
-             <button onClick={sendToDocuSign} className="px-4 py-2 rounded bg-brand text-white">Envoyer pour signature</button>
-             <div className="text-xs text-black/60">Une fenêtre de signature intégrée peut s’ouvrir si configurée. Les événements sont journalisés côté serveur.</div>
+             <button onClick={sendToDocuSign} className="px-4 py-2 rounded border" disabled>Envoyer pour signature</button>
+             <div className="text-xs text-black/60">La signature DocuSign est désactivée.</div>
           </div>
         </div>
 

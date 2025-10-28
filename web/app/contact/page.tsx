@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 import PageContent from '@/components/PageContent';
 
 export default function ContactPage() {
@@ -79,9 +80,9 @@ export default function ContactPage() {
       </section>
 
       <section className="flex flex-wrap gap-3">
-        <a href="/tarifs" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('contact.links.pricing')}</a>
-        <a href="/decouvert" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('contact.links.discover')}</a>
-        <a href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('contact.links.dashboard')}</a>
+        <Link href="/tarifs" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('contact.links.pricing')}</Link>
+        <Link href="/decouvert" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('contact.links.discover')}</Link>
+        <Link href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('contact.links.dashboard')}</Link>
       </section>
 
       <section className="mt-8">

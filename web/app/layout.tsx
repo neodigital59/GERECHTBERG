@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 // Nous évitons l’accès serveur aux cookies pour stabiliser l’hydratation
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -62,11 +63,11 @@ export default function RootLayout({
                   <span className="font-semibold text-lg">GERECHTBERG</span>
                 </div>
                 <nav className="flex flex-wrap gap-4">
-                  <a href="/tarifs" className="hover:text-brand">Tarifs</a>
-                  <a href="/decouvert" className="hover:text-brand">Découvert</a>
-                  <a href="/contact" className="hover:text-brand">Contact</a>
-                  <a href="/rendezvous" className="hover:text-brand">Rendez-vous</a>
-                  <a href="/documents" className="hover:text-brand">Documents</a>
+                  <Link href="/tarifs" className="hover:text-brand">Tarifs</Link>
+                  <Link href="/decouvert" className="hover:text-brand">Découvert</Link>
+                  <Link href="/contact" className="hover:text-brand">Contact</Link>
+                  <Link href="/rendezvous" className="hover:text-brand">Rendez-vous</Link>
+                  <Link href="/documents" className="hover:text-brand">Documents</Link>
                 </nav>
               </div>
               <p className="mt-3 text-xs text-black/50">© {new Date().getUTCFullYear()} GERECHTBERG — Tous droits réservés.</p>

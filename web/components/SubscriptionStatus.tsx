@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import Link from "next/link";
 
 interface SubInfo {
   plan: string | null;
@@ -70,7 +71,7 @@ export default function SubscriptionStatus() {
           )}
         </div>
         <div className="flex flex-col sm:flex-row gap-2 sm:justify-end flex-wrap">
-          <a href="/tarifs" className="w-full sm:w-auto px-3 py-1 border rounded hover:text-brand">Changer de plan</a>
+          <Link href="/tarifs" className="w-full sm:w-auto px-3 py-1 border rounded hover:text-brand">Changer de plan</Link>
           <button
             className="w-full sm:w-auto px-3 py-1 bg-brand text-white rounded hover:bg-brand/80"
             onClick={async () => {

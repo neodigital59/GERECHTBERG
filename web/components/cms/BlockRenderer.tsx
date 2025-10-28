@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 
 export type CMSBlock = {
   id: string;
@@ -49,9 +50,15 @@ function HeroBlock({ content }: { content: any }) {
         {heading ? <h1 className="text-2xl font-semibold mb-2">{heading}</h1> : null}
         {subheading ? <p className="text-white/80 mb-4">{subheading}</p> : null}
         {ctaLabel && ctaHref ? (
-          <a href={ctaHref} className="inline-block px-4 py-2 rounded bg-brand text-white hover:bg-brand/80">
-            {ctaLabel}
-          </a>
+          ctaHref.startsWith("/") ? (
+            <Link href={ctaHref} className="inline-block px-4 py-2 rounded bg-brand text-white hover:bg-brand/80">
+              {ctaLabel}
+            </Link>
+          ) : (
+            <a href={ctaHref} className="inline-block px-4 py-2 rounded bg-brand text-white hover:bg-brand/80">
+              {ctaLabel}
+            </a>
+          )
         ) : null}
       </div>
     </section>
@@ -78,9 +85,15 @@ function ButtonBlock({ content }: { content: any }) {
   if (!label || !href) return null;
   return (
     <div className="mt-6">
-      <a href={href} className="inline-block px-4 py-2 rounded border hover:text-brand">
-        {label}
-      </a>
+      {href.startsWith("/") ? (
+        <Link href={href} className="inline-block px-4 py-2 rounded border hover:text-brand">
+          {label}
+        </Link>
+      ) : (
+        <a href={href} className="inline-block px-4 py-2 rounded border hover:text-brand">
+          {label}
+        </a>
+      )}
     </div>
   );
 }

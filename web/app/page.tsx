@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import PageContent from "@/components/PageContent";
 import { ComposeSquarePro, TranslateSquarePro, ExportSquarePro, ComposeProWide, TranslateProWide, ExportProWide, ComposeIconPro, TranslateIconPro, ExportIconPro, TerminationProSquare, ContractProSquare, CertificateProSquare, Step1Wide, Step2Wide, Step3Wide } from "@/components/GeneratedIllustrations";
 import { useTranslation } from "react-i18next";
@@ -32,9 +33,9 @@ export default function Home() {
 
       {/* CTA principaux */}
       <section className="flex flex-wrap gap-2 sm:gap-3">
-        <a href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('home.cta.create')}</a>
-        <a href="/decouvert" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.cta.discover')}</a>
-        <a href="/tarifs" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.cta.pricing')}</a>
+        <Link href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('home.cta.create')}</Link>
+        <Link href="/decouvert" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.cta.discover')}</Link>
+        <Link href="/tarifs" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.cta.pricing')}</Link>
       </section>
 
       {/* Fonctionnalités */}
@@ -154,9 +155,9 @@ export default function Home() {
       <section className="space-y-3">
         <h2 className="text-xl font-medium">{t('home.quick.title')}</h2>
         <div className="flex flex-wrap gap-2 sm:gap-3">
-          <a href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('home.quick.dashboard')}</a>
-          <a href="/tarifs" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.quick.compare')}</a>
-          <a href="/contact" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.quick.contact')}</a>
+          <Link href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('home.quick.dashboard')}</Link>
+          <Link href="/tarifs" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.quick.compare')}</Link>
+          <Link href="/contact" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('home.quick.contact')}</Link>
         </div>
       </section>
 

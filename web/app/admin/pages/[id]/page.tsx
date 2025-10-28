@@ -1,5 +1,6 @@
 import { getAdminClient } from "@/lib/supabaseAdmin";
 import { updatePage, deletePage } from "../actions";
+import Link from "next/link";
 
 export default async function EditPage({ params }: { params: { id: string } }) {
   const supa = getAdminClient();
@@ -31,7 +32,7 @@ export default async function EditPage({ params }: { params: { id: string } }) {
         </div>
         <div className="flex gap-2">
           <button type="submit" className="px-3 py-2 rounded bg-brand text-white">Enregistrer</button>
-          <a href="/admin/pages" className="px-3 py-2 rounded border">Retour</a>
+          <Link href="/admin/pages" className="px-3 py-2 rounded border">Retour</Link>
         </div>
       </form>
       <hr className="my-6" />

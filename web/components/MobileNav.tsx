@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 export default function MobileNav() {
@@ -20,18 +21,18 @@ export default function MobileNav() {
       {open && (
         <div className="mt-2 border rounded bg-white shadow-sm dark:bg-black/20">
           <nav className="flex flex-col">
-            <a className="px-4 py-3 border-b hover:text-brand" href="/decouvert">
+            <Link className="px-4 py-3 border-b hover:text-brand" href="/decouvert">
               {t("navigation.discover")}
-            </a>
-            <a className="px-4 py-3 border-b hover:text-brand" href="/tarifs">
+            </Link>
+            <Link className="px-4 py-3 border-b hover:text-brand" href="/tarifs">
               {t("navigation.pricing")}
-            </a>
-            <a className="px-4 py-3 border-b hover:text-brand" href="/contact">
+            </Link>
+            <Link className="px-4 py-3 border-b hover:text-brand" href="/contact">
               {t("navigation.contact")}
-            </a>
-            <a className="px-4 py-3 hover:text-brand" href="/rendezvous">
+            </Link>
+            <Link className="px-4 py-3 hover:text-brand" href="/rendezvous">
               {t("navigation.appointments")}
-            </a>
+            </Link>
           </nav>
         </div>
       )}

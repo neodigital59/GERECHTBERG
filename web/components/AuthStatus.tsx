@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/lib/supabaseClient";
 import type { Session } from "@supabase/supabase-js";
+import Link from "next/link";
 
 export default function AuthStatus() {
   const { t } = useTranslation();
@@ -33,9 +34,9 @@ export default function AuthStatus() {
 
   if (!session) {
     return (
-      <a href="/auth" className="text-sm rounded-full px-3 py-2 bg-brand text-white hover:bg-brand/80">
+      <Link href="/auth" className="text-sm rounded-full px-3 py-2 bg-brand text-white hover:bg-brand/80">
         {t('auth.sign_in')}
-      </a>
+      </Link>
     );
   }
 
