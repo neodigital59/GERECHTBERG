@@ -1,0 +1,412 @@
+{
+  "actions": {
+    "newDocument": "Nouveau document",
+    "pricing": "Tarifs",
+    "open": "Ouvrir",
+    "share": "Partager",
+    "duplicate": "Dupliquer",
+    "sign": "Signer",
+    "timestamp": "Horodater",
+    "sendSelectedDocuments": "Envoyer les documents sélectionnés",
+    "selectAll": "Tout sélectionner",
+    "clear": "Effacer",
+    "exportCsv": "Exporter CSV",
+    "sending": "Envoi…",
+    "backToDashboard": "Retour au tableau de bord"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "subtitle": "Vue d’ensemble de vos documents et abonnement",
+    "totalDocuments": "Total documents",
+    "signed": "Signés",
+    "recentActivity": "Activités récentes",
+    "lastActivity": "Dernière activité",
+    "comingSoon": {
+      "title": "Fonctionnalités à venir",
+      "email": "Envoi par email des documents sélectionnés",
+      "signature": "Signature électronique des documents",
+      "timestamp": "Horodatage des documents",
+      "note": "Ces fonctionnalités seront bientôt disponibles.",
+      "badge": "Bientôt",
+      "tooltip": "Bientôt disponible"
+    }
+  },
+  "subscription": {
+    "unknown": "Abonnement inconnu",
+    "status": "Statut",
+    "changePlan": "Changer de plan",
+    "manage": "Gérer mon abonnement",
+    "cancelAtPeriodEnd": "Annuler à l’échéance"
+  },
+  "email": {
+    "title": "Envoyer par email",
+    "recipient": "Destinataire",
+    "subject": "Sujet",
+    "messageOptional": "Message (optionnel)",
+    "selectionLabel": "Sélection"
+  },
+  "navigation": {
+    "dashboard": "Tableau de bord",
+    "newDocument": "Nouveau document",
+    "pricing": "Tarifs",
+    "home": "Accueil",
+    "settings": "Paramètres",
+    "discover": "Découvert",
+    "contact": "Contact",
+    "appointments": "Rendez-vous",
+    "title": "Navigation"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Préférences de votre compte et de l’application",
+    "language": {
+      "title": "Langue",
+      "description": "Sélectionnez la langue de l’interface."
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "Rechercher par titre, type, langue…"
+    },
+    "table": {
+      "title": "Titre",
+      "type": "Type",
+      "language": "Langue",
+      "status": "Statut",
+      "createdAt": "Créé le",
+      "actions": "Actions"
+    },
+    "emptyState": {
+      "message": "Aucun document ne correspond. Essayez d’ajuster votre recherche.",
+      "createOne": "Créer un document"
+    }
+  },
+  "documentDetail": {
+    "loading": "Chargement…",
+    "notFound": "Document introuvable.",
+    "untitled": "Sans titre",
+    "actions": {
+      "title": "Actions",
+      "save": "Enregistrer",
+      "sign": "Signer",
+      "timestampHash": "Horodater (hash)",
+      "verifyIntegrity": "Vérifier l’intégrité"
+    },
+    "editor": {
+      "contentLabel": "Contenu",
+      "translateTo": "Traduire vers",
+      "language": {
+        "fr": "Français",
+        "en": "Anglais",
+        "de": "Allemand"
+      }
+    },
+    "exports": {
+      "title": "Exports",
+      "downloadPdf": "Télécharger PDF",
+      "downloadDocx": "Télécharger Word (.docx)",
+      "downloadTxt": "Télécharger .txt",
+      "exportJson": "Exporter JSON"
+    },
+    "share": {
+      "title": "Partage",
+      "share": "Partager",
+      "copyLink": "Copier le lien",
+      "hint": "Utilise le partage natif si disponible, sinon copie le lien.",
+      "text": "Partage du document GERECHTBERG"
+    },
+    "msg": {
+      "savedVersioned": "Enregistré avec versionnage.",
+      "signed": "Document signé (simulation).",
+      "timestamped": "Horodatage enregistré avec hash (simulation).",
+      "nothingToTranslate": "Rien à traduire. Rédigez ou collez du texte.",
+      "creditsDepleted": "Crédits OpenRouter épuisés. Ajoutez des crédits ou activez DEMO_MODE=true pour contenu d’exemple.",
+      "invalidApiKey": "Clé API OpenRouter invalide. Vérifiez OPENROUTER_API_KEY dans .env.local puis redémarrez.",
+      "translationServiceUnavailable": "Service de traduction indisponible.",
+      "translationError": "Erreur de traduction",
+      "translated": "Texte traduit",
+      "emptyContent": "Contenu vide. Ajoutez du texte avant de télécharger.",
+      "linkCopied": "Lien copié dans le presse-papier.",
+      "noHash": "Aucun hash enregistré. Horodatez le document pour garantir l’intégrité.",
+      "integrityOk": "Intégrité OK: le contenu correspond au hash enregistré.",
+      "integrityAlert": "Alerte: le contenu ne correspond pas au hash enregistré.",
+      "verifyError": "Erreur de vérification."
+    }
+  },
+  "home": {
+    "tagline": "Plateforme intelligente pour créer, traduire, signer et horodater vos lettres et contrats, avec export et partage.",
+    "hero": { "alt": "Aperçu visuel de l’éditeur" },
+    "cta": {
+      "create": "Créer un document",
+      "discover": "Découvrir l’application",
+      "pricing": "Voir les tarifs"
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "write": {
+        "title": "Rédaction assistée",
+        "desc": "Générez des documents de qualité à partir de modèles et d’instructions simples.",
+        "alt": "Exemple de rédaction"
+      },
+      "translate": {
+        "title": "Traduction & amélioration",
+        "desc": "Traduisez et reformulez vos contenus en quelques clics, directement depuis l’éditeur.",
+        "alt": "Exemple de traduction"
+      },
+      "export": {
+        "title": "Export & partage",
+        "desc": "Exportez en PDF ou DOCX, et partagez facilement via lien sécurisé.",
+        "alt": "Exemple d’export"
+      }
+    },
+    "gallery": {
+      "title": "Aperçu visuel",
+      "alt": {
+        "generator": "Aperçu générateur",
+        "translation": "Aperçu traduction",
+        "export": "Aperçu export"
+      }
+    },
+    "testimonials": {
+      "title": "Témoignages",
+      "items": {
+        "1": { "meta": "PME • France", "quote": "« J’ai pu générer et traduire un contrat en quelques minutes. L’export PDF est nickel. »" },
+        "2": { "meta": "Indépendant • Suisse", "quote": "« L’éditeur est simple et les reformulations sont efficaces. La signature et l’horodatage rassurent. »" },
+        "3": { "meta": "Asso • Belgique", "quote": "« Parfait pour nos lettres types multilingues. Le partage sécurisé nous fait gagner du temps. »" }
+      }
+    },
+    "usecases": {
+      "title": "Cas d’usage",
+      "item1": { "alt": "Lettre de résiliation", "title": "Lettre de résiliation", "desc": "Générez vos lettres conformes et suivez les versions." },
+      "item2": { "alt": "Contrat de prestation", "title": "Contrat de prestation", "desc": "Modèles adaptables, traduction intégrée et export PDF/DOCX." },
+      "item3": { "alt": "Attestation", "title": "Attestation", "desc": "Créez, signez et horodatez pour prouver l’intégrité." }
+    },
+    "how": {
+      "title": "Comment ça marche ?",
+      "steps": {
+        "1": { "title": "Choisissez un type", "desc": "Lettre, contrat, attestation… sélectionnez le modèle adapté et précisez le pays." },
+        "2": { "title": "Rédigez et personnalisez", "desc": "Générez le contenu, reformulez ou traduisez, puis ajustez selon votre cas." },
+        "3": { "title": "Exportez, signez, horodatez", "desc": "Téléchargez votre document, signez et horodatez pour authentifier l’intégrité." }
+      }
+    },
+    "security": {
+      "title": "Sécurité & confidentialité",
+      "desc": "Nous concevons GERECHTBERG pour protéger vos documents sensibles.",
+      "items": {
+        "https": "Données chiffrées en transit (HTTPS) et au repos (stockage).",
+        "timestamp": "Horodatage pour prouver l’intégrité et la chronologie.",
+        "signature": "Signature électronique pour authentifier les signataires.",
+        "sharing": "Partage sécurisé par lien, révocable à tout moment."
+      },
+      "alt": "Illustration sécurité"
+    },
+    "integrations": {
+      "title": "Intégrations",
+      "items": {
+        "storage": "Stockage & backup",
+        "identity": "Signature & identité",
+        "export": "Export & partage"
+      },
+      "altA": "Intégration A",
+      "altB": "Intégration B",
+      "altC": "Intégration C"
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Puis-je utiliser la traduction sans abonnement ?",
+      "a1": "En mode démo, des contenus d’exemple s’affichent. Les fonctionnalités avancées nécessitent un abonnement actif.",
+      "q2": "Comment partager un document en toute sécurité ?",
+      "a2": "Générez un lien sécurisé, choisissez les permissions et révoquez l’accès à tout moment.",
+      "q3": "La signature est-elle reconnue légalement ?",
+      "a3": "La signature électronique répond aux standards en vigueur. Vérifiez les exigences spécifiques de votre pays.",
+      "q4": "Puis-je exporter en DOCX et PDF ?",
+      "a4": "Oui, l’export est possible en DOCX et PDF, avec mise en forme fidèle."
+    },
+    "quick": {
+      "title": "Accès rapide",
+      "dashboard": "Accéder au tableau de bord",
+      "compare": "Comparer les offres",
+      "contact": "Nous contacter"
+    },
+    "note": {
+      "text1": "Certaines fonctionnalités avancées (modèles premium, signatures, horodatages) peuvent nécessiter un abonnement actif.",
+      "text2": "En mode démo, la rédaction et la traduction affichent du contenu d'exemple."
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "Plateforme intelligente pour créer, signer et horodater vos lettres et contrats, avec export et partage.",
+    "features": {
+      "writing": {
+        "title": "Rédaction assistée",
+        "description": "Générez des documents de qualité en quelques minutes, à partir de modèles et d'instructions simples."
+      },
+      "signature": {
+        "title": "Signature & horodatage",
+        "description": "Validez vos documents (statut signé) et sécurisez-les par hash (horodaté) pour la traçabilité."
+      },
+      "versions": {
+        "title": "Versions & activités",
+        "description": "Conservez l'historique des versions et suivez les actions récentes pour une meilleure gouvernance."
+      },
+      "export": {
+        "title": "Export PDF & Word",
+        "description": "Téléchargez vos documents en PDF ou DOCX, et exportez le contenu brut (.txt, JSON)."
+      },
+      "multilingual": {
+        "title": "Multilingue & contextuel",
+        "description": "Traduisez en un clic (fr, en, de) et adaptez le ton selon le contexte (formel, neutre)."
+      },
+      "sharing": {
+        "title": "Partage & collaboration",
+        "description": "Partagez un lien ou utilisez le partage natif du navigateur pour diffuser vos documents."
+      }
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "steps": {
+        "1": "Créez un document depuis votre tableau de bord.",
+        "2": "Rédigez ou collez le contenu, et enregistrez des versions.",
+        "3": "Optez pour la signature (statut signé) et l'horodatage (SHA-256) si besoin.",
+        "4": "Exportez en PDF / Word ou partagez l'URL directement.",
+        "5": "Pilotez vos éléments grâce au tri, aux filtres et aux activités récentes."
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "Temps moyen de création",
+        "value": "3–7 min"
+      },
+      "formats": {
+        "label": "Formats disponibles",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "Langues",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Puis-je exporter en PDF et Word ?",
+        "answer": "Oui. Dans la page du document, utilisez les actions « Télécharger PDF » et « Télécharger Word »."
+      },
+      "q2": {
+        "question": "Comment fonctionne la signature et l'horodatage ?",
+        "answer": "La signature passe le statut à « signé ». L'horodatage calcule un hash SHA-256, conservé pour attester l'intégrité."
+      },
+      "q3": {
+        "question": "La traduction est-elle incluse ?",
+        "answer": "Oui, via un service dédié. Choisissez la langue (fr, en, de) et lancez une traduction contextualisée."
+      },
+      "q4": {
+        "question": "Puis-je partager mes documents ?",
+        "answer": "Oui. Partage natif du navigateur lorsqu'il est disponible, sinon copie du lien dans le presse-papiers."
+      }
+    },
+    "cta": {
+      "pricing": "Voir les tarifs",
+      "dashboard": "Accéder au tableau de bord"
+    },
+    "disclaimer": "Les informations ci-dessus sont fictives et destinées à illustrer les capacités de l'application. Certaines fonctionnalités peuvent nécessiter un abonnement actif."
+  },
+  "pricing": {
+    "title": "Tarifs",
+    "subtitle": "7 jours d’essai gratuit sur tous les plans",
+    "trial": "7 jours d’essai gratuit sur tous les plans",
+    "errorStart": "Impossible de démarrer le paiement.",
+    "loading": "Chargement…",
+    "plans": {
+      "basic": { "name": "Gratuit", "price": "0 € — 2 documents / mois", "desc": "2 documents / mois", "info": "2 documents par mois inclus." },
+      "pro": { "name": "Pro", "price": "9,99 € / mois — 15 documents + service client", "desc": "15 documents + service client", "info": "15 documents par mois inclus. + accès au service clients." },
+      "enterprise": { "name": "Illimité", "price": "30 € / mois — toutes fonctionnalités + service client", "desc": "toutes fonctionnalités + service client", "info": "Accès illimité à toutes les fonctionnalités + service clients." }
+    },
+    "labels": {
+      "perMonth": " / mois —"
+    },
+    "choose": {
+      "basic": "Inclus",
+      "pro": "Choisir Pro",
+      "enterprise": "Choisir Illimité"
+    },
+    "coaching": {
+      "title": "Modalités tarifaires (Coaching)",
+      "items": {
+        "1": "Séance 30 minutes: 20 €.",
+        "2": "Paiement avant ou immédiatement après la séance.",
+        "3": "Méthodes acceptées: virement bancaire, espèces, carte (Stripe).",
+        "4": "Forfaits/abonnements multi-séances disponibles; contactez-nous via /contact.",
+        "5": "Annulation/Report: jusqu’à 24 h avant sans frais; moins de 24 h: 50% facturé; non-présentation: séance due.",
+        "6": "Frais supplémentaires possibles dans certains cas particuliers (hors horaires, déplacements, demandes spécifiques); communiqués à l’avance."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Nous répondons rapidement et avec précision. Pour toute question liée à GERECHTBERG, choisissez le canal le plus adapté.",
+    "support": {
+      "title": "Support",
+      "description": "Assistance fonctionnelle, questions d'utilisation et conseils de mise en œuvre.",
+      "email": "support@gerechtberg.app"
+    },
+    "form": {
+      "title": "Formulaire rapide",
+      "labels": { "name": "Nom", "email": "Email", "message": "Message" },
+      "placeholders": { "name": "Votre nom", "email": "vous@exemple.com", "message": "Décrivez votre besoin" },
+      "submit": "Envoyer",
+      "sending": "Envoi…"
+    },
+    "errors": {
+      "required": "Tous les champs sont requis",
+      "invalidEmail": "Email invalide",
+      "tooShort": "Message trop court",
+      "sendFailed": "Erreur lors de l’envoi",
+      "unknown": "Erreur inconnue"
+    },
+    "success": "Merci ! Votre message a été envoyé avec succès.",
+    "note": "Les messages sont enregistrés de manière sécurisée. Vous recevrez une réponse rapidement.",
+    "links": {
+      "pricing": "Voir les tarifs",
+      "discover": "Découvrir l’application",
+      "dashboard": "Aller au tableau de bord"
+    }
+  },
+  "appointments": {
+    "title": "Prise de rendez-vous",
+    "description": "Planifiez un créneau et ajoutez des notes. Vous pouvez consulter vos prochains rendez-vous ci-dessous.",
+    "form": {
+      "titleLabel": "Titre",
+      "titlePlaceholder": "Ex: Consultation initiale",
+      "notesLabel": "Notes",
+      "notesPlaceholder": "Détails, contexte, objectifs…",
+      "startLabel": "Début",
+      "endLabel": "Fin",
+      "submit": "Planifier",
+      "submitting": "Enregistrement…"
+    },
+    "list": {
+      "title": "Mes prochains rendez-vous",
+      "loading": "Chargement…",
+      "empty": "Aucun rendez-vous planifié."
+    },
+    "edit": {
+      "save": "Sauvegarder",
+      "cancel": "Annuler",
+      "modify": "Modifier",
+      "delete": "Supprimer"
+    },
+    "statusLabel": "Statut",
+    "messages": {
+      "loadError": "Erreur de chargement",
+      "invalidDates": "Dates invalides",
+      "sessionRequired": "Session requise",
+      "created": "Rendez-vous enregistré",
+      "saveError": "Erreur d’enregistrement",
+      "updated": "Rendez-vous mis à jour",
+      "updateError": "Erreur de mise à jour",
+      "deleted": "Rendez-vous supprimé",
+      "deleteError": "Erreur de suppression"
+    }
+  }
+}

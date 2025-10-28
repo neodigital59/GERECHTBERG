@@ -1,0 +1,363 @@
+{
+  "actions": {
+    "newDocument": "新しいドキュメント",
+    "pricing": "料金",
+    "open": "開く",
+    "share": "共有",
+    "duplicate": "複製",
+    "sign": "署名",
+    "timestamp": "タイムスタンプ",
+    "sendSelectedDocuments": "選択したドキュメントを送信",
+    "selectAll": "すべて選択",
+    "clear": "クリア",
+    "exportCsv": "CSV エクスポート",
+    "sending": "送信中…",
+    "backToDashboard": "ダッシュボードに戻る"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "subtitle": "ドキュメントとサブスクリプションの概要",
+    "totalDocuments": "総ドキュメント数",
+    "signed": "署名済み",
+    "recentActivity": "最近のアクティビティ",
+    "lastActivity": "最後のアクティビティ"
+  },
+  "subscription": {
+    "unknown": "不明なサブスクリプション",
+    "status": "ステータス",
+    "changePlan": "プランを変更",
+    "manage": "サブスクリプションを管理",
+    "cancelAtPeriodEnd": "期間終了時にキャンセル"
+  },
+  "email": {
+    "title": "メールで送信",
+    "recipient": "受信者",
+    "subject": "件名",
+    "messageOptional": "メッセージ（オプション）",
+    "selectionLabel": "選択"
+  },
+  "navigation": {
+    "dashboard": "ダッシュボード",
+    "newDocument": "新しいドキュメント",
+    "pricing": "料金",
+    "home": "ホーム",
+    "settings": "設定",
+    "discover": "発見",
+    "contact": "お問い合わせ",
+    "appointments": "予約",
+    "title": "ナビゲーション"
+  },
+  "settings": {
+    "title": "設定",
+    "subtitle": "アカウントとアプリケーションの設定",
+    "language": {
+      "title": "言語",
+      "description": "インターフェース言語を選択してください。"
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "タイトル、タイプ、言語で検索…"
+    },
+    "table": {
+      "title": "タイトル",
+      "type": "タイプ",
+      "language": "言語",
+      "status": "ステータス",
+      "createdAt": "作成日",
+      "actions": "アクション"
+    },
+    "emptyState": {
+      "message": "一致するドキュメントがありません。検索を調整してみてください。",
+      "createOne": "ドキュメントを作成"
+    }
+  },
+  "documentDetail": {
+    "loading": "読み込み中…",
+    "notFound": "ドキュメントが見つかりません。",
+    "untitled": "無題",
+    "actions": {
+      "title": "アクション",
+      "save": "保存",
+      "sign": "署名",
+      "timestampHash": "タイムスタンプ（ハッシュ）",
+      "verifyIntegrity": "整合性を確認"
+    },
+    "editor": {
+      "contentLabel": "コンテンツ",
+      "translateTo": "翻訳先",
+      "language": {
+        "fr": "フランス語",
+        "en": "英語",
+        "de": "ドイツ語",
+        "ru": "ロシア語",
+        "tr": "トルコ語",
+        "zh": "中国語",
+        "es": "スペイン語",
+        "it": "イタリア語",
+        "pt": "ポルトガル語",
+        "ar": "アラビア語",
+        "ja": "日本語"
+      }
+    },
+    "exports": {
+      "title": "エクスポート",
+      "downloadPdf": "PDF をダウンロード",
+      "downloadDocx": "Word (.docx) をダウンロード",
+      "downloadTxt": ".txt をダウンロード",
+      "exportJson": "JSON をエクスポート"
+    },
+    "share": {
+      "title": "共有",
+      "share": "共有",
+      "copyLink": "リンクをコピー",
+      "hint": "利用可能な場合はネイティブ共有を使用し、そうでなければリンクをコピーします。",
+      "text": "GERECHTBERG ドキュメントを共有"
+    },
+    "msg": {
+      "savedVersioned": "バージョン付きで保存されました。",
+      "signed": "ドキュメントが署名されました（シミュレーション）。",
+      "timestamped": "タイムスタンプハッシュが保存されました（シミュレーション）。",
+      "nothingToTranslate": "翻訳するものがありません。テキストを入力または貼り付けてください。",
+      "creditsDepleted": "OpenRouter クレジットが不足しています。クレジットを追加するか、サンプルコンテンツ用に DEMO_MODE=true を有効にしてください。",
+      "invalidApiKey": "無効な OpenRouter API キーです。.env.local の OPENROUTER_API_KEY を確認して再起動してください。",
+      "translationServiceUnavailable": "翻訳サービスが利用できません。",
+      "translationError": "翻訳エラー",
+      "translated": "テキストが翻訳されました",
+      "emptyContent": "コンテンツが空です。ダウンロード前にテキストを追加してください。",
+      "linkCopied": "リンクがクリップボードにコピーされました。",
+      "noHash": "ハッシュが保存されていません。整合性を確保するためにドキュメントにタイムスタンプを追加してください。",
+      "integrityOk": "整合性OK：コンテンツが保存されたハッシュと一致します。"
+    }
+  },
+  "home": {
+    "tagline": "手紙と契約のためのスマートプラットフォーム",
+    "hero": {
+      "alt": "GERECHTBERG プラットフォーム"
+    },
+    "cta": {
+      "create": "ドキュメントを作成",
+      "discover": "発見",
+      "pricing": "料金"
+    },
+    "features": {
+      "title": "機能",
+      "write": {
+        "title": "執筆支援",
+        "desc": "テンプレートと簡単な指示から高品質な文書を数分で作成。",
+        "alt": "執筆の例"
+      },
+      "translate": {
+        "title": "翻訳と改善",
+        "desc": "エディタから数クリックで翻訳・言い換え。",
+        "alt": "翻訳の例"
+      },
+      "export": {
+        "title": "エクスポートと共有",
+        "desc": "PDF や DOCX にエクスポートし、リンクで簡単に共有。",
+        "alt": "エクスポートの例"
+      }
+    }
+    ,
+    "gallery": {
+      "title": "ビジュアルプレビュー",
+      "alt": {
+        "generator": "ジェネレーターのプレビュー",
+        "translation": "翻訳プレビュー",
+        "export": "エクスポートのプレビュー"
+      }
+    },
+    "usecases": {
+      "title": "ユースケース",
+      "item1": { "alt": "解約通知", "title": "解約通知", "desc": "適合するレターを生成し、バージョンを追跡します。" },
+      "item2": { "alt": "業務契約", "title": "業務契約", "desc": "柔軟なテンプレート、翻訳機能、PDF/DOCXエクスポート。" },
+      "item3": { "alt": "証明書", "title": "証明書", "desc": "作成、署名、タイムスタンプで整合性を証明します。" }
+    },
+    "how": {
+      "title": "使い方",
+      "steps": {
+        "1": { "title": "タイプを選択", "desc": "手紙、契約、証明書…適切なテンプレートと国を選びます。" },
+        "2": { "title": "作成と調整", "desc": "コンテンツを生成・翻訳・言い換えし、ケースに合わせて調整します。" },
+        "3": { "title": "エクスポート・署名・タイムスタンプ", "desc": "文書をダウンロードし、署名とタイムスタンプで整合性を認証します。" }
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "サブスクリプションなしで翻訳を使えますか？",
+      "a1": "デモモードではサンプルが表示されます。高度な機能は有効なサブスクリプションが必要です。",
+      "q2": "安全に文書を共有するには？",
+      "a2": "安全なリンクを作成し、権限を設定して、いつでもアクセスを取り消せます。",
+      "q3": "署名は法的に認められていますか？",
+      "a3": "電子署名は現行標準に準拠しています。国別要件をご確認ください。",
+      "q4": "DOCX と PDF にエクスポートできますか？",
+      "a4": "はい、DOCX と PDF に忠実な形式でエクスポートできます。"
+    },
+    "quick": {
+      "title": "クイックアクセス",
+      "dashboard": "ダッシュボードへ",
+      "compare": "プランを比較",
+      "contact": "お問い合わせ"
+    },
+    "note": {
+      "text1": "高度な機能（プレミアムテンプレート、署名、タイムスタンプ）には有効なサブスクリプションが必要な場合があります。",
+      "text2": "デモモードでは、執筆と翻訳にサンプルコンテンツが表示されます。"
+    }
+  }
+  ,
+  "pricing": {
+    "title": "料金",
+    "trial": "14日間の無料トライアル",
+    "basic": {
+      "title": "ベーシック",
+      "price": "€9/月",
+      "select": "プランを選択"
+    },
+    "pro": {
+      "title": "プロ",
+      "price": "€29/月",
+      "select": "プランを選択"
+    },
+    "enterprise": {
+      "title": "エンタープライズ",
+      "price": "お問い合わせ",
+      "select": "プランを選択"
+    },
+    "loading": "料金を読み込み中…",
+    "error": "料金の読み込みに失敗しました。",
+    "plans": {
+      "basic": { "name": "無料", "price": "0 € — 2 文書 / 月", "desc": "2 文書 / 月", "info": "月2件の文書が含まれます。" },
+      "pro": { "name": "Pro", "price": "9.99 € / 月 — 15 文書 + サポート", "desc": "15 文書 + カスタマーサポート", "info": "月15件の文書 + カスタマーサポートへのアクセス。" },
+      "enterprise": { "name": "無制限", "price": "30 € / 月 — すべての機能 + サポート", "desc": "すべての機能 + カスタマーサポート", "info": "すべての機能への無制限アクセス + カスタマーサポート。" }
+    },
+    "labels": { "perMonth": " / 月 —" },
+    "choose": { "basic": "含まれる", "pro": "Pro を選択", "enterprise": "無制限を選択" }
+    ,
+    "coaching": {
+      "title": "料金条件（コーチング）",
+      "items": {
+        "1": "30分セッション：20€。",
+        "2": "支払いはセッション前または直後に行います。",
+        "3": "受け付ける方法：銀行振込、現金、カード（Stripe）。",
+        "4": "複数セッションのパッケージ／サブスクリプションあり。/contact からお問い合わせください。",
+        "5": "キャンセル／変更：24時間前まで無料；24時間未満：料金の50%を請求；無断欠席：セッション料金が発生。",
+        "6": "特定のケースでは追加料金の可能性あり（営業時間外、出張、特別な依頼など）；事前にお知らせします。"
+      }
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "手紙や契約書の作成、署名、タイムスタンプ、エクスポート、共有のためのインテリジェントプラットフォーム。",
+    "features": {
+      "writing": {
+        "title": "執筆支援",
+        "description": "テンプレートと簡単な指示から数分で高品質な文書を作成します。"
+      },
+      "signature": {
+        "title": "署名とタイムスタンプ",
+        "description": "文書を検証し（署名済みステータス）、追跡のためにハッシュで保護します（タイムスタンプ）。"
+      },
+      "versions": {
+        "title": "バージョンとアクティビティ",
+        "description": "バージョン履歴を保持し、最近のアクティビティを追跡してより良い管理を行います。"
+      },
+      "export": {
+        "title": "PDFとWord エクスポート",
+        "description": "文書をPDFまたはDOCXでダウンロードし、生のコンテンツをエクスポートします（.txt、JSON）。"
+      },
+      "multilingual": {
+        "title": "多言語と文脈対応",
+        "description": "ワンクリックで翻訳し（fr、en、de）、文脈に応じてトーンを調整します（フォーマル、ニュートラル）。"
+      },
+      "sharing": {
+        "title": "共有とコラボレーション",
+        "description": "リンクを共有するか、組み込みブラウザ共有を使用して文書を配布します。"
+      }
+    },
+    "howItWorks": {
+      "title": "仕組み",
+      "steps": {
+        "1": "ダッシュボードから文書を作成します。",
+        "2": "コンテンツを書くか貼り付けて、バージョンを保存します。",
+        "3": "必要に応じて、署名（署名済みステータス）とタイムスタンプ（SHA-256）を選択します。",
+        "4": "PDF / Wordにエクスポートするか、URLを直接共有します。",
+        "5": "ソート、フィルター、最近のアクティビティでアイテムを管理します。"
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "平均作成時間",
+        "value": "3–7分"
+      },
+      "formats": {
+        "label": "利用可能な形式",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "言語",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "PDFとWordにエクスポートできますか？",
+        "answer": "はい。文書ページで「PDFダウンロード」と「Wordダウンロード」アクションを使用してください。"
+      },
+      "q2": {
+        "question": "署名とタイムスタンプはどのように機能しますか？",
+        "answer": "署名はステータスを「署名済み」に変更します。タイムスタンプは整合性検証のために保存されるSHA-256ハッシュを計算します。"
+      },
+      "q3": {
+        "question": "翻訳は含まれていますか？",
+        "answer": "はい、専用サービスを通じて。言語を選択し（fr、en、de）、文脈化された翻訳を開始します。"
+      },
+      "q4": {
+        "question": "文書を共有できますか？",
+        "answer": "はい。利用可能な場合は組み込みブラウザ共有、そうでなければリンクがクリップボードにコピーされます。"
+      }
+    },
+    "cta": {
+      "pricing": "料金を表示",
+      "dashboard": "ダッシュボードに移動"
+    },
+    "disclaimer": "上記の情報は架空のものであり、アプリケーションの機能を説明するためのものです。一部の機能にはアクティブなサブスクリプションが必要な場合があります。"
+  }
+,
+  "appointments": {
+    "title": "予約を設定する",
+    "description": "時間帯を選び、メモを追加します。下に今後の予約が表示されます。",
+    "form": {
+      "titleLabel": "タイトル",
+      "titlePlaceholder": "例: 初回相談",
+      "notesLabel": "メモ",
+      "notesPlaceholder": "詳細、文脈、目的…",
+      "startLabel": "開始",
+      "endLabel": "終了",
+      "submit": "予約する",
+      "submitting": "保存中…"
+    },
+    "list": {
+      "title": "今後の予約",
+      "loading": "読み込み中…",
+      "empty": "予約はありません。"
+    },
+    "edit": {
+      "save": "保存",
+      "cancel": "キャンセル",
+      "modify": "編集",
+      "delete": "削除"
+    },
+    "statusLabel": "ステータス",
+    "messages": {
+      "loadError": "読み込みエラー",
+      "invalidDates": "無効な日付",
+      "sessionRequired": "セッションが必要です",
+      "created": "予約を作成しました",
+      "saveError": "保存エラー",
+      "updated": "予約を更新しました",
+      "updateError": "更新エラー",
+      "deleted": "予約を削除しました",
+      "deleteError": "削除エラー"
+    }
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "actions": {
+    "newDocument": "Yeni belge",
+    "pricing": "Fiyatlandırma",
+    "open": "Aç",
+    "share": "Paylaş",
+    "duplicate": "Kopyala",
+    "sign": "İmzala",
+    "timestamp": "Zaman damgası",
+    "sendSelectedDocuments": "Seçili belgeleri gönder",
+    "selectAll": "Tümünü seç",
+    "clear": "Temizle",
+    "exportCsv": "CSV dışa aktar",
+    "sending": "Gönderiliyor…",
+    "backToDashboard": "Kontrol paneline geri dön"
+  },
+  "dashboard": {
+    "title": "Kontrol paneli",
+    "subtitle": "Belgeleriniz ve aboneliğinizin genel görünümü",
+    "totalDocuments": "Toplam belgeler",
+    "signed": "İmzalanmış",
+    "recentActivity": "Son aktivite",
+    "lastActivity": "Son aktivite"
+  },
+  "subscription": {
+    "unknown": "Bilinmeyen abonelik",
+    "status": "Durum",
+    "changePlan": "Planı değiştir",
+    "manage": "Aboneliğimi yönet",
+    "cancelAtPeriodEnd": "Dönem sonunda iptal et"
+  },
+  "email": {
+    "title": "E-posta ile gönder",
+    "recipient": "Alıcı",
+    "subject": "Konu",
+    "messageOptional": "Mesaj (isteğe bağlı)",
+    "selectionLabel": "Seçim"
+  },
+  "navigation": {
+    "dashboard": "Kontrol paneli",
+    "newDocument": "Yeni belge",
+    "pricing": "Fiyatlandırma",
+    "home": "Ana sayfa",
+    "settings": "Ayarlar",
+    "discover": "Keşfet",
+    "contact": "İletişim",
+    "appointments": "Randevular",
+    "title": "Navigasyon"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "subtitle": "Hesabınız ve uygulamanız için tercihler",
+    "language": {
+      "title": "Dil",
+      "description": "Arayüz dilini seçin."
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "Başlık, tür, dil ile ara…"
+    },
+    "table": {
+      "title": "Başlık",
+      "type": "Tür",
+      "language": "Dil",
+      "status": "Durum",
+      "createdAt": "Oluşturulma",
+      "actions": "İşlemler"
+    },
+    "emptyState": {
+      "message": "Hiçbir belge eşleşmiyor. Aramanızı ayarlamayı deneyin.",
+      "createOne": "Belge oluştur"
+    }
+  },
+  "documentDetail": {
+    "loading": "Yükleniyor…",
+    "notFound": "Belge bulunamadı.",
+    "untitled": "Başlıksız",
+    "actions": {
+      "title": "İşlemler",
+      "save": "Kaydet",
+      "sign": "İmzala",
+      "timestampHash": "Zaman damgası (hash)",
+      "verifyIntegrity": "Bütünlüğü doğrula"
+    },
+    "editor": {
+      "contentLabel": "İçerik",
+      "translateTo": "Şuna çevir",
+      "language": {
+        "fr": "Fransızca",
+        "en": "İngilizce",
+        "de": "Almanca",
+        "ru": "Rusça",
+        "tr": "Türkçe",
+        "zh": "Çince",
+        "es": "İspanyolca",
+        "it": "İtalyanca",
+        "pt": "Portekizce",
+        "ar": "Arapça",
+        "ja": "Japonca"
+      }
+    },
+    "exports": {
+      "title": "Dışa aktarımlar",
+      "downloadPdf": "PDF indir",
+      "downloadDocx": "Word (.docx) indir",
+      "downloadTxt": ".txt indir",
+      "exportJson": "JSON dışa aktar"
+    },
+    "share": {
+      "title": "Paylaş",
+      "share": "Paylaş",
+      "copyLink": "Bağlantıyı kopyala",
+      "hint": "Mevcut ise yerel paylaşımı kullanır, aksi takdirde bağlantıyı kopyalar.",
+      "text": "GERECHTBERG belgesini paylaş"
+    },
+    "msg": {
+      "savedVersioned": "Sürümleme ile kaydedildi.",
+      "signed": "Belge imzalandı (simülasyon).",
+      "timestamped": "Zaman damgası hash ile kaydedildi (simülasyon).",
+      "nothingToTranslate": "Çevrilecek bir şey yok. Metin yazın veya yapıştırın.",
+      "creditsDepleted": "OpenRouter kredileri tükendi. Kredi ekleyin veya örnek içerik için DEMO_MODE=true etkinleştirin.",
+      "invalidApiKey": "Geçersiz OpenRouter API anahtarı. .env.local'deki OPENROUTER_API_KEY'i kontrol edin ve yeniden başlatın.",
+      "translationServiceUnavailable": "Çeviri hizmeti kullanılamıyor.",
+      "translationError": "Çeviri hatası",
+      "translated": "Metin çevrildi",
+      "emptyContent": "Boş içerik. İndirmeden önce metin ekleyin.",
+      "linkCopied": "Bağlantı panoya kopyalandı.",
+      "noHash": "Hash kaydedilmedi. Bütünlüğü sağlamak için belgeye zaman damgası ekleyin.",
+      "integrityOk": "Bütünlük tamam: içerik kaydedilen hash ile eşleşiyor."
+    }
+  },
+  "home": {
+    "tagline": "Mektuplar ve sözleşmeler için akıllı platform",
+    "hero": {
+      "alt": "GERECHTBERG platformu"
+    },
+    "cta": {
+      "create": "Belge oluştur",
+      "discover": "Keşfet",
+      "pricing": "Fiyatlandırma"
+    },
+    "features": {
+      "title": "Özellikler",
+      "write": {
+        "title": "Yazım desteği",
+        "desc": "Şablonlar ve basit talimatlarla birkaç dakikada kaliteli belgeler oluşturun.",
+        "alt": "Yazım örneği"
+      },
+      "translate": {
+        "title": "Çeviri ve iyileştirme",
+        "desc": "Editörden birkaç tıklamayla çeviri yapın ve yeniden ifade edin.",
+        "alt": "Çeviri örneği"
+      },
+      "export": {
+        "title": "Dışa aktarma ve paylaşım",
+        "desc": "PDF veya DOCX’e dışa aktarın ve güvenli bir bağlantı ile kolayca paylaşın.",
+        "alt": "Dışa aktarma örneği"
+      }
+    }
+    ,
+    "gallery": {
+      "title": "Görsel önizleme",
+      "alt": {
+        "generator": "Üreteç önizlemesi",
+        "translation": "Çeviri önizlemesi",
+        "export": "Dışa aktarma önizlemesi"
+      }
+    },
+    "usecases": {
+      "title": "Kullanım senaryoları",
+      "item1": { "alt": "Fesih mektubu", "title": "Fesih mektubu", "desc": "Uygun mektuplar oluşturun ve sürümleri takip edin." },
+      "item2": { "alt": "Hizmet sözleşmesi", "title": "Hizmet sözleşmesi", "desc": "Uyarlanabilir şablonlar, entegre çeviri ve PDF/DOCX dışa aktarma." },
+      "item3": { "alt": "Tasdikname", "title": "Tasdikname", "desc": "Oluşturun, imzalayın ve zaman damgası ile bütünlüğü kanıtlayın." }
+    },
+    "how": {
+      "title": "Nasıl çalışır?",
+      "steps": {
+        "1": { "title": "Tür seçin", "desc": "Mektup, sözleşme, tasdikname… uygun şablonu ve ülkeyi seçin." },
+        "2": { "title": "Yazın ve özelleştirin", "desc": "İçeriği oluşturun, yeniden ifade edin veya çevirin; durumunuza göre ayarlayın." },
+        "3": { "title": "Dışa aktarın, imzalayın, zaman damgası", "desc": "Belgeyi indirin; imza ve zaman damgası ile bütünlüğü doğrulayın." }
+      }
+    },
+    "faq": {
+      "title": "SSS",
+      "q1": "Abonelik olmadan çeviriyi kullanabilir miyim?",
+      "a1": "Demo modunda örnek içerikler gösterilir. Gelişmiş özellikler için aktif abonelik gerekir.",
+      "q2": "Bir belgeyi güvenle nasıl paylaşırım?",
+      "a2": "Güvenli bir bağlantı oluşturun, izinleri seçin ve erişimi istediğiniz zaman iptal edin.",
+      "q3": "İmza yasal olarak tanınıyor mu?",
+      "a3": "Elektronik imza yürürlükteki standartlara uygundur. Ülkenizin özel gereksinimlerini kontrol edin.",
+      "q4": "DOCX ve PDF olarak dışa aktarabilir miyim?",
+      "a4": "Evet, DOCX ve PDF biçiminde, biçimlendirme korunarak dışa aktarabilirsiniz."
+    },
+    "quick": {
+      "title": "Hızlı erişim",
+      "dashboard": "Panoya git",
+      "compare": "Teklifleri karşılaştır",
+      "contact": "Bize ulaşın"
+    },
+    "note": {
+      "text1": "Bazı gelişmiş özellikler (premium şablonlar, imzalar, zaman damgaları) aktif abonelik gerektirebilir.",
+      "text2": "Demo modunda, yazım ve çeviri örnek içerik gösterir."
+    }
+  }
+  ,
+  "pricing": {
+    "title": "Fiyatlar",
+    "trial": "14 gün ücretsiz deneme",
+    "basic": {
+      "title": "Temel",
+      "price": "€9/ay",
+      "select": "Planı seç"
+    },
+    "pro": {
+      "title": "Pro",
+      "price": "€29/ay",
+      "select": "Planı seç"
+    },
+    "enterprise": {
+      "title": "Kurumsal",
+      "price": "Bize ulaşın",
+      "select": "Planı seç"
+    },
+    "loading": "Fiyatlar yükleniyor…",
+    "error": "Fiyatlar yüklenemedi.",
+    "plans": {
+      "basic": { "name": "Ücretsiz", "price": "0 € — 2 belge / ay", "desc": "2 belge / ay", "info": "Ayda 2 belge dahildir." },
+      "pro": { "name": "Pro", "price": "9,99 € / ay — 15 belge + müşteri hizmetleri", "desc": "15 belge + müşteri hizmetleri", "info": "Ayda 15 belge + müşteri hizmetlerine erişim." },
+      "enterprise": { "name": "Sınırsız", "price": "30 € / ay — tüm özellikler + müşteri hizmetleri", "desc": "tüm özellikler + müşteri hizmetleri", "info": "Tüm özelliklere sınırsız erişim + müşteri hizmetleri." }
+    },
+    "labels": { "perMonth": " / ay —" },
+    "choose": { "basic": "Dahil", "pro": "Pro'yu seç", "enterprise": "Sınırsızı seç" }
+    ,
+    "coaching": {
+      "title": "Ücret Koşulları (Koçluk)",
+      "items": {
+        "1": "30 dakikalık oturum: 20 €.",
+        "2": "Ödeme oturumdan önce veya hemen sonra yapılır.",
+        "3": "Kabul edilen yöntemler: banka havalesi, nakit, kart (Stripe).",
+        "4": "Çoklu oturum paketleri/abonelikleri mevcuttur; bizimle /contact üzerinden iletişime geçin.",
+        "5": "İptal/Ertleme: 24 saat öncesine kadar ücretsiz; 24 saatten az: %50 ücret; gelmeme: oturum ücreti alınır.",
+        "6": "Bazı özel durumlarda ek ücretler olabilir (mesai dışı, seyahat, özel talepler); önceden bildirilir."
+      }
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "Mektuplarınızı ve sözleşmelerinizi oluşturmak, imzalamak ve zaman damgası eklemek için akıllı platform, dışa aktarma ve paylaşım ile.",
+    "features": {
+      "writing": {
+        "title": "Yazım Yardımı",
+        "description": "Şablonlar ve basit talimatlardan dakikalar içinde kaliteli belgeler oluşturun."
+      },
+      "signature": {
+        "title": "İmza ve Zaman Damgası",
+        "description": "Belgelerinizi doğrulayın (imzalı durum) ve izleme için hash ile koruyun (zaman damgası)."
+      },
+      "versions": {
+        "title": "Sürümler ve Etkinlikler",
+        "description": "Sürüm geçmişini koruyun ve daha iyi yönetim için son etkinlikleri takip edin."
+      },
+      "export": {
+        "title": "PDF ve Word Dışa Aktarma",
+        "description": "Belgelerinizi PDF veya DOCX olarak indirin ve ham içeriği dışa aktarın (.txt, JSON)."
+      },
+      "multilingual": {
+        "title": "Çok Dilli ve Bağlamsal",
+        "description": "Tek tıkla çevirin (fr, en, de) ve bağlama göre tonu uyarlayın (resmi, nötr)."
+      },
+      "sharing": {
+        "title": "Paylaşım ve İşbirliği",
+        "description": "Bağlantı paylaşın veya belgelerinizi yaymak için yerleşik tarayıcı paylaşımını kullanın."
+      }
+    },
+    "howItWorks": {
+      "title": "Nasıl Çalışır",
+      "steps": {
+        "1": "Kontrol panelinizden bir belge oluşturun.",
+        "2": "İçerik yazın veya yapıştırın ve sürümleri kaydedin.",
+        "3": "Gerekirse imza (imzalı durum) ve zaman damgası (SHA-256) seçin.",
+        "4": "PDF / Word'e aktarın veya URL'yi doğrudan paylaşın.",
+        "5": "Sıralama, filtreler ve son etkinliklerle öğelerinizi yönetin."
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "Ortalama oluşturma süresi",
+        "value": "3–7 dk"
+      },
+      "formats": {
+        "label": "Mevcut formatlar",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "Diller",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "SSS",
+      "q1": {
+        "question": "PDF ve Word'e aktarabilir miyim?",
+        "answer": "Evet. Belge sayfasında \"PDF İndir\" ve \"Word İndir\" eylemlerini kullanın."
+      },
+      "q2": {
+        "question": "İmza ve zaman damgası nasıl çalışır?",
+        "answer": "İmza durumu \"imzalı\" olarak değiştirir. Zaman damgası bütünlük doğrulaması için saklanan SHA-256 hash hesaplar."
+      },
+      "q3": {
+        "question": "Çeviri dahil mi?",
+        "answer": "Evet, özel servis aracılığıyla. Dil seçin (fr, en, de) ve bağlamsallaştırılmış çeviri başlatın."
+      },
+      "q4": {
+        "question": "Belgelerimi paylaşabilir miyim?",
+        "answer": "Evet. Mevcut olduğunda yerleşik tarayıcı paylaşımı, aksi takdirde bağlantı panoya kopyalanır."
+      }
+    },
+    "cta": {
+      "pricing": "Fiyatları görüntüle",
+      "dashboard": "Panoya git"
+    },
+    "disclaimer": "Yukarıdaki bilgiler kurgusaldır ve uygulama yeteneklerini göstermek içindir. Bazı özellikler aktif abonelik gerektirebilir."
+  }
+,
+  "appointments": {
+    "title": "Randevu planla",
+    "description": "Bir zaman aralığı seçin ve notlar ekleyin. Aşağıda yaklaşan randevularınızı görebilirsiniz.",
+    "form": {
+      "titleLabel": "Başlık",
+      "titlePlaceholder": "Örn: İlk danışma",
+      "notesLabel": "Notlar",
+      "notesPlaceholder": "Ayrıntılar, bağlam, hedefler…",
+      "startLabel": "Başlangıç",
+      "endLabel": "Bitiş",
+      "submit": "Planla",
+      "submitting": "Kaydediliyor…"
+    },
+    "list": {
+      "title": "Yaklaşan randevularım",
+      "loading": "Yükleniyor…",
+      "empty": "Planlanmış randevu yok."
+    },
+    "edit": {
+      "save": "Kaydet",
+      "cancel": "İptal",
+      "modify": "Düzenle",
+      "delete": "Sil"
+    },
+    "statusLabel": "Durum",
+    "messages": {
+      "loadError": "Yükleme hatası",
+      "invalidDates": "Geçersiz tarihler",
+      "sessionRequired": "Oturum gerekli",
+      "created": "Randevu oluşturuldu",
+      "saveError": "Kaydetme hatası",
+      "updated": "Randevu güncellendi",
+      "updateError": "Güncelleme hatası",
+      "deleted": "Randevu silindi",
+      "deleteError": "Silme hatası"
+    }
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "actions": {
+    "newDocument": "Neues Dokument",
+    "pricing": "Preise",
+    "open": "Öffnen",
+    "share": "Teilen",
+    "duplicate": "Duplizieren",
+    "sign": "Signieren",
+    "timestamp": "Zeitstempel",
+    "sendSelectedDocuments": "Ausgewählte Dokumente senden",
+    "selectAll": "Alle auswählen",
+    "clear": "Leeren",
+    "exportCsv": "CSV exportieren",
+    "sending": "Senden…",
+    "backToDashboard": "Zurück zum Dashboard"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Übersicht Ihrer Dokumente und Ihres Abonnements",
+    "totalDocuments": "Gesamtdokumente",
+    "signed": "Signiert",
+    "recentActivity": "Letzte Aktivität",
+    "lastActivity": "Letzte Aktivität"
+  },
+  "subscription": {
+    "unknown": "Unbekanntes Abonnement",
+    "status": "Status",
+    "changePlan": "Plan ändern",
+    "manage": "Mein Abonnement verwalten",
+    "cancelAtPeriodEnd": "Am Periodenende kündigen"
+  },
+  "email": {
+    "title": "Per E-Mail senden",
+    "recipient": "Empfänger",
+    "subject": "Betreff",
+    "messageOptional": "Nachricht (optional)",
+    "selectionLabel": "Auswahl"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "newDocument": "Neues Dokument",
+    "pricing": "Preise",
+    "home": "Startseite",
+    "settings": "Einstellungen",
+    "discover": "Entdecken",
+    "contact": "Kontakt",
+    "appointments": "Termine",
+    "title": "Navigation"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "subtitle": "Einstellungen für Ihr Konto und die App",
+    "language": {
+      "title": "Sprache",
+      "description": "Wählen Sie die Sprache der Oberfläche."
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "Nach Titel, Typ, Sprache suchen…"
+    },
+    "table": {
+      "title": "Titel",
+      "type": "Typ",
+      "language": "Sprache",
+      "status": "Status",
+      "createdAt": "Erstellt am",
+      "actions": "Aktionen"
+    },
+    "emptyState": {
+      "message": "Kein Dokument entspricht. Versuchen Sie, Ihre Suche anzupassen.",
+      "createOne": "Dokument erstellen"
+    }
+  },
+  "documentDetail": {
+    "loading": "Laden…",
+    "notFound": "Dokument nicht gefunden.",
+    "untitled": "Ohne Titel",
+    "actions": {
+      "title": "Aktionen",
+      "save": "Speichern",
+      "sign": "Signieren",
+      "timestampHash": "Zeitstempel (Hash)",
+      "verifyIntegrity": "Integrität prüfen"
+    },
+    "editor": {
+      "contentLabel": "Inhalt",
+      "translateTo": "Übersetzen nach",
+      "language": {
+        "fr": "Französisch",
+        "en": "Englisch",
+        "de": "Deutsch"
+      }
+    },
+    "exports": {
+      "title": "Exporte",
+      "downloadPdf": "PDF herunterladen",
+      "downloadDocx": "Word (.docx) herunterladen",
+      "downloadTxt": ".txt herunterladen",
+      "exportJson": "JSON exportieren"
+    },
+    "share": {
+      "title": "Teilen",
+      "share": "Teilen",
+      "copyLink": "Link kopieren",
+      "hint": "Verwendet natives Teilen, falls verfügbar, sonst wird der Link kopiert.",
+      "text": "GERECHTBERG-Dokument teilen"
+    },
+    "msg": {
+      "savedVersioned": "Mit Versionierung gespeichert.",
+      "signed": "Dokument signiert (Simulation).",
+      "timestamped": "Zeitstempel mit Hash gespeichert (Simulation).",
+      "nothingToTranslate": "Nichts zu übersetzen. Schreiben oder fügen Sie Text ein.",
+      "creditsDepleted": "OpenRouter-Guthaben aufgebraucht. Fügen Sie Guthaben hinzu oder aktivieren Sie DEMO_MODE=true für Beispielinhalte.",
+      "invalidApiKey": "Ungültiger OpenRouter-API-Schlüssel. Prüfen Sie OPENROUTER_API_KEY in .env.local und starten Sie neu.",
+      "translationServiceUnavailable": "Übersetzungsdienst nicht verfügbar.",
+      "translationError": "Übersetzungsfehler",
+      "translated": "Text übersetzt",
+      "emptyContent": "Leerer Inhalt. Fügen Sie Text hinzu, bevor Sie herunterladen.",
+      "linkCopied": "Link in die Zwischenablage kopiert.",
+      "noHash": "Kein Hash gespeichert. Zeitstempeln Sie das Dokument, um die Integrität sicherzustellen.",
+      "integrityOk": "Integrität OK: Inhalt entspricht dem gespeicherten Hash.",
+      "integrityAlert": "Warnung: Inhalt entspricht nicht dem gespeicherten Hash.",
+      "verifyError": "Überprüfungsfehler."
+    }
+  },
+  "home": {
+    "tagline": "Intelligente Plattform zum Erstellen, Übersetzen, Signieren und Zeitstempeln Ihrer Briefe und Verträge, mit Export und Teilen.",
+    "hero": { "alt": "Visuelle Vorschau des Editors" },
+    "cta": {
+      "create": "Dokument erstellen",
+      "discover": "App entdecken",
+      "pricing": "Preise ansehen"
+    },
+    "features": {
+      "title": "Funktionen",
+      "write": {
+        "title": "Assistierte Erstellung",
+        "desc": "Erstellen Sie hochwertige Dokumente aus Vorlagen und einfachen Anweisungen.",
+        "alt": "Beispiel für Erstellung"
+      },
+      "translate": {
+        "title": "Übersetzung & Optimierung",
+        "desc": "Übersetzen und umformulieren Sie Inhalte mit wenigen Klicks direkt im Editor.",
+        "alt": "Beispiel für Übersetzung"
+      },
+      "export": {
+        "title": "Export & Teilen",
+        "desc": "Export als PDF oder DOCX und einfaches Teilen über sicheren Link.",
+        "alt": "Beispiel für Export"
+      }
+    },
+    "gallery": {
+      "title": "Visuelle Vorschau",
+      "alt": {
+        "generator": "Generator-Vorschau",
+        "translation": "Übersetzungs-Vorschau",
+        "export": "Export-Vorschau"
+      }
+    },
+    "testimonials": {
+      "title": "Referenzen",
+      "items": {
+        "1": { "meta": "KMU • Frankreich", "quote": "„Ich habe in wenigen Minuten einen Vertrag erstellt und übersetzt. Der PDF-Export ist sauber.“" },
+        "2": { "meta": "Freelancer • Schweiz", "quote": "„Der Editor ist einfach und die Umformulierungen sind effektiv. Signatur und Zeitstempel geben Sicherheit.“" },
+        "3": { "meta": "Verein • Belgien", "quote": "„Perfekt für unsere mehrsprachigen Musterschreiben. Sicheres Teilen spart Zeit.“" }
+      }
+    },
+    "usecases": {
+      "title": "Anwendungsfälle",
+      "item1": { "alt": "Kündigungsschreiben", "title": "Kündigungsschreiben", "desc": "Konforme Schreiben erzeugen und Versionen nachverfolgen." },
+      "item2": { "alt": "Dienstleistungsvertrag", "title": "Dienstleistungsvertrag", "desc": "Anpassbare Vorlagen, integrierte Übersetzung und PDF/DOCX-Export." },
+      "item3": { "alt": "Bescheinigung", "title": "Bescheinigung", "desc": "Erstellen, signieren und mit Zeitstempel versehen, um die Integrität nachzuweisen." }
+    },
+    "how": {
+      "title": "So funktioniert’s",
+      "steps": {
+        "1": { "title": "Typ wählen", "desc": "Brief, Vertrag, Bescheinigung … wählen Sie eine passende Vorlage und das Land." },
+        "2": { "title": "Schreiben und anpassen", "desc": "Inhalte generieren, umformulieren oder übersetzen und dann auf Ihren Fall anpassen." },
+        "3": { "title": "Exportieren, signieren, Zeitstempel", "desc": "Dokument herunterladen, signieren und mit Zeitstempel versehen, um die Integrität zu bestätigen." }
+      }
+    },
+    "security": {
+      "title": "Sicherheit & Datenschutz",
+      "desc": "Wir entwickeln GERECHTBERG zum Schutz Ihrer sensiblen Dokumente.",
+      "items": {
+        "https": "Daten verschlüsselt beim Transport (HTTPS) und in Ruhe (Speicherung).",
+        "timestamp": "Zeitstempel zum Nachweis von Integrität und Chronologie.",
+        "signature": "Elektronische Signatur zur Authentifizierung der Unterzeichner.",
+        "sharing": "Sicheres Teilen per Link, jederzeit widerrufbar."
+      },
+      "alt": "Sicherheits-Illustration"
+    },
+    "integrations": {
+      "title": "Integrationen",
+      "items": {
+        "storage": "Speicherung & Backup",
+        "identity": "Signatur & Identität",
+        "export": "Export & Teilen"
+      },
+      "altA": "Integration A",
+      "altB": "Integration B",
+      "altC": "Integration C"
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Kann ich die Übersetzung ohne Abonnement nutzen?",
+      "a1": "Im Demo-Modus erscheinen Beispielinhalte. Erweiterte Funktionen erfordern ein aktives Abonnement.",
+      "q2": "Wie teile ich ein Dokument sicher?",
+      "a2": "Erzeugen Sie einen sicheren Link, wählen Sie Berechtigungen und widerrufen Sie den Zugriff jederzeit.",
+      "q3": "Ist die Signatur rechtlich anerkannt?",
+      "a3": "Elektronische Signaturen entsprechen gängigen Standards. Prüfen Sie die spezifischen Anforderungen Ihres Landes.",
+      "q4": "Kann ich in DOCX und PDF exportieren?",
+      "a4": "Ja, Export in DOCX und PDF mit originalgetreuer Formatierung."
+    },
+    "quick": {
+      "title": "Schnellzugriff",
+      "dashboard": "Zum Dashboard",
+      "compare": "Pläne vergleichen",
+      "contact": "Kontakt aufnehmen"
+    },
+    "note": {
+      "text1": "Einige erweiterte Funktionen (Premium-Vorlagen, Signaturen, Zeitstempel) erfordern möglicherweise ein aktives Abonnement.",
+      "text2": "Im Demo-Modus zeigen Schreiben und Übersetzung Beispielinhalte."
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "Intelligente Plattform zur Erstellung, Signierung und Zeitstempelung Ihrer Briefe und Verträge, mit Export und Freigabe.",
+    "features": {
+      "writing": {
+        "title": "Unterstütztes Schreiben",
+        "description": "Erstellen Sie hochwertige Dokumente in Minuten aus Vorlagen und einfachen Anweisungen."
+      },
+      "signature": {
+        "title": "Signatur & Zeitstempel",
+        "description": "Validieren Sie Ihre Dokumente (signierter Status) und sichern Sie sie mit Hash (Zeitstempel) für Nachverfolgbarkeit."
+      },
+      "versions": {
+        "title": "Versionen & Aktivitäten",
+        "description": "Behalten Sie die Versionshistorie und verfolgen Sie aktuelle Aktionen für bessere Governance."
+      },
+      "export": {
+        "title": "PDF & Word Export",
+        "description": "Laden Sie Ihre Dokumente als PDF oder DOCX herunter und exportieren Sie Rohinhalte (.txt, JSON)."
+      },
+      "multilingual": {
+        "title": "Mehrsprachig & kontextuell",
+        "description": "Übersetzen Sie mit einem Klick (fr, en, de) und passen Sie den Ton je nach Kontext an (formal, neutral)."
+      },
+      "sharing": {
+        "title": "Freigabe & Zusammenarbeit",
+        "description": "Teilen Sie einen Link oder verwenden Sie die native Browser-Freigabe zur Verteilung Ihrer Dokumente."
+      }
+    },
+    "howItWorks": {
+      "title": "Wie es funktioniert",
+      "steps": {
+        "1": "Erstellen Sie ein Dokument von Ihrem Dashboard aus.",
+        "2": "Schreiben oder fügen Sie Inhalte ein und speichern Sie Versionen.",
+        "3": "Wählen Sie bei Bedarf Signatur (signierter Status) und Zeitstempel (SHA-256).",
+        "4": "Exportieren Sie zu PDF / Word oder teilen Sie die URL direkt.",
+        "5": "Verwalten Sie Ihre Elemente mit Sortierung, Filtern und aktuellen Aktivitäten."
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "Durchschnittliche Erstellungszeit",
+        "value": "3–7 Min"
+      },
+      "formats": {
+        "label": "Verfügbare Formate",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "Sprachen",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Kann ich zu PDF und Word exportieren?",
+        "answer": "Ja. Verwenden Sie auf der Dokumentseite die Aktionen \"PDF herunterladen\" und \"Word herunterladen\"."
+      },
+      "q2": {
+        "question": "Wie funktionieren Signatur und Zeitstempel?",
+        "answer": "Signatur ändert den Status zu \"signiert\". Zeitstempel berechnet einen SHA-256-Hash, der zur Integritätsbestätigung aufbewahrt wird."
+      },
+      "q3": {
+        "question": "Ist Übersetzung enthalten?",
+        "answer": "Ja, über einen dedizierten Service. Wählen Sie die Sprache (fr, en, de) und starten Sie eine kontextualisierte Übersetzung."
+      },
+      "q4": {
+        "question": "Kann ich meine Dokumente teilen?",
+        "answer": "Ja. Native Browser-Freigabe wenn verfügbar, andernfalls wird der Link in die Zwischenablage kopiert."
+      }
+    },
+    "cta": {
+      "pricing": "Preise anzeigen",
+      "dashboard": "Dashboard aufrufen"
+    },
+    "disclaimer": "Die obigen Informationen sind fiktiv und sollen die Fähigkeiten der Anwendung veranschaulichen. Einige Funktionen erfordern möglicherweise ein aktives Abonnement."
+  },
+  "pricing": {
+    "title": "Preise",
+    "trial": "7 Tage kostenloser Test für alle Pläne.",
+    "errorStart": "Zahlung konnte nicht gestartet werden.",
+    "loading": "Laden…",
+    "plans": {
+      "basic": { "name": "Basic", "price": "$20 / Monat", "desc": "2 Dokumente / Monat", "info": "2 Dokumente pro Monat inklusive." },
+      "pro": { "name": "Pro", "price": "$45 / Monat", "desc": "15 Dokumente + Kundenservice", "info": "15 Dokumente pro Monat inklusive. + Zugang zum Kundenservice." },
+      "enterprise": { "name": "Enterprise", "price": "$200 / Monat", "desc": "alle Funktionen + Kundenservice", "info": "Unbegrenzter Zugang zu allen Funktionen + Kundenservice." }
+    },
+    "labels": { "perMonth": " / Monat —" },
+    "choose": {
+      "basic": "Basic wählen",
+      "pro": "Pro wählen",
+      "enterprise": "Enterprise wählen"
+    }
+    ,
+    "coaching": {
+      "title": "Preisbedingungen (Coaching)",
+      "items": {
+        "1": "30‑Minuten‑Sitzung: 20 €.",
+        "2": "Zahlung vor oder unmittelbar nach der Sitzung.",
+        "3": "Akzeptierte Methoden: Banküberweisung, Bar, Karte (Stripe).",
+        "4": "Mehrfach‑Sitzungspakete/Abonnements verfügbar; kontaktieren Sie uns über /contact.",
+        "5": "Stornierung/Verschiebung: bis 24 Std. vorher kostenlos; weniger als 24 Std.: 50 % berechnet; Nichterscheinen: Sitzung fällig.",
+        "6": "Zusätzliche Gebühren in bestimmten Sonderfällen möglich (außerhalb der Zeiten, Reisen, spezielle Anforderungen); im Voraus mitgeteilt."
+      }
+    }
+  }
+,
+  "appointments": {
+    "title": "Termin vereinbaren",
+    "description": "Wählen Sie einen Zeitraum und fügen Sie Notizen hinzu. Unten sehen Sie Ihre kommenden Termine.",
+    "form": {
+      "titleLabel": "Titel",
+      "titlePlaceholder": "z. B. Erstberatung",
+      "notesLabel": "Notizen",
+      "notesPlaceholder": "Details, Kontext, Ziele…",
+      "startLabel": "Beginn",
+      "endLabel": "Ende",
+      "submit": "Planen",
+      "submitting": "Speichern…"
+    },
+    "list": {
+      "title": "Meine kommenden Termine",
+      "loading": "Laden…",
+      "empty": "Keine Termine geplant."
+    },
+    "edit": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "modify": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "statusLabel": "Status",
+    "messages": {
+      "loadError": "Ladefehler",
+      "invalidDates": "Ungültige Daten",
+      "sessionRequired": "Sitzung erforderlich",
+      "created": "Termin erstellt",
+      "saveError": "Speicherfehler",
+      "updated": "Termin aktualisiert",
+      "updateError": "Aktualisierungsfehler",
+      "deleted": "Termin gelöscht",
+      "deleteError": "Löschfehler"
+    }
+  }
+}

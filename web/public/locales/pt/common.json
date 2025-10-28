@@ -1,0 +1,363 @@
+{
+  "actions": {
+    "newDocument": "Novo documento",
+    "pricing": "Preços",
+    "open": "Abrir",
+    "share": "Compartilhar",
+    "duplicate": "Duplicar",
+    "sign": "Assinar",
+    "timestamp": "Carimbo de tempo",
+    "sendSelectedDocuments": "Enviar documentos selecionados",
+    "selectAll": "Selecionar tudo",
+    "clear": "Limpar",
+    "exportCsv": "Exportar CSV",
+    "sending": "Enviando…",
+    "backToDashboard": "Voltar ao painel"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "subtitle": "Visão geral dos seus documentos e assinatura",
+    "totalDocuments": "Total de documentos",
+    "signed": "Assinados",
+    "recentActivity": "Atividade recente",
+    "lastActivity": "Última atividade"
+  },
+  "subscription": {
+    "unknown": "Assinatura desconhecida",
+    "status": "Status",
+    "changePlan": "Alterar plano",
+    "manage": "Gerenciar minha assinatura",
+    "cancelAtPeriodEnd": "Cancelar no final do período"
+  },
+  "email": {
+    "title": "Enviar por email",
+    "recipient": "Destinatário",
+    "subject": "Assunto",
+    "messageOptional": "Mensagem (opcional)",
+    "selectionLabel": "Seleção"
+  },
+  "navigation": {
+    "dashboard": "Painel",
+    "newDocument": "Novo documento",
+    "pricing": "Preços",
+    "home": "Início",
+    "settings": "Configurações",
+    "discover": "Descobrir",
+    "contact": "Contato",
+    "appointments": "Compromissos",
+    "title": "Navegação"
+  },
+  "settings": {
+    "title": "Configurações",
+    "subtitle": "Preferências para sua conta e aplicativo",
+    "language": {
+      "title": "Idioma",
+      "description": "Selecione o idioma da interface."
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "Pesquisar por título, tipo, idioma…"
+    },
+    "table": {
+      "title": "Título",
+      "type": "Tipo",
+      "language": "Idioma",
+      "status": "Status",
+      "createdAt": "Criado",
+      "actions": "Ações"
+    },
+    "emptyState": {
+      "message": "Nenhum documento corresponde. Tente ajustar sua pesquisa.",
+      "createOne": "Criar documento"
+    }
+  },
+  "documentDetail": {
+    "loading": "Carregando…",
+    "notFound": "Documento não encontrado.",
+    "untitled": "Sem título",
+    "actions": {
+      "title": "Ações",
+      "save": "Salvar",
+      "sign": "Assinar",
+      "timestampHash": "Carimbo de tempo (hash)",
+      "verifyIntegrity": "Verificar integridade"
+    },
+    "editor": {
+      "contentLabel": "Conteúdo",
+      "translateTo": "Traduzir para",
+      "language": {
+        "fr": "Francês",
+        "en": "Inglês",
+        "de": "Alemão",
+        "ru": "Russo",
+        "tr": "Turco",
+        "zh": "Chinês",
+        "es": "Espanhol",
+        "it": "Italiano",
+        "pt": "Português",
+        "ar": "Árabe",
+        "ja": "Japonês"
+      }
+    },
+    "exports": {
+      "title": "Exportações",
+      "downloadPdf": "Baixar PDF",
+      "downloadDocx": "Baixar Word (.docx)",
+      "downloadTxt": "Baixar .txt",
+      "exportJson": "Exportar JSON"
+    },
+    "share": {
+      "title": "Compartilhar",
+      "share": "Compartilhar",
+      "copyLink": "Copiar link",
+      "hint": "Usa compartilhamento nativo se disponível, caso contrário copia o link.",
+      "text": "Compartilhar documento GERECHTBERG"
+    },
+    "msg": {
+      "savedVersioned": "Salvo com versão.",
+      "signed": "Documento assinado (simulação).",
+      "timestamped": "Hash de carimbo de tempo salvo (simulação).",
+      "nothingToTranslate": "Nada para traduzir. Digite ou cole texto.",
+      "creditsDepleted": "Créditos OpenRouter esgotados. Adicione créditos ou habilite DEMO_MODE=true para conteúdo de exemplo.",
+      "invalidApiKey": "Chave API OpenRouter inválida. Verifique OPENROUTER_API_KEY em .env.local e reinicie.",
+      "translationServiceUnavailable": "Serviço de tradução indisponível.",
+      "translationError": "Erro de tradução",
+      "translated": "Texto traduzido",
+      "emptyContent": "Conteúdo vazio. Adicione texto antes de baixar.",
+      "linkCopied": "Link copiado para a área de transferência.",
+      "noHash": "Nenhum hash salvo. Adicione carimbo de tempo ao documento para garantir integridade.",
+      "integrityOk": "Integridade OK: conteúdo corresponde ao hash salvo."
+    }
+  },
+  "home": {
+    "tagline": "Plataforma inteligente para cartas e contratos",
+    "hero": {
+      "alt": "Plataforma GERECHTBERG"
+    },
+    "cta": {
+      "create": "Criar documento",
+      "discover": "Descobrir",
+      "pricing": "Preços"
+    },
+    "features": {
+      "title": "Recursos",
+      "write": {
+        "title": "Redação assistida",
+        "desc": "Gere documentos de qualidade a partir de modelos e instruções simples.",
+        "alt": "Exemplo de redação"
+      },
+      "translate": {
+        "title": "Tradução e melhoria",
+        "desc": "Traduza e reformule conteúdos em poucos cliques, diretamente no editor.",
+        "alt": "Exemplo de tradução"
+      },
+      "export": {
+        "title": "Exportação e compartilhamento",
+        "desc": "Exporte para PDF ou DOCX e compartilhe facilmente por link seguro.",
+        "alt": "Exemplo de exportação"
+      }
+    }
+    ,
+    "gallery": {
+      "title": "Pré-visualização",
+      "alt": {
+        "generator": "Pré-visualização do gerador",
+        "translation": "Pré-visualização da tradução",
+        "export": "Pré-visualização da exportação"
+      }
+    },
+    "usecases": {
+      "title": "Casos de uso",
+      "item1": { "alt": "Carta de rescisão", "title": "Carta de rescisão", "desc": "Gere cartas conformes e acompanhe as versões." },
+      "item2": { "alt": "Contrato de prestação", "title": "Contrato de prestação", "desc": "Modelos adaptáveis, tradução integrada e exportação PDF/DOCX." },
+      "item3": { "alt": "Certificado", "title": "Certificado", "desc": "Crie, assine e carimbe temporalmente para comprovar a integridade." }
+    },
+    "how": {
+      "title": "Como funciona?",
+      "steps": {
+        "1": { "title": "Escolha um tipo", "desc": "Carta, contrato, certificado… selecione o modelo adequado e o país." },
+        "2": { "title": "Redija e personalize", "desc": "Gere conteúdo, reformule ou traduza e ajuste conforme o seu caso." },
+        "3": { "title": "Exporte, assine, carimbe", "desc": "Baixe o documento, assine e aplique carimbo temporal para autenticar a integridade." }
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Posso usar a tradução sem assinatura?",
+      "a1": "No modo demo, conteúdos de exemplo são exibidos. Recursos avançados exigem assinatura ativa.",
+      "q2": "Como compartilhar um documento com segurança?",
+      "a2": "Gere um link seguro, escolha permissões e revogue o acesso a qualquer momento.",
+      "q3": "A assinatura é reconhecida legalmente?",
+      "a3": "A assinatura eletrônica segue os padrões vigentes. Verifique os requisitos específicos do seu país.",
+      "q4": "Posso exportar em DOCX e PDF?",
+      "a4": "Sim, é possível exportar em DOCX e PDF com formatação fiel."
+    },
+    "quick": {
+      "title": "Acesso rápido",
+      "dashboard": "Ir ao painel",
+      "compare": "Comparar ofertas",
+      "contact": "Contactar-nos"
+    },
+    "note": {
+      "text1": "Alguns recursos avançados (modelos premium, assinaturas, carimbos de tempo) podem exigir assinatura ativa.",
+      "text2": "No modo demo, a redação e a tradução exibem conteúdo de exemplo."
+    }
+  }
+  ,
+  "pricing": {
+    "title": "Preços",
+    "trial": "Teste gratuito de 14 dias",
+    "basic": {
+      "title": "Básico",
+      "price": "€9/mês",
+      "select": "Escolher plano"
+    },
+    "pro": {
+      "title": "Pro",
+      "price": "€29/mês",
+      "select": "Escolher plano"
+    },
+    "enterprise": {
+      "title": "Empresa",
+      "price": "Contacte-nos",
+      "select": "Escolher plano"
+    },
+    "loading": "Carregando preços…",
+    "error": "Falha ao carregar os preços.",
+    "plans": {
+      "basic": { "name": "Gratuito", "price": "0 € — 2 documentos / mês", "desc": "2 documentos / mês", "info": "2 documentos por mês incluídos." },
+      "pro": { "name": "Pro", "price": "9,99 € / mês — 15 documentos + atendimento", "desc": "15 documentos + atendimento ao cliente", "info": "15 documentos por mês incluídos. + acesso ao atendimento ao cliente." },
+      "enterprise": { "name": "Ilimitado", "price": "30 € / mês — todos os recursos + atendimento", "desc": "todos os recursos + atendimento ao cliente", "info": "Acesso ilimitado a todos os recursos + atendimento ao cliente." }
+    },
+    "labels": { "perMonth": " / mês —" },
+    "choose": { "basic": "Incluído", "pro": "Escolher Pro", "enterprise": "Escolher Ilimitado" }
+    ,
+    "coaching": {
+      "title": "Condições tarifárias (Coaching)",
+      "items": {
+        "1": "Sessão de 30 minutos: 20 €.",
+        "2": "Pagamento antes ou imediatamente após a sessão.",
+        "3": "Métodos aceitos: transferência bancária, dinheiro, cartão (Stripe).",
+        "4": "Pacotes/assinaturas de múltiplas sessões disponíveis; contacte-nos via /contact.",
+        "5": "Cancelamento/Remarcação: até 24 h antes sem custos; menos de 24 h: 50% cobrado; não comparecimento: sessão devida.",
+        "6": "Possíveis taxas adicionais em alguns casos particulares (fora de horário, deslocamentos, pedidos específicos); comunicadas com antecedência."
+      }
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "Plataforma inteligente para criar, assinar e carimbar temporalmente suas cartas e contratos com exportação e compartilhamento.",
+    "features": {
+      "writing": {
+        "title": "Assistência de Redação",
+        "description": "Crie documentos de qualidade em minutos a partir de modelos e instruções simples."
+      },
+      "signature": {
+        "title": "Assinatura e Carimbo Temporal",
+        "description": "Valide seus documentos (status assinado) e proteja-os com hash (carimbo temporal) para rastreamento."
+      },
+      "versions": {
+        "title": "Versões e Atividades",
+        "description": "Mantenha o histórico de versões e rastreie atividades recentes para melhor gestão."
+      },
+      "export": {
+        "title": "Exportação PDF e Word",
+        "description": "Baixe seus documentos em PDF ou DOCX e exporte o conteúdo bruto (.txt, JSON)."
+      },
+      "multilingual": {
+        "title": "Multilíngue e Contextual",
+        "description": "Traduza com um clique (fr, en, de) e adapte o tom conforme o contexto (formal, neutro)."
+      },
+      "sharing": {
+        "title": "Compartilhamento e Colaboração",
+        "description": "Compartilhe o link ou use o compartilhamento integrado do navegador para difundir seus documentos."
+      }
+    },
+    "howItWorks": {
+      "title": "Como Funciona",
+      "steps": {
+        "1": "Crie um documento a partir do seu painel.",
+        "2": "Escreva ou cole conteúdo e salve versões.",
+        "3": "Se necessário, escolha assinatura (status assinado) e carimbo temporal (SHA-256).",
+        "4": "Exporte para PDF / Word ou compartilhe a URL diretamente.",
+        "5": "Gerencie seus itens com classificação, filtros e atividades recentes."
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "Tempo médio de criação",
+        "value": "3–7 min"
+      },
+      "formats": {
+        "label": "Formatos disponíveis",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "Idiomas",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Posso exportar para PDF e Word?",
+        "answer": "Sim. Na página do documento, use as ações \"Baixar PDF\" e \"Baixar Word\"."
+      },
+      "q2": {
+        "question": "Como funcionam assinatura e carimbo temporal?",
+        "answer": "A assinatura muda o status para \"assinado\". O carimbo temporal calcula um hash SHA-256 salvo para verificação de integridade."
+      },
+      "q3": {
+        "question": "A tradução está incluída?",
+        "answer": "Sim, através de serviço dedicado. Escolha o idioma (fr, en, de) e inicie a tradução contextualizada."
+      },
+      "q4": {
+        "question": "Posso compartilhar meus documentos?",
+        "answer": "Sim. Compartilhamento integrado do navegador quando disponível, caso contrário o link é copiado para a área de transferência."
+      }
+    },
+    "cta": {
+      "pricing": "Ver preços",
+      "dashboard": "Ir para o painel"
+    },
+    "disclaimer": "As informações acima são fictícias e destinadas a ilustrar as capacidades da aplicação. Algumas funcionalidades podem exigir uma assinatura ativa."
+  }
+,
+  "appointments": {
+    "title": "Agendar um compromisso",
+    "description": "Escolha um horário e adicione notas. Você pode revisar seus próximos compromissos abaixo.",
+    "form": {
+      "titleLabel": "Título",
+      "titlePlaceholder": "Ex.: Consulta inicial",
+      "notesLabel": "Notas",
+      "notesPlaceholder": "Detalhes, contexto, objetivos…",
+      "startLabel": "Início",
+      "endLabel": "Fim",
+      "submit": "Agendar",
+      "submitting": "Salvando…"
+    },
+    "list": {
+      "title": "Meus próximos compromissos",
+      "loading": "Carregando…",
+      "empty": "Nenhum compromisso agendado."
+    },
+    "edit": {
+      "save": "Salvar",
+      "cancel": "Cancelar",
+      "modify": "Editar",
+      "delete": "Excluir"
+    },
+    "statusLabel": "Status",
+    "messages": {
+      "loadError": "Erro ao carregar",
+      "invalidDates": "Datas inválidas",
+      "sessionRequired": "Sessão necessária",
+      "created": "Compromisso criado",
+      "saveError": "Erro ao salvar",
+      "updated": "Compromisso atualizado",
+      "updateError": "Erro de atualização",
+      "deleted": "Compromisso excluído",
+      "deleteError": "Erro ao excluir"
+    }
+  }
+}

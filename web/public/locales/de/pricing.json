@@ -1,0 +1,20 @@
+{
+  "title": "Preise",
+  "subtitle": "7 Tage kostenloser Test für alle Pläne.",
+  "plans": {
+    "basic": "Basic",
+    "pro": "Pro",
+    "enterprise": "Enterprise"
+  },
+  "buttons": {
+    "choose": "{{plan}} wählen",
+    "loading": "Laden…"
+  },
+  "labels": {
+    "perMonth": "{{price}} / Monat",
+    "returnDashboard": "Zurück zum Dashboard"
+  },
+  "errors": {
+    "startCheckout": "Zahlung konnte nicht gestartet werden."
+  }
+}

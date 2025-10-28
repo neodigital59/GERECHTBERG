@@ -1,0 +1,38 @@
+# Root-level ignore rules for the whole project
+
+# OS / tooling
+.DS_Store
+Thumbs.db
+*.log
+*.pem
+*.tsbuildinfo
+
+# Environment files
+.env*
+web/.env*
+
+# Node / Next.js (web app)
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+web/coverage/
+web/.vercel/
+web/next-env.d.ts
+
+# Package managers
+web/.pnp
+web/.pnp.*
+web/.yarn/*
+!web/.yarn/patches
+!web/.yarn/plugins
+!web/.yarn/releases
+!web/.yarn/versions
+web/.pnpm-debug.log*
+
+# Local keys and secrets
+web/.keys/
+
+# Supabase local artifacts (if any)
+supabase/.temp/
+supabase/.cache/

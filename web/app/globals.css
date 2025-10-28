@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f4f6; /* fond gris clair */
+  --foreground: #111827; /* texte gris foncé */
+  --brand: #2ECC71; /* vert émeraude (nouvelle teinte) */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b0e10;
+    --foreground: #e5e7eb;
+    --brand: #2ECC71; /* cohérent en dark */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Support RTL languages like Arabic */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+/* SVG hover micro-animations for Pro set */
+.group:hover .svg-hover-caret {
+  transform: translateY(-1px);
+  transition: transform 200ms ease;
+}
+.group:hover .svg-hover-arrow {
+  transform: translateY(-1px);
+  transition: transform 200ms ease;
+}
+.group:hover .svg-hover-globe {
+  transform-origin: center;
+  transform: rotate(2deg);
+  transition: transform 200ms ease;
+}

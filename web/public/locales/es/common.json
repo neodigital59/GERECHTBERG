@@ -1,0 +1,363 @@
+{
+  "actions": {
+    "newDocument": "Nuevo documento",
+    "pricing": "Precios",
+    "open": "Abrir",
+    "share": "Compartir",
+    "duplicate": "Duplicar",
+    "sign": "Firmar",
+    "timestamp": "Marca de tiempo",
+    "sendSelectedDocuments": "Enviar documentos seleccionados",
+    "selectAll": "Seleccionar todo",
+    "clear": "Limpiar",
+    "exportCsv": "Exportar CSV",
+    "sending": "Enviando…",
+    "backToDashboard": "Volver al panel de control"
+  },
+  "dashboard": {
+    "title": "Panel de control",
+    "subtitle": "Resumen de sus documentos y suscripción",
+    "totalDocuments": "Total de documentos",
+    "signed": "Firmados",
+    "recentActivity": "Actividad reciente",
+    "lastActivity": "Última actividad"
+  },
+  "subscription": {
+    "unknown": "Suscripción desconocida",
+    "status": "Estado",
+    "changePlan": "Cambiar plan",
+    "manage": "Gestionar mi suscripción",
+    "cancelAtPeriodEnd": "Cancelar al final del período"
+  },
+  "email": {
+    "title": "Enviar por correo electrónico",
+    "recipient": "Destinatario",
+    "subject": "Asunto",
+    "messageOptional": "Mensaje (opcional)",
+    "selectionLabel": "Selección"
+  },
+  "navigation": {
+    "dashboard": "Panel de control",
+    "newDocument": "Nuevo documento",
+    "pricing": "Precios",
+    "home": "Inicio",
+    "settings": "Configuración",
+    "discover": "Descubrir",
+    "contact": "Contacto",
+    "appointments": "Citas",
+    "title": "Navegación"
+  },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Preferencias para su cuenta y aplicación",
+    "language": {
+      "title": "Idioma",
+      "description": "Seleccione el idioma de la interfaz."
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "Buscar por título, tipo, idioma…"
+    },
+    "table": {
+      "title": "Título",
+      "type": "Tipo",
+      "language": "Idioma",
+      "status": "Estado",
+      "createdAt": "Creado",
+      "actions": "Acciones"
+    },
+    "emptyState": {
+      "message": "Ningún documento coincide. Intente ajustar su búsqueda.",
+      "createOne": "Crear documento"
+    }
+  },
+  "documentDetail": {
+    "loading": "Cargando…",
+    "notFound": "Documento no encontrado.",
+    "untitled": "Sin título",
+    "actions": {
+      "title": "Acciones",
+      "save": "Guardar",
+      "sign": "Firmar",
+      "timestampHash": "Marca de tiempo (hash)",
+      "verifyIntegrity": "Verificar integridad"
+    },
+    "editor": {
+      "contentLabel": "Contenido",
+      "translateTo": "Traducir a",
+      "language": {
+        "fr": "Francés",
+        "en": "Inglés",
+        "de": "Alemán",
+        "ru": "Ruso",
+        "tr": "Turco",
+        "zh": "Chino",
+        "es": "Español",
+        "it": "Italiano",
+        "pt": "Portugués",
+        "ar": "Árabe",
+        "ja": "Japonés"
+      }
+    },
+    "exports": {
+      "title": "Exportaciones",
+      "downloadPdf": "Descargar PDF",
+      "downloadDocx": "Descargar Word (.docx)",
+      "downloadTxt": "Descargar .txt",
+      "exportJson": "Exportar JSON"
+    },
+    "share": {
+      "title": "Compartir",
+      "share": "Compartir",
+      "copyLink": "Copiar enlace",
+      "hint": "Usa compartir nativo si está disponible, de lo contrario copia el enlace.",
+      "text": "Compartir documento GERECHTBERG"
+    },
+    "msg": {
+      "savedVersioned": "Guardado con versión.",
+      "signed": "Documento firmado (simulación).",
+      "timestamped": "Hash de marca de tiempo guardado (simulación).",
+      "nothingToTranslate": "Nada que traducir. Escriba o pegue texto.",
+      "creditsDepleted": "Créditos de OpenRouter agotados. Agregue créditos o habilite DEMO_MODE=true para contenido de ejemplo.",
+      "invalidApiKey": "Clave API de OpenRouter inválida. Verifique OPENROUTER_API_KEY en .env.local y reinicie.",
+      "translationServiceUnavailable": "Servicio de traducción no disponible.",
+      "translationError": "Error de traducción",
+      "translated": "Texto traducido",
+      "emptyContent": "Contenido vacío. Agregue texto antes de descargar.",
+      "linkCopied": "Enlace copiado al portapapeles.",
+      "noHash": "No se guardó hash. Agregue marca de tiempo al documento para garantizar la integridad.",
+      "integrityOk": "Integridad OK: el contenido coincide con el hash guardado."
+    }
+  },
+  "home": {
+    "tagline": "Plataforma inteligente para cartas y contratos",
+    "hero": {
+      "alt": "Plataforma GERECHTBERG"
+    },
+    "cta": {
+      "create": "Crear documento",
+      "discover": "Descubrir",
+      "pricing": "Precios"
+    },
+    "features": {
+      "title": "Características",
+      "write": {
+        "title": "Redacción asistida",
+        "desc": "Genere documentos de calidad a partir de plantillas e instrucciones simples.",
+        "alt": "Ejemplo de redacción"
+      },
+      "translate": {
+        "title": "Traducción y mejora",
+        "desc": "Traduce y reformula contenidos en pocos clics directamente desde el editor.",
+        "alt": "Ejemplo de traducción"
+      },
+      "export": {
+        "title": "Exportación y compartir",
+        "desc": "Exporte a PDF o DOCX y comparta fácilmente mediante enlace seguro.",
+        "alt": "Ejemplo de exportación"
+      }
+    }
+    ,
+    "gallery": {
+      "title": "Vista previa visual",
+      "alt": {
+        "generator": "Vista previa del generador",
+        "translation": "Vista previa de la traducción",
+        "export": "Vista previa de la exportación"
+      }
+    },
+    "usecases": {
+      "title": "Casos de uso",
+      "item1": { "alt": "Carta de rescisión", "title": "Carta de rescisión", "desc": "Genere cartas conformes y siga las versiones." },
+      "item2": { "alt": "Contrato de prestación", "title": "Contrato de prestación", "desc": "Plantillas adaptables, traducción integrada y exportación PDF/DOCX." },
+      "item3": { "alt": "Certificado", "title": "Certificado", "desc": "Cree, firme y marque con fecha para autenticar la integridad." }
+    },
+    "how": {
+      "title": "¿Cómo funciona?",
+      "steps": {
+        "1": { "title": "Elija un tipo", "desc": "Carta, contrato, certificado… seleccione el modelo adecuado y el país." },
+        "2": { "title": "Redacte y personalice", "desc": "Genere contenido, reformule o traduzca, luego ajuste según su caso." },
+        "3": { "title": "Exporte, firme, marque tiempo", "desc": "Descargue su documento, firme y añada sello temporal para autenticar la integridad." }
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "¿Puedo usar la traducción sin suscripción?",
+      "a1": "En modo demo, se muestran contenidos de ejemplo. Las funciones avanzadas requieren una suscripción activa.",
+      "q2": "¿Cómo compartir un documento de forma segura?",
+      "a2": "Genere un enlace seguro, elija permisos y revoque el acceso en cualquier momento.",
+      "q3": "¿La firma está reconocida legalmente?",
+      "a3": "La firma electrónica cumple los estándares vigentes. Verifique los requisitos específicos de su país.",
+      "q4": "¿Puedo exportar en DOCX y PDF?",
+      "a4": "Sí, la exportación es posible en DOCX y PDF con formato fiel."
+    },
+    "quick": {
+      "title": "Acceso rápido",
+      "dashboard": "Ir al panel",
+      "compare": "Comparar ofertas",
+      "contact": "Contactarnos"
+    },
+    "note": {
+      "text1": "Algunas funciones avanzadas (plantillas premium, firmas, sellos de tiempo) pueden requerir una suscripción activa.",
+      "text2": "En modo demo, la redacción y la traducción muestran contenido de ejemplo."
+    }
+  }
+  ,
+  "pricing": {
+    "title": "Precios",
+    "trial": "Prueba gratuita de 14 días",
+    "basic": {
+      "title": "Básico",
+      "price": "9 €/mes",
+      "select": "Elegir plan"
+    },
+    "pro": {
+      "title": "Pro",
+      "price": "29 €/mes",
+      "select": "Elegir plan"
+    },
+    "enterprise": {
+      "title": "Empresa",
+      "price": "Contáctanos",
+      "select": "Elegir plan"
+    },
+    "loading": "Cargando precios…",
+    "error": "No se pudieron cargar los precios.",
+    "plans": {
+      "basic": { "name": "Gratuito", "price": "0 € — 2 documentos / mes", "desc": "2 documentos / mes", "info": "2 documentos por mes incluidos." },
+      "pro": { "name": "Pro", "price": "9,99 € / mes — 15 documentos + servicio al cliente", "desc": "15 documentos + servicio al cliente", "info": "15 documentos por mes incluidos. + acceso al servicio al cliente." },
+      "enterprise": { "name": "Ilimitado", "price": "30 € / mes — todas las funciones + servicio al cliente", "desc": "todas las funciones + servicio al cliente", "info": "Acceso ilimitado a todas las funciones + servicio al cliente." }
+    },
+    "labels": { "perMonth": " / mes —" },
+    "choose": { "basic": "Incluido", "pro": "Elegir Pro", "enterprise": "Elegir Ilimitado" }
+    ,
+    "coaching": {
+      "title": "Condiciones tarifarias (Coaching)",
+      "items": {
+        "1": "Sesión de 30 minutos: 20 €.",
+        "2": "Pago antes o inmediatamente después de la sesión.",
+        "3": "Métodos aceptados: transferencia bancaria, efectivo, tarjeta (Stripe).",
+        "4": "Disponibles paquetes/suscripciones de múltiples sesiones; contáctanos vía /contact.",
+        "5": "Cancelación/Reprogramación: hasta 24 h antes sin coste; menos de 24 h: 50% cobrado; no presentación: sesión adeudada.",
+        "6": "Posibles cargos adicionales en ciertos casos particulares (fuera de horario, desplazamientos, solicitudes específicas); comunicados por adelantado."
+      }
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "Plataforma inteligente para crear, firmar y marcar temporalmente sus cartas y contratos con exportación e intercambio.",
+    "features": {
+      "writing": {
+        "title": "Asistencia de Redacción",
+        "description": "Cree documentos de calidad en minutos a partir de plantillas e instrucciones simples."
+      },
+      "signature": {
+        "title": "Firma y Marca Temporal",
+        "description": "Valide sus documentos (estado firmado) y protéjalos con hash (marca temporal) para seguimiento."
+      },
+      "versions": {
+        "title": "Versiones y Actividades",
+        "description": "Mantenga el historial de versiones y rastree actividades recientes para una mejor gestión."
+      },
+      "export": {
+        "title": "Exportación PDF y Word",
+        "description": "Descargue sus documentos en PDF o DOCX y exporte el contenido sin procesar (.txt, JSON)."
+      },
+      "multilingual": {
+        "title": "Multilingüe y Contextual",
+        "description": "Traduzca con un clic (fr, en, de) y adapte el tono según el contexto (formal, neutro)."
+      },
+      "sharing": {
+        "title": "Compartir y Colaboración",
+        "description": "Comparta el enlace o use el intercambio integrado del navegador para difundir sus documentos."
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "steps": {
+        "1": "Cree un documento desde su panel de control.",
+        "2": "Escriba o pegue contenido y guarde versiones.",
+        "3": "Si es necesario, elija firma (estado firmado) y marca temporal (SHA-256).",
+        "4": "Exporte a PDF / Word o comparta la URL directamente.",
+        "5": "Gestione sus elementos con clasificación, filtros y actividades recientes."
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "Tiempo promedio de creación",
+        "value": "3–7 min"
+      },
+      "formats": {
+        "label": "Formatos disponibles",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "Idiomas",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "¿Puedo exportar a PDF y Word?",
+        "answer": "Sí. En la página del documento, use las acciones \"Descargar PDF\" y \"Descargar Word\"."
+      },
+      "q2": {
+        "question": "¿Cómo funcionan la firma y la marca temporal?",
+        "answer": "La firma cambia el estado a \"firmado\". La marca temporal calcula un hash SHA-256 guardado para verificación de integridad."
+      },
+      "q3": {
+        "question": "¿Está incluida la traducción?",
+        "answer": "Sí, a través de un servicio dedicado. Elija el idioma (fr, en, de) e inicie la traducción contextualizada."
+      },
+      "q4": {
+        "question": "¿Puedo compartir mis documentos?",
+        "answer": "Sí. Intercambio integrado del navegador cuando esté disponible, de lo contrario el enlace se copia al portapapeles."
+      }
+    },
+    "cta": {
+      "pricing": "Ver precios",
+      "dashboard": "Ir al panel"
+    },
+    "disclaimer": "La información anterior es ficticia y está destinada a ilustrar las capacidades de la aplicación. Algunas funciones pueden requerir una suscripción activa."
+  }
+,
+  "appointments": {
+    "title": "Programar una cita",
+    "description": "Elija un horario y agregue notas. Puede revisar sus próximas citas a continuación.",
+    "form": {
+      "titleLabel": "Título",
+      "titlePlaceholder": "Ej.: Consulta inicial",
+      "notesLabel": "Notas",
+      "notesPlaceholder": "Detalles, contexto, objetivos…",
+      "startLabel": "Inicio",
+      "endLabel": "Fin",
+      "submit": "Programar",
+      "submitting": "Guardando…"
+    },
+    "list": {
+      "title": "Mis próximas citas",
+      "loading": "Cargando…",
+      "empty": "No hay citas programadas."
+    },
+    "edit": {
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "modify": "Editar",
+      "delete": "Eliminar"
+    },
+    "statusLabel": "Estado",
+    "messages": {
+      "loadError": "Error de carga",
+      "invalidDates": "Fechas inválidas",
+      "sessionRequired": "Sesión requerida",
+      "created": "Cita creada",
+      "saveError": "Error al guardar",
+      "updated": "Cita actualizada",
+      "updateError": "Error de actualización",
+      "deleted": "Cita eliminada",
+      "deleteError": "Error al eliminar"
+    }
+  }
+}

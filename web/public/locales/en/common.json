@@ -1,0 +1,412 @@
+{
+  "actions": {
+    "newDocument": "New document",
+    "pricing": "Pricing",
+    "open": "Open",
+    "share": "Share",
+    "duplicate": "Duplicate",
+    "sign": "Sign",
+    "timestamp": "Timestamp",
+    "sendSelectedDocuments": "Send selected documents",
+    "selectAll": "Select all",
+    "clear": "Clear",
+    "exportCsv": "Export CSV",
+    "sending": "Sending…",
+    "backToDashboard": "Back to dashboard"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Overview of your documents and subscription",
+    "totalDocuments": "Total documents",
+    "signed": "Signed",
+    "recentActivity": "Recent activity",
+    "lastActivity": "Last activity",
+    "comingSoon": {
+      "title": "Coming soon",
+      "email": "Send selected documents by email",
+      "signature": "Electronic signature of documents",
+      "timestamp": "Timestamping of documents",
+      "note": "These features will be available soon.",
+      "badge": "Soon",
+      "tooltip": "Available soon"
+    }
+  },
+  "subscription": {
+    "unknown": "Unknown subscription",
+    "status": "Status",
+    "changePlan": "Change plan",
+    "manage": "Manage my subscription",
+    "cancelAtPeriodEnd": "Cancel at period end"
+  },
+  "email": {
+    "title": "Send by email",
+    "recipient": "Recipient",
+    "subject": "Subject",
+    "messageOptional": "Message (optional)",
+    "selectionLabel": "Selection"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "newDocument": "New document",
+    "pricing": "Pricing",
+    "home": "Home",
+    "settings": "Settings",
+    "discover": "Discover",
+    "contact": "Contact",
+    "appointments": "Appointments",
+    "title": "Navigation"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Preferences for your account and the app",
+    "language": {
+      "title": "Language",
+      "description": "Select the interface language."
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "Search by title, type, language…"
+    },
+    "table": {
+      "title": "Title",
+      "type": "Type",
+      "language": "Language",
+      "status": "Status",
+      "createdAt": "Created",
+      "actions": "Actions"
+    },
+    "emptyState": {
+      "message": "No document matches. Try adjusting your search.",
+      "createOne": "Create a document"
+    }
+  },
+  "documentDetail": {
+    "loading": "Loading…",
+    "notFound": "Document not found.",
+    "untitled": "Untitled",
+    "actions": {
+      "title": "Actions",
+      "save": "Save",
+      "sign": "Sign",
+      "timestampHash": "Timestamp (hash)",
+      "verifyIntegrity": "Verify integrity"
+    },
+    "editor": {
+      "contentLabel": "Content",
+      "translateTo": "Translate to",
+      "language": {
+        "fr": "French",
+        "en": "English",
+        "de": "German"
+      }
+    },
+    "exports": {
+      "title": "Exports",
+      "downloadPdf": "Download PDF",
+      "downloadDocx": "Download Word (.docx)",
+      "downloadTxt": "Download .txt",
+      "exportJson": "Export JSON"
+    },
+    "share": {
+      "title": "Share",
+      "share": "Share",
+      "copyLink": "Copy link",
+      "hint": "Uses native share if available, otherwise copies the link.",
+      "text": "Share GERECHTBERG document"
+    },
+    "msg": {
+      "savedVersioned": "Saved with versioning.",
+      "signed": "Document signed (simulation).",
+      "timestamped": "Timestamp saved with hash (simulation).",
+      "nothingToTranslate": "Nothing to translate. Write or paste some text.",
+      "creditsDepleted": "OpenRouter credits depleted. Add credits or enable DEMO_MODE=true for sample content.",
+      "invalidApiKey": "Invalid OpenRouter API key. Check OPENROUTER_API_KEY in .env.local and restart.",
+      "translationServiceUnavailable": "Translation service unavailable.",
+      "translationError": "Translation error",
+      "translated": "Text translated",
+      "emptyContent": "Empty content. Add text before downloading.",
+      "linkCopied": "Link copied to clipboard.",
+      "noHash": "No hash recorded. Timestamp the document to ensure integrity.",
+      "integrityOk": "Integrity OK: content matches the recorded hash.",
+      "integrityAlert": "Alert: content does not match the recorded hash.",
+      "verifyError": "Verification error."
+    }
+  },
+  "home": {
+    "tagline": "Intelligent platform to create, translate, sign and timestamp your letters and contracts, with export and sharing.",
+    "hero": { "alt": "Editor visual preview" },
+    "cta": {
+      "create": "Create a document",
+      "discover": "Discover the app",
+      "pricing": "See pricing"
+    },
+    "features": {
+      "title": "Features",
+      "write": {
+        "title": "Assisted writing",
+        "desc": "Generate high-quality documents from templates and simple instructions.",
+        "alt": "Writing example"
+      },
+      "translate": {
+        "title": "Translation & improvement",
+        "desc": "Translate and rephrase content in a few clicks, directly in the editor.",
+        "alt": "Translation example"
+      },
+      "export": {
+        "title": "Export & sharing",
+        "desc": "Export to PDF or DOCX and share easily via secure link.",
+        "alt": "Export example"
+      }
+    },
+    "gallery": {
+      "title": "Visual preview",
+      "alt": {
+        "generator": "Generator preview",
+        "translation": "Translation preview",
+        "export": "Export preview"
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "items": {
+        "1": { "meta": "SMB • France", "quote": "“I generated and translated a contract in minutes. The PDF export is spot on.”" },
+        "2": { "meta": "Freelancer • Switzerland", "quote": "“The editor is simple and rephrasing is effective. Signature and timestamping are reassuring.”" },
+        "3": { "meta": "Association • Belgium", "quote": "“Perfect for multilingual letter templates. Secure sharing saves us time.”" }
+      }
+    },
+    "usecases": {
+      "title": "Use cases",
+      "item1": { "alt": "Cancellation letter", "title": "Cancellation letter", "desc": "Generate compliant letters and track versions." },
+      "item2": { "alt": "Service agreement", "title": "Service agreement", "desc": "Adaptable templates, built-in translation, and PDF/DOCX export." },
+      "item3": { "alt": "Certificate", "title": "Certificate", "desc": "Create, sign, and timestamp to prove integrity." }
+    },
+    "how": {
+      "title": "How it works",
+      "steps": {
+        "1": { "title": "Choose a type", "desc": "Letter, contract, certificate… pick a suitable template and set the country." },
+        "2": { "title": "Write and customize", "desc": "Generate content, rephrase or translate, then tailor to your case." },
+        "3": { "title": "Export, sign, timestamp", "desc": "Download your document, sign and timestamp to authenticate integrity." }
+      }
+    },
+    "security": {
+      "title": "Security & privacy",
+      "desc": "We design GERECHTBERG to protect your sensitive documents.",
+      "items": {
+        "https": "Data encrypted in transit (HTTPS) and at rest (storage).",
+        "timestamp": "Timestamping to prove integrity and chronology.",
+        "signature": "Electronic signature to authenticate signers.",
+        "sharing": "Secure link sharing, revocable at any time."
+      },
+      "alt": "Security illustration"
+    },
+    "integrations": {
+      "title": "Integrations",
+      "items": {
+        "storage": "Storage & backup",
+        "identity": "Signature & identity",
+        "export": "Export & sharing"
+      },
+      "altA": "Integration A",
+      "altB": "Integration B",
+      "altC": "Integration C"
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Can I use translation without a subscription?",
+      "a1": "In demo mode, sample content appears. Advanced features require an active subscription.",
+      "q2": "How do I share a document securely?",
+      "a2": "Generate a secure link, choose permissions, and revoke access anytime.",
+      "q3": "Is the signature legally recognized?",
+      "a3": "Electronic signatures follow common standards. Check specific requirements for your country.",
+      "q4": "Can I export to DOCX and PDF?",
+      "a4": "Yes, export is available in DOCX and PDF with faithful formatting."
+    },
+    "quick": {
+      "title": "Quick access",
+      "dashboard": "Go to dashboard",
+      "compare": "Compare plans",
+      "contact": "Contact us"
+    },
+    "note": {
+      "text1": "Some advanced features (premium templates, signatures, timestamps) may require an active subscription.",
+      "text2": "In demo mode, writing and translation show sample content."
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "Intelligent platform to create, sign and timestamp your letters and contracts, with export and sharing.",
+    "features": {
+      "writing": {
+        "title": "Assisted writing",
+        "description": "Generate high-quality documents in minutes from templates and simple instructions."
+      },
+      "signature": {
+        "title": "Signature & timestamping",
+        "description": "Validate your documents (signed status) and secure them with hash (timestamped) for traceability."
+      },
+      "versions": {
+        "title": "Versions & activities",
+        "description": "Keep version history and track recent actions for better governance."
+      },
+      "export": {
+        "title": "PDF & Word export",
+        "description": "Download your documents as PDF or DOCX, and export raw content (.txt, JSON)."
+      },
+      "multilingual": {
+        "title": "Multilingual & contextual",
+        "description": "Translate with one click (fr, en, de) and adapt tone according to context (formal, neutral)."
+      },
+      "sharing": {
+        "title": "Sharing & collaboration",
+        "description": "Share a link or use native browser sharing to distribute your documents."
+      }
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "steps": {
+        "1": "Create a document from your dashboard.",
+        "2": "Write or paste content, and save versions.",
+        "3": "Opt for signature (signed status) and timestamping (SHA-256) if needed.",
+        "4": "Export to PDF / Word or share the URL directly.",
+        "5": "Manage your items with sorting, filters and recent activities."
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "Average creation time",
+        "value": "3–7 min"
+      },
+      "formats": {
+        "label": "Available formats",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "Languages",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Can I export to PDF and Word?",
+        "answer": "Yes. In the document page, use the \"Download PDF\" and \"Download Word\" actions."
+      },
+      "q2": {
+        "question": "How do signature and timestamping work?",
+        "answer": "Signature changes status to \"signed\". Timestamping calculates a SHA-256 hash, kept to attest integrity."
+      },
+      "q3": {
+        "question": "Is translation included?",
+        "answer": "Yes, via a dedicated service. Choose the language (fr, en, de) and launch a contextualized translation."
+      },
+      "q4": {
+        "question": "Can I share my documents?",
+        "answer": "Yes. Native browser sharing when available, otherwise link copied to clipboard."
+      }
+    },
+    "cta": {
+      "pricing": "See pricing",
+      "dashboard": "Access dashboard"
+    },
+    "disclaimer": "The information above is fictional and intended to illustrate the application's capabilities. Some features may require an active subscription."
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "7-day free trial on all plans.",
+    "trial": "7-day free trial on all plans.",
+    "errorStart": "Unable to start payment.",
+    "loading": "Loading…",
+    "plans": {
+      "basic": { "name": "Basic", "price": "$20 / month", "desc": "2 documents / month", "info": "2 documents per month included." },
+      "pro": { "name": "Pro", "price": "$45 / month", "desc": "15 documents + customer support", "info": "15 documents per month included. + access to customer support." },
+      "enterprise": { "name": "Enterprise", "price": "$200 / month", "desc": "all features + customer support", "info": "Unlimited access to all features + customer support." }
+    },
+    "labels": {
+      "perMonth": " / month —"
+    },
+    "choose": {
+      "basic": "Choose Basic",
+      "pro": "Choose Pro",
+      "enterprise": "Choose Enterprise"
+    },
+    "coaching": {
+      "title": "Pricing Terms (Coaching)",
+      "items": {
+        "1": "30-minute session: €20.",
+        "2": "Payment before or immediately after the session.",
+        "3": "Accepted methods: bank transfer, cash, card (Stripe).",
+        "4": "Multi-session packages/subscriptions available; contact us via /contact.",
+        "5": "Cancellation/Reschedule: up to 24h free; under 24h: 50% charged; no-show: session due.",
+        "6": "Additional fees possible in specific cases (off-hours, travel, special requests); communicated in advance."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We respond quickly and precisely. For any question about GERECHTBERG, choose the most suitable channel.",
+    "support": {
+      "title": "Support",
+      "description": "Functional assistance, usage questions, and implementation guidance.",
+      "email": "support@gerechtberg.app"
+    },
+    "form": {
+      "title": "Quick form",
+      "labels": { "name": "Name", "email": "Email", "message": "Message" },
+      "placeholders": { "name": "Your name", "email": "you@example.com", "message": "Describe your need" },
+      "submit": "Send",
+      "sending": "Sending…"
+    },
+    "errors": {
+      "required": "All fields are required",
+      "invalidEmail": "Invalid email",
+      "tooShort": "Message too short",
+      "sendFailed": "Error while sending",
+      "unknown": "Unknown error"
+    },
+    "success": "Thank you! Your message has been sent successfully.",
+    "note": "Messages are stored securely. You will receive a quick response.",
+    "links": {
+      "pricing": "View pricing",
+      "discover": "Discover the app",
+      "dashboard": "Go to dashboard"
+    }
+  },
+  "appointments": {
+    "title": "Schedule an appointment",
+    "description": "Pick a time slot and add notes. You can review your upcoming appointments below.",
+    "form": {
+      "titleLabel": "Title",
+      "titlePlaceholder": "e.g., Initial consultation",
+      "notesLabel": "Notes",
+      "notesPlaceholder": "Details, context, goals…",
+      "startLabel": "Start",
+      "endLabel": "End",
+      "submit": "Schedule",
+      "submitting": "Saving…"
+    },
+    "list": {
+      "title": "My upcoming appointments",
+      "loading": "Loading…",
+      "empty": "No appointment scheduled."
+    },
+    "edit": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "modify": "Edit",
+      "delete": "Delete"
+    },
+    "statusLabel": "Status",
+    "messages": {
+      "loadError": "Loading error",
+      "invalidDates": "Invalid dates",
+      "sessionRequired": "Session required",
+      "created": "Appointment created",
+      "saveError": "Saving error",
+      "updated": "Appointment updated",
+      "updateError": "Update error",
+      "deleted": "Appointment deleted",
+      "deleteError": "Deletion error"
+    }
+  }
+}

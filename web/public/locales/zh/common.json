@@ -1,0 +1,369 @@
+{
+  "actions": {
+    "newDocument": "新建文档",
+    "pricing": "定价",
+    "open": "打开",
+    "share": "分享",
+    "duplicate": "复制",
+    "sign": "签名",
+    "timestamp": "时间戳",
+    "sendSelectedDocuments": "发送选中的文档",
+    "selectAll": "全选",
+    "clear": "清除",
+    "exportCsv": "导出CSV",
+    "sending": "发送中…",
+    "backToDashboard": "返回仪表板"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "subtitle": "您的文档和订阅概览",
+    "totalDocuments": "文档总数",
+    "signed": "已签名",
+    "recentActivity": "最近活动",
+    "lastActivity": "最后活动"
+  },
+  "subscription": {
+    "unknown": "未知订阅",
+    "status": "状态",
+    "changePlan": "更改计划",
+    "manage": "管理我的订阅",
+    "cancelAtPeriodEnd": "在期间结束时取消"
+  },
+  "email": {
+    "title": "通过电子邮件发送",
+    "recipient": "收件人",
+    "subject": "主题",
+    "messageOptional": "消息（可选）",
+    "selectionLabel": "选择"
+  },
+  "navigation": {
+    "dashboard": "仪表板",
+    "newDocument": "新建文档",
+    "pricing": "定价",
+    "home": "首页",
+    "settings": "设置",
+    "discover": "发现",
+    "contact": "联系",
+    "appointments": "预约",
+    "title": "导航"
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "您的账户和应用程序偏好",
+    "language": {
+      "title": "语言",
+      "description": "选择界面语言。"
+    }
+  },
+  "documents": {
+    "search": {
+      "placeholder": "按标题、类型、语言搜索…"
+    },
+    "table": {
+      "title": "标题",
+      "type": "类型",
+      "language": "语言",
+      "status": "状态",
+      "createdAt": "创建时间",
+      "actions": "操作"
+    },
+    "emptyState": {
+      "message": "没有匹配的文档。尝试调整您的搜索。",
+      "createOne": "创建文档"
+    }
+  },
+  "documentDetail": {
+    "loading": "加载中…",
+    "notFound": "未找到文档。",
+    "untitled": "无标题",
+    "actions": {
+      "title": "操作",
+      "save": "保存",
+      "sign": "签名",
+      "timestampHash": "时间戳（哈希）",
+      "verifyIntegrity": "验证完整性"
+    },
+    "editor": {
+      "contentLabel": "内容",
+      "translateTo": "翻译为",
+      "language": {
+        "fr": "法语",
+        "en": "英语",
+        "de": "德语",
+        "ru": "俄语",
+        "tr": "土耳其语",
+        "zh": "中文",
+        "es": "西班牙语",
+        "it": "意大利语",
+        "pt": "葡萄牙语",
+        "ar": "阿拉伯语",
+        "ja": "日语"
+      }
+    },
+    "exports": {
+      "title": "导出",
+      "downloadPdf": "下载PDF",
+      "downloadDocx": "下载Word (.docx)",
+      "downloadTxt": "下载.txt",
+      "exportJson": "导出JSON"
+    },
+    "share": {
+      "title": "分享",
+      "share": "分享",
+      "copyLink": "复制链接",
+      "hint": "如果可用，使用本地分享，否则复制链接。",
+      "text": "分享GERECHTBERG文档"
+    },
+    "msg": {
+      "savedVersioned": "已保存版本。",
+      "signed": "文档已签名（模拟）。",
+      "timestamped": "时间戳哈希已保存（模拟）。",
+      "nothingToTranslate": "没有要翻译的内容。请输入或粘贴文本。",
+      "creditsDepleted": "OpenRouter积分已耗尽。请添加积分或启用DEMO_MODE=true以获取示例内容。",
+      "invalidApiKey": "无效的OpenRouter API密钥。请检查.env.local中的OPENROUTER_API_KEY并重新启动。",
+      "translationServiceUnavailable": "翻译服务不可用。",
+      "translationError": "翻译错误",
+      "translated": "文本已翻译",
+      "emptyContent": "内容为空。请在下载前添加文本。",
+      "linkCopied": "链接已复制到剪贴板。",
+      "noHash": "未保存哈希。请为文档添加时间戳以确保完整性。",
+      "integrityOk": "完整性正常：内容与保存的哈希匹配。"
+    }
+  },
+  "home": {
+    "tagline": "信件和合同的智能平台",
+    "hero": {
+      "alt": "GERECHTBERG平台"
+    },
+    "cta": {
+      "create": "创建文档",
+      "discover": "发现",
+      "pricing": "定价"
+    },
+    "features": {
+      "title": "功能",
+      "write": {
+        "title": "写作辅助",
+        "desc": "基于模板和简单指示，几分钟内生成高质量文档。",
+        "alt": "写作示例"
+      },
+      "translate": {
+        "title": "翻译与改写",
+        "desc": "在编辑器中轻点几下即可翻译并重述内容。",
+        "alt": "翻译示例"
+      },
+      "export": {
+        "title": "导出与分享",
+        "desc": "导出为 PDF 或 DOCX，并通过安全链接轻松分享。",
+        "alt": "导出示例"
+      }
+    }
+    ,
+    "gallery": {
+      "title": "可视化预览",
+      "alt": {
+        "generator": "生成器预览",
+        "translation": "翻译预览",
+        "export": "导出预览"
+      }
+    },
+    "usecases": {
+      "title": "使用场景",
+      "item1": { "alt": "解约信", "title": "解约信", "desc": "生成合规的信件并跟踪版本。" },
+      "item2": { "alt": "服务合同", "title": "服务合同", "desc": "可适配模板、集成翻译以及 PDF/DOCX 导出。" },
+      "item3": { "alt": "证明", "title": "证明", "desc": "创建、签署并添加时间戳以证明完整性。" }
+    },
+    "how": {
+      "title": "如何使用？",
+      "steps": {
+        "1": { "title": "选择类型", "desc": "信件、合同、证明… 选择适合的模板和国家。" },
+        "2": { "title": "撰写与调整", "desc": "生成内容、翻译或改写，并根据场景进行调整。" },
+        "3": { "title": "导出、签署、时间戳", "desc": "下载文档，并通过签名与时间戳认证完整性。" }
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": "无需订阅即可使用翻译吗？",
+      "a1": "在演示模式下会显示示例内容。高级功能需要有效订阅。",
+      "q2": "如何安全地共享文档？",
+      "a2": "生成安全链接，选择权限，并可随时撤销访问。",
+      "q3": "电子签名具有法律效力吗？",
+      "a3": "电子签名符合现行标准。请核查您所在国家的具体要求。",
+      "q4": "可以导出为 DOCX 和 PDF 吗？",
+      "a4": "可以，支持导出为 DOCX 和 PDF，并保留排版。"
+    },
+    "quick": {
+      "title": "快速访问",
+      "dashboard": "进入仪表板",
+      "compare": "比较方案",
+      "contact": "联系我们"
+    },
+    "note": {
+      "text1": "部分高级功能（高级模板、签名、时间戳）可能需要有效订阅。",
+      "text2": "在演示模式下，撰写和翻译会显示示例内容。"
+    }
+  }
+  ,
+  "pricing": {
+    "title": "定价",
+    "subtitle": "针对所有套餐提供 7 天免费试用。",
+    "trial": "针对所有套餐提供 7 天免费试用。",
+    "errorStart": "无法启动付款。",
+    "basic": {
+      "title": "基础",
+      "price": "€9/月",
+      "select": "选择方案"
+    },
+    "pro": {
+      "title": "专业版",
+      "price": "€29/月",
+      "select": "选择方案"
+    },
+    "enterprise": {
+      "title": "企业版",
+      "price": "联系我们",
+      "select": "选择方案"
+    },
+    "loading": "加载中…",
+    "error": "加载定价失败。",
+    "plans": {
+      "basic": { "name": "基础", "price": "$20 / 月", "desc": "2 个文档 / 月", "info": "每月包含 2 个文档。" },
+      "pro": { "name": "专业版", "price": "$45 / 月", "desc": "15 个文档 + 客服", "info": "每月包含 15 个文档。+ 可访问客服。" },
+      "enterprise": { "name": "企业版", "price": "$200 / 月", "desc": "全部功能 + 客服", "info": "无限访问所有功能 + 客服。" }
+    },
+    "labels": {
+      "perMonth": " / 月 —"
+    },
+    "choose": {
+      "basic": "选择基础版",
+      "pro": "选择专业版",
+      "enterprise": "选择企业版"
+    },
+    "coaching": {
+      "title": "收费条款（辅导）",
+      "items": {
+        "1": "30 分钟课程：€20。",
+        "2": "在课程开始前或结束后立即付款。",
+        "3": "接受方式：银行转账、现金、银行卡（Stripe）。",
+        "4": "提供多次课程套餐/订阅；请通过 /contact 联系我们。",
+        "5": "取消/改期：提前 24 小时免费；少于 24 小时：收取 50%；未出席：课程视为完成。",
+        "6": "特定情况下可能产生额外费用（非工作时间、出行、特殊要求）；将提前告知。"
+      }
+    }
+  },
+  "discover": {
+    "title": "GERECHTBERG",
+    "subtitle": "智能平台，用于创建、签署和时间戳您的信件和合同，支持导出和共享。",
+    "features": {
+      "writing": {
+        "title": "写作辅助",
+        "description": "从模板和简单说明中在几分钟内创建高质量文档。"
+      },
+      "signature": {
+        "title": "签名和时间戳",
+        "description": "验证您的文档（已签名状态）并用哈希保护它们（时间戳）以便跟踪。"
+      },
+      "versions": {
+        "title": "版本和活动",
+        "description": "保持版本历史并跟踪最近活动以便更好地管理。"
+      },
+      "export": {
+        "title": "PDF和Word导出",
+        "description": "将您的文档下载为PDF或DOCX，并导出原始内容（.txt，JSON）。"
+      },
+      "multilingual": {
+        "title": "多语言和上下文",
+        "description": "一键翻译（fr，en，de）并根据上下文调整语调（正式，中性）。"
+      },
+      "sharing": {
+        "title": "共享和协作",
+        "description": "共享链接或使用内置浏览器共享来传播您的文档。"
+      }
+    },
+    "howItWorks": {
+      "title": "工作原理",
+      "steps": {
+        "1": "从您的仪表板创建文档。",
+        "2": "编写或粘贴内容并保存版本。",
+        "3": "如需要，选择签名（已签名状态）和时间戳（SHA-256）。",
+        "4": "导出为PDF/Word或直接共享URL。",
+        "5": "通过排序、过滤器和最近活动管理您的项目。"
+      }
+    },
+    "stats": {
+      "creationTime": {
+        "label": "平均创建时间",
+        "value": "3–7分钟"
+      },
+      "formats": {
+        "label": "可用格式",
+        "value": "PDF · DOCX · TXT · JSON"
+      },
+      "languages": {
+        "label": "语言",
+        "value": "fr · en · de"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": {
+        "question": "我可以导出为PDF和Word吗？",
+        "answer": "是的。在文档页面使用\"下载PDF\"和\"下载Word\"操作。"
+      },
+      "q2": {
+        "question": "签名和时间戳如何工作？",
+        "answer": "签名将状态更改为\"已签名\"。时间戳计算SHA-256哈希，保存用于完整性验证。"
+      },
+      "q3": {
+        "question": "包含翻译吗？",
+        "answer": "是的，通过专用服务。选择语言（fr，en，de）并启动上下文化翻译。"
+      },
+      "q4": {
+        "question": "我可以共享我的文档吗？",
+        "answer": "是的。当可用时使用内置浏览器共享，否则链接复制到剪贴板。"
+      }
+    },
+    "cta": {
+      "pricing": "查看定价",
+      "dashboard": "转到仪表板"
+    },
+    "disclaimer": "以上信息是虚构的，用于说明应用程序功能。某些功能可能需要有效订阅。"
+  },
+  "appointments": {
+    "title": "预约",
+    "description": "选择时间段并添加备注。你可以在下方查看即将到来的预约。",
+    "form": {
+      "titleLabel": "标题",
+      "titlePlaceholder": "例如：首次咨询",
+      "notesLabel": "备注",
+      "notesPlaceholder": "细节、背景、目标…",
+      "startLabel": "开始",
+      "endLabel": "结束",
+      "submit": "安排",
+      "submitting": "保存中…"
+    },
+    "list": {
+      "title": "我的即将到来的预约",
+      "loading": "加载中…",
+      "empty": "暂无预约。"
+    },
+    "edit": {
+      "save": "保存",
+      "cancel": "取消",
+      "modify": "编辑",
+      "delete": "删除"
+    },
+    "statusLabel": "状态",
+    "messages": {
+      "loadError": "加载错误",
+      "invalidDates": "无效的日期",
+      "sessionRequired": "需要会话",
+      "created": "已创建预约",
+      "saveError": "保存错误",
+      "updated": "已更新预约",
+      "updateError": "更新错误",
+      "deleted": "已删除预约",
+      "deleteError": "删除错误"
+    }
+  }
+}
