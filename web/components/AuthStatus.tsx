@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { supabase } from "@/lib/supabaseClient";
 import type { Session } from "@supabase/supabase-js";
 
 export default function AuthStatus() {
+  const { t } = useTranslation();
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +34,7 @@ export default function AuthStatus() {
   if (!session) {
     return (
       <a href="/auth" className="text-sm rounded-full px-3 py-2 bg-brand text-white hover:bg-brand/80">
-        Se connecter
+        {t('auth.sign_in')}
       </a>
     );
   }
@@ -47,7 +49,7 @@ export default function AuthStatus() {
           location.href = "/";
         }}
       >
-        Se déconnecter
+        {t('auth.log_out')}
       </button>
     </div>
   );

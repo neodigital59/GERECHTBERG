@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { supabase } from "@/lib/supabaseClient";
 // remove: import CountrySelect from "@/components/CountrySelect";
 import countries from "i18n-iso-countries";
@@ -46,6 +47,7 @@ function isNameValid(name: string) {
 }
 
 export default function AuthPage() {
+  const { t } = useTranslation();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [name, setName] = useState("");
   const [country, setCountry] = useState<string | null>(null);
@@ -233,7 +235,7 @@ export default function AuthPage() {
           disabled={loading}
           className="w-full rounded bg-brand text-white py-2 hover:bg-brand/80"
         >
-          {loading ? "Patientez…" : mode === "signup" ? "Créer mon compte" : "Se connecter"}
+          {loading ? "Patientez…" : mode === "signup" ? t('auth.sign_up') : t('auth.sign_in')}
         </button>
       </form>
       <div className="mt-4">
@@ -241,7 +243,7 @@ export default function AuthPage() {
           type="button"
           onClick={() => signInWithGoogle()}
           className="w-full flex items-center justify-center gap-2 rounded py-2 px-3 bg-white text-black border hover:bg-gray-50"
-          aria-label="Continuer avec Google"
+          aria-label={t('auth.continue_with_google')}
         >
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24">
             <path fill="#EA4335" d="M12 10.2v3.6h5.1c-.23 1.25-1.55 3.6-5.1 3.6-3.08 0-5.6-2.52-5.6-5.6s2.52-5.6 5.6-5.6c1.48 0 2.52.5 3.44 1.2l2.36-2.36C15.83 3.1 14.05 2.4 12 2.4 6.98 2.4 2.9 6.48 2.9 11.5S6.98 20.6 12 20.6c5.38 0 8.9-3.76 8.9-9.3 0-.56-.06-1.02-.14-1.46H12z"/>
@@ -249,7 +251,7 @@ export default function AuthPage() {
             <path fill="#FBBC05" d="M20.9 11.3c0-.5-.06-1.02-.14-1.46H12v3.6h5.1c-.23 1.25-1.55 3.6-5.1 3.6 2.16 1.61 5.33 1.53 7.41-.26 1.07-1.02 1.49-2.42 1.49-5.48z"/>
             <path fill="#4285F4" d="M6.7 14.9l-2.7 2c2 2.88 5.38 4.3 8 3.7 2.49-.56 4.65-2.38 5.1-4.7H12v-3.6H6.7c-.35 1.1-.33 2.38 0 2.6z"/>
           </svg>
-          <span>Continuer avec Google</span>
+          <span>{t('auth.continue_with_google')}</span>
         </button>
       </div>
       <p className="mt-4 text-sm">
@@ -260,7 +262,7 @@ export default function AuthPage() {
               className="ml-1 text-brand hover:underline"
               onClick={() => setMode("signin")}
             >
-              Se connecter
+              {t('auth.sign_in')}
             </button>
           </>
         ) : (
@@ -270,7 +272,7 @@ export default function AuthPage() {
               className="ml-1 text-brand hover:underline"
               onClick={() => setMode("signup")}
             >
-              Créer un compte
+              {t('auth.sign_up')}
             </button>
           </>
         )}

@@ -56,6 +56,12 @@
     "appointments": "Rendez-vous",
     "title": "Navigation"
   },
+  "auth": {
+    "sign_in": "Se connecter",
+    "sign_up": "Créer un compte",
+    "log_out": "Se déconnecter",
+    "continue_with_google": "Continuer avec Google"
+  },
   "settings": {
     "title": "Paramètres",
     "subtitle": "Préférences de votre compte et de l’application",

@@ -47,6 +47,12 @@
     "appointments": "Termine",
     "title": "Navigation"
   },
+  "auth": {
+    "sign_in": "Anmelden",
+    "sign_up": "Registrieren",
+    "log_out": "Abmelden",
+    "continue_with_google": "Mit Google fortfahren"
+  },
   "settings": {
     "title": "Einstellungen",
     "subtitle": "Einstellungen für Ihr Konto und die App",

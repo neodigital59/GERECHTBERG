@@ -56,6 +56,12 @@
     "appointments": "Appointments",
     "title": "Navigation"
   },
+  "auth": {
+    "sign_in": "Sign in",
+    "sign_up": "Sign up",
+    "log_out": "Log out",
+    "continue_with_google": "Continue with Google"
+  },
   "settings": {
     "title": "Settings",
     "subtitle": "Preferences for your account and the app",
