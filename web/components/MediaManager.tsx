@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 
 type Props = {
   onPickUrl?: (url: string) => void;
@@ -14,6 +14,12 @@ export default function MediaManager({ onPickUrl }: Props) {
   async function refresh() {
     setLoading(true);
     setError(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setLoading(false);
+      return;
+    }
     try {
       const { data, error } = await supabase.storage.from("media").list(undefined, { limit: 100 });
       if (error) throw error;
@@ -33,6 +39,13 @@ export default function MediaManager({ onPickUrl }: Props) {
     if (!file) return;
     setLoading(true);
     setError(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setLoading(false);
+      e.target.value = "";
+      return;
+    }
     try {
       const name = `${Date.now()}-${file.name}`;
       const { error } = await supabase.storage.from("media").upload(name, file, { upsert: false });
@@ -49,6 +62,12 @@ export default function MediaManager({ onPickUrl }: Props) {
   async function remove(name: string) {
     setLoading(true);
     setError(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setLoading(false);
+      return;
+    }
     try {
       const { error } = await supabase.storage.from("media").remove([name]);
       if (error) throw error;
@@ -61,6 +80,8 @@ export default function MediaManager({ onPickUrl }: Props) {
   }
 
   function publicUrl(name: string): string {
+    const supabase = getSupabase();
+    if (!supabase) return "";
     const { data } = supabase.storage.from("media").getPublicUrl(name);
     return data.publicUrl;
   }

@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+Setup rapide (Supabase + RLS)
+- Définissez sur Vercel (Production): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`.
+- Dans Supabase, exécutez le script SQL `web/supabase/sql/all_setup.sql` puis rechargement du schéma: `select pg_notify('pgrst', 'reload schema');`.
+- Synchronisez le profil utilisateur après connexion en appelant:
+  - `POST /api/auth/sync` avec l’en-tête `Authorization: Bearer <access_token>` (token Supabase de l’utilisateur).
+  - Réponse attendue: `{ ok: true, user: { id, email } }`.
+- Cette étape crée/actualise la ligne dans `public.users` (clé pour les policies RLS). Sans elle, les opérations sur `documents` seront refusées.
+
+
 ## Getting Started
 
 First, run the development server:
@@ -19,6 +28,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Configuration
+
+Définissez les variables d'environnement nécessaires dans `web/.env.local` ou sur votre plateforme (Vercel, etc.).
+
+- `NEXT_PUBLIC_SUPABASE_URL` et `NEXT_PUBLIC_SUPABASE_ANON_KEY` pour Supabase
+- `SUPABASE_SERVICE_ROLE_KEY` pour les opérations administratives (API côté serveur)
+- `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PRICE_BASIC`, `NEXT_PUBLIC_STRIPE_PRICE_PRO`, `NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE` pour Stripe
+- `NEXT_PUBLIC_ONECAL_URL` (optionnel) : URL de la page OneCal à intégrer pour les rendez-vous. Si non défini, l'application utilise une valeur par défaut.
 
 ## Learn More
 

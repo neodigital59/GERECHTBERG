@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import RequireAuth from "@/components/RequireAuth";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 
 interface AdminSub { user_id: string; email?: string | null; plan?: string | null; status?: string | null; start_date?: string | null; end_date?: string | null; stripe_subscription_id?: string | null; cancel_at_period_end?: boolean | null; }
 
@@ -18,6 +18,11 @@ export default function AdminAbonnementsPage() {
       setLoading(true);
       setError(null);
       try {
+        const supabase = getSupabase();
+        if (!supabase) {
+          if (mounted) setError("Service indisponible");
+          return;
+        }
         const { data: { session } } = await supabase.auth.getSession();
         const token = session?.access_token;
         const res = await fetch("/api/admin/abonnements", { headers: token ? { Authorization: `Bearer ${token}` } : undefined });

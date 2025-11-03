@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { buildTranslateMessages } from "@/lib/prompts";
 
 export async function POST(req: NextRequest) {
   const { text, target } = await req.json();
@@ -48,7 +49,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const prompt = `Vous êtes un traducteur professionnel. Traduisez le texte ci-dessous vers ${resolvedTarget}.\n\nContraintes:\n- Préservez fidèlement le sens et le ton.\n- Respectez la mise en forme (paragraphes, listes).\n- Ne pas ajouter d’explications ou de notes.\n- Si le texte est déjà dans la langue cible, renvoyez-le tel quel.\n\nTexte:\n${text}`;
+  // Prompt est désormais construit via lib/prompts.ts
 
   // Mode démo: simple transformation pour montrer le flux
   if (demoMode) {
@@ -56,10 +57,7 @@ export async function POST(req: NextRequest) {
     return Response.json({ result: sample });
   }
 
-  const messages = [
-    { role: "system", content: "Assistant de traduction fidèle et contextuelle. Préserver la mise en forme et ne pas ajouter d’explications." },
-    { role: "user", content: prompt },
-  ];
+  const messages = buildTranslateMessages({ text, target: resolvedTarget });
 
   let r: Response;
   if (openaiKey) {

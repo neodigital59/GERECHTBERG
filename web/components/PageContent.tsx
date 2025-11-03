@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import BlockRenderer, { CMSBlock } from "@/components/cms/BlockRenderer";
 
 interface Props {
@@ -17,6 +17,12 @@ export default function PageContent({ slug, className }: Props) {
     let cancelled = false;
     async function load() {
       setLoading(true);
+      const supabase = getSupabase();
+      if (!supabase) {
+        // Supabase non configuré: ignorer le chargement du contenu CMS
+        if (!cancelled) setLoading(false);
+        return;
+      }
       try {
         // 1) Trouver la page publiée par slug
         const { data: page, error: pageErr } = await supabase

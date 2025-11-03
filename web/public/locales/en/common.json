@@ -38,6 +38,13 @@
     "manage": "Manage my subscription",
     "cancelAtPeriodEnd": "Cancel at period end"
   },
+  "usage": {
+    "planUnlimited": "Plan {{plan}} — unlimited documents",
+    "planUsage": "Plan {{plan}} — {{used}}/{{max}} documents used",
+    "warn": "You have reached 80% of your quota. Consider upgrading to Pro.",
+    "limit": "Quota reached. Upgrade to Pro or Unlimited.",
+    "error": "Failed to fetch usage: {{message}}"
+  },
   "email": {
     "title": "Send by email",
     "recipient": "Recipient",
@@ -56,6 +63,11 @@
     "appointments": "Appointments",
     "title": "Navigation"
   },
+  "mobile": {
+    "menu": "Menu",
+    "close": "Close"
+  },
+  
   "auth": {
     "sign_in": "Sign in",
     "sign_up": "Sign up",
@@ -86,6 +98,10 @@
       "message": "No document matches. Try adjusting your search.",
       "createOne": "Create a document"
     }
+  },
+  "cards": {
+    "seeMore": "See more",
+    "seeLess": "See less"
   },
   "documentDetail": {
     "loading": "Loading…",
@@ -379,8 +395,16 @@
     }
   },
   "appointments": {
-    "title": "Schedule an appointment",
+    "title": "Book an appointment",
     "description": "Pick a time slot and add notes. You can review your upcoming appointments below.",
+    "subtitle": "Schedule your consultation with our team",
+    "bookNow": "Book now",
+    "openInApp": "Open in the app",
+    "openExternal": "Open on OneCal",
+    "loading": "Loading calendar...",
+    "error": "Unable to load calendar. Please try again.",
+    "fallbackText": "If the calendar doesn't display, you can access our booking page directly.",
+    "backToApp": "Back to the app",
     "form": {
       "titleLabel": "Title",
       "titlePlaceholder": "e.g., Initial consultation",
@@ -413,6 +437,90 @@
       "updateError": "Update error",
       "deleted": "Appointment deleted",
       "deleteError": "Deletion error"
+    }
+  },
+  "homeV2": {
+    "hero": {
+      "title": "Simplify your life in Germany.",
+      "desc": "Generate, translate, and manage your administrative documents in full compliance with German and EU rules.",
+      "alt": "GERECHTBERG platform illustration"
+    },
+    "cta": {
+      "create": "Create a document",
+      "discover": "Discover our services",
+      "tryNow": "Try now"
+    },
+    "services": {
+      "title": "Our areas of expertise",
+      "research": {
+        "alt": "Legal research",
+        "title": "Legal research",
+        "desc": "Access clear and reliable information about your rights in Germany and Europe.",
+        "points": {
+          "1": "Access to official DE/EU sources",
+          "2": "Understandable, actionable summaries",
+          "3": "Regular updates"
+        },
+        "cta": "Explore"
+      },
+      "documents": {
+        "alt": "Smart administrative documents",
+        "title": "Smart administrative documents",
+        "desc": "Create, download, and export documents compliant with European regulations.",
+        "points": {
+          "1": "EU‑compliant templates",
+          "2": "Dynamic fields and validations",
+          "3": "PDF and Word export"
+        },
+        "cta": "Create a document"
+      },
+      "translate": {
+        "alt": "Multilingual translation",
+        "title": "Multilingual translation",
+        "desc": "Translate your official documents into all European languages, quickly and accurately.",
+        "points": {
+          "1": "Reliable legal terminology",
+          "2": "European languages supported",
+          "3": "Optional human quality review"
+        },
+        "cta": "Translate a document"
+      }
+    },
+    "why": {
+      "title": "Why choose GERECHTBERG?",
+      "imageAlt": "GERECHTBERG values illustration",
+      "values": {
+        "clarity": { "title": "Clarity", "desc": "Simple, understandable language to move forward calmly." },
+        "compliance": { "title": "Compliance", "desc": "All your documents respect European standards." },
+        "serenity": { "title": "Serenity", "desc": "Less stress, more control over your procedures." }
+      },
+      "tagline": "Empowering foreigners through clarity, confidence, and simplicity."
+    },
+    "how": {
+      "title": "How it works?",
+      "steps": {
+        "1": { "alt": "Choose a service", "title": "Choose your service", "desc": "Document, coaching or research — based on your needs." },
+        "2": { "alt": "Customize and translate", "title": "Customize and translate", "desc": "Adapt your documents and translations with ease." },
+        "3": { "alt": "Download and use", "title": "Download and use", "desc": "Export ready‑to‑use documents." }
+      }
+    },
+    "testimonials": {
+      "title": "What our users say",
+      "avatarAlt": "Placeholder person icon",
+      "items": {
+        "1": { "name": "Alex M.", "quote": "I was able to create and translate my documents in 10 minutes." },
+        "2": { "name": "Fatima R.", "quote": "Coaching helped me understand my rights in Germany." },
+        "3": { "name": "Luca D.", "quote": "A clear and reassuring platform!" }
+      }
+    },
+    "final": {
+      "title": "Ready to simplify your procedures?",
+      "logoAlt": "GERECHTBERG",
+      "desc": "Discover our tools and support to live in Germany stress‑free.",
+      "cta": {
+        "appointment": "Book an appointment",
+        "create": "Create a document"
+      }
     }
   }
 }

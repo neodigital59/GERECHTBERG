@@ -326,6 +326,13 @@
   "appointments": {
     "title": "Programar una cita",
     "description": "Elija un horario y agregue notas. Puede revisar sus próximas citas a continuación.",
+    "subtitle": "Programa tu consulta con nuestro equipo",
+    "bookNow": "Reservar ahora",
+    "openInApp": "Abrir en la aplicación",
+    "openExternal": "Abrir en OneCal",
+    "loading": "Cargando calendario...",
+    "error": "No se puede cargar el calendario. Inténtalo de nuevo.",
+    "fallbackText": "Si el calendario no se muestra, puede acceder a la página de reservas directamente.",
     "form": {
       "titleLabel": "Título",
       "titlePlaceholder": "Ej.: Consulta inicial",
@@ -358,6 +365,91 @@
       "updateError": "Error de actualización",
       "deleted": "Cita eliminada",
       "deleteError": "Error al eliminar"
+    }
+  }
+  ,
+  "homeV2": {
+    "hero": {
+      "title": "Simplifica tu vida en Alemania.",
+      "desc": "Genera, traduce y gestiona tus documentos administrativos cumpliendo las normas alemanas y europeas.",
+      "alt": "Ilustración de la plataforma GERECHTBERG"
+    },
+    "cta": {
+      "create": "Crear un documento",
+      "discover": "Descubrir nuestros servicios",
+      "tryNow": "Probar ahora"
+    },
+    "services": {
+      "title": "Nuestras áreas de especialización",
+      "research": {
+        "alt": "Investigación jurídica",
+        "title": "Investigación jurídica",
+        "desc": "Accede a información clara y fiable sobre tus derechos en Alemania y Europa.",
+        "points": {
+          "1": "Acceso a fuentes oficiales DE/UE",
+          "2": "Resúmenes comprensibles y accionables",
+          "3": "Actualizaciones periódicas"
+        },
+        "cta": "Explorar"
+      },
+      "documents": {
+        "alt": "Documentos administrativos inteligentes",
+        "title": "Documentos administrativos inteligentes",
+        "desc": "Crea, descarga y exporta documentos conformes con la normativa europea.",
+        "points": {
+          "1": "Plantillas conformes a la UE",
+          "2": "Campos dinámicos y validaciones",
+          "3": "Exportación a PDF y Word"
+        },
+        "cta": "Crear un documento"
+      },
+      "translate": {
+        "alt": "Traducción multilingüe",
+        "title": "Traducción multilingüe",
+        "desc": "Traduce tus documentos oficiales a todos los idiomas europeos, de forma rápida y precisa.",
+        "points": {
+          "1": "Terminología jurídica fiable",
+          "2": "Idiomas europeos compatibles",
+          "3": "Revisión de calidad humana opcional"
+        },
+        "cta": "Traducir un documento"
+      }
+    },
+    "why": {
+      "title": "¿Por qué elegir GERECHTBERG?",
+      "imageAlt": "Ilustración de valores de GERECHTBERG",
+      "values": {
+        "clarity": { "title": "Claridad", "desc": "Lenguaje simple y comprensible para avanzar con calma." },
+        "compliance": { "title": "Cumplimiento", "desc": "Todos tus documentos respetan las normas europeas." },
+        "serenity": { "title": "Serenidad", "desc": "Menos estrés, más control sobre tus trámites." }
+      },
+      "tagline": "Acompañar a los extranjeros con claridad, confianza y simplicidad."
+    },
+    "how": {
+      "title": "¿Cómo funciona?",
+      "steps": {
+        "1": { "alt": "Elegir un servicio", "title": "Elige tu servicio", "desc": "Documento, coaching o investigación — según tus necesidades." },
+        "2": { "alt": "Personalizar y traducir", "title": "Personaliza y traduce", "desc": "Adapta tus documentos y traducciones con facilidad." },
+        "3": { "alt": "Descargar y usar", "title": "Descarga y usa", "desc": "Exporta documentos listos para usar." }
+      }
+    },
+    "testimonials": {
+      "title": "Lo que dicen nuestros usuarios",
+      "avatarAlt": "Icono de persona ficticia",
+      "items": {
+        "1": { "name": "Alex M.", "quote": "Pude crear y traducir mis documentos en 10 minutos." },
+        "2": { "name": "Fatima R.", "quote": "El coaching me ayudó a entender mis derechos en Alemania." },
+        "3": { "name": "Luca D.", "quote": "¡Una plataforma clara y tranquilizadora!" }
+      }
+    },
+    "final": {
+      "title": "¿Listo para simplificar tus trámites?",
+      "logoAlt": "GERECHTBERG",
+      "desc": "Descubre nuestras herramientas y acompañamiento para vivir en Alemania sin estrés.",
+      "cta": {
+        "appointment": "Reservar una cita",
+        "create": "Crear un documento"
+      }
     }
   }
 }

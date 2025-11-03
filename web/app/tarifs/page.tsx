@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import { useTranslation } from "react-i18next";
 import PageContent from "@/components/PageContent";
 import Link from "next/link";
@@ -9,6 +9,13 @@ const PRICES = {
   basic: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC!,
   pro: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO!,
   enterprise: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE!,
+};
+
+// Payment Link URLs (optionnels). Si défini, on redirige directement vers Stripe.
+const LINKS = {
+  basic: process.env.NEXT_PUBLIC_STRIPE_LINK_BASIC,
+  pro: process.env.NEXT_PUBLIC_STRIPE_LINK_PRO,
+  enterprise: process.env.NEXT_PUBLIC_STRIPE_LINK_ENTERPRISE,
 };
 
 function formatAmount(locale: string, amt?: number | null, currency?: string | null) {
@@ -22,7 +29,7 @@ function formatAmount(locale: string, amt?: number | null, currency?: string | n
 
 export default function TarifsPage() {
   const { t, i18n } = useTranslation();
-  const [loading, setLoading] = useState<string | null>(null);
+  const [loading, setLoading] = useState<"basic" | "pro" | "enterprise" | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [priceData, setPriceData] = useState<{
     basic?: { unit_amount?: number | null; currency?: string | null };
@@ -30,11 +37,27 @@ export default function TarifsPage() {
     enterprise?: { unit_amount?: number | null; currency?: string | null };
   }>({});
 
-  async function startCheckout(priceId: string) {
-    setLoading(priceId);
+  async function startCheckout(plan: "basic" | "pro" | "enterprise") {
+    setLoading(plan);
     setMessage(null);
+    const supabase = getSupabase();
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = supabase ? await supabase.auth.getUser() : { data: { user: null } } as any;
+      // Utiliser directement le lien Stripe si configuré pour ce plan
+      const linkForPlan = LINKS[plan as keyof typeof LINKS];
+      if (linkForPlan) {
+        const url = new URL(linkForPlan);
+        if (user?.id) url.searchParams.set("client_reference_id", user.id);
+        if (user?.email) url.searchParams.set("prefilled_email", user.email);
+        location.href = url.toString();
+        return;
+      }
+      // Sinon, basculer sur l'API Checkout avec l'identifiant de prix du plan
+      const priceId = PRICES[plan as keyof typeof PRICES];
+      if (!priceId) {
+        setMessage("Configuration manquante pour ce plan.");
+        return;
+      }
       const res = await fetch("/api/checkout", {
         method: "POST",
         body: JSON.stringify({ uid: user?.id, priceId }),
@@ -125,11 +148,11 @@ export default function TarifsPage() {
             {t("pricing.plans.pro.info")}
           </p>
           <button
-            disabled={loading === PRICES.pro}
-            onClick={() => startCheckout(PRICES.pro)}
+            disabled={loading === "pro"}
+            onClick={() => startCheckout("pro")}
             className="mt-3 w-full bg-brand text-white rounded py-2.5 sm:py-3"
           >
-            {loading === PRICES.pro ? t("pricing.loading") : t("pricing.choose.pro")}
+            {loading === "pro" ? t("pricing.loading") : t("pricing.choose.pro")}
           </button>
         </div>
         <div className="border rounded p-4">
@@ -154,11 +177,11 @@ export default function TarifsPage() {
             {t("pricing.plans.enterprise.info")}
           </p>
           <button
-            disabled={loading === PRICES.enterprise}
-            onClick={() => startCheckout(PRICES.enterprise)}
+            disabled={loading === "enterprise"}
+            onClick={() => startCheckout("enterprise")}
             className="mt-3 w-full bg-brand text-white rounded py-2.5 sm:py-3"
           >
-            {loading === PRICES.enterprise ? t("pricing.loading") : t("pricing.choose.enterprise")}
+            {loading === "enterprise" ? t("pricing.loading") : t("pricing.choose.enterprise")}
           </button>
         </div>
       </div>

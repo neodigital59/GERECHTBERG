@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import type { Session } from "@supabase/supabase-js";
 import Link from "next/link";
 
@@ -11,6 +11,12 @@ export default function AuthStatus() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const supabase = getSupabase();
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     let mounted = true;
     supabase.auth.getSession().then(({ data }) => {
       if (!mounted) return;
@@ -42,11 +48,26 @@ export default function AuthStatus() {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm">{session.user.email}</span>
+      <span className="text-sm">
+        {(
+          (session.user.user_metadata as any)?.full_name ||
+          (session.user.user_metadata as any)?.name ||
+          ([
+            (session.user.user_metadata as any)?.first_name,
+            (session.user.user_metadata as any)?.last_name,
+          ]
+            .filter(Boolean)
+            .join(" ")) ||
+          session.user.email
+        )}
+      </span>
       <button
         className="text-sm rounded-full px-3 py-2 border border-black/10 dark:border-white/15 hover:text-brand"
         onClick={async () => {
-          await supabase.auth.signOut();
+          const supabase = getSupabase();
+          if (supabase) {
+            await supabase.auth.signOut();
+          }
           location.href = "/";
         }}
       >

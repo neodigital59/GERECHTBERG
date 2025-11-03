@@ -4,6 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 export interface AuthUser {
   id: string;
   email?: string;
+  name?: string;
 }
 
 function getAccessToken(req: NextRequest): string | null {
@@ -25,7 +26,9 @@ export async function getUserFromRequest(req: NextRequest): Promise<AuthUser | n
     });
     const { data, error } = await client.auth.getUser();
     if (error || !data?.user) return null;
-    return { id: data.user.id, email: data.user.email ?? undefined };
+    const meta: any = data.user.user_metadata || {};
+    const name = meta.full_name || meta.name || [meta.first_name, meta.last_name].filter(Boolean).join(" ") || undefined;
+    return { id: data.user.id, email: data.user.email ?? undefined, name };
   } catch (_) {
     return null;
   }

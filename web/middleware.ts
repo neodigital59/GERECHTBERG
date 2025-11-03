@@ -5,6 +5,10 @@ function cspForEnv(isProd: boolean): string {
   const supaOrigin = (() => {
     try { return new URL(supabaseUrl).origin; } catch { return ""; }
   })();
+  const onecalUrl = process.env.NEXT_PUBLIC_ONECAL_URL || "";
+  const onecalOrigin = (() => {
+    try { return new URL(onecalUrl).origin; } catch { return "https://app.onecal.io"; }
+  })();
   const connectSrc = ["'self'", supaOrigin, "https://openrouter.ai", isProd ? null : "ws:"].filter(Boolean).join(" ");
   const imgSrc = "'self' data: https: blob:";
   const scriptSrc = isProd ? "'self' 'unsafe-inline'" : "'self' 'unsafe-inline' 'unsafe-eval'";
@@ -12,7 +16,12 @@ function cspForEnv(isProd: boolean): string {
   const fontSrc = "'self' data:";
   const baseUri = "'self'";
   const formAction = "'self' https://checkout.stripe.com";
-  const frameSrc = "'self' https://js.stripe.com https://checkout.stripe.com";
+  const frameSrc = [
+    "'self'",
+    "https://js.stripe.com",
+    "https://checkout.stripe.com",
+    onecalOrigin,
+  ].join(" ");
 
   const directives = [
     `default-src 'self'`,

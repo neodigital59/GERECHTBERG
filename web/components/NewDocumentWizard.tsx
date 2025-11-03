@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { useTranslation } from "react-i18next";
+import { getSupabase } from "@/lib/supabaseUtils";
 import CountrySelect from "@/components/CountrySelect";
 import { jsPDF } from "jspdf";
 import { Document as DocxDocument, Packer, Paragraph } from "docx";
@@ -114,6 +115,7 @@ function buildAutoPrompt(typeDoc: string, pays: string, langue: string, ton: str
 }
 
 export default function NewDocumentWizard() {
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [typeDoc, setTypeDoc] = useState(DOC_TYPES[0]);
   const [pays, setPays] = useState<string>("FR");
@@ -134,6 +136,7 @@ export default function NewDocumentWizard() {
   const [editorContent, setEditorContent] = useState<string>("");
   const [documentId, setDocumentId] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [quotaLimit, setQuotaLimit] = useState<boolean>(false);
 
   const [signed, setSigned] = useState(false);
   const [timestamped, setTimestamped] = useState(false);
@@ -243,11 +246,43 @@ export default function NewDocumentWizard() {
     await handleGenerate();
   }
 
+  async function checkQuotaLimitAndNotify(): Promise<boolean> {
+    try {
+      const supabase = getSupabase();
+      if (!supabase) return false;
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData.session?.access_token;
+      const r = await fetch('/api/usage', { headers: token ? { Authorization: `Bearer ${token}` } : {} });
+      const j = await r.json();
+      if (r.ok && j?.threshold === 'limit') {
+        setMessage(t('usage.limit'));
+        setQuotaLimit(true);
+        return true;
+      }
+    } catch {}
+    setQuotaLimit(false);
+    return false;
+  }
+
   async function autoCreateDraftIfNeeded(): Promise<string | null> {
     try {
+      const supabase = getSupabase();
+      if (!supabase) return null;
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return null;
       if (documentId) return documentId;
+      // Vérification du quota avant de créer un brouillon
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const token = sessionData.session?.access_token;
+        const r = await fetch('/api/usage', { headers: token ? { Authorization: `Bearer ${token}` } : {} });
+        const j = await r.json();
+        if (r.ok && j?.threshold === 'limit') {
+          setMessage(t('usage.limit'));
+          setQuotaLimit(true);
+          return null;
+        }
+      } catch {}
       const { data, error } = await supabase
         .from("documents")
         .insert({
@@ -304,6 +339,9 @@ export default function NewDocumentWizard() {
     setGenerating(true);
     setMessage(null);
     try {
+      if (await checkQuotaLimitAndNotify()) {
+        return;
+      }
       await autoCreateDraftIfNeeded();
       const detailsBase = [objectif, prompt].filter(Boolean).join(". ");
       const details = (useAdvancedPromptOnly && prompt.trim())
@@ -345,6 +383,9 @@ export default function NewDocumentWizard() {
     setRephrasing(true);
     setMessage(null);
     try {
+      if (await checkQuotaLimitAndNotify()) {
+        return;
+      }
       const details = `Reformuler le texte suivant avec un ton ${ton}:\n\n${editorContent}`;
       const r = await fetch("/api/generate", {
         method: "POST",
@@ -380,6 +421,9 @@ export default function NewDocumentWizard() {
     setTranslating(true);
     setMessage(null);
     try {
+      if (await checkQuotaLimitAndNotify()) {
+        return;
+      }
       if (!editorContent || !editorContent.trim()) {
         setMessage("Rien à traduire. Rédigez ou collez du texte.");
         return;
@@ -419,6 +463,8 @@ export default function NewDocumentWizard() {
     setSaving(true);
     setMessage(null);
     try {
+      const supabase = getSupabase();
+      if (!supabase) throw new Error("Base de données non configurée");
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error("Connexion requise");
       const statut = signed ? "signé" : timestamped ? "horodaté" : "draft";
@@ -439,6 +485,18 @@ export default function NewDocumentWizard() {
           .eq("id", documentId);
         if (error) throw error;
       } else {
+        // Vérification du quota avant insertion
+        try {
+          const { data: sessionData } = await supabase.auth.getSession();
+          const token = sessionData.session?.access_token;
+          const r = await fetch('/api/usage', { headers: token ? { Authorization: `Bearer ${token}` } : {} });
+          const j = await r.json();
+          if (r.ok && j?.threshold === 'limit') {
+            throw new Error(t('usage.limit'));
+          }
+        } catch (e: any) {
+          if (e?.message) throw e;
+        }
         const { data, error } = await supabase
           .from("documents")
           .insert({
@@ -667,7 +725,11 @@ export default function NewDocumentWizard() {
                 <button className="px-4 py-2 bg-brand text-white rounded disabled:opacity-50" disabled={generating} onClick={handleGenerate}>{generating?"Rédaction...":"Rédiger le document"}</button>
                 <button className="px-4 py-2 border rounded" onClick={()=>setStep(0)}>Retour</button>
               </div>
-              {message && <div className="text-sm text-blue-600">{message}</div>}
+              {message && (
+                <div className={`text-sm ${quotaLimit ? "text-red-600" : "text-blue-600"}`}>
+                  {message}
+                </div>
+              )}
             </div>
           )}
 
@@ -693,7 +755,11 @@ export default function NewDocumentWizard() {
                 <button className="px-4 py-2 border rounded disabled:opacity-50" disabled={saving} onClick={handleSaveDraft}>{saving?"Enregistrement...":"Enregistrer le brouillon"}</button>
                 <button className="px-4 py-2 border rounded" onClick={()=>setStep(4)}>Suivant</button>
               </div>
-              {message && <div className="text-sm text-blue-600">{message}</div>}
+              {message && (
+                <div className={`text-sm ${quotaLimit ? "text-red-600" : "text-blue-600"}`}>
+                  {message}
+                </div>
+              )}
             </div>
           )}
 
@@ -707,7 +773,11 @@ export default function NewDocumentWizard() {
                 <button className="px-4 py-2 border rounded" onClick={share}>Partager</button>
                 <button className="px-4 py-2 bg-brand text-white rounded" onClick={handleFinish}>Terminer</button>
               </div>
-              {message && <div className="text-sm text-blue-600">{message}</div>}
+              {message && (
+                <div className={`text-sm ${quotaLimit ? "text-red-600" : "text-blue-600"}`}>
+                  {message}
+                </div>
+              )}
             </div>
           )}
         </div>

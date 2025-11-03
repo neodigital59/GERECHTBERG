@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState, useMemo } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import SubscriptionStatus from "@/components/SubscriptionStatus";
+import UsageBanner from "@/components/UsageBanner";
 import RequireAuth from "@/components/RequireAuth";
 import { useTranslation } from "react-i18next";
 import PageContent from "@/components/PageContent";
@@ -14,6 +15,7 @@ interface DocumentRow {
   langue: string | null;
   statut: string | null;
   date_creation: string;
+  contenu?: string | null;
 }
 
 interface VersionRow {
@@ -36,6 +38,13 @@ function statusIcon(s: string | null) {
   if (v === "horodaté") return "⏲️";
   if (v === "publié") return "📄";
   return "📝"; // draft
+}
+
+function typeIcon(type: string | null) {
+  const t = (type || "").toLowerCase();
+  if (t.includes("lettre")) return "✍️";
+  if (t.includes("confidentialité") || t.includes("nda")) return "🔏";
+  return "📄";
 }
 
 async function sha256(text: string) {
@@ -65,6 +74,12 @@ export default function DocumentsPage() {
 
   useEffect(() => {
     let mounted = true;
+    const supabase = getSupabase();
+    if (!supabase) {
+      setLoading(false);
+      setActLoading(false);
+      return;
+    }
     supabase.auth.getSession().then(async ({ data }) => {
       const uid = data.session?.user?.id;
       if (!uid) {
@@ -74,7 +89,7 @@ export default function DocumentsPage() {
       }
       const { data: rows } = await supabase
         .from("documents")
-        .select("id,titre,type,langue,statut,date_creation")
+        .select("id,titre,type,langue,statut,date_creation,contenu")
         .eq("user_id", uid)
         .order("date_creation", { ascending: false });
       if (mounted) {
@@ -145,7 +160,8 @@ export default function DocumentsPage() {
         (d.titre ?? "").toLowerCase().includes(q) ||
         (d.type ?? "").toLowerCase().includes(q) ||
         (d.langue ?? "").toLowerCase().includes(q) ||
-        (d.statut ?? "").toLowerCase().includes(q);
+        (d.statut ?? "").toLowerCase().includes(q) ||
+        (d.contenu ?? "").toLowerCase().includes(q);
       const matchesStatus = statusFilter === "tous" || (d.statut ?? "") === statusFilter;
       return matchesQuery && matchesStatus;
     });
@@ -171,12 +187,25 @@ const totalDocs = docs.length;
 const signedDocs = signedCount;
 const lastActivityLabel = lastActivity ? lastActivity.toLocaleDateString() : "—";
 
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  function toggleExpand(id: string) {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  }
+
   async function signFromList(id: string) {
+    const supabase = getSupabase();
+    if (!supabase) return;
     await supabase.from("documents").update({ statut: "signé" }).eq("id", id);
     setDocs((prev) => prev.map((d) => (d.id === id ? { ...d, statut: "signé" } : d)));
   }
 
   async function timestampFromList(id: string) {
+    const supabase = getSupabase();
+    if (!supabase) return;
     const { data } = await supabase.from("documents").select("contenu").eq("id", id).maybeSingle();
     const text = (data as any)?.contenu || "";
     const hash = await sha256(text);
@@ -185,9 +214,21 @@ const lastActivityLabel = lastActivity ? lastActivity.toLocaleDateString() : "�
   }
 
   async function duplicateFromList(id: string) {
+    const supabase = getSupabase();
+    if (!supabase) return;
     const { data: sessionData } = await supabase.auth.getSession();
     const uid = sessionData.session?.user?.id;
     if (!uid) return;
+    // Vérification du quota
+    try {
+      const token = sessionData.session?.access_token;
+      const r = await fetch('/api/usage', { headers: token ? { Authorization: `Bearer ${token}` } : {} });
+      const j = await r.json();
+      if (r.ok && j?.threshold === 'limit') {
+        alert('Quota atteint — duplication bloquée jusqu’à la réinitialisation.');
+        return;
+      }
+    } catch {}
     const { data } = await supabase.from("documents").select("*").eq("id", id).maybeSingle();
     if (!data) return;
     const original = data as any;
@@ -252,6 +293,8 @@ const lastActivityLabel = lastActivity ? lastActivity.toLocaleDateString() : "�
     setSendResult(null);
     if (!isValidEmail(sendTo)) { setSendResult("Email destinataire invalide"); return; }
     if (selectedIds.size === 0) { setSendResult("Sélectionnez au moins un document"); return; }
+    const supabase = getSupabase();
+    if (!supabase) { setSendResult("Service indisponible"); return; }
     try {
       setSendLoading(true);
       const { data: sessionData } = await supabase.auth.getSession();
@@ -295,6 +338,10 @@ const lastActivityLabel = lastActivity ? lastActivity.toLocaleDateString() : "�
             <Link href="/tarifs" className="w-full sm:w-auto rounded px-3 py-2 border hover:text-brand">{t('actions.pricing')}</Link>
           </div>
         </div>
+        {/* Bande d'état d'usage */}
+        <div className="mt-4">
+          <UsageBanner />
+        </div>
         {/* Grille principale avec sidebar */}
         <div className="grid xl:grid-cols-4 gap-6 mt-6">
           {/* Barre latérale de navigation */}
@@ -334,84 +381,70 @@ const lastActivityLabel = lastActivity ? lastActivity.toLocaleDateString() : "�
             </div>
           </div>
 
-          <div className="bg-white border rounded-xl p-0 shadow-sm overflow-hidden">
+          <div className="p-0">
             {loading ? (
               <div className="p-4">
-                <div className="space-y-2 animate-pulse">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="h-10 bg-black/5 rounded" />
+                <div className="space-y-3 animate-pulse">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="h-24 bg-black/5 rounded-2xl" />
                   ))}
                 </div>
               </div>
             ) : filteredDocs.length === 0 ? (
-              <div className="p-6 text-center">
+              <div className="p-6 text-center bg-white border rounded-xl shadow-sm">
                 <p className="text-sm text-black/70 mb-3">{t('documents.emptyState.message')}</p>
                 <Link href="/documents/new" className="inline-block px-4 py-2 bg-brand text-white rounded">{t('documents.emptyState.createOne')}</Link>
               </div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="min-w-full text-xs sm:text-sm">
-                  <thead className="bg-black/5">
-                    <tr>
-                      <th className="text-left px-4 py-2 font-medium">
-                        <input type="checkbox" onChange={(e) => e.target.checked ? selectAllFiltered() : clearSelection()} checked={selectedIds.size > 0 && filteredDocs.every((d) => selectedIds.has(d.id))} />
-                      </th>
-                      <th className="text-left px-4 py-2 font-medium">
-                        <button onClick={() => { setSortBy("titre"); setSortDir(sortBy === "titre" && sortDir === "asc" ? "desc" : "asc"); }} className="flex items-center gap-1">
-                          {t('documents.table.title')} {sortBy === "titre" ? (sortDir === "asc" ? "▲" : "▼") : ""}
-                        </button>
-                      </th>
-                      <th className="text-left px-4 py-2 font-medium">
-                        <button onClick={() => { setSortBy("type"); setSortDir(sortBy === "type" && sortDir === "asc" ? "desc" : "asc"); }} className="flex items-center gap-1">
-                          {t('documents.table.type')} {sortBy === "type" ? (sortDir === "asc" ? "▲" : "▼") : ""}
-                        </button>
-                      </th>
-                      <th className="text-left px-4 py-2 font-medium">
-                        <button onClick={() => { setSortBy("langue"); setSortDir(sortBy === "langue" && sortDir === "asc" ? "desc" : "asc"); }} className="flex items-center gap-1">
-                          {t('documents.table.language')} {sortBy === "langue" ? (sortDir === "asc" ? "▲" : "▼") : ""}
-                        </button>
-                      </th>
-                      <th className="text-left px-4 py-2 font-medium">
-                        <button onClick={() => { setSortBy("statut"); setSortDir(sortBy === "statut" && sortDir === "asc" ? "desc" : "asc"); }} className="flex items-center gap-1">
-                          {t('documents.table.status')} {sortBy === "statut" ? (sortDir === "asc" ? "▲" : "▼") : ""}
-                        </button>
-                      </th>
-                      <th className="text-left px-4 py-2 font-medium">
-                        <button onClick={() => { setSortBy("date_creation"); setSortDir(sortBy === "date_creation" && sortDir === "asc" ? "desc" : "asc"); }} className="flex items-center gap-1">
-                          {t('documents.table.createdAt')} {sortBy === "date_creation" ? (sortDir === "asc" ? "▲" : "▼") : ""}
-                        </button>
-                      </th>
-                      <th className="text-right px-4 py-2 font-medium">{t('documents.table.actions')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredDocs.map((d) => (
-                      <tr key={d.id} className="border-t">
-                        <td className="px-4 py-2">
-                          <input type="checkbox" checked={selectedIds.has(d.id)} onChange={() => toggleSelected(d.id)} />
-                        </td>
-                        <td className="px-4 py-2">
-                          <div className="font-medium">{d.titre ?? "Sans titre"}</div>
-                        </td>
-                        <td className="px-4 py-2">{d.type ?? "—"}</td>
-                        <td className="px-4 py-2">{d.langue ?? "—"}</td>
-                        <td className="px-4 py-2">
-                          <span className={`inline-flex items-center px-2 py-1 rounded text-xs ${statusClasses(d.statut)}`}>
-                            <span className="mr-1">{statusIcon(d.statut)}</span>
-                            {d.statut ?? "draft"}
-                          </span>
-                        </td>
-                        <td className="px-4 py-2">{new Date(d.date_creation).toLocaleDateString()}</td>
-                        <td className="px-4 py-2 text-right flex flex-wrap justify-end gap-2">
-                          <Link href={`/documents/${d.id}`} className="text-sm px-3 py-1 rounded bg-brand text-white hover:bg-brand/80">{t('actions.open')}</Link>
-                          <button onClick={() => shareFromList(d.id)} className="text-sm px-3 py-1 border rounded hover:text-brand">{t('actions.share')}</button>
-                          <button onClick={() => duplicateFromList(d.id)} className="text-sm px-3 py-1 border rounded hover:text-brand">{t('actions.duplicate')}</button>
-                          {/* Signature & Horodatage masqués: à venir */}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {filteredDocs.map((d) => (
+                  <div key={d.id} className="bg-white border rounded-2xl p-4 shadow-sm flex flex-col gap-3">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="text-xl">{typeIcon(d.type)}</span>
+                        <div className="min-w-0">
+                          <div className="font-medium truncate">{d.titre ?? t('documentDetail.untitled')}</div>
+                          <div className="text-xs text-black/60 truncate">{d.type ?? "—"} · {d.langue ?? "—"}</div>
+                        </div>
+                      </div>
+                      <span className={`inline-flex items-center px-2 py-1 rounded text-xs ${statusClasses(d.statut)}`}>
+                        <span className="mr-1">{statusIcon(d.statut)}</span>
+                        {d.statut ?? "draft"}
+                      </span>
+                    </div>
+                    {/* Extrait de contenu avec Voir plus / Voir moins */}
+                    {(() => {
+                      const content = (d.contenu || '').replace(/\s+/g, ' ').trim();
+                      const longTitle = (d.titre || '').length > 60;
+                      const longContent = content.length > 160;
+                      const shouldShowToggle = longTitle || longContent;
+                      const isExpanded = expandedIds.has(d.id);
+                      const preview = content.slice(0, 160);
+                      return (
+                        <div className="space-y-2">
+                          {content && (
+                            <div className="text-sm text-black/70">
+                              {isExpanded ? content : preview + (longContent ? '…' : '')}
+                            </div>
+                          )}
+                          {shouldShowToggle && (
+                            <button onClick={() => toggleExpand(d.id)} className="text-xs text-brand hover:underline">
+                              {isExpanded ? t('cards.seeLess') : t('cards.seeMore')}
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })()}
+                    <div className="flex items-center justify-between text-xs text-black/60">
+                      <span>Créé le {new Date(d.date_creation).toLocaleDateString()}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <Link href={`/documents/${d.id}`} className="px-3 py-2 rounded bg-brand text-white hover:bg-brand/80">{t('actions.open')}</Link>
+                      <button onClick={() => shareFromList(d.id)} className="px-3 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">{t('actions.share')}</button>
+                      <button onClick={() => duplicateFromList(d.id)} className="px-3 py-2 rounded bg-amber-500 text-white hover:bg-amber-600">{t('actions.duplicate')}</button>
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
           </div>

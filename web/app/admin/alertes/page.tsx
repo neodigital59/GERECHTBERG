@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import RequireAuth from "@/components/RequireAuth";
 
 interface TrialAlert { user_id: string; email?: string; trial_end: string; days_left: number; }
@@ -19,6 +19,11 @@ export default function AdminAlertsPage() {
       setLoading(true);
       setError(null);
       try {
+        const supabase = getSupabase();
+        if (!supabase) {
+          if (mounted) setError("Service indisponible");
+          return;
+        }
         const { data: { session } } = await supabase.auth.getSession();
         const token = session?.access_token;
         const res = await fetch("/api/admin/alertes", { headers: token ? { Authorization: `Bearer ${token}` } : undefined });

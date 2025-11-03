@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import { Bar, Pie, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -35,6 +35,11 @@ export default function AdminAnalyticsPage() {
       setLoading(true);
       setError(null);
       try {
+        const supabase = getSupabase();
+        if (!supabase) {
+          if (mounted) setError("Service indisponible");
+          return;
+        }
         const { data: { session } } = await supabase.auth.getSession();
         const token = session?.access_token;
         const res = await fetch("/api/admin/analytics", {

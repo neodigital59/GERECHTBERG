@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import { jsPDF } from "jspdf";
 import { Document as DocxDocument, Packer, Paragraph } from "docx";
 import { useTranslation } from "react-i18next";
@@ -20,6 +20,11 @@ export default function DocumentDetailPage() {
   useEffect(() => {
     let mounted = true;
     async function load() {
+      const supabase = getSupabase();
+      if (!supabase) {
+        setLoading(false);
+        return;
+      }
       const { data } = await supabase.from("documents").select("*").eq("id", id).maybeSingle();
       if (mounted) {
         setDoc(data);
@@ -44,6 +49,12 @@ export default function DocumentDetailPage() {
   async function saveVersionAndUpdate() {
     setLoading(true);
     setMessage(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setMessage("Service indisponible");
+      setLoading(false);
+      return;
+    }
     try {
       const { data: versions } = await supabase
         .from("document_versions")
@@ -68,6 +79,12 @@ export default function DocumentDetailPage() {
   async function timestampDocument() {
     setLoading(true);
     setMessage(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setMessage("Service indisponible");
+      setLoading(false);
+      return;
+    }
     try {
       const res = await fetch("/api/timestamp", {
         method: "POST",
@@ -75,7 +92,7 @@ export default function DocumentDetailPage() {
         body: JSON.stringify({ documentId: id, content })
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Échec de l’horodatage");
+      if (!res.ok) throw new Error(json.error || "Échec de l'horodatage");
       setMessage(t("documentDetail.msg.timestamped"));
       const { data } = await supabase.from("documents").select("*").eq("id", id).maybeSingle();
       setDoc(data);
@@ -213,38 +230,24 @@ export default function DocumentDetailPage() {
           <p className="text-sm text-black/60">{doc?.type || "—"} · {lang.toUpperCase()} · {doc?.statut || "brouillon"}</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="px-3 py-2 rounded border" onClick={saveVersionAndUpdate} disabled={loading}>{t("documentDetail.actions.saveVersion")}</button>
-          <button className="px-3 py-2 rounded border" onClick={shareDocument}>{t("documentDetail.actions.share")}</button>
+          <button className="px-3 py-2 rounded border" onClick={saveVersionAndUpdate} disabled={loading}>{t("documentDetail.actions.save")}</button>
+          <button className="px-3 py-2 rounded border" onClick={shareDocument}>{t("documentDetail.share.share")}</button>
         </div>
       </div>
 
-      <textarea value={content} onChange={(e)=>setContent(e.target.value)} className="w-full min-h-[240px] rounded border p-3" placeholder={t("documentDetail.placeholder") || ""} />
+      <textarea value={content} onChange={(e)=>setContent(e.target.value)} className="w-full min-h-[240px] rounded border p-3" placeholder={t("documentDetail.placeholder", "Saisissez ou modifiez le contenu du document") || ""} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="rounded-xl border bg-white shadow-sm">
-          <div className="p-4 border-b">
-            <div className="font-semibold">Signature électronique (désactivée)</div>
-            <div className="text-black/60 text-sm">Cette fonctionnalité a été retirée de cette installation.</div>
-          </div>
-          <div className="p-4 space-y-3">
-+            <label className="flex items-center gap-2 text-sm">
-+              <input type="checkbox" checked={embedded} onChange={(e)=>setEmbedded(e.target.checked)} />
-+              <span>Signature embarquée (sinon envoi par email)</span>
-+            </label>
-             <button onClick={sendToDocuSign} className="px-4 py-2 rounded border" disabled>Envoyer pour signature</button>
-             <div className="text-xs text-black/60">La signature DocuSign est désactivée.</div>
-          </div>
+      {/* Fonctionnalités à venir: masquer signature et horodatage */}
+      <div className="rounded-xl border bg-white shadow-sm">
+        <div className="p-4 border-b">
+          <div className="font-semibold">{t('documentDetail.comingSoon.title', 'Fonctionnalités à venir')}</div>
+          <div className="text-black/60 text-sm">{t('documentDetail.comingSoon.desc', 'La signature électronique et l’horodatage seront bientôt disponibles.')}</div>
         </div>
-
-        <div className="rounded-xl border bg-white shadow-sm">
-          <div className="p-4 border-b">
-            <div className="font-semibold">Horodatage</div>
-            <div className="text-black/60 text-sm">Preuve de l’intégrité avec reçu HMAC (ou TSA si configuré)</div>
-          </div>
-          <div className="p-4 space-y-3">
-            <button onClick={timestampDocument} className="px-4 py-2 rounded bg-brand text-white">Horodater le document</button>
-            <button onClick={verifyIntegrity} className="px-4 py-2 rounded border">Vérifier l’intégrité</button>
-          </div>
+        <div className="p-4 text-sm text-black/70">
+          <ul className="list-disc pl-5 space-y-1">
+            <li>{t('documentDetail.comingSoon.signature', 'Signature électronique des documents')}</li>
+            <li>{t('documentDetail.comingSoon.timestamp', 'Horodatage des documents')}</li>
+          </ul>
         </div>
       </div>
 
@@ -258,7 +261,7 @@ export default function DocumentDetailPage() {
           <button className="px-3 py-2 rounded border" onClick={downloadDocx}>DOCX</button>
           <button className="px-3 py-2 rounded border" onClick={downloadTxt}>TXT</button>
           <button className="px-3 py-2 rounded border" onClick={exportJSON}>JSON</button>
-          <button className="px-3 py-2 rounded border" onClick={copyLink}>{t("documentDetail.actions.copyLink")}</button>
+          <button className="px-3 py-2 rounded border" onClick={copyLink}>{t("documentDetail.share.copyLink")}</button>
         </div>
       </div>
 

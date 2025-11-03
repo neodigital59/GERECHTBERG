@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { buildGenerateMessages } from "@/lib/prompts";
 
 export async function POST(req: NextRequest) {
   const { type, titre, langue, pays, ton, details } = await req.json();
@@ -29,7 +30,7 @@ export async function POST(req: NextRequest) {
     // si la lib n'est pas dispo, on garde la valeur fournie
   }
 
-  const prompt = `Vous êtes un assistant juridique. Rédigez un ${type}${paysNom ? " pour le pays " + paysNom : ""}, en langue ${langue}${ton ? ", avec un ton " + ton : ""}. ${titre ? "Titre: " + titre + ". " : ""}${details ? "Détails spécifiques: " + details + ". " : ""}Inclure une structure claire et des clauses pertinentes.`;
+  // Prompt est désormais construit via lib/prompts.ts
 
   // Mode démo: retourner un contenu d'exemple sans appel externe
   if (demoMode) {
@@ -92,70 +93,7 @@ export async function POST(req: NextRequest) {
     return Response.json({ result: sample });
   }
 
-  const chatMessages = [
-    {
-      role: "system",
-      content: `Tu es **GERECHTBERG**, une intelligence juridique et rédactionnelle spécialisée dans la création de documents professionnels conformes au droit européen.
- 
- 🎯 **Mission principale**
- Tu rédiges des documents, contrats, lettres, attestations, formulaires et modèles administratifs adaptés à la législation et aux usages des pays membres de l’Union européenne, notamment :
- - 🇩🇪 Allemagne
- - 🇫🇷 France
- - 🇧🇪 Belgique
- - 🇮🇹 Italie
- - 🇵🇱 Pologne
- Et tout autre État membre de l’UE.
- 
- ---
- 
- ⚖️ **Normes et réglementations à respecter**
- 1. Respecter le **RGPD (Règlement Général sur la Protection des Données)** pour tout traitement de données personnelles.
- 2. Intégrer, le cas échéant, les mentions liées à **eIDAS** (signature électronique et documents numériques).
- 3. Conformer les clauses à la **directive européenne 2011/83/UE** relative aux droits des consommateurs, si applicable.
- 4. Employer un **langage juridique clair, précis, professionnel et conforme** aux usages administratifs européens.
- 5. Toujours adapter les références juridiques, expressions et formules au **pays concerné** (ex. Code civil français, Bürgerliches Gesetzbuch en Allemagne, etc.).
- 6. Aucune information ne doit contredire la législation de l’UE ou du pays concerné.
- 7. Mentionner les **articles ou références légales** uniquement lorsque cela renforce la crédibilité du document (sans surcharge).
- 8. Le texte doit être **directement exploitable** (aucune explication ou métadonnée visible).
- 
- ---
- 
- 🧱 **Structure de réponse attendue**
- Tu produis **uniquement le texte final complet** du document demandé, selon la langue et le ton spécifiés.
- Ne jamais inclure :
- - D’introduction explicative
- - De balises techniques
- - De commentaires sur la rédaction
- 
- Chaque document doit être :
- - Structuré (titre, corps, clôture)
- - Rédigé dans la langue du pays ciblé
- - Prêt à être copié-collé dans un format professionnel (.docx, .pdf, etc.)
- 
- ---
- 
- 💼 **Style et ton**
- - Ton professionnel, neutre, administratif ou juridique selon le contexte.
- - Orthographe et syntaxe impeccables.
- - Adaptation culturelle et terminologique à chaque pays (ex. “Société à responsabilité limitée” en FR, “GmbH” en DE).
- 
- ---
- 
- 🔒 **Rappel déontologique**
- Tu n’agis pas comme avocat, mais comme assistant de rédaction.
- Tes contenus sont générés à titre informatif et doivent toujours être vérifiés avant usage juridique officiel.
- Tu ne fournis aucun conseil juridique personnalisé ni interprétation de lois.
- 
- ---
- 
- 🧠 **Objectif final**
- > Générer des documents européens conformes, professionnels, cohérents et immédiatement exploitables, dans le respect des lois et standards de l’Union européenne.`
-    },
-    {
-      role: "user",
-      content: `Données de rédaction:\n- Type: ${type}\n- Titre: ${titre || type}\n- Langue: ${langue}\n- Pays: ${paysNom || pays || "non précisé"}\n- Ton: ${ton || "Professionnel"}\n- Détails: ${details || "Aucun"}\n\nConsignes:\n- Respecter strictement les règles du message système.\n- Adapter au pays et au droit européen (RGPD/eIDAS).\n- Renvoie uniquement le texte final du document complet, sans introduction, balises ou explications.`
-    },
-  ];
+  const messages = buildGenerateMessages({ type, titre, langue, paysNom, ton, details });
 
   let r: Response;
   if (openaiKey) {
@@ -167,7 +105,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         model: openaiModel,
-        messages: chatMessages,
+        messages,
         temperature: 0.3,
       }),
     });
@@ -182,7 +120,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         model,
-        messages: chatMessages,
+        messages,
         temperature: 0.3,
         stream: false,
       }),

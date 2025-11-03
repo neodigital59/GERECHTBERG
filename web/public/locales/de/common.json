@@ -29,6 +29,13 @@
     "manage": "Mein Abonnement verwalten",
     "cancelAtPeriodEnd": "Am Periodenende kündigen"
   },
+  "usage": {
+    "planUnlimited": "Plan {{plan}} — unbegrenzte Dokumente",
+    "planUsage": "Plan {{plan}} — {{used}}/{{max}} Dokumente genutzt",
+    "warn": "Sie haben 80 % Ihres Kontingents erreicht. Erwägen Sie ein Upgrade auf Pro.",
+    "limit": "Kontingent erreicht — Erstellung neuer Dokumente bis zur Zurücksetzung blockiert.",
+    "error": "Nutzung konnte nicht geladen werden: {{message}}"
+  },
   "email": {
     "title": "Per E-Mail senden",
     "recipient": "Empfänger",
@@ -46,6 +53,20 @@
     "contact": "Kontakt",
     "appointments": "Termine",
     "title": "Navigation"
+  },
+  "mobile": {
+    "menu": "Menü",
+    "close": "Schließen"
+  },
+  "appointments": {
+    "title": "Termin buchen",
+    "subtitle": "Planen Sie Ihre Beratung mit unserem Team",
+    "bookNow": "Jetzt buchen",
+    "openInApp": "In der App öffnen",
+    "openExternal": "Auf OneCal öffnen",
+    "loading": "Kalender wird geladen...",
+    "error": "Kalender konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "fallbackText": "Falls der Kalender nicht angezeigt wird, können Sie direkt auf unsere Buchungsseite zugreifen."
   },
   "auth": {
     "sign_in": "Anmelden",
@@ -77,6 +98,10 @@
       "message": "Kein Dokument entspricht. Versuchen Sie, Ihre Suche anzupassen.",
       "createOne": "Dokument erstellen"
     }
+  },
+  "cards": {
+    "seeMore": "Mehr anzeigen",
+    "seeLess": "Weniger anzeigen"
   },
   "documentDetail": {
     "loading": "Laden…",
@@ -373,6 +398,90 @@
       "updateError": "Aktualisierungsfehler",
       "deleted": "Termin gelöscht",
       "deleteError": "Löschfehler"
+    }
+  },
+  "homeV2": {
+    "hero": {
+      "title": "Vereinfachen Sie Ihr Leben in Deutschland.",
+      "desc": "Erstellen, übersetzen und verwalten Sie Ihre Verwaltungsdokumente gemäß deutschen und EU‑Vorschriften.",
+      "alt": "GERECHTBERG Plattform‑Illustration"
+    },
+    "cta": {
+      "create": "Dokument erstellen",
+      "discover": "Unsere Dienste entdecken",
+      "tryNow": "Jetzt ausprobieren"
+    },
+    "services": {
+      "title": "Unsere Fachgebiete",
+      "research": {
+        "alt": "Juristische Recherche",
+        "title": "Juristische Recherche",
+        "desc": "Greifen Sie auf klare und verlässliche Informationen zu Ihren Rechten in Deutschland und Europa zu.",
+        "points": {
+          "1": "Zugang zu offiziellen DE/EU‑Quellen",
+          "2": "Verständliche, handlungsorientierte Zusammenfassungen",
+          "3": "Regelmäßige Aktualisierungen"
+        },
+        "cta": "Entdecken"
+      },
+      "documents": {
+        "alt": "Intelligente Verwaltungsdokumente",
+        "title": "Intelligente Verwaltungsdokumente",
+        "desc": "Erstellen, laden und exportieren Sie konforme Dokumente nach EU‑Vorgaben.",
+        "points": {
+          "1": "EU‑konforme Vorlagen",
+          "2": "Dynamische Felder und Validierungen",
+          "3": "Export als PDF und Word"
+        },
+        "cta": "Dokument erstellen"
+      },
+      "translate": {
+        "alt": "Mehrsprachige Übersetzung",
+        "title": "Mehrsprachige Übersetzung",
+        "desc": "Übersetzen Sie amtliche Dokumente in alle europäischen Sprachen schnell und präzise.",
+        "points": {
+          "1": "Zuverlässige juristische Terminologie",
+          "2": "Europäische Sprachen unterstützt",
+          "3": "Optionaler menschlicher Qualitätscheck"
+        },
+        "cta": "Dokument übersetzen"
+      }
+    },
+    "why": {
+      "title": "Warum GERECHTBERG wählen?",
+      "imageAlt": "Illustration GERECHTBERG Werte",
+      "values": {
+        "clarity": { "title": "Klarheit", "desc": "Einfache, verständliche Sprache für gelassenes Vorankommen." },
+        "compliance": { "title": "Konformität", "desc": "Alle Ihre Dokumente entsprechen europäischen Normen." },
+        "serenity": { "title": "Gelassenheit", "desc": "Weniger Stress, mehr Kontrolle über Ihre Verfahren." }
+      },
+      "tagline": "Menschen in der Fremde stärken – mit Klarheit, Vertrauen und Einfachheit."
+    },
+    "how": {
+      "title": "So funktioniert’s",
+      "steps": {
+        "1": { "alt": "Dienst auswählen", "title": "Wählen Sie Ihren Dienst", "desc": "Dokument, Coaching oder Recherche — je nach Bedarf." },
+        "2": { "alt": "Anpassen und übersetzen", "title": "Anpassen und übersetzen", "desc": "Passen Sie Ihre Dokumente und Übersetzungen mühelos an." },
+        "3": { "alt": "Herunterladen und verwenden", "title": "Herunterladen und verwenden", "desc": "Exportieren Sie einsatzbereite Dokumente." }
+      }
+    },
+    "testimonials": {
+      "title": "Was unsere Nutzer sagen",
+      "avatarAlt": "Symbol für Platzhalter‑Person",
+      "items": {
+        "1": { "name": "Alex M.", "quote": "Ich konnte meine Dokumente in 10 Minuten erstellen und übersetzen." },
+        "2": { "name": "Fatima R.", "quote": "Das Coaching hat mir geholfen, meine Rechte in Deutschland zu verstehen." },
+        "3": { "name": "Luca D.", "quote": "Eine klare und beruhigende Plattform!" }
+      }
+    },
+    "final": {
+      "title": "Bereit, Ihre Verfahren zu vereinfachen?",
+      "logoAlt": "GERECHTBERG",
+      "desc": "Entdecken Sie unsere Tools und Begleitung für ein stressfreies Leben in Deutschland.",
+      "cta": {
+        "appointment": "Termin vereinbaren",
+        "create": "Dokument erstellen"
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 // remove: import CountrySelect from "@/components/CountrySelect";
 import countries from "i18n-iso-countries";
 import fr from "i18n-iso-countries/langs/fr.json";
@@ -15,6 +15,9 @@ function addDays(date: Date, days: number) {
 }
 
 async function ensureTrialProfile(userId: string, email: string, name?: string | null, country?: string | null) {
+  const supabase = getSupabase();
+  if (!supabase) return;
+  
   const { data: existing } = await supabase
     .from("users")
     .select("id")
@@ -70,6 +73,8 @@ export default function AuthPage() {
 
   useEffect(() => {
     // Si déjà connecté (retour OAuth), redirige vers next
+    const supabase = getSupabase();
+    if (!supabase) return;
     supabase.auth.getUser().then(async ({ data }) => {
       const user = data.user;
       if (!user) return;
@@ -106,6 +111,8 @@ export default function AuthPage() {
         if (!res.ok) throw new Error(out.error || "Inscription impossible");
         setMessage(out.message || "Inscription initiée. Vérifiez votre email.");
       } else {
+        const supabase = getSupabase();
+        if (!supabase) throw new Error("Service indisponible");
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         if (data.user) {
@@ -124,6 +131,8 @@ export default function AuthPage() {
   async function signInWithGoogle() {
     const target = nextUrl || "/";
     try { localStorage.setItem("post_auth_next", target); } catch {}
+    const supabase = getSupabase();
+    if (!supabase) return;
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: { redirectTo: location.origin },
@@ -191,6 +200,11 @@ export default function AuthPage() {
             required
             aria-describedby="pw-help"
           />
+          {mode === "signin" && (
+            <p className="text-xs mt-2">
+              <a href="/auth/mot-de-passe-oublie" className="text-brand hover:underline">Mot de passe oublié ?</a>
+            </p>
+          )}
           {mode === "signup" && (
             <input
               type={showConfirm ? "text" : "password"}

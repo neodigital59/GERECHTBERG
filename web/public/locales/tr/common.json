@@ -202,8 +202,91 @@
       "text1": "Bazı gelişmiş özellikler (premium şablonlar, imzalar, zaman damgaları) aktif abonelik gerektirebilir.",
       "text2": "Demo modunda, yazım ve çeviri örnek içerik gösterir."
     }
-  }
-  ,
+  },
+  "homeV2": {
+    "hero": {
+      "title": "Almanya'daki hayatınızı basitleştirin.",
+      "desc": "Alman ve AB kurallarına tam uyum sağlayarak idari belgelerinizi oluşturun, çevirin ve yönetin.",
+      "alt": "GERECHTBERG platform illüstrasyonu"
+    },
+    "cta": {
+      "create": "Belge oluştur",
+      "discover": "Hizmetlerimizi keşfedin",
+      "tryNow": "Şimdi deneyin"
+    },
+    "services": {
+      "title": "Uzmanlık alanlarımız",
+      "research": {
+        "alt": "Hukuki araştırma",
+        "title": "Hukuki araştırma",
+        "desc": "Almanya ve Avrupa'daki haklarınız hakkında net ve güvenilir bilgilere erişin.",
+        "points": {
+          "1": "Resmi DE/AB kaynaklarına erişim",
+          "2": "Anlaşılır, uygulanabilir özetler",
+          "3": "Düzenli güncellemeler"
+        },
+        "cta": "Keşfet"
+      },
+      "documents": {
+        "alt": "Akıllı idari belgeler",
+        "title": "Akıllı idari belgeler",
+        "desc": "Avrupa düzenlemelerine uygun belgeler oluşturun, indirin ve dışa aktarın.",
+        "points": {
+          "1": "AB uyumlu şablonlar",
+          "2": "Dinamik alanlar ve doğrulamalar",
+          "3": "PDF ve Word dışa aktarımı"
+        },
+        "cta": "Belge oluştur"
+      },
+      "translate": {
+        "alt": "Çok dilli çeviri",
+        "title": "Çok dilli çeviri",
+        "desc": "Resmi belgelerinizi tüm Avrupa dillerine hızlı ve doğru şekilde çevirin.",
+        "points": {
+          "1": "Güvenilir hukuki terminoloji",
+          "2": "Avrupa dilleri desteği",
+          "3": "İsteğe bağlı insan kalite kontrolü"
+        },
+        "cta": "Belge çevir"
+      }
+    },
+    "why": {
+      "title": "Neden GERECHTBERG'i seçmelisiniz?",
+      "imageAlt": "GERECHTBERG değerleri illüstrasyonu",
+      "values": {
+        "clarity": { "title": "Netlik", "desc": "Sakin bir şekilde ilerlemek için basit, anlaşılır dil." },
+        "compliance": { "title": "Uyumluluk", "desc": "Tüm belgeleriniz Avrupa standartlarına uygun." },
+        "serenity": { "title": "Huzur", "desc": "Daha az stres, prosedürleriniz üzerinde daha fazla kontrol." }
+      },
+      "tagline": "Yabancıları netlik, güven ve basitlik yoluyla güçlendiriyoruz."
+    },
+    "how": {
+      "title": "Nasıl çalışır?",
+      "steps": {
+        "1": { "alt": "Hizmet seçin", "title": "Hizmetinizi seçin", "desc": "İhtiyaçlarınıza göre belge, koçluk veya araştırma." },
+        "2": { "alt": "Özelleştirin ve çevirin", "title": "Özelleştirin ve çevirin", "desc": "Belgelerinizi ve çevirilerinizi kolaylıkla uyarlayın." },
+        "3": { "alt": "İndirin ve kullanın", "title": "İndirin ve kullanın", "desc": "Kullanıma hazır belgeleri dışa aktarın." }
+      }
+    },
+    "testimonials": {
+      "title": "Kullanıcılarımız ne diyor",
+      "avatarAlt": "Yer tutucu kişi ikonu",
+      "items": {
+        "1": { "name": "Alex M.", "quote": "Belgelerimi 10 dakikada oluşturup çevirebildim." },
+        "2": { "name": "Fatima R.", "quote": "Koçluk, Almanya'daki haklarımı anlamama yardımcı oldu." },
+        "3": { "name": "Luca D.", "quote": "Net ve güven verici bir platform!" }
+      }
+    },
+    "final": {
+      "title": "Prosedürlerinizi basitleştirmeye hazır mısınız?",
+      "logoAlt": "GERECHTBERG",
+      "desc": "Almanya'da stressiz yaşamak için araçlarımızı ve desteğimizi keşfedin.",
+      "cta": {
+        "appointment": "Randevu al",
+        "create": "Belge oluştur"
+      }
+    }
+  },
   "pricing": {
     "title": "Fiyatlar",
     "trial": "14 gün ücretsiz deneme",

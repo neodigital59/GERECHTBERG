@@ -360,4 +360,89 @@
       "deleteError": "Erro ao excluir"
     }
   }
+  ,
+  "homeV2": {
+    "hero": {
+      "title": "Simplifique a sua vida na Alemanha.",
+      "desc": "Gere, traduza e gerencie seus documentos administrativos em total conformidade com as regras alemãs e europeias.",
+      "alt": "Ilustração da plataforma GERECHTBERG"
+    },
+    "cta": {
+      "create": "Criar um documento",
+      "discover": "Descobrir nossos serviços",
+      "tryNow": "Experimente agora"
+    },
+    "services": {
+      "title": "Nossas áreas de especialização",
+      "research": {
+        "alt": "Pesquisa jurídica",
+        "title": "Pesquisa jurídica",
+        "desc": "Acesse informações claras e confiáveis sobre seus direitos na Alemanha e na Europa.",
+        "points": {
+          "1": "Acesso a fontes oficiais DE/UE",
+          "2": "Resumos compreensíveis e acionáveis",
+          "3": "Atualizações regulares"
+        },
+        "cta": "Explorar"
+      },
+      "documents": {
+        "alt": "Documentos administrativos inteligentes",
+        "title": "Documentos administrativos inteligentes",
+        "desc": "Crie, baixe e exporte documentos em conformidade com os regulamentos europeus.",
+        "points": {
+          "1": "Modelos conformes à UE",
+          "2": "Campos dinâmicos e validações",
+          "3": "Exportação para PDF e Word"
+        },
+        "cta": "Criar um documento"
+      },
+      "translate": {
+        "alt": "Tradução multilíngue",
+        "title": "Tradução multilíngue",
+        "desc": "Traduza seus documentos oficiais para todas as línguas europeias, de forma rápida e precisa.",
+        "points": {
+          "1": "Terminologia jurídica confiável",
+          "2": "Idiomas europeus suportados",
+          "3": "Revisão de qualidade humana opcional"
+        },
+        "cta": "Traduzir um documento"
+      }
+    },
+    "why": {
+      "title": "Por que escolher GERECHTBERG?",
+      "imageAlt": "Ilustração dos valores da GERECHTBERG",
+      "values": {
+        "clarity": { "title": "Clareza", "desc": "Linguagem simples e compreensível para seguir com tranquilidade." },
+        "compliance": { "title": "Conformidade", "desc": "Todos os seus documentos respeitam as normas europeias." },
+        "serenity": { "title": "Serenidade", "desc": "Menos estresse, mais controle sobre seus procedimentos." }
+      },
+      "tagline": "Acompanhar estrangeiros com clareza, confiança e simplicidade."
+    },
+    "how": {
+      "title": "Como funciona?",
+      "steps": {
+        "1": { "alt": "Escolher um serviço", "title": "Escolha seu serviço", "desc": "Documento, coaching ou pesquisa — conforme suas necessidades." },
+        "2": { "alt": "Personalizar e traduzir", "title": "Personalize e traduza", "desc": "Adapte seus documentos e traduções com facilidade." },
+        "3": { "alt": "Baixar e usar", "title": "Baixe e use", "desc": "Exporte documentos prontos para uso." }
+      }
+    },
+    "testimonials": {
+      "title": "O que dizem nossos usuários",
+      "avatarAlt": "Ícone de pessoa fictícia",
+      "items": {
+        "1": { "name": "Alex M.", "quote": "Consegui criar e traduzir meus documentos em 10 minutos." },
+        "2": { "name": "Fatima R.", "quote": "O coaching me ajudou a entender meus direitos na Alemanha." },
+        "3": { "name": "Luca D.", "quote": "Uma plataforma clara e tranquilizadora!" }
+      }
+    },
+    "final": {
+      "title": "Pronto para simplificar seus procedimentos?",
+      "logoAlt": "GERECHTBERG",
+      "desc": "Descubra nossas ferramentas e nosso suporte para viver na Alemanha sem estresse.",
+      "cta": {
+        "appointment": "Agendar uma consulta",
+        "create": "Criar um documento"
+      }
+    }
+  }
 }

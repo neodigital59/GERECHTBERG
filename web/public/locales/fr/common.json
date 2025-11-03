@@ -38,6 +38,13 @@
     "manage": "Gérer mon abonnement",
     "cancelAtPeriodEnd": "Annuler à l’échéance"
   },
+  "usage": {
+    "planUnlimited": "Plan {{plan}} — documents illimités",
+    "planUsage": "Plan {{plan}} — {{used}}/{{max}} documents utilisés",
+    "warn": "Vous avez atteint 80% de votre quota. Pensez à passer au plan Pro.",
+    "limit": "Quota atteint. Choisissez un plan Pro ou Illimité.",
+    "error": "Erreur de récupération de l’usage: {{message}}"
+  },
   "email": {
     "title": "Envoyer par email",
     "recipient": "Destinataire",
@@ -56,6 +63,11 @@
     "appointments": "Rendez-vous",
     "title": "Navigation"
   },
+  "mobile": {
+    "menu": "Menu",
+    "close": "Fermer"
+  },
+  
   "auth": {
     "sign_in": "Se connecter",
     "sign_up": "Créer un compte",
@@ -86,6 +98,10 @@
       "message": "Aucun document ne correspond. Essayez d’ajuster votre recherche.",
       "createOne": "Créer un document"
     }
+  },
+  "cards": {
+    "seeMore": "Voir plus",
+    "seeLess": "Voir moins"
   },
   "documentDetail": {
     "loading": "Chargement…",
@@ -379,8 +395,27 @@
     }
   },
   "appointments": {
-    "title": "Prise de rendez-vous",
-    "description": "Planifiez un créneau et ajoutez des notes. Vous pouvez consulter vos prochains rendez-vous ci-dessous.",
+    "title": "Pré‑rendez‑vous",
+    "description": "Ce formulaire vous permet de préparer votre rendez‑vous. Sélectionnez un créneau indicatif et ajoutez vos notes. L’accès à la réservation OneCal sera débloqué après confirmation de votre paiement.",
+    "subtitle": "Planifiez votre consultation avec notre équipe",
+    "bookNow": "Réserver maintenant",
+    "openInApp": "Ouvrir dans l’application",
+    "openExternal": "Ouvrir sur OneCal",
+    "loading": "Chargement du calendrier...",
+    "error": "Impossible de charger le calendrier. Veuillez réessayer.",
+    "fallbackText": "Si le calendrier ne s'affiche pas, vous pouvez accéder directement à notre page de réservation.",
+    "backToApp": "Retour à l’application",
+    "summary": {
+      "title": "Votre demande est enregistrée",
+      "text": "Votre rendez-vous est bien pris en compte. Cliquez sur ‘Payer maintenant’ pour finaliser le paiement. Une fois le paiement effectué, confirmez puis finalisez votre créneau.",
+      "payNow": "Payer maintenant",
+      "confirmPaid": "J’ai effectué mon paiement",
+      "created": "Demande enregistrée"
+    },
+    "confirmation": {
+      "successTitle": "Merci pour votre paiement ! Votre réservation est confirmée.",
+      "next": "Vous pouvez maintenant finaliser votre créneau via le calendrier ci‑dessous."
+    },
     "form": {
       "titleLabel": "Titre",
       "titlePlaceholder": "Ex: Consultation initiale",
@@ -413,6 +448,90 @@
       "updateError": "Erreur de mise à jour",
       "deleted": "Rendez-vous supprimé",
       "deleteError": "Erreur de suppression"
+    }
+  },
+  "homeV2": {
+    "hero": {
+      "title": "Simplifiez votre vie en Allemagne.",
+      "desc": "Générez, traduisez et gérez vos documents administratifs en toute conformité avec les règles allemandes et européennes.",
+      "alt": "Illustration de la plateforme GERECHTBERG"
+    },
+    "cta": {
+      "create": "Créer un document",
+      "discover": "Découvrir nos services",
+      "tryNow": "Essayer maintenant"
+    },
+    "services": {
+      "title": "Nos domaines d’expertise",
+      "research": {
+        "alt": "Recherche juridique",
+        "title": "Recherche juridique",
+        "desc": "Accédez à des informations claires et fiables sur vos droits en Allemagne et en Europe.",
+        "points": {
+          "1": "Accès aux sources officielles DE/EU",
+          "2": "Synthèses compréhensibles et actionnables",
+          "3": "Mises à jour régulières"
+        },
+        "cta": "Explorer"
+      },
+      "documents": {
+        "alt": "Documents administratifs intelligents",
+        "title": "Documents administratifs intelligents",
+        "desc": "Créez, téléchargez et exportez des documents conformes aux règlements européens.",
+        "points": {
+          "1": "Modèles conformes UE",
+          "2": "Champs dynamiques et validations",
+          "3": "Export PDF et Word"
+        },
+        "cta": "Créer un document"
+      },
+      "translate": {
+        "alt": "Traduction multilingue",
+        "title": "Traduction multilingue",
+        "desc": "Traduisez vos documents officiels dans toutes les langues européennes, rapidement et avec précision.",
+        "points": {
+          "1": "Terminologie juridique fiable",
+          "2": "Langues européennes prises en charge",
+          "3": "Contrôle qualité humain optionnel"
+        },
+        "cta": "Traduire un document"
+      }
+    },
+    "why": {
+      "title": "Pourquoi choisir GERECHTBERG ?",
+      "imageAlt": "Illustration valeurs GERECHTBERG",
+      "values": {
+        "clarity": { "title": "Clarté", "desc": "Un langage simple et compréhensible, pour avancer sereinement." },
+        "compliance": { "title": "Conformité", "desc": "Tous vos documents respectent les normes européennes." },
+        "serenity": { "title": "Sérénité", "desc": "Moins de stress, plus de maîtrise sur vos démarches." }
+      },
+      "tagline": "Accompagner les étrangers avec clarté, confiance et simplicité."
+    },
+    "how": {
+      "title": "Comment ça marche ?",
+      "steps": {
+        "1": { "alt": "Choisir un service", "title": "Choisissez votre service", "desc": "Document, coaching ou recherche — selon vos besoins." },
+        "2": { "alt": "Personnaliser et traduire", "title": "Personnalisez et traduisez", "desc": "Adaptez vos documents et traductions, en toute simplicité." },
+        "3": { "alt": "Télécharger et utiliser", "title": "Téléchargez et utilisez", "desc": "Exportez vos documents prêts à l’emploi." }
+      }
+    },
+    "testimonials": {
+      "title": "Ce que disent nos utilisateurs",
+      "avatarAlt": "Icône personne fictive",
+      "items": {
+        "1": { "name": "Alex M.", "quote": "J’ai pu créer et traduire mes documents en 10 minutes." },
+        "2": { "name": "Fatima R.", "quote": "Le coaching m’a beaucoup aidé à comprendre mes droits en Allemagne." },
+        "3": { "name": "Luca D.", "quote": "Une plateforme claire et rassurante !" }
+      }
+    },
+    "final": {
+      "title": "Prêt à simplifier vos démarches ?",
+      "logoAlt": "GERECHTBERG",
+      "desc": "Découvrez nos outils et accompagnements pour vivre en Allemagne sans stress.",
+      "cta": {
+        "appointment": "Prendre rendez-vous",
+        "create": "Créer un document"
+      }
     }
   }
 }

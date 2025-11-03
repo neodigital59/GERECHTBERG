@@ -2,8 +2,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import RequireAuth from "@/components/RequireAuth";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import PageContent from "@/components/PageContent";
+import OneCalEmbed from "@/components/OneCalEmbed";
 
 type Appointment = {
   id: string;
@@ -29,6 +30,10 @@ export default function RendezVousPage() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [list, setList] = useState<Appointment[]>([]);
+  const [showSummary, setShowSummary] = useState(false);
+  const [lastCreatedId, setLastCreatedId] = useState<string | null>(null);
+  const [lastCreated, setLastCreated] = useState<Appointment | null>(null);
+  const [onecalUrl, setOnecalUrl] = useState<string | null>(null);
 
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
@@ -51,6 +56,12 @@ export default function RendezVousPage() {
     async function load() {
       setLoading(true);
       setError(null);
+      const supabase = getSupabase();
+      if (!supabase) {
+        // Supabase non configuré: ne pas charger la liste, mais laisser l'embed OneCal s'afficher
+        if (!cancelled) setLoading(false);
+        return;
+      }
       try {
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) {
@@ -74,11 +85,50 @@ export default function RendezVousPage() {
     return () => { cancelled = true; };
   }, []);
 
+  // Déterminer s’il existe un rendez-vous payé pour débloquer OneCal
+  const hasPaidAppointment = useMemo(() => {
+    if (lastCreated && lastCreated.status === "paid") return true;
+    return list.some(a => a.status === "paid");
+  }, [list, lastCreated]);
+
+  // Choisir l’appointment (payé) pertinent pour récupérer l’URL OneCal côté serveur
+  const onecalAppointmentId = useMemo(() => {
+    if (lastCreated && lastCreated.status === "paid") return lastCreated.id;
+    const paid = [...list]
+      .filter(a => a.status === "paid")
+      .sort((a, b) => new Date(b.start_time).getTime() - new Date(a.start_time).getTime());
+    return paid.length ? paid[0].id : null;
+  }, [list, lastCreated]);
+
+  useEffect(() => {
+    const fetchUrl = async () => {
+      if (!hasPaidAppointment || !onecalAppointmentId) {
+        setOnecalUrl(null);
+        return;
+      }
+      try {
+        const res = await fetch(`/api/rendezvous/onecal-url?appointmentId=${onecalAppointmentId}`);
+        const json = await res.json();
+        if (res.ok && json?.url) setOnecalUrl(json.url);
+        else setOnecalUrl(null);
+      } catch {
+        setOnecalUrl(null);
+      }
+    };
+    fetchUrl();
+  }, [hasPaidAppointment, onecalAppointmentId]);
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
     setError(null);
     setSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setSaving(false);
+      return;
+    }
     try {
       const startIso = toISO(startLocal);
       const endIso = toISO(endLocal);
@@ -96,22 +146,73 @@ export default function RendezVousPage() {
           notes: notes || null,
           start_time: startIso,
           end_time: endIso,
-          status: "scheduled",
+          status: "pending_payment",
         })
         .select("id, title, notes, start_time, end_time, status")
         .limit(1);
       if (error) throw error;
       const created = (data || [])[0] as Appointment | undefined;
-      setSuccess(t("appointments.messages.created"));
+      setSuccess(t("appointments.summary.created"));
       setTitle("");
       setNotes("");
       setStartLocal("");
       setEndLocal("");
-      setList(prev => created ? [...prev, created] : prev);
+      setLastCreatedId(created?.id || null);
+      setLastCreated(created || null);
+      setShowSummary(true);
     } catch (e: any) {
       setError(e?.message || t("appointments.messages.saveError"));
     } finally {
       setSaving(false);
+    }
+  }
+
+  // Démarrer le paiement à l’acte via Checkout (fallback vers Payment Link si non configuré)
+  async function startOneTimeCheckout() {
+    const priceId = process.env.NEXT_PUBLIC_STRIPE_ONE_TIME_PRICE_ID;
+    const productId = process.env.NEXT_PUBLIC_STRIPE_ONE_TIME_PRODUCT_ID;
+    // Choisir stratégie: si priceId (price_...), utiliser Checkout. Sinon, si productId (prod_...),
+    // laisser l'API résoudre le default_price. Sinon, fallback Payment Link.
+    if (!priceId && !productId) {
+      const link = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_URL;
+      if (link) {
+        window.location.href = link;
+        return;
+      }
+      alert("Configuration Stripe manquante: définissez un priceId (price_...), un productId (prod_...) ou un Payment Link.");
+      return;
+    }
+    const apptId = lastCreatedId;
+    if (!apptId) {
+      alert("Aucun rendez-vous en attente de paiement. Créez d'abord un rendez-vous.");
+      return;
+    }
+    try {
+      // Obtenir le token d'authentification
+      const supabase = getSupabase();
+      if (!supabase) {
+        alert("Service indisponible");
+        return;
+      }
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+      
+      const res = await fetch("/api/checkout-one-time", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {})
+        },
+        credentials: "include",
+        body: JSON.stringify(priceId && /^price_/i.test(priceId)
+          ? { appointmentId: apptId, priceId }
+          : { appointmentId: apptId, productId }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json?.error || "Impossible de créer la session de paiement");
+      if (json?.url) window.location.href = json.url;
+    } catch (e: any) {
+      alert(e?.message || "Erreur lors du démarrage du paiement");
     }
   }
 
@@ -153,6 +254,12 @@ export default function RendezVousPage() {
     setSaving(true);
     setError(null);
     setSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setSaving(false);
+      return;
+    }
     try {
       const sIso = toISO(editStartLocal);
       const eIso = toISO(editEndLocal);
@@ -176,6 +283,12 @@ export default function RendezVousPage() {
     setSaving(true);
     setError(null);
     setSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setSaving(false);
+      return;
+    }
     try {
       const { error } = await supabase
         .from("appointments")
@@ -195,6 +308,17 @@ export default function RendezVousPage() {
   return (
     <RequireAuth>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        {/* OneCal booking embed: affiché uniquement après paiement confirmé */}
+        {hasPaidAppointment && onecalUrl ? (
+          <OneCalEmbed className="mb-8" bookingUrl={onecalUrl} />
+        ) : (
+          <div className="mb-8">
+            <p className="text-sm text-gray-600">
+              L'accès à la réservation OneCal sera débloqué après confirmation de votre paiement.
+            </p>
+          </div>
+        )}
+
         <h1 className="text-2xl font-semibold mb-3">{t("appointments.title")}</h1>
         <p className="text-sm text-black/70 mb-6">{t("appointments.description")}</p>
 
@@ -256,55 +380,85 @@ export default function RendezVousPage() {
         </form>
 
         <div className="mt-8">
-          <h2 className="text-lg font-medium mb-2">{t("appointments.list.title")}</h2>
-          {loading ? (
-            <div className="text-sm text-black/70">{t("appointments.list.loading")}</div>
-          ) : list.length === 0 ? (
-            <div className="text-sm text-black/70">{t("appointments.list.empty")}</div>
-          ) : (
-            <ul className="space-y-2">
-              {list.map(a => (
-                <li key={a.id} className="border rounded p-3 bg-white shadow-sm">
-                  {editId === a.id ? (
-                    <div className="space-y-2">
-                      <div>
-                        <label className="block text-sm mb-1">{t("appointments.form.titleLabel")}</label>
-                        <input className="w-full border rounded px-3 py-2" value={editTitle} onChange={e => setEditTitle(e.target.value)} />
-                      </div>
-                      <div>
-                        <label className="block text-sm mb-1">{t("appointments.form.notesLabel")}</label>
-                        <textarea className="w-full border rounded px-3 py-2" rows={3} value={editNotes} onChange={e => setEditNotes(e.target.value)} />
-                      </div>
-                      <div className="grid md:grid-cols-2 gap-3">
-                        <div>
-                          <label className="block text-sm mb-1">{t("appointments.form.startLabel")}</label>
-                          <input type="datetime-local" className="w-full border rounded px-3 py-2 text-sm sm:text-base" value={editStartLocal} onChange={e => setEditStartLocal(e.target.value)} />
-                        </div>
-                        <div>
-                          <label className="block text-sm mb-1">{t("appointments.form.endLabel")}</label>
-                          <input type="datetime-local" className="w-full border rounded px-3 py-2 text-sm sm:text-base" value={editEndLocal} onChange={e => setEditEndLocal(e.target.value)} />
-                        </div>
-                      </div>
-                      <div className="flex flex-col sm:flex-row gap-2">
-                        <button className="w-full sm:w-auto px-3 py-2 rounded bg-brand text-white disabled:opacity-50" onClick={saveEdit} disabled={saving}>{t("appointments.edit.save")}</button>
-                        <button className="w-full sm:w-auto px-3 py-2 rounded border" onClick={cancelEdit}>{t("appointments.edit.cancel")}</button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div>
-                      <div className="font-medium">{a.title}</div>
-                      <div className="text-sm text-black/70" suppressHydrationWarning>{new Date(a.start_time).toLocaleString()} → {new Date(a.end_time).toLocaleString()}</div>
-                      {a.notes && <div className="text-sm mt-1">{a.notes}</div>}
-                      <div className="text-xs text-black/50 mt-1">{t("appointments.statusLabel")}: {a.status}</div>
-                      <div className="mt-2 flex flex-col sm:flex-row gap-2">
-                        <button className="w-full sm:w-auto px-3 py-2 rounded border" onClick={() => startEdit(a)}>{t("appointments.edit.modify")}</button>
-                        <button className="w-full sm:w-auto px-3 py-2 rounded border text-red-700" onClick={() => deleteAppointment(a.id)}>{t("appointments.edit.delete")}</button>
-                      </div>
-                    </div>
+          {showSummary ? (
+            <div className="border rounded-xl p-4 bg-white shadow-sm">
+              <h2 className="text-lg font-medium mb-2">{t("appointments.summary.title")}</h2>
+              <p className="text-sm text-black/70 mb-4">{t("appointments.summary.text")}</p>
+              {lastCreated && (
+                <div className="mb-4 text-sm">
+                  <div><span className="text-black/50">{t("appointments.form.titleLabel")}:</span> <span className="font-medium">{lastCreated.title}</span></div>
+                  <div className="text-black/70" suppressHydrationWarning>
+                    <span className="text-black/50">{t("appointments.form.startLabel")}:</span> {new Date(lastCreated.start_time).toLocaleString()} 
+                    <span className="text-black/50 ml-2">{t("appointments.form.endLabel")}:</span> {new Date(lastCreated.end_time).toLocaleString()}
+                  </div>
+                  {lastCreated.notes && (
+                    <div className="mt-1"><span className="text-black/50">{t("appointments.form.notesLabel")}:</span> {lastCreated.notes}</div>
                   )}
-                </li>
-              ))}
-            </ul>
+                  <div className="mt-1 text-xs text-black/60">Statut: pending_payment</div>
+                </div>
+              )}
+              <div className="flex flex-col sm:flex-row gap-2">
+                <button
+                  onClick={startOneTimeCheckout}
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+                >
+                  {t("appointments.summary.payNow")}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <h2 className="text-lg font-medium mb-2">{t("appointments.list.title")}</h2>
+              {loading ? (
+                <div className="text-sm text-black/70">{t("appointments.list.loading")}</div>
+              ) : list.length === 0 ? (
+                <div className="text-sm text-black/70">{t("appointments.list.empty")}</div>
+              ) : (
+                <ul className="space-y-2">
+                  {list.map(a => (
+                    <li key={a.id} className="border rounded p-3 bg-white shadow-sm">
+                      {editId === a.id ? (
+                        <div className="space-y-2">
+                          <div>
+                            <label className="block text-sm mb-1">{t("appointments.form.titleLabel")}</label>
+                            <input className="w-full border rounded px-3 py-2" value={editTitle} onChange={e => setEditTitle(e.target.value)} />
+                          </div>
+                          <div>
+                            <label className="block text-sm mb-1">{t("appointments.form.notesLabel")}</label>
+                            <textarea className="w-full border rounded px-3 py-2" rows={3} value={editNotes} onChange={e => setEditNotes(e.target.value)} />
+                          </div>
+                          <div className="grid md:grid-cols-2 gap-3">
+                            <div>
+                              <label className="block text-sm mb-1">{t("appointments.form.startLabel")}</label>
+                              <input type="datetime-local" className="w-full border rounded px-3 py-2 text-sm sm:text-base" value={editStartLocal} onChange={e => setEditStartLocal(e.target.value)} />
+                            </div>
+                            <div>
+                              <label className="block text-sm mb-1">{t("appointments.form.endLabel")}</label>
+                              <input type="datetime-local" className="w-full border rounded px-3 py-2 text-sm sm:text-base" value={editEndLocal} onChange={e => setEditEndLocal(e.target.value)} />
+                            </div>
+                          </div>
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <button className="w-full sm:w-auto px-3 py-2 rounded bg-brand text-white disabled:opacity-50" onClick={saveEdit} disabled={saving}>{t("appointments.edit.save")}</button>
+                            <button className="w-full sm:w-auto px-3 py-2 rounded border" onClick={cancelEdit}>{t("appointments.edit.cancel")}</button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <div className="font-medium">{a.title}</div>
+                          <div className="text-sm text-black/70" suppressHydrationWarning>{new Date(a.start_time).toLocaleString()} → {new Date(a.end_time).toLocaleString()}</div>
+                          {a.notes && <div className="text-sm mt-1">{a.notes}</div>}
+                          <div className="text-xs text-black/50 mt-1">{t("appointments.statusLabel")}: {a.status}</div>
+                          <div className="mt-2 flex flex-col sm:flex-row gap-2">
+                            <button className="w-full sm:w-auto px-3 py-2 rounded border" onClick={() => startEdit(a)}>{t("appointments.edit.modify")}</button>
+                            <button className="w-full sm:w-auto px-3 py-2 rounded border text-red-700" onClick={() => deleteAppointment(a.id)}>{t("appointments.edit.delete")}</button>
+                          </div>
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
           )}
         </div>
       </div>

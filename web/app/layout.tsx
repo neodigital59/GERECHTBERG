@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-// Nous évitons l’accès serveur aux cookies pour stabiliser l’hydratation
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import AuthStatus from "@/components/AuthStatus";
 import ClientI18nProvider from "@/components/ClientI18nProvider";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import HeaderNav from "@/components/HeaderNav";
-import MobileNav from "@/components/MobileNav";
+import Footer from "@/components/Footer";
+import NavBarV2 from "@/components/NavBarV2";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,57 +19,45 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "GERECHTBERG",
   description: "Plateforme intelligente pour lettres et contrats",
+  icons: {
+    icon: [
+      { url: "/Logo-Favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/Logo-Favicon.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico" }
+    ],
+    shortcut: "/Logo-Favicon.png",
+    apple: "/Logo-Favicon.png",
+  },
 };
 
 // Forcer le rendu dynamique car on lit des cookies côté serveur
 export const dynamic = "force-dynamic";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Langue/dir statiques pour éviter un rendu dynamique bloquant
-  const initialLang = "fr";
-  const initialDir = "ltr";
+  // Lire la langue initiale depuis le cookie i18next (middleware) ou fallback fr
+  const cookieStore = await cookies();
+  const cookieLng = cookieStore.get("i18next")?.value?.toLowerCase();
+  const supported = new Set(["fr", "en", "de", "ru", "tr", "zh", "es", "it", "pt", "ar", "ja"]);
+  const initialLang = cookieLng && supported.has(cookieLng) ? cookieLng : "fr";
+  const initialDir = initialLang === "ar" ? "rtl" : "ltr";
   return (
     <html lang={initialLang} dir={initialDir}>
+      <head>
+        <link rel="icon" href="/Logo-Favicon.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/Logo-Favicon.png" type="image/png" sizes="192x192" />
+        <link rel="shortcut icon" href="/Logo-Favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/Logo-Favicon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground font-sans`}>
-        <ClientI18nProvider>
-          <header className="w-full border-b border-black/10 dark:border-white/15">
-            <div className="max-w-5xl mx-auto flex items-center justify-between px-3 py-3 sm:p-4">
-              <div className="flex items-center">
-                <span className="font-bold text-xl tracking-tight">GERECHTBERG</span>
-              </div>
-              <div className="flex items-center gap-4">
-                {/* Navigation links */}
-                <HeaderNav />
-                {/* Mobile navigation */}
-                <MobileNav />
-                {/* Language switcher */}
-                <LanguageSwitcher />
-              </div>
-              <AuthStatus />
-            </div>
-          </header>
+        <ClientI18nProvider initialLng={initialLang}>
+          <NavBarV2 />
           {children}
-          <footer className="mt-10 border-t border-black/10 dark:border-white/10 bg-emerald-100">
-            <div className="max-w-5xl mx-auto px-3 py-6 sm:p-6 text-sm text-black/70">
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center">
-                  <span className="font-semibold text-lg">GERECHTBERG</span>
-                </div>
-                <nav className="flex flex-wrap gap-4">
-                  <Link href="/tarifs" className="hover:text-brand">Tarifs</Link>
-                  <Link href="/decouvert" className="hover:text-brand">Découvert</Link>
-                  <Link href="/contact" className="hover:text-brand">Contact</Link>
-                  <Link href="/rendezvous" className="hover:text-brand">Rendez-vous</Link>
-                  <Link href="/documents" className="hover:text-brand">Documents</Link>
-                </nav>
-              </div>
-              <p className="mt-3 text-xs text-black/50">© {new Date().getUTCFullYear()} GERECHTBERG — Tous droits réservés.</p>
-            </div>
-          </footer>
+          <Footer />
         </ClientI18nProvider>
       </body>
     </html>

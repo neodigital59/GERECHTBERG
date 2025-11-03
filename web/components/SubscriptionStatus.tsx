@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import Link from "next/link";
 
 interface SubInfo {
@@ -19,6 +19,12 @@ export default function SubscriptionStatus() {
     async function load() {
       setLoading(true);
       setError(null);
+      const supabase = getSupabase();
+      if (!supabase) {
+        setError("Service indisponible");
+        setLoading(false);
+        return;
+      }
       try {
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) {
@@ -75,6 +81,8 @@ export default function SubscriptionStatus() {
           <button
             className="w-full sm:w-auto px-3 py-1 bg-brand text-white rounded hover:bg-brand/80"
             onClick={async () => {
+              const supabase = getSupabase();
+              if (!supabase) return;
               const { data: { user } } = await supabase.auth.getUser();
               if (!user) return;
               const { data: { session } } = await supabase.auth.getSession();
@@ -99,6 +107,8 @@ export default function SubscriptionStatus() {
           <button
             className="w-full sm:w-auto px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700"
             onClick={async () => {
+              const supabase = getSupabase();
+              if (!supabase) return;
               const { data: { user } } = await supabase.auth.getUser();
               if (!user) return;
               const { data: { session } } = await supabase.auth.getSession();

@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import RequireAuth from "@/components/RequireAuth";
 import AdminNav from "@/components/AdminNav";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import RichTextEditor from "@/components/RichTextEditor";
 import MediaManager from "@/components/MediaManager";
 import BlockForm from "@/components/cms/BlockForm";
@@ -103,6 +103,11 @@ export default function AdminPages() {
     if (!editId) return;
     setBlockError(null);
     setBlockSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setBlockError("Service indisponible");
+      return;
+    }
     try {
       const { data: { user } } = await supabase.auth.getUser();
       const uid = user?.id;
@@ -146,6 +151,11 @@ export default function AdminPages() {
   async function deleteBlock(id: string) {
     setBlockError(null);
     setBlockSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setBlockError("Service indisponible");
+      return;
+    }
     try {
       const { error } = await supabase.from("page_blocks").delete().eq("id", id);
       if (error) throw error;
@@ -161,6 +171,11 @@ export default function AdminPages() {
     if (!b || !editId) return;
     setBlockError(null);
     setBlockSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setBlockError("Service indisponible");
+      return;
+    }
     try {
       const { data: { user } } = await supabase.auth.getUser();
       const uid = user?.id;
@@ -201,6 +216,8 @@ export default function AdminPages() {
     next[idx] = newA;
     next[swapWith] = newB;
     setBlocks(next.sort((x, y) => x.order_index - y.order_index));
+    const supabase = getSupabase();
+    if (!supabase) return;
     try {
       await supabase.from("page_blocks").update({ order_index: newA.order_index }).eq("id", newA.id);
       await supabase.from("page_blocks").update({ order_index: newB.order_index }).eq("id", newB.id);
@@ -221,6 +238,12 @@ export default function AdminPages() {
     setSaving(true);
     setError(null);
     setSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setSaving(false);
+      return;
+    }
     try {
       const { data: { user } } = await supabase.auth.getUser();
       const uid = user?.id;
@@ -260,6 +283,11 @@ export default function AdminPages() {
     async function load() {
       setLoading(true);
       setError(null);
+      const supabase = getSupabase();
+      if (!supabase) {
+        setLoading(false);
+        return;
+      }
       try {
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) return; // RequireAuth gère l’accès
@@ -287,6 +315,12 @@ export default function AdminPages() {
     setSaving(true);
     setError(null);
     setSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setSaving(false);
+      return;
+    }
     try {
       const { data: { user } } = await supabase.auth.getUser();
       const uid = user?.id;
@@ -497,6 +531,12 @@ export default function AdminPages() {
     setSaving(true);
     setError(null);
     setSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setSaving(false);
+      return;
+    }
     try {
       const { data, error } = await supabase
         .from("pages")
@@ -589,6 +629,12 @@ export default function AdminPages() {
     setSaving(true);
     setError(null);
     setSuccess(null);
+    const supabase = getSupabase();
+    if (!supabase) {
+      setError("Service indisponible");
+      setSaving(false);
+      return;
+    }
     try {
       const { error } = await supabase.from("pages").delete().eq("id", id);
       if (error) throw error;
@@ -708,6 +754,8 @@ export default function AdminPages() {
                           <button className="px-3 py-2 rounded border" onClick={async()=>{
                             if (!editId) return;
                             try {
+                              const supabase = getSupabase();
+                              if (!supabase) throw new Error('Service indisponible');
                               const { data: { user } } = await supabase.auth.getUser();
                               const uid = user?.id;
                               if (!uid) throw new Error('Session requise');
@@ -754,6 +802,8 @@ export default function AdminPages() {
                                 const html = (editContent || '').trim();
                                 if (!html) { setBlockError('Aucun contenu HTML à convertir'); return; }
                                 try {
+                                  const supabase = getSupabase();
+                                  if (!supabase) { setBlockError('Service indisponible'); return; }
                                   const { data: { user } } = await supabase.auth.getUser();
                                   const uid = user?.id;
                                   if (!uid) throw new Error('Session requise');

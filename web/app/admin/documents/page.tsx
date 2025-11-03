@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase } from "@/lib/supabaseUtils";
 import RequireAuth from "@/components/RequireAuth";
 
 interface AdminDoc { id: string; user_id: string; type?: string | null; titre?: string | null; langue?: string | null; statut?: string | null; date_creation: string; }
@@ -17,6 +17,11 @@ export default function AdminDocumentsPage() {
       setLoading(true);
       setError(null);
       try {
+        const supabase = getSupabase();
+        if (!supabase) {
+          if (mounted) setError("Service indisponible");
+          return;
+        }
         const { data: { session } } = await supabase.auth.getSession();
         const token = session?.access_token;
         const res = await fetch("/api/admin/documents", { headers: token ? { Authorization: `Bearer ${token}` } : undefined });
