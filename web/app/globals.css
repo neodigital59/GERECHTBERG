@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f3f4f6; /* fond gris clair */
+  --background: #f3f4f6; /* fond gris clair (fallback) */
   --foreground: #111827; /* texte gris foncé */
   --brand: #2ECC71; /* vert émeraude (nouvelle teinte) */
+  /* Dégradé de fond global (clair) */
+  --bg-start: #ECFDF5; /* emerald-50 */
+  --bg-end: #D1FAE5;   /* emerald-100 */
 }
 
 @theme inline {
@@ -19,13 +22,46 @@
     --background: #0b0e10;
     --foreground: #e5e7eb;
     --brand: #2ECC71; /* cohérent en dark */
+    /* Dégradé de fond global (sombre) */
+    --bg-start: #052e25; /* vert très sombre */
+    --bg-end: #064e3b;   /* vert sombre */
   }
 }
 
 body {
-  background: var(--background);
+  /* Fond unifié sur toutes les pages */
+  background: linear-gradient(90deg, var(--bg-start), var(--bg-end));
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-attachment: fixed; /* stable au scroll */
+}
+
+/* Clignotement vert accessible pour bandeaux d'information */
+@keyframes blink-green {
+  0%, 100% {
+    background-color: #ECFDF5; /* emerald-50 */
+    border-color: #A7F3D0;     /* emerald-200 */
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35);
+  }
+  50% {
+    background-color: #D1FAE5; /* emerald-100 */
+    border-color: #10B981;     /* emerald-500 */
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.45);
+  }
+}
+
+.blink-green {
+  animation: blink-green 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink-green { animation: none; }
+}
+
+/* Vue Auth : masque header/nav et footer pour interface épurée */
+body.auth-only header,
+body.auth-only footer {
+  display: none !important;
 }
 
 /* Support RTL languages like Arabic */

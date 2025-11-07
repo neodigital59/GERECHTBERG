@@ -1,6 +1,6 @@
 "use client";
-import HomeV2 from "@/components/HomeV2";
+import AccueilV3Page from "@/app/accueil-v3/page";
 
 export default function Home() {
-  return <HomeV2 />;
+  return <AccueilV3Page />;
 }

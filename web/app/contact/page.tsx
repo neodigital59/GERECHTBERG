@@ -6,6 +6,9 @@ import PageContent from '@/components/PageContent';
 
 export default function ContactPage() {
   const { t } = useTranslation();
+  const supportValue = t('contact.support.email');
+  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(supportValue);
+  const supportHref = isEmail ? `mailto:${supportValue}` : (supportValue.startsWith('http') ? supportValue : `https://${supportValue}`);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [msg, setMsg] = useState('');
@@ -54,7 +57,7 @@ export default function ContactPage() {
         <div className="rounded-xl border bg-white p-4">
           <h2 className="font-medium mb-1">{t('contact.support.title')}</h2>
           <p className="text-sm text-black/70">{t('contact.support.description')}</p>
-          <a href={`mailto:${t('contact.support.email')}`} className="inline-block mt-3 px-3 py-2 border rounded hover:text-brand w-full sm:w-auto">{t('contact.support.email')}</a>
+          <a href={supportHref} target={!isEmail ? '_blank' : undefined} rel={!isEmail ? 'noopener noreferrer' : undefined} className="inline-block mt-3 px-3 py-2 border rounded hover:text-brand w-full sm:w-auto">{supportValue}</a>
         </div>
       </section>
 

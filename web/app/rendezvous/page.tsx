@@ -29,6 +29,7 @@ export default function RendezVousPage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<{ title?: string; start?: string; end?: string }>({});
   const [list, setList] = useState<Appointment[]>([]);
   const [showSummary, setShowSummary] = useState(false);
   const [lastCreatedId, setLastCreatedId] = useState<string | null>(null);
@@ -48,8 +49,21 @@ export default function RendezVousPage() {
   const [editEndLocal, setEditEndLocal] = useState("");
 
   const canSubmit = useMemo(() => {
-    return !!title && !!startLocal && !!endLocal && !saving;
-  }, [title, startLocal, endLocal, saving]);
+    return !!title && !!startLocal && !!endLocal && !saving && !fieldErrors.title && !fieldErrors.start && !fieldErrors.end;
+  }, [title, startLocal, endLocal, saving, fieldErrors]);
+
+  // Validation en temps réel
+  useEffect(() => {
+    const errs: { title?: string; start?: string; end?: string } = {};
+    if (!title.trim()) errs.title = "Titre requis";
+    // Dates valides et ordre
+    const s = startLocal ? new Date(startLocal).getTime() : NaN;
+    const e = endLocal ? new Date(endLocal).getTime() : NaN;
+    if (!startLocal || isNaN(s)) errs.start = "Date de début invalide";
+    if (!endLocal || isNaN(e)) errs.end = "Date de fin invalide";
+    if (!errs.start && !errs.end && s >= e) errs.end = "La fin doit être après le début";
+    setFieldErrors(errs);
+  }, [title, startLocal, endLocal]);
 
   useEffect(() => {
     let cancelled = false;
@@ -123,6 +137,7 @@ export default function RendezVousPage() {
     setSaving(true);
     setError(null);
     setSuccess(null);
+    setFieldErrors(prev => ({ ...prev }));
     const supabase = getSupabase();
     if (!supabase) {
       setError("Service indisponible");
@@ -160,6 +175,9 @@ export default function RendezVousPage() {
       setLastCreatedId(created?.id || null);
       setLastCreated(created || null);
       setShowSummary(true);
+      // Déplacer le focus vers le message de succès
+      const el = document.getElementById("submit-success");
+      if (el) el.focus();
     } catch (e: any) {
       setError(e?.message || t("appointments.messages.saveError"));
     } finally {
@@ -308,39 +326,40 @@ export default function RendezVousPage() {
   return (
     <RequireAuth>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        {/* Pré-rendez-vous */}
+        <section className="mb-6 rounded-xl border bg-green-50 text-black ring-1 ring-green-200 p-4 sm:p-5 blink-green">
+          <h2 className="text-xl font-semibold mb-1">{t("appointments.preFormTitle")}</h2>
+        </section>
         {/* OneCal booking embed: affiché uniquement après paiement confirmé */}
-        {hasPaidAppointment && onecalUrl ? (
+        {hasPaidAppointment && onecalUrl && (
           <OneCalEmbed className="mb-8" bookingUrl={onecalUrl} />
-        ) : (
-          <div className="mb-8">
-            <p className="text-sm text-gray-600">
-              L'accès à la réservation OneCal sera débloqué après confirmation de votre paiement.
-            </p>
-          </div>
         )}
 
         <h1 className="text-2xl font-semibold mb-3">{t("appointments.title")}</h1>
         <p className="text-sm text-black/70 mb-6">{t("appointments.description")}</p>
 
-        <form onSubmit={onSubmit} className="space-y-4 border rounded-xl p-4 bg-white shadow-sm">
-          {error && <div className="text-red-600 text-sm">{error}</div>}
-          {success && <div className="text-green-600 text-sm">{success}</div>}
+        <form onSubmit={onSubmit} className="space-y-4 border rounded-xl p-4 bg-white shadow-sm ring-1 ring-black/5">
+          <div aria-live="polite" className="space-y-2">
+            {error && <div className="text-red-600 text-sm" role="alert">{error}</div>}
+            {success && <div id="submit-success" tabIndex={-1} className="text-green-700 bg-green-50 border border-green-200 rounded px-3 py-2 text-sm" role="status">{success}</div>}
+          </div>
           <div>
             <label className="block text-sm mb-1">{t("appointments.form.titleLabel")}</label>
             <input
               type="text"
-              className="w-full border rounded px-3 py-2 text-sm sm:text-base"
+              className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
               placeholder={t("appointments.form.titlePlaceholder")}
               value={title}
               onChange={e => setTitle(e.target.value)}
               maxLength={200}
               required
             />
+            {fieldErrors.title && <p className="mt-1 text-xs text-red-600">{fieldErrors.title}</p>}
           </div>
           <div>
             <label className="block text-sm mb-1">{t("appointments.form.notesLabel")}</label>
             <textarea
-              className="w-full border rounded px-3 py-2 text-sm sm:text-base"
+              className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
               placeholder={t("appointments.form.notesPlaceholder")}
               value={notes}
               onChange={e => setNotes(e.target.value)}
@@ -353,29 +372,36 @@ export default function RendezVousPage() {
               <label className="block text-sm mb-1">{t("appointments.form.startLabel")}</label>
               <input
                 type="datetime-local"
-                className="w-full border rounded px-3 py-2 text-sm sm:text-base"
+                className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
                 value={startLocal}
                 onChange={e => setStartLocal(e.target.value)}
                 required
               />
+              {fieldErrors.start && <p className="mt-1 text-xs text-red-600">{fieldErrors.start}</p>}
             </div>
             <div>
               <label className="block text-sm mb-1">{t("appointments.form.endLabel")}</label>
               <input
                 type="datetime-local"
-                className="w-full border rounded px-3 py-2 text-sm sm:text-base"
+                className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
                 value={endLocal}
                 onChange={e => setEndLocal(e.target.value)}
                 required
               />
+              {fieldErrors.end && <p className="mt-1 text-xs text-red-600">{fieldErrors.end}</p>}
             </div>
           </div>
           <div>
             <button
               type="submit"
-              className="w-full sm:w-auto px-4 py-2 rounded bg-brand text-white disabled:opacity-50"
+              className="w-full sm:w-auto px-4 py-2 rounded bg-brand text-white disabled:opacity-50 inline-flex items-center gap-2 hover:bg-brand/90 transition"
               disabled={!canSubmit}
-            >{saving ? t("appointments.form.submitting") : t("appointments.form.submit")}</button>
+            >
+              {saving && (
+                <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/></svg>
+              )}
+              {saving ? t("appointments.form.submitting") : t("appointments.form.submit")}
+            </button>
           </div>
         </form>
 

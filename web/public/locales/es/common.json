@@ -20,7 +20,16 @@
     "totalDocuments": "Total de documentos",
     "signed": "Firmados",
     "recentActivity": "Actividad reciente",
-    "lastActivity": "Última actividad"
+    "lastActivity": "Última actividad",
+    "comingSoon": {
+      "title": "Próximamente",
+      "email": "Enviar documentos seleccionados por correo electrónico",
+      "signature": "Firma electrónica de documentos",
+      "timestamp": "Marcado de tiempo de documentos",
+      "note": "Estas funciones estarán disponibles pronto.",
+      "badge": "Pronto",
+      "tooltip": "Disponible pronto"
+    }
   },
   "subscription": {
     "unknown": "Suscripción desconocida",
@@ -230,8 +239,33 @@
       "enterprise": { "name": "Ilimitado", "price": "30 € / mes — todas las funciones + servicio al cliente", "desc": "todas las funciones + servicio al cliente", "info": "Acceso ilimitado a todas las funciones + servicio al cliente." }
     },
     "labels": { "perMonth": " / mes —" },
-    "choose": { "basic": "Incluido", "pro": "Elegir Pro", "enterprise": "Elegir Ilimitado" }
-    ,
+    "choose": { "basic": "Incluido", "pro": "Elegir Pro", "enterprise": "Elegir Ilimitado" },
+    "cards": {
+      "basic": {
+        "badge": "Recomendado para empezar",
+        "items": {
+          "1": "Multilingüe",
+          "2": "Exportar por e‑mail / PDF / impresión / WhatsApp",
+          "3": "3 documentos / respuestas al mes"
+        }
+      },
+      "pro": {
+        "badge": "Recomendado para autónomos",
+        "items": {
+          "1": "Todo del plan Gratuito",
+          "2": "120 documentos / respuestas al mes",
+          "3": "Soluciones concretas y aplicables"
+        }
+      },
+      "enterprise": {
+        "badge": "Recomendado para equipos",
+        "items": {
+          "1": "Todo del plan Pro",
+          "2": "500 documentos / respuestas al mes",
+          "3": "Soporte prioritario"
+        }
+      }
+    },
     "coaching": {
       "title": "Condiciones tarifarias (Coaching)",
       "items": {
@@ -247,6 +281,92 @@
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Plataforma inteligente para crear, firmar y marcar temporalmente sus cartas y contratos con exportación e intercambio.",
+    "mainCards": {
+      "title": "Funcionalidades principales",
+      "cards": {
+        "writing": { "title": "Redacción asistida", "desc": "Genera documentos fiables en minutos a partir de plantillas e indicaciones sencillas." },
+        "export": { "title": "Exportación y compartir", "desc": "Exporta a PDF/DOCX y comparte fácilmente con control preciso del contenido." },
+        "multilingual": { "title": "Multilingüe avanzado", "desc": "Traducción rápida (fr, en, de) y ajuste del tono según el contexto." }
+      }
+    },
+    "appointment": {
+      "intro": "Planifica fácilmente una cita en línea con un abogado o experto jurídico. Tras la confirmación, recibirás al instante un enlace seguro de videoconferencia. Disfruta de un acompañamiento personalizado sin desplazarte.",
+      "processTitle": "Proceso simple y rápido",
+      "process": {
+        "1": "Elige un horario disponible en la agenda del experto.",
+        "2": "Valida la reserva y recibe inmediatamente tu enlace seguro por correo.",
+        "3": "Únete a la videoconferencia en el momento previsto desde cualquier dispositivo."
+      },
+      "pointsTitle": "Puntos clave",
+      "points": {
+        "simplicity": "Simplicidad — reserva en pocos clics, sin idas y vueltas innecesarias.",
+        "availability": "Disponibilidad de expertos — franjas actualizadas y confirmación inmediata.",
+        "remote": "Ventajas de la consulta a distancia — intercambio eficaz, estés donde estés.",
+        "confidentiality": "Confidencialidad garantizada — enlace único, acceso controlado y comunicaciones protegidas."
+      },
+      "note": "El enlace de videoconferencia se genera automáticamente, es único y seguro (https). Solo es accesible a participantes confirmados y no expone datos sensibles.",
+      "whyTitle": "¿Por qué la videoconferencia?",
+      "why": {
+        "1": "Ahorro de tiempo y flexibilidad, sin restricciones de desplazamiento.",
+        "2": "Mayor calidad de intercambio gracias al uso compartido de documentos en directo.",
+        "3": "Confidencialidad controlada con acceso restringido a los participantes."
+      },
+      "availabilityTitle": "Disponibilidades y acompañamiento",
+      "availabilityDesc": "Las agendas se actualizan para proponerte franjas pertinentes. Nuestros expertos te acompañan paso a paso según tu situación."
+    },
+    "securityCards": {
+      "title": "Seguridad y cumplimiento",
+      "cards": {
+        "dataProtection": { "title": "Protección de datos", "desc": "Cumplimiento GDPR, cifrado en tránsito y almacenamiento, trazabilidad de accesos." },
+        "traceability": { "title": "Trazabilidad y marca temporal", "desc": "Marca temporal de documentos y seguimiento de acciones para probar la integridad." },
+        "availability": { "title": "Disponibilidad", "desc": "Arquitectura resiliente y copias de seguridad periódicas que garantizan la continuidad." },
+        "signature": { "title": "Firma electrónica", "desc": "Proceso de firma con auditoría; próximamente disponible en la plataforma." }
+      }
+    },
+    "results": {
+      "title": "Resultados clave",
+      "items": {
+        "1": "Soluciones accionables para decidir más rápido.",
+        "2": "Claridad sobre pasos y documentos necesarios.",
+        "3": "Ahorro de tiempo: plantillas listas, exportación y compartir instantáneos.",
+        "4": "Confianza: coherencia de contenidos, trazabilidad y versiones guardadas."
+      }
+    },
+    "detailed": {
+      "title": "Funciones detalladas",
+      "items": {
+        "generation": "Generación de documentos/respuestas: cuotas mensuales por plan (3 / 120 / 500). Casos: reclamaciones, cartas administrativas, contratos, notas de aclaración.",
+        "multilangVsAdvanced": "Multilingüe vs multilingüe avanzado: la versión avanzada mejora cobertura y calidad en contextos complejos (terminología, sensibilidad).",
+        "exportComplete": "Exportación completa: correo, PDF, impresión, WhatsApp. Mini‑flujo: redacción → validación → exportación PDF → envío por correo/WhatsApp.",
+        "priority": "Prioridad (planes superiores): acceso prioritario para solicitudes importantes y respuesta más rápida.",
+        "solutions": "Soluciones concretas: respuestas accionables antes que teoría, con pasos claros."
+      }
+    },
+    "session": {
+      "title": "Sesión de descubrimiento",
+      "steps": {
+        "1": "Planificación",
+        "2": "Diagnóstico de necesidades",
+        "3": "Demostración y entregables",
+        "4": "Plan de acción inmediato"
+      }
+    },
+    "benefits": {
+      "title": "Beneficios para clientes",
+      "items": {
+        "1": "Ahorro de tiempo, reducción de costes y menos estrés.",
+        "2": "Calidad y fiabilidad; decisiones rápidas sin esperar semanas."
+      }
+    },
+    "trust": {
+      "title": "Confianza y serenidad",
+      "items": {
+        "1": "Seguridad y privacidad: datos alojados, acceso controlado.",
+        "2": "Trazabilidad: historial de versiones, exportación para archivo y evidencia.",
+        "3": "Accesible y adaptativo: uso en ordenador y móvil.",
+        "4": "Acceso sencillo, cancelación sin complicaciones."
+      }
+    },
     "features": {
       "writing": {
         "title": "Asistencia de Redacción",
@@ -323,7 +443,39 @@
     "disclaimer": "La información anterior es ficticia y está destinada a ilustrar las capacidades de la aplicación. Algunas funciones pueden requerir una suscripción activa."
   }
 ,
+  "seeMore": "Ver más",
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Respondemos rápido y con precisión. Para cualquier pregunta sobre GERECHTBERG, elige el canal más adecuado.",
+    "support": {
+      "title": "Soporte",
+      "description": "Asistencia funcional, dudas de uso y guía de implementación.",
+      "email": "contact.gerechtberg.com"
+    },
+    "form": {
+      "title": "Formulario rápido",
+      "labels": { "name": "Nombre", "email": "Email", "message": "Mensaje" },
+      "placeholders": { "name": "Tu nombre", "email": "tu@ejemplo.com", "message": "Describe tu necesidad" },
+      "submit": "Enviar",
+      "sending": "Enviando…"
+    },
+    "errors": {
+      "required": "Todos los campos son obligatorios",
+      "invalidEmail": "Email inválido",
+      "tooShort": "Mensaje demasiado corto",
+      "sendFailed": "Error al enviar",
+      "unknown": "Error desconocido"
+    },
+    "success": "¡Gracias! Tu mensaje se ha enviado correctamente.",
+    "note": "Los mensajes se almacenan de forma segura. Recibirás una respuesta rápida.",
+    "links": {
+      "pricing": "Ver precios",
+      "discover": "Descubrir la app",
+      "dashboard": "Ir al panel"
+    }
+  },
   "appointments": {
+    "preFormTitle": "Formulario de Pre‑Cita",
     "title": "Programar una cita",
     "description": "Elija un horario y agregue notas. Puede revisar sus próximas citas a continuación.",
     "subtitle": "Programa tu consulta con nuestro equipo",
@@ -451,5 +603,133 @@
         "create": "Crear un documento"
       }
     }
+  },
+  "footer": {
+    "logoAlt": "Logo de GERECHTBERG",
+    "partnerAlt": "Socio GE",
+    "copyright": "© {{year}} GERECHTBERG — Todos los derechos reservados.",
+    "brand": { "tagline": "Cree, firme y selle sus documentos fácilmente." },
+    "columns": { "discover": "Descubrir", "features": "Funciones", "resources": "Recursos", "contact": "Contacto" },
+    "links": { "presentation": "Presentación" },
+    "features": {
+      "writing": "Redacción asistida",
+      "signature": "Firma electrónica",
+      "versions": "Gestión de versiones",
+      "multilingual": "Multilingüe avanzado",
+      "export": "Exportación y compartir"
+    },
+    "contact": { "email": "Correo: {{email}}", "whatsapp": "WhatsApp: {{number}}", "address": "Dirección: {{city}}" },
+    "legal": { "imprint": "Aviso legal", "privacy": "Privacidad", "cookies": "Cookies" }
+  },
+  "newWizard": {
+    "tagline": "Redacción de documentos legales",
+    "steps": { "type": "Tipo", "details": "Detalles", "writing": "Redacción", "result": "Resultado", "export": "Exportar" },
+    "freeInputTitle": "Entrada libre",
+    "freeInputPlaceholder": "Escriba su necesidad en una frase (ej.: carta de renuncia para mi puesto en Alemania)",
+    "interpret": "Interpretar",
+    "writeNow": "Redactar ahora",
+    "baseInfoTitle": "Información básica",
+    "labels": { "docType": "Tipo de documento", "country": "País de aplicación", "language": "Idioma", "objective": "Objetivo", "tone": "Tono" },
+    "applyTemplate": "Aplicar plantilla",
+    "continue": "Continuar",
+    "customContentTitle": "Contenido personalizado",
+    "customContentPlaceholder": "Describa su necesidad o agregue detalles",
+    "useAdvancedOnly": "Usar solo prompt avanzado",
+    "useAdvancedHint": "Si está marcado, su prompt se usará tal cual para generar el documento completo.",
+    "writeDocument": "Redactar documento",
+    "writingEllipsis": "Redactando…",
+    "back": "Volver",
+    "writingTitle": "Redacción",
+    "writingHint": "Pulse «Redactar documento» para crear el texto adecuado.",
+    "resultTitle": "Resultado",
+    "improveText": "Mejorar texto",
+    "improvingEllipsis": "Mejorando…",
+    "translate": "Traducir",
+    "translatingEllipsis": "Traduciendo…",
+    "saveDraft": "Guardar borrador",
+    "savingEllipsis": "Guardando…",
+    "next": "Siguiente",
+    "finalActionsTitle": "Acciones finales",
+    "edit": "Editar",
+    "finish": "Finalizar",
+    "openHistory": "Abrir historial",
+    "closeHistory": "Reducir historial",
+    "versionsTitle": "Historial de versiones",
+    "noVersions": "Aún no hay versiones.",
+    "templatesTitle": "Plantillas sugeridas",
+    "helpTitle": "Ayuda contextual",
+    "planTitle": "Plan de usuario",
+    "planDesc": "Freemium / Premium / Pro según su cuenta.",
+    "templates": {
+      "motivation": "Carta de motivación",
+      "workContract": "Contrato de trabajo",
+      "serviceContract": "Contrato de prestación de servicios",
+      "certificate": "Certificado",
+      "residenceCertificate": "Certificado de residencia",
+      "terminationLetter": "Carta de rescisión",
+      "nda": "Acuerdo de confidencialidad (NDA)",
+      "adminLetter": "Carta administrativa",
+      "resignationLetter": "Carta de renuncia"
+    },
+    "tones": {
+      "formal": "Formal",
+      "neutral": "Neutro",
+      "friendly": "Amable",
+      "professional": "Profesional"
+    },
+    "versionLabels": { "writing": "Redacción", "improved": "Mejora del texto", "translation": "Traducción" },
+    "messages": { "written": "Documento redactado", "createError": "Error al crear", "improved": "Texto mejorado", "improveError": "Error de mejora" },
+    "help": {
+      "FR": "Francia: Respetar fórmulas de cortesía y menciones legales habituales.",
+      "DE": "Alemania: Indique referencias oficiales (Aktenzeichen) si aplica.",
+      "BE": "Bélgica: Verifique el idioma apropiado (FR/NL/DE) según la región.",
+      "default": "Seleccione un país para mostrar la ayuda contextual."
+    },
+    "objectivePlaceholder": "ej.: Solicitud de empleo, Certificación de residencia"
+  }
+  ,
+  "legalPages": {
+    "imprint": {
+      "title": "Aviso legal",
+      "subtitle": "Información regulatoria y editor del sitio.",
+      "editor": "Editor: GERECHTBERG.",
+      "address": "Dirección: Alemania, Berlín.",
+      "contact": "Contacto: contact.gerechtberg.com — WhatsApp: +49 176 40416570.",
+      "hosting": "Alojamiento: Vercel (UE/EE. UU.), con CDN.",
+      "liabilityTitle": "Responsabilidad",
+      "liabilityText": "La información proporcionada es únicamente orientativa. GERECHTBERG no se hace responsable de los daños directos o indirectos derivados del uso del sitio."
+    },
+    "privacy": {
+      "title": "Privacidad",
+      "subtitle": "Política de protección de datos personales.",
+      "collectedTitle": "Datos recopilados",
+      "collectedText": "Recopilamos los datos necesarios para el funcionamiento del servicio (cuenta, documentos, preferencias). Los datos se almacenan de forma segura.",
+      "purposesTitle": "Finalidades",
+      "purposesText": "Redacción asistida, traducción, gestión de versiones, compartición y exportación.",
+      "rightsTitle": "Sus derechos",
+      "rightsText": "Puede ejercer sus derechos (acceso, rectificación, supresión) contactando con contact.gerechtberg.com.",
+      "securityTitle": "Seguridad",
+      "securityText": "Cifrado en tránsito (TLS) y en reposo, políticas estrictas de acceso y registro de operaciones críticas."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "subtitle": "Información sobre el uso de cookies y tecnologías similares.",
+      "typesTitle": "Tipos de cookies",
+      "types": {
+        "necessary": "Cookies necesarias: funcionamiento básico del sitio.",
+        "performance": "Cookies de rendimiento: mejora y medición de audiencia.",
+        "functionality": "Cookies de funcionalidad: preferencias y personalización."
+      },
+      "manageTitle": "Gestión",
+      "manageText": "Puede gestionar las preferencias de cookies en la configuración de su navegador. Para cualquier consulta, contacte contact.gerechtberg.com."
+    }
+  },
+  "cookieBanner": {
+    "title": "Usamos cookies",
+    "text": "Usamos cookies necesarias y, con su consentimiento, otras para mejorar la experiencia.",
+    "accept": "Aceptar todo",
+    "reject": "Rechazar no necesarias",
+    "manage": "Gestionar preferencias",
+    "linkLabel": "Saber más"
   }
 }

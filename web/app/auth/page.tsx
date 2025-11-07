@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo, useEffect } from "react";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { getSupabase } from "@/lib/supabaseUtils";
 // remove: import CountrySelect from "@/components/CountrySelect";
@@ -72,6 +73,8 @@ export default function AuthPage() {
   }, []);
 
   useEffect(() => {
+    // Masquer header/footer pendant l'affichage de la page d'auth
+    try { document.body.classList.add("auth-only"); } catch {}
     // Si déjà connecté (retour OAuth), redirige vers next
     const supabase = getSupabase();
     if (!supabase) return;
@@ -86,6 +89,7 @@ export default function AuthPage() {
         window.location.href = target;
       }
     });
+    return () => { try { document.body.classList.remove("auth-only"); } catch {} };
   }, [nextUrl]);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -148,6 +152,9 @@ export default function AuthPage() {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-sm mt-10">
+      <div className="flex justify-center mb-4">
+        <Image src="/Logo-Favicon.png" alt="GERECHTBERG" width={64} height={64} className="rounded" />
+      </div>
       <h1 className="text-xl font-semibold mb-4">
         {mode === "signup" ? "Créer un compte" : "Se connecter"}
       </h1>
@@ -242,7 +249,7 @@ export default function AuthPage() {
         {mode === "signup" && (
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" checked={accept} onChange={(e) => setAccept(e.target.checked)} />
-            J’accepte les conditions d’utilisation
+            J’accepte les <a href="/" className="underline text-brand hover:opacity-80">conditions d’utilisation</a>
           </label>
         )}
         <button

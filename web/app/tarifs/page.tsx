@@ -29,6 +29,20 @@ function formatAmount(locale: string, amt?: number | null, currency?: string | n
 
 export default function TarifsPage() {
   const { t, i18n } = useTranslation();
+  const OFFERS = {
+    basic: {
+      name: t("pricing.plans.basic.name"),
+      desc: t("pricing.plans.basic.desc"),
+    },
+    pro: {
+      name: t("pricing.plans.pro.name"),
+      desc: t("pricing.plans.pro.desc"),
+    },
+    enterprise: {
+      name: t("pricing.plans.enterprise.name"),
+      desc: t("pricing.plans.enterprise.desc"),
+    },
+  } as const;
   const [loading, setLoading] = useState<"basic" | "pro" | "enterprise" | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [priceData, setPriceData] = useState<{
@@ -91,105 +105,112 @@ export default function TarifsPage() {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto px-3 py-4 sm:p-6" suppressHydrationWarning>
-      <h1 className="text-xl sm:text-2xl font-semibold mb-2">{t("pricing.title")}</h1>
-      <p className="text-sm text-black/70 dark:text-white/70 mb-5 sm:mb-6">
-        {t("pricing.trial")}
-      </p>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6" suppressHydrationWarning>
+      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">{t("pricing.title")}</h1>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 sm:mt-6">
-        <div className="border rounded p-4">
-          <h2 className="font-medium">{t("pricing.plans.basic.name")}</h2>
-          <p className="text-lg sm:text-xl">
-            {
-              priceData.basic?.unit_amount && priceData.basic?.currency
-                ? (
-                    <>
-                      {formatAmount(i18n.language, priceData.basic?.unit_amount, priceData.basic?.currency)}
-                      {t("pricing.labels.perMonth")} {t("pricing.plans.basic.desc")}
-                    </>
-                  )
-                : (
-                    <>
-                      {t("pricing.plans.basic.price")}
-                    </>
-                  )
-            }
-          </p>
-          <p className="text-sm text-black/70 dark:text-white/70">
-            {t("pricing.plans.basic.info")}
-          </p>
-          <button
-            disabled
-            className="mt-3 w-full bg-gray-200 text-gray-700 rounded py-2.5 sm:py-3"
-          >
-            {t("pricing.choose.basic")}
-          </button>
+      {/* Cartes de tarifs inspirées de l’exemple, avec animation au survol */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        {/* Starter Access / Free */}
+        <div className="relative bg-white border rounded-xl p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-lg hover:ring-brand/40">
+          <div className="mb-2 inline-flex px-3 py-1 rounded-full bg-black/5 text-xs text-black/70">
+            {t("pricing.cards.basic.badge")}
+          </div>
+          <h2 className="font-medium mb-2">{OFFERS.basic.name}</h2>
+          <div className="flex items-baseline gap-1 mb-3">
+            {priceData.basic?.unit_amount && priceData.basic?.currency ? (
+              <>
+                <span className="text-3xl font-semibold">
+                  {formatAmount(i18n.language, priceData.basic?.unit_amount, priceData.basic?.currency)}
+                </span>
+                <span className="text-black/60 text-sm">{t("pricing.labels.perMonth")}</span>
+              </>
+            ) : (
+              <span className="text-lg font-medium">{t("pricing.plans.basic.price")}</span>
+            )}
+          </div>
+          <p className="text-sm text-black/70 mb-3 leading-relaxed">{OFFERS.basic.desc}</p>
+          <ul className="text-sm text-black/70 space-y-1.5 mb-4 leading-relaxed">
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.basic.items.1")}</li>
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.basic.items.2")}</li>
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.basic.items.3")}</li>
+          </ul>
+          <button disabled className="w-full rounded px-4 py-2.5 bg-black/5 text-black/60">{t("pricing.choose.basic")}</button>
         </div>
-        <div className="border rounded p-4">
-          <h2 className="font-medium">{t("pricing.plans.pro.name")}</h2>
-          <p className="text-lg sm:text-xl">
-            {
-              priceData.pro?.unit_amount && priceData.pro?.currency
-                ? (
-                    <>
-                      {formatAmount(i18n.language, priceData.pro?.unit_amount, priceData.pro?.currency)}
-                      {t("pricing.labels.perMonth")} {t("pricing.plans.pro.desc")}
-                    </>
-                  )
-                : (
-                    <>
-                      {t("pricing.plans.pro.price")}
-                    </>
-                  )
-            }
-          </p>
-          <p className="text-sm text-black/70 dark:text-white/70">
-            {t("pricing.plans.pro.info")}
-          </p>
+
+        {/* Essentiel Premium */}
+        <div className="relative bg-white border rounded-xl p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-lg hover:ring-brand/40">
+          <div className="mb-2 inline-flex px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs">
+            {t("pricing.cards.pro.badge")}
+          </div>
+          <h2 className="font-medium mb-2">{OFFERS.pro.name}</h2>
+          <div className="flex items-baseline gap-1 mb-3">
+            {priceData.pro?.unit_amount && priceData.pro?.currency ? (
+              <>
+                <span className="text-3xl font-semibold">
+                  {formatAmount(i18n.language, priceData.pro?.unit_amount, priceData.pro?.currency)}
+                </span>
+                <span className="text-black/60 text-sm">{t("pricing.labels.perMonth")}</span>
+              </>
+            ) : (
+              <span className="text-lg font-medium">{t("pricing.plans.pro.price")}</span>
+            )}
+          </div>
+          <p className="text-sm text-black/70 mb-3 leading-relaxed">{OFFERS.pro.desc}</p>
+          <ul className="text-sm text-black/70 space-y-1.5 mb-4 leading-relaxed">
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.pro.items.1")}</li>
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.pro.items.2")}</li>
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.pro.items.3")}</li>
+          </ul>
           <button
             disabled={loading === "pro"}
             onClick={() => startCheckout("pro")}
-            className="mt-3 w-full bg-brand text-white rounded py-2.5 sm:py-3"
+            className="w-full rounded px-4 py-2.5 bg-brand text-white hover:bg-brand/90"
           >
             {loading === "pro" ? t("pricing.loading") : t("pricing.choose.pro")}
           </button>
         </div>
-        <div className="border rounded p-4">
-          <h2 className="font-medium">{t("pricing.plans.enterprise.name")}</h2>
-          <p className="text-lg sm:text-xl">
-            {
-              priceData.enterprise?.unit_amount && priceData.enterprise?.currency
-                ? (
-                    <>
-                      {formatAmount(i18n.language, priceData.enterprise?.unit_amount, priceData.enterprise?.currency)}
-                      {t("pricing.labels.perMonth")} {t("pricing.plans.enterprise.desc")}
-                    </>
-                  )
-                : (
-                    <>
-                      {t("pricing.plans.enterprise.price")}
-                    </>
-                  )
-            }
-          </p>
-          <p className="text-sm text-black/70 dark:text-white/70">
-            {t("pricing.plans.enterprise.info")}
-          </p>
+
+        {/* Supreme Titanium */}
+        <div className="relative bg-white border rounded-xl p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-lg hover:ring-brand/40">
+          <div className="mb-2 inline-flex px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs">
+            {t("pricing.cards.enterprise.badge")}
+          </div>
+          <h2 className="font-medium mb-2">{OFFERS.enterprise.name}</h2>
+          <div className="flex items-baseline gap-1 mb-3">
+            {priceData.enterprise?.unit_amount && priceData.enterprise?.currency ? (
+              <>
+                <span className="text-3xl font-semibold">
+                  {formatAmount(i18n.language, priceData.enterprise?.unit_amount, priceData.enterprise?.currency)}
+                </span>
+                <span className="text-black/60 text-sm">{t("pricing.labels.perMonth")}</span>
+              </>
+            ) : (
+              <span className="text-lg font-medium">{t("pricing.plans.enterprise.price")}</span>
+            )}
+          </div>
+          <p className="text-sm text-black/70 mb-3 leading-relaxed">{OFFERS.enterprise.desc}</p>
+          <ul className="text-sm text-black/70 space-y-1.5 mb-4 leading-relaxed">
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.enterprise.items.1")}</li>
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.enterprise.items.2")}</li>
+            <li className="flex items-start gap-2"><svg aria-hidden className="mt-0.5 h-4 w-4 text-brand" viewBox="0 0 20 20" fill="currentColor"><path d="M16.704 5.292a1 1 0 0 1 0 1.416l-7.5 7.5a1 1 0 0 1-1.416 0l-3.5-3.5a1 1 0 1 1 1.416-1.416l2.792 2.792 6.792-6.792a1 1 0 0 1 1.416 0Z"/></svg>{t("pricing.cards.enterprise.items.3")}</li>
+          </ul>
           <button
             disabled={loading === "enterprise"}
             onClick={() => startCheckout("enterprise")}
-            className="mt-3 w-full bg-brand text-white rounded py-2.5 sm:py-3"
+            className="w-full rounded px-4 py-2.5 bg-brand text-white hover:bg-brand/90"
           >
             {loading === "enterprise" ? t("pricing.loading") : t("pricing.choose.enterprise")}
           </button>
         </div>
       </div>
 
-      <div className="mt-5 sm:mt-6">
-        <Link href="/documents" className="px-4 py-2.5 sm:py-3 border rounded">{t("actions.backToDashboard")}</Link>
+      {/* Liens complémentaires */}
+      <div className="mt-6 text-center">
+        <Link href="/documents" className="inline-flex items-center justify-center px-4 py-2.5 border rounded hover:bg-black/5">{t("actions.backToDashboard")}</Link>
       </div>
-      <div className="mt-5 sm:mt-6 border rounded p-4 sm:p-5">
+
+      {/* Coaching / contenu additionnel */}
+      <div className="mt-6 border rounded-xl p-5 bg-white shadow-sm ring-1 ring-black/5">
         <h2 className="font-medium mb-2">{t("pricing.coaching.title")}</h2>
         <ul className="list-disc pl-5 space-y-1.5 text-sm text-black/80 dark:text-white/80">
           <li>{t("pricing.coaching.items.1")}</li>
@@ -200,6 +221,7 @@ export default function TarifsPage() {
           <li>{t("pricing.coaching.items.6")}</li>
         </ul>
       </div>
+
       {/* Contenu CMS gérable */}
       <PageContent slug="tarifs" className="mt-8" />
       {message && <p className="mt-4 text-sm text-red-600">{message}</p>}

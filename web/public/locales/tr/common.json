@@ -20,7 +20,16 @@
     "totalDocuments": "Toplam belgeler",
     "signed": "İmzalanmış",
     "recentActivity": "Son aktivite",
-    "lastActivity": "Son aktivite"
+    "lastActivity": "Son aktivite",
+    "comingSoon": {
+      "title": "Yakında",
+      "email": "Seçili belgeleri e-posta ile gönder",
+      "signature": "Belgelerin elektronik imzası",
+      "timestamp": "Belgelerin zaman damgası",
+      "note": "Bu özellikler yakında kullanılabilir olacak.",
+      "badge": "Yakında",
+      "tooltip": "Yakında mevcut"
+    }
   },
   "subscription": {
     "unknown": "Bilinmeyen abonelik",
@@ -313,8 +322,33 @@
       "enterprise": { "name": "Sınırsız", "price": "30 € / ay — tüm özellikler + müşteri hizmetleri", "desc": "tüm özellikler + müşteri hizmetleri", "info": "Tüm özelliklere sınırsız erişim + müşteri hizmetleri." }
     },
     "labels": { "perMonth": " / ay —" },
-    "choose": { "basic": "Dahil", "pro": "Pro'yu seç", "enterprise": "Sınırsızı seç" }
-    ,
+    "choose": { "basic": "Dahil", "pro": "Pro'yu seç", "enterprise": "Sınırsızı seç" },
+    "cards": {
+      "basic": {
+        "badge": "Başlamak için önerilir",
+        "items": {
+          "1": "Çok dilli",
+          "2": "E‑posta / PDF / yazdırma / WhatsApp ile dışa aktarım",
+          "3": "Ayda 3 belge / yanıt"
+        }
+      },
+      "pro": {
+        "badge": "Bağımsızlar için önerilir",
+        "items": {
+          "1": "Ücretsiz plandaki her şey",
+          "2": "Ayda 120 belge / yanıt",
+          "3": "Somut ve uygulanabilir çözümler"
+        }
+      },
+      "enterprise": {
+        "badge": "Ekipler için önerilir",
+        "items": {
+          "1": "Pro plandaki her şey",
+          "2": "Ayda 500 belge / yanıt",
+          "3": "Öncelikli destek"
+        }
+      }
+    },
     "coaching": {
       "title": "Ücret Koşulları (Koçluk)",
       "items": {
@@ -330,6 +364,92 @@
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Mektuplarınızı ve sözleşmelerinizi oluşturmak, imzalamak ve zaman damgası eklemek için akıllı platform, dışa aktarma ve paylaşım ile.",
+    "mainCards": {
+      "title": "Fonctionnalités principales",
+      "cards": {
+        "writing": { "title": "Yazım asistanı", "desc": "Şablonlar ve yönlendirmelerle dakikalar içinde güvenilir belgeler oluşturun." },
+        "export": { "title": "Dışa aktarma ve paylaşma", "desc": "PDF/DOCX olarak dışa aktarın ve içeriği hassas şekilde kontrol ederek paylaşın." },
+        "multilingual": { "title": "Gelişmiş çok dilli", "desc": "Hızlı çeviri (fr, en, de) ve her kullanıma göre bağlamsal ton uyarlaması." }
+      }
+    },
+    "appointment": {
+      "intro": "Bir avukat veya hukuk uzmanıyla çevrim içi randevunuzu kolayca planlayın. Onaydan sonra, anında güvenli bir görüntülü görüşme bağlantısı alırsınız. Yolculuğunuz boyunca, yer değiştirmeden kişiselleştirilmiş eşlikten yararlanın.",
+      "processTitle": "Basit ve hızlı süreç",
+      "process": {
+        "1": "Uzmanın ajandasından uygun bir zaman dilimi seçin.",
+        "2": "Rezervasyonu onaylayın ve güvenli bağlantınızı e‑posta ile anında alın.",
+        "3": "Zamanı geldiğinde, herhangi bir cihazdan görüntülü görüşmeye katılın."
+      },
+      "pointsTitle": "Ana noktalar",
+      "points": {
+        "simplicity": "Basitlik — birkaç tıklamayla rezervasyon, gereksiz geri‑gidiş olmadan.",
+        "availability": "Uzmanların uygunluğu — güncel zaman dilimleri ve anında onay.",
+        "remote": "Uzaktan danışmanın avantajları — nerede olursanız olun etkili iletişim.",
+        "confidentiality": "Gizlilik garantisi — tekil bağlantı, kontrollü erişim ve korunmuş paylaşımlar."
+      },
+      "note": "Görüntülü görüşme bağlantısı otomatik olarak oluşturulur, tekildir ve güvenlidir (https). Yalnızca doğrulanmış katılımcılar erişebilir ve hassas veriler ifşa edilmez.",
+      "whyTitle": "Neden görüntülü görüşme?",
+      "why": {
+        "1": "Zaman kazancı ve esneklik, hareket kısıtlaması olmadan.",
+        "2": "Belgeleri canlı paylaşma ile güçlendirilmiş iletişim kalitesi.",
+        "3": "Katılımcılara sınırlı erişimle kontrol edilen gizlilik."
+      },
+      "availabilityTitle": "Uygunluk ve eşlik",
+      "availabilityDesc": "Ajandalar, uygun zaman dilimlerini önermek için güncel tutulur. Uzmanlarımız durumunuza göre adım adım size eşlik eder."
+    },
+    "securityCards": {
+      "title": "Güvenlik ve uyumluluk",
+      "cards": {
+        "dataProtection": { "title": "Veri koruma", "desc": "GDPR uyumu, aktarımda ve depoda şifreleme, erişim günlükleri." },
+        "traceability": { "title": "İzlenebilirlik ve zaman damgası", "desc": "Belgelerin zaman damgası ve eylemlerin takibi ile bütünlük kanıtı." },
+        "availability": { "title": "Kullanılabilirlik", "desc": "Dayanıklı mimari ve hizmet sürekliliği için düzenli yedeklemeler." },
+        "signature": { "title": "Elektronik imza", "desc": "Denetim izi olan imza akışı; platformda yakında." }
+      }
+    },
+    "results": {
+      "title": "Sonuçlar",
+      "items": {
+        "1": "Hemen uygulanabilir çözümler, daha hızlı kararlar.",
+        "2": "İzlenecek adımlar ve üretilecek belgeler konusunda netlik.",
+        "3": "Zaman kazancı: hazır şablonlar, anında dışa aktarma ve paylaşım.",
+        "4": "Güven: tutarlı içerikler, izlenebilirlik ve kaydedilmiş sürümler."
+      }
+    },
+    "detailed": {
+      "title": "Detaylı özellikler",
+      "items": {
+        "generation": "Belge/yanıt üretimi: teklifinize göre aylık kotalar (3 / 120 / 500). Kullanım durumları: şikayetler, idari mektuplar, sözleşmeler, düzeltmeler.",
+        "multilangVsAdvanced": "Çok dilli vs gelişmiş çok dilli: gelişmiş sürüm, karmaşık durumlar için kapsama ve kaliteyi artırır (terminoloji, hassas bağlamlar).",
+        "exportComplete": "Tam dışa aktarma: e‑posta, PDF, baskı, WhatsApp. Mini iş akışı: yazım → doğrulama → PDF dışa aktarma → e‑posta/WhatsApp gönderimi.",
+        "priority": "Öncelik (üst paket): önemli talepler için öncelikli erişim ve artırılmış hızlı yanıt.",
+        "solutions": "Somut çözümler: teoriden çok uygulanabilir yanıtların vurgulanması, açık adımlarla."
+      }
+    },
+    "session": {
+      "title": "Keşif oturumu",
+      "steps": {
+        "1": "Randevu alın.",
+        "2": "İhtiyaçların teşhisi.",
+        "3": "Demonstrasyon ve çıktılar.",
+        "4": "Anında eylem planı."
+      }
+    },
+    "benefits": {
+      "title": "Müşteri avantajları",
+      "items": {
+        "1": "Zaman tasarrufu, maliyetler, stresin azalması.",
+        "2": "Kalite ve güvenilirlik, haftalarca avukat beklemeden hızlı kararlar."
+      }
+    },
+    "trust": {
+      "title": "Güven ve güvence",
+      "items": {
+        "1": "Güvenlik ve gizlilik: barındırılan veriler, kontrol edilen erişimler.",
+        "2": "İzlenebilirlik: kaydedilen sürümler, saklama ve kanıt için dışa aktarma.",
+        "3": "Erişilebilirlik ve duyarlı tasarım: bilgisayar ve mobilde kullanılabilir.",
+        "4": "Basit taahhüt, karmaşık olmayan iptal."
+      }
+    },
     "features": {
       "writing": {
         "title": "Yazım Yardımı",
@@ -406,8 +526,42 @@
     "disclaimer": "Yukarıdaki bilgiler kurgusaldır ve uygulama yeteneklerini göstermek içindir. Bazı özellikler aktif abonelik gerektirebilir."
   }
 ,
+  "seeMore": "Daha fazla göster",
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Hızlı ve doğru yanıt veririz. GERECHTBERG ile ilgili sorular için en uygun kanalı seçin.",
+    "support": {
+      "title": "Destek",
+      "description": "Fonksiyonel yardım, kullanım soruları ve uygulama danışmanlığı.",
+      "email": "contact.gerechtberg.com"
+    },
+    "form": {
+      "title": "Hızlı form",
+      "labels": { "name": "Ad", "email": "E‑posta", "message": "Mesaj" },
+      "placeholders": { "name": "Adınız", "email": "siz@ornek.com", "message": "İhtiyacınızı açıklayın" },
+      "submit": "Gönder",
+      "sending": "Gönderiliyor…"
+    },
+    "errors": {
+      "required": "Tüm alanlar zorunludur",
+      "invalidEmail": "Geçersiz e‑posta",
+      "tooShort": "Mesaj çok kısa",
+      "sendFailed": "Gönderme hatası",
+      "unknown": "Bilinmeyen hata"
+    },
+    "success": "Teşekkürler! Mesajınız başarıyla gönderildi.",
+    "note": "Mesajlar güvenli şekilde saklanır. Kısa sürede yanıt alacaksınız.",
+    "links": {
+      "pricing": "Fiyatları görüntüle",
+      "discover": "Uygulamayı keşfet",
+      "dashboard": "Panoya git"
+    }
+  },
   "appointments": {
+    "preFormTitle": "Ön Randevu Formu",
     "title": "Randevu planla",
+    "subtitle": "Ekibimizle danışmanlığınızı planlayın",
+    "bookNow": "Şimdi planla",
     "description": "Bir zaman aralığı seçin ve notlar ekleyin. Aşağıda yaklaşan randevularınızı görebilirsiniz.",
     "form": {
       "titleLabel": "Başlık",
@@ -442,5 +596,86 @@
       "deleted": "Randevu silindi",
       "deleteError": "Silme hatası"
     }
+  },
+  "footer": {
+    "logoAlt": "GERECHTBERG logosu",
+    "partnerAlt": "GE ortağı",
+    "copyright": "© {{year}} GERECHTBERG — Tüm hakları saklıdır.",
+    "brand": { "tagline": "Belgelerinizi kolayca oluşturun, imzalayın ve damgalayın." },
+    "columns": { "discover": "Keşfet", "features": "Özellikler", "resources": "Kaynaklar", "contact": "İletişim" },
+    "links": { "presentation": "Sunum" },
+    "features": {
+      "writing": "Yazım asistanı",
+      "signature": "Elektronik imza",
+      "versions": "Sürüm yönetimi",
+      "multilingual": "Gelişmiş çok dilli",
+      "export": "Dışa aktarma ve paylaşma"
+    },
+    "contact": { "email": "E-posta: {{email}}", "whatsapp": "WhatsApp: {{number}}", "address": "Adres: {{city}}" },
+    "legal": { "imprint": "Künye", "privacy": "Gizlilik", "cookies": "Çerezler" }
+  },
+  "newWizard": {
+    "templates": {
+      "motivation": "Ön yazı",
+      "workContract": "İş sözleşmesi",
+      "serviceContract": "Hizmet sözleşmesi",
+      "certificate": "Belge",
+      "residenceCertificate": "İkamet belgesi",
+      "terminationLetter": "Fesih mektubu",
+      "nda": "Gizlilik sözleşmesi (NDA)",
+      "adminLetter": "İdari mektup",
+      "resignationLetter": "İstifa mektubu"
+    },
+    "tones": {
+      "formal": "Resmi",
+      "neutral": "Nötr",
+      "friendly": "Samimi",
+      "professional": "Profesyonel"
+    }
+  }
+  ,
+  "legalPages": {
+    "imprint": {
+      "title": "Yasal Bilgiler",
+      "subtitle": "Siteye ilişkin düzenleyici bilgiler ve yayıncı.",
+      "editor": "Yayıncı: GERECHTBERG.",
+      "address": "Adres: Almanya, Berlin.",
+      "contact": "İletişim: contact.gerechtberg.com — WhatsApp: +49 176 40416570.",
+      "hosting": "Barındırma: Vercel (AB/ABD), CDN ile.",
+      "liabilityTitle": "Sorumluluk",
+      "liabilityText": "Sağlanan bilgiler yalnızca bilgilendirme amaçlıdır. GERECHTBERG, sitenin kullanımından doğan doğrudan veya dolaylı zararlardan sorumlu değildir."
+    },
+    "privacy": {
+      "title": "Gizlilik",
+      "subtitle": "Kişisel verilerin korunması politikası.",
+      "collectedTitle": "Toplanan veriler",
+      "collectedText": "Hizmetin çalışması için gerekli verileri toplarız (hesap, belgeler, tercihler). Veriler güvenli bir şekilde saklanır.",
+      "purposesTitle": "Amaçlar",
+      "purposesText": "Yazım desteği, çeviri, sürüm yönetimi, paylaşım ve dışa aktarım.",
+      "rightsTitle": "Haklarınız",
+      "rightsText": "Haklarınızı (erişim, düzeltme, silme) contact.gerechtberg.com üzerinden kullanabilirsiniz.",
+      "securityTitle": "Güvenlik",
+      "securityText": "Aktarımda (TLS) ve beklemede şifreleme, sıkı erişim politikaları ve kritik işlemlerin kaydı."
+    },
+    "cookies": {
+      "title": "Çerezler",
+      "subtitle": "Çerezler ve benzer teknolojilerin kullanımı hakkında bilgiler.",
+      "typesTitle": "Çerez türleri",
+      "types": {
+        "necessary": "Gerekli çerezler: sitenin temel çalışması.",
+        "performance": "Performans çerezleri: iyileştirme ve kitle ölçümü.",
+        "functionality": "İşlevsel çerezler: tercihler ve kişiselleştirme."
+      },
+      "manageTitle": "Yönetim",
+      "manageText": "Çerez tercihlerinizi tarayıcı ayarlarınızdan yönetebilirsiniz. Sorularınız için contact.gerechtberg.com ile iletişime geçin."
+    }
+  },
+  "cookieBanner": {
+    "title": "Çerezleri kullanıyoruz",
+    "text": "Gerekli çerezleri ve onayınızla deneyimi iyileştirmek için diğerlerini kullanıyoruz.",
+    "accept": "Hepsini kabul et",
+    "reject": "Gereksizleri reddet",
+    "manage": "Tercihleri yönet",
+    "linkLabel": "Daha fazla bilgi"
   }
 }

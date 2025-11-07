@@ -3,8 +3,9 @@ import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientI18nProvider from "@/components/ClientI18nProvider";
-import Footer from "@/components/Footer";
+import FooterV3 from "@/components/FooterV3";
 import NavBarV2 from "@/components/NavBarV2";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,7 +58,8 @@ export default async function RootLayout({
         <ClientI18nProvider initialLng={initialLang}>
           <NavBarV2 />
           {children}
-          <Footer />
+          <CookieConsentBanner />
+          <FooterV3 />
         </ClientI18nProvider>
       </body>
     </html>

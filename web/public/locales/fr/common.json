@@ -103,6 +103,72 @@
     "seeMore": "Voir plus",
     "seeLess": "Voir moins"
   },
+  "newWizard": {
+    "tagline": "Rédaction de documents juridiques",
+    "steps": { "type": "Type", "details": "Détails", "writing": "Rédaction", "result": "Résultat", "export": "Exporter" },
+    "freeInputTitle": "Saisie libre",
+    "freeInputPlaceholder": "Écrivez votre besoin en une phrase (ex: Lettre de démission pour mon poste en Allemagne)",
+    "interpret": "Interpréter",
+    "writeNow": "Rédiger maintenant",
+    "baseInfoTitle": "Informations de base",
+    "labels": { "docType": "Type de document", "country": "Pays d’application", "language": "Langue", "objective": "Objectif", "tone": "Ton" },
+    "applyTemplate": "Appliquer le modèle",
+    "continue": "Continuer",
+    "customContentTitle": "Contenu personnalisé",
+    "customContentPlaceholder": "Décrivez votre besoin ou ajoutez des précisions",
+    "useAdvancedOnly": "Utiliser uniquement le prompt avancé",
+    "useAdvancedHint": "Si coché, votre prompt sera utilisé tel quel pour générer le document complet.",
+    "writeDocument": "Rédiger le document",
+    "writingEllipsis": "Rédaction...",
+    "back": "Retour",
+    "writingTitle": "Rédaction",
+    "writingHint": "Appuyez sur « Rédiger le document » pour créer le texte adapté.",
+    "resultTitle": "Résultat",
+    "improveText": "Améliorer le texte",
+    "improvingEllipsis": "Amélioration...",
+    "translate": "Traduire",
+    "translatingEllipsis": "Traduction...",
+    "saveDraft": "Enregistrer le brouillon",
+    "savingEllipsis": "Enregistrement...",
+    "next": "Suivant",
+    "finalActionsTitle": "Actions finales",
+    "edit": "Modifier",
+    "finish": "Terminer",
+    "openHistory": "Ouvrir l'historique",
+    "closeHistory": "Réduire l'historique",
+    "versionsTitle": "Historique des versions",
+    "noVersions": "Aucune version pour l’instant.",
+    "templatesTitle": "Modèles suggérés",
+    "helpTitle": "Aide contextuelle",
+    "planTitle": "Plan utilisateur",
+    "planDesc": "Freemium / Premium / Pro selon votre compte.",
+    "templates": {
+      "motivation": "Lettre de motivation",
+      "workContract": "Contrat de travail",
+      "serviceContract": "Contrat de prestation de service",
+      "certificate": "Attestation",
+      "residenceCertificate": "Attestation de résidence",
+      "terminationLetter": "Lettre de résiliation",
+      "nda": "Accord de confidentialité (NDA)",
+      "adminLetter": "Lettre administrative",
+      "resignationLetter": "Lettre de démission"
+    },
+    "tones": {
+      "formal": "Formel",
+      "neutral": "Neutre",
+      "friendly": "Amical",
+      "professional": "Professionnel"
+    },
+    "versionLabels": { "writing": "Rédaction", "improved": "Amélioration du texte", "translation": "Traduction" },
+    "messages": { "written": "Document rédigé", "createError": "Erreur lors de la création", "improved": "Texte amélioré", "improveError": "Erreur d’amélioration" },
+    "help": {
+      "FR": "France: Respecter les formules de politesse et mentions légales usuelles.",
+      "DE": "Allemagne: Préciser les références officielles (Aktenzeichen) si applicable.",
+      "BE": "Belgique: Vérifier la langue appropriée (FR/NL/DE) selon la région.",
+      "default": "Sélectionnez un pays pour afficher l’aide contextuelle."
+    },
+    "objectivePlaceholder": "ex: Demande d’emploi, Preuve de résidence"
+  },
   "documentDetail": {
     "loading": "Chargement…",
     "notFound": "Document introuvable.",
@@ -331,12 +397,99 @@
       "pricing": "Voir les tarifs",
       "dashboard": "Accéder au tableau de bord"
     },
-    "disclaimer": "Les informations ci-dessus sont fictives et destinées à illustrer les capacités de l'application. Certaines fonctionnalités peuvent nécessiter un abonnement actif."
+    "disclaimer": "Les informations ci-dessus sont fictives et destinées à illustrer les capacités de l'application. Certaines fonctionnalités peuvent nécessiter un abonnement actif.",
+    "appointment": {
+      "intro": "Planifiez facilement un rendez‑vous en ligne avec un avocat ou un expert juridique. À la confirmation, vous recevez instantanément un lien sécurisé de visioconférence. Bénéficiez d’un accompagnement personnalisé pour vos démarches, sans déplacement.",
+      "processTitle": "Processus simple et rapide",
+      "process": {
+        "1": "Choisissez un créneau disponible dans l’agenda de l’expert.",
+        "2": "Validez la réservation et recevez instantanément votre lien sécurisé par e‑mail.",
+        "3": "Rejoignez la visioconférence le moment venu, depuis n’importe quel appareil."
+      },
+      "pointsTitle": "Points clés",
+      "points": {
+        "simplicity": "Simplicité — réservation en quelques clics, sans aller‑retour inutile.",
+        "availability": "Disponibilité des experts — créneaux actualisés et confirmation immédiate.",
+        "remote": "Avantages de la consultation à distance — échange efficace, où que vous soyez.",
+        "confidentiality": "Confidentialité garantie — lien unique, accès contrôlé et échanges protégés."
+      },
+      "note": "Le lien de visioconférence est généré automatiquement, unique et sécurisé (https). Il n’est accessible qu’aux participants confirmés et n’expose aucune donnée sensible.",
+      "whyTitle": "Pourquoi la visioconférence ?",
+      "why": {
+        "1": "Gain de temps et flexibilité, sans contraintes de déplacement.",
+        "2": "Qualité d’échange renforcée avec partage de documents en direct.",
+        "3": "Confidentialité maîtrisée avec accès restreint aux participants."
+      },
+      "availabilityTitle": "Disponibilités et accompagnement",
+      "availabilityDesc": "Les agendas sont tenus à jour pour vous proposer des créneaux pertinents. Nos experts vous accompagnent pas à pas, selon votre situation."
+    },
+    "mainCards": {
+      "title": "Fonctionnalités principales",
+      "cards": {
+        "writing": { "title": "Rédaction assistée", "desc": "Créez des documents fiables en quelques minutes, à partir de modèles et d’instructions guidées." },
+        "versions": { "title": "Versions & traçabilité", "desc": "Conservez l’historique, comparez les modifications et suivez les activités clés de manière transparente." },
+        "export": { "title": "Export & partage", "desc": "Exportez en PDF/DOCX et partagez facilement, avec un contrôle précis du contenu." },
+        "multilingual": { "title": "Multilingue", "desc": "Traduction rapide (fr, en, de) et adaptation contextuelle du ton pour chaque usage." }
+      }
+    },
+    "securityCards": {
+      "title": "Sécurité & conformité",
+      "cards": {
+        "dataProtection": { "title": "Protection des données", "desc": "Respect du RGPD, chiffrement des données en transit et au repos, journalisation des accès." },
+        "traceability": { "title": "Traçabilité & horodatage", "desc": "Horodatage des documents et suivi des actions pour une preuve d’intégrité." },
+        "availability": { "title": "Disponibilité", "desc": "Architecture résiliente et sauvegardes régulières pour garantir la continuité de service." },
+        "signature": { "title": "Signature électronique", "desc": "Flux de signature conforme avec piste d’audit, bientôt disponible côté plateforme." }
+      }
+    },
+    "results": {
+      "title": "Résultats clés",
+      "items": {
+        "1": "Solutions applicables immédiatement, décisions plus rapides.",
+        "2": "Clarté sur la marche à suivre et les documents à produire.",
+        "3": "Gain de temps: modèles prêts, export et partage immédiats.",
+        "4": "Confiance: contenus cohérents, traçabilité et versions enregistrées."
+      }
+    },
+    "detailed": {
+      "title": "Fonctionnalités détaillées",
+      "items": {
+        "generation": "Génération de documents/réponses: quotas mensuels explicités selon votre offre (3 / 120 / 500). Cas d’usage: réclamations, lettres administratives, contrats, mises au point.",
+        "multilangVsAdvanced": "Multi‑langues vs multi‑langues avancé: la version avancée étend la couverture et renforce la qualité pour les cas complexes (terminologie, contextes sensibles).",
+        "exportComplete": "Export complet: email, PDF, impression, WhatsApp. Mini‑workflow: rédaction → validation → export PDF → envoi email/WhatsApp.",
+        "priority": "Priorité (offre supérieure): accès prioritaire et réactivité accrue pour les demandes importantes.",
+        "solutions": "Solutions concrètes: mise en avant de réponses actionnables plutôt que théoriques, avec étapes claires."
+      }
+    },
+    "session": {
+      "title": "Séance Découverte",
+      "steps": {
+        "1": "Prise de rendez‑vous.",
+        "2": "Diagnostic de besoins.",
+        "3": "Démonstration et livrables.",
+        "4": "Plan d’action immédiat."
+      }
+    },
+    "benefits": {
+      "title": "Avantages clients",
+      "items": {
+        "1": "Gain de temps, économies, réduction du stress.",
+        "2": "Qualité et fiabilité, décisions rapides sans attendre un avocat pendant des semaines."
+      }
+    },
+    "trust": {
+      "title": "Confiance et réassurance",
+      "items": {
+        "1": "Sécurité & confidentialité: données hébergées, accès maîtrisés.",
+        "2": "Traçabilité: versions enregistrées, export pour conservation et preuve.",
+        "3": "Accessibilité & responsive: utilisable sur ordinateur et mobile.",
+        "4": "Engagement simple, annulation sans complexité."
+      }
+    }
   },
   "pricing": {
     "title": "Tarifs",
-    "subtitle": "7 jours d’essai gratuit sur tous les plans",
-    "trial": "7 jours d’essai gratuit sur tous les plans",
+    "subtitle": "",
+    "trial": "",
     "errorStart": "Impossible de démarrer le paiement.",
     "loading": "Chargement…",
     "plans": {
@@ -351,6 +504,32 @@
       "basic": "Inclus",
       "pro": "Choisir Pro",
       "enterprise": "Choisir Illimité"
+    },
+    "cards": {
+      "basic": {
+        "badge": "Recommandé pour débuter",
+        "items": {
+          "1": "Multi‑langues",
+          "2": "Export email / PDF / impression / WhatsApp",
+          "3": "3 documents / réponses / mois"
+        }
+      },
+      "pro": {
+        "badge": "Recommandé pour les indépendants",
+        "items": {
+          "1": "Tout du plan Gratuit",
+          "2": "120 documents / réponses par mois",
+          "3": "Solutions concrètes et applicables"
+        }
+      },
+      "enterprise": {
+        "badge": "Recommandé pour les équipes",
+        "items": {
+          "1": "Tout du plan Pro",
+          "2": "500 documents / réponses par mois",
+          "3": "Support prioritaire"
+        }
+      }
     },
     "coaching": {
       "title": "Modalités tarifaires (Coaching)",
@@ -370,7 +549,7 @@
     "support": {
       "title": "Support",
       "description": "Assistance fonctionnelle, questions d'utilisation et conseils de mise en œuvre.",
-      "email": "support@gerechtberg.app"
+      "email": "contact.gerechtberg.com"
     },
     "form": {
       "title": "Formulaire rapide",
@@ -395,6 +574,7 @@
     }
   },
   "appointments": {
+    "preFormTitle": "Formulaire de Pré Rendez Vous",
     "title": "Pré‑rendez‑vous",
     "description": "Ce formulaire vous permet de préparer votre rendez‑vous. Sélectionnez un créneau indicatif et ajoutez vos notes. L’accès à la réservation OneCal sera débloqué après confirmation de votre paiement.",
     "subtitle": "Planifiez votre consultation avec notre équipe",
@@ -532,6 +712,76 @@
         "appointment": "Prendre rendez-vous",
         "create": "Créer un document"
       }
+    }
+  },
+  "footer": {
+    "logoAlt": "Logo GERECHTBERG",
+    "partnerAlt": "Partenaire GE",
+    "copyright": "© {{year}} GERECHTBERG — Tous droits réservés.",
+    "brand": {
+      "tagline": "Créer, signer et horodater vos documents facilement."
+    },
+    "columns": {
+      "discover": "Découvrir",
+      "features": "Fonctionnalités",
+      "resources": "Ressources",
+      "contact": "Contact"
+    },
+    "links": {
+      "presentation": "Présentation"
+    },
+    "features": {
+      "writing": "Rédaction assistée",
+      "signature": "Signature électronique",
+      "versions": "Gestion des versions",
+      "multilingual": "Multilingue avancé",
+      "export": "Export & partage"
+    },
+    "contact": {
+      "email": "Email: {{email}}",
+      "whatsapp": "WhatsApp: {{number}}",
+      "address": "Adresse: {{city}}"
+    },
+    "legal": {
+      "imprint": "Mentions légales",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies"
+    }
+  },
+  "legalPages": {
+    "imprint": {
+      "title": "Mentions légales",
+      "subtitle": "Informations réglementaires et éditeur du site.",
+      "editor": "Éditeur: GERECHTBERG.",
+      "address": "Adresse: Germany, Berlin.",
+      "contact": "Contact: contact.gerechtberg.com — WhatsApp: +49 176 40416570.",
+      "hosting": "Hébergement: Vercel (UE/US), avec CDN.",
+      "liabilityTitle": "Responsabilité",
+      "liabilityText": "Les informations présentées sont fournies à titre indicatif. GERECHTBERG ne saurait être tenue responsable des dommages directs ou indirects résultant de l’utilisation du site."
+    },
+    "privacy": {
+      "title": "Confidentialité",
+      "subtitle": "Politique de protection des données personnelles.",
+      "collectedTitle": "Données collectées",
+      "collectedText": "Nous collectons les données nécessaires au fonctionnement du service (compte, documents, préférences). Les données sont conservées de manière sécurisée.",
+      "purposesTitle": "Finalités",
+      "purposesText": "Rédaction assistée, traduction, gestion de versions, partage et export.",
+      "rightsTitle": "Vos droits",
+      "rightsText": "Vous pouvez exercer vos droits (accès, rectification, suppression) en nous contactant à contact.gerechtberg.com.",
+      "securityTitle": "Sécurité",
+      "securityText": "Chiffrement en transit (TLS) et au repos, politiques d’accès strictes et journalisation des opérations critiques."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "subtitle": "Informations sur l’utilisation des cookies et technologies similaires.",
+      "typesTitle": "Types de cookies",
+      "types": {
+        "necessary": "Cookies nécessaires: fonctionnement de base du site.",
+        "performance": "Cookies de performance: amélioration et mesure d’audience.",
+        "functionality": "Cookies de fonctionnalité: préférences et personnalisation."
+      },
+      "manageTitle": "Gestion",
+      "manageText": "Vous pouvez gérer vos préférences de cookies depuis les paramètres de votre navigateur. Pour toute question, contactez contact.gerechtberg.com."
     }
   }
 }

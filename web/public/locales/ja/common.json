@@ -20,7 +20,16 @@
     "totalDocuments": "総ドキュメント数",
     "signed": "署名済み",
     "recentActivity": "最近のアクティビティ",
-    "lastActivity": "最後のアクティビティ"
+    "lastActivity": "最後のアクティビティ",
+    "comingSoon": {
+      "title": "近日公開",
+      "email": "選択したドキュメントをメールで送信",
+      "signature": "ドキュメントの電子署名",
+      "timestamp": "ドキュメントのタイムスタンプ",
+      "note": "これらの機能は近日中に利用可能になります。",
+      "badge": "近日",
+      "tooltip": "近日公開"
+    }
   },
   "subscription": {
     "unknown": "不明なサブスクリプション",
@@ -230,8 +239,33 @@
       "enterprise": { "name": "無制限", "price": "30 € / 月 — すべての機能 + サポート", "desc": "すべての機能 + カスタマーサポート", "info": "すべての機能への無制限アクセス + カスタマーサポート。" }
     },
     "labels": { "perMonth": " / 月 —" },
-    "choose": { "basic": "含まれる", "pro": "Pro を選択", "enterprise": "無制限を選択" }
-    ,
+    "choose": { "basic": "含まれる", "pro": "Pro を選択", "enterprise": "無制限を選択" },
+    "cards": {
+      "basic": {
+        "badge": "はじめての方におすすめ",
+        "items": {
+          "1": "多言語対応",
+          "2": "メール / PDF / 印刷 / WhatsApp へのエクスポート",
+          "3": "月3件の文書／回答"
+        }
+      },
+      "pro": {
+        "badge": "フリーランスにおすすめ",
+        "items": {
+          "1": "無料プランのすべて",
+          "2": "月120件の文書／回答",
+          "3": "具体的で実行可能なソリューション"
+        }
+      },
+      "enterprise": {
+        "badge": "チームにおすすめ",
+        "items": {
+          "1": "Pro プランのすべて",
+          "2": "月500件の文書／回答",
+          "3": "優先サポート"
+        }
+      }
+    },
     "coaching": {
       "title": "料金条件（コーチング）",
       "items": {
@@ -247,6 +281,92 @@
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "手紙や契約書の作成、署名、タイムスタンプ、エクスポート、共有のためのインテリジェントプラットフォーム。",
+    "mainCards": {
+      "title": "主な機能",
+      "cards": {
+        "writing": { "title": "文章作成支援", "desc": "テンプレートとガイドに従い、数分で信頼できる文書を作成。" },
+        "export": { "title": "エクスポートと共有", "desc": "PDF/DOCXへエクスポートし、内容を正確に管理しながら共有。" },
+        "multilingual": { "title": "高度な多言語", "desc": "高速翻訳（fr, en, de）と用途に応じた文脈的トーン調整。" }
+      }
+    },
+    "appointment": {
+      "intro": "弁護士または法律専門家とのオンライン予約を簡単に。確認後、セキュアなビデオ会議リンクが即時に届きます。移動せずに、状況に応じた個別の伴走を受けられます。",
+      "processTitle": "簡単で迅速なプロセス",
+      "process": {
+        "1": "専門家の予定から空き時間を選択します。",
+        "2": "予約を確定し、セキュアリンクをメールで即時受信。",
+        "3": "指定時間に、任意のデバイスからビデオ会議に参加。"
+      },
+      "pointsTitle": "重要なポイント",
+      "points": {
+        "simplicity": "シンプル — 数回のクリックで予約、不要な往復なし。",
+        "availability": "専門家の可用性 — スロットは更新済み、即時に確定。",
+        "remote": "遠隔相談の利点 — どこからでも効率的なやり取り。",
+        "confidentiality": "機密性の担保 — 一意のリンク、制御されたアクセス、保護された共有。"
+      },
+      "note": "ビデオ会議リンクは自動生成され、一意かつセキュア（https）。確認済み参加者のみがアクセスでき、機微なデータは公開されません。",
+      "whyTitle": "なぜビデオ会議？",
+      "why": {
+        "1": "移動制約なく、時間の節約と柔軟性。",
+        "2": "ドキュメントのライブ共有により、やり取りの質が向上。",
+        "3": "参加者限定アクセスによる制御された機密性。"
+      },
+      "availabilityTitle": "可用性と伴走",
+      "availabilityDesc": "適切な時間を提案できるよう、予定は常に最新化。専門家が状況に応じて段階的に伴走します。"
+    },
+    "securityCards": {
+      "title": "セキュリティとコンプライアンス",
+      "cards": {
+        "dataProtection": { "title": "データ保護", "desc": "GDPR準拠、転送時と保存時の暗号化、アクセスのログ管理。" },
+        "traceability": { "title": "トレーサビリティとタイムスタンプ", "desc": "文書のタイムスタンプと操作追跡により、完全性を証明。" },
+        "availability": { "title": "可用性", "desc": "堅牢なアーキテクチャと定期的バックアップでサービス継続性を確保。" },
+        "signature": { "title": "電子署名", "desc": "監査証跡付きの署名フロー；プラットフォームで近日提供。" }
+      }
+    },
+    "results": {
+      "title": "主要な成果",
+      "items": {
+        "1": "すぐに適用できる解決策で、意思決定が迅速化。",
+        "2": "必要な手順と作成すべき文書が明確。",
+        "3": "時間短縮：用意されたテンプレート、即時エクスポートと共有。",
+        "4": "信頼：一貫したコンテンツ、追跡可能性、保存されたバージョン。"
+      }
+    },
+    "detailed": {
+      "title": "詳細機能",
+      "items": {
+        "generation": "文書／回答の生成：プランに応じた月間クオータ（3 / 120 / 500）。ユースケース：クレーム、行政文書、契約、調整。",
+        "multilangVsAdvanced": "多言語 vs 高度多言語：高度版は複雑なケース（用語、センシティブな文脈）でカバー範囲と品質を強化。",
+        "exportComplete": "完全エクスポート：メール、PDF、印刷、WhatsApp。ミニワークフロー：作成 → 検証 → PDF エクスポート → メール／WhatsApp送付。",
+        "priority": "優先（上位プラン）：重要案件に優先アクセスと迅速対応。",
+        "solutions": "具体的な解決：理論ではなく実行可能な回答を重視、明確なステップ付き。"
+      }
+    },
+    "session": {
+      "title": "ディスカバリーセッション",
+      "steps": {
+        "1": "予約設定。",
+        "2": "ニーズ診断。",
+        "3": "デモと成果物。",
+        "4": "即時アクションプラン。"
+      }
+    },
+    "benefits": {
+      "title": "お客様のメリット",
+      "items": {
+        "1": "時間の節約、コスト削減、ストレス軽減。",
+        "2": "品質と信頼性：数週間も弁護士を待たずに迅速な意思決定。"
+      }
+    },
+    "trust": {
+      "title": "信頼性と安心",
+      "items": {
+        "1": "セキュリティと機密性：データはホストされ、アクセスは制御。",
+        "2": "トレーサビリティ：バージョン保存、保管と証拠のためのエクスポート。",
+        "3": "アクセシビリティとレスポンシブ対応：PCとモバイルで利用可能。",
+        "4": "シンプルな参加、複雑でないキャンセル。"
+      }
+    },
     "features": {
       "writing": {
         "title": "執筆支援",
@@ -323,8 +443,42 @@
     "disclaimer": "上記の情報は架空のものであり、アプリケーションの機能を説明するためのものです。一部の機能にはアクティブなサブスクリプションが必要な場合があります。"
   }
 ,
+  "seeMore": "もっと見る",
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "迅速かつ的確に回答します。GERECHTBERGに関するご質問は、適切な連絡方法をお選びください。",
+    "support": {
+      "title": "サポート",
+      "description": "機能支援、利用に関する質問、導入ガイド。",
+      "email": "contact.gerechtberg.com"
+    },
+    "form": {
+      "title": "クイックフォーム",
+      "labels": { "name": "お名前", "email": "メール", "message": "メッセージ" },
+      "placeholders": { "name": "お名前", "email": "you@example.com", "message": "ご要望をご記入ください" },
+      "submit": "送信",
+      "sending": "送信中…"
+    },
+    "errors": {
+      "required": "すべての項目は必須です",
+      "invalidEmail": "メールアドレスが正しくありません",
+      "tooShort": "メッセージが短すぎます",
+      "sendFailed": "送信時にエラーが発生しました",
+      "unknown": "不明なエラー"
+    },
+    "success": "ありがとうございます。メッセージは正常に送信されました。",
+    "note": "メッセージは安全に保存されます。追ってご連絡いたします。",
+    "links": {
+      "pricing": "料金を見る",
+      "discover": "アプリを知る",
+      "dashboard": "ダッシュボードへ"
+    }
+  },
   "appointments": {
+    "preFormTitle": "事前予約フォーム",
     "title": "予約を設定する",
+    "subtitle": "私たちのチームとの相談を予約する",
+    "bookNow": "今すぐ予約",
     "description": "時間帯を選び、メモを追加します。下に今後の予約が表示されます。",
     "form": {
       "titleLabel": "タイトル",
@@ -444,5 +598,86 @@
         "create": "ドキュメントを作成"
       }
     }
+  },
+  "footer": {
+    "logoAlt": "GERECHTBERG ロゴ",
+    "partnerAlt": "GE パートナー",
+    "copyright": "© {{year}} GERECHTBERG — 無断転載禁止。",
+    "brand": { "tagline": "文書を簡単に作成し、署名・押印できます。" },
+    "columns": { "discover": "概要", "features": "機能", "resources": "リソース", "contact": "連絡先" },
+    "links": { "presentation": "紹介" },
+    "features": {
+      "writing": "文章作成支援",
+      "signature": "電子署名",
+      "versions": "バージョン管理",
+      "multilingual": "高度な多言語",
+      "export": "エクスポートと共有"
+    },
+    "contact": { "email": "メール: {{email}}", "whatsapp": "WhatsApp: {{number}}", "address": "住所: {{city}}" },
+    "legal": { "imprint": "法的表示", "privacy": "プライバシー", "cookies": "Cookie" }
+  },
+  "newWizard": {
+    "templates": {
+      "motivation": "カバーレター",
+      "workContract": "雇用契約書",
+      "serviceContract": "業務委託契約書",
+      "certificate": "証明書",
+      "residenceCertificate": "居住証明書",
+      "terminationLetter": "解約通知書",
+      "nda": "秘密保持契約書（NDA）",
+      "adminLetter": "行政文書",
+      "resignationLetter": "退職届"
+    },
+    "tones": {
+      "formal": "フォーマル",
+      "neutral": "ニュートラル",
+      "friendly": "フレンドリー",
+      "professional": "プロフェッショナル"
+    }
+  }
+  ,
+  "legalPages": {
+    "imprint": {
+      "title": "法的情報",
+      "subtitle": "ウェブサイトの規制情報と運営者。",
+      "editor": "運営者: GERECHTBERG.",
+      "address": "住所: ドイツ、ベルリン。",
+      "contact": "連絡先: contact.gerechtberg.com — WhatsApp: +49 176 40416570。",
+      "hosting": "ホスティング: Vercel（EU/US）、CDN 使用。",
+      "liabilityTitle": "免責事項",
+      "liabilityText": "提供情報は参考目的のみです。本サイトの利用に起因する直接または間接的な損害について、GERECHTBERG は責任を負いません。"
+    },
+    "privacy": {
+      "title": "プライバシー",
+      "subtitle": "個人データ保護ポリシー。",
+      "collectedTitle": "収集するデータ",
+      "collectedText": "サービス運用に必要なデータ（アカウント、文書、設定）を収集します。データは安全に保存されます。",
+      "purposesTitle": "目的",
+      "purposesText": "作成支援、翻訳、バージョン管理、共有、エクスポート。",
+      "rightsTitle": "利用者の権利",
+      "rightsText": "contact.gerechtberg.com に連絡することで、権利（アクセス、訂正、削除）を行使できます。",
+      "securityTitle": "セキュリティ",
+      "securityText": "通信時（TLS）および保存時の暗号化、厳格なアクセス方針、重要操作の記録。"
+    },
+    "cookies": {
+      "title": "クッキー",
+      "subtitle": "クッキーおよび類似技術の使用に関する情報。",
+      "typesTitle": "クッキーの種類",
+      "types": {
+        "necessary": "必要なクッキー：サイトの基本動作。",
+        "performance": "パフォーマンスクッキー：改善とオーディエンス測定。",
+        "functionality": "機能クッキー：設定とパーソナライズ。"
+      },
+      "manageTitle": "管理",
+      "manageText": "ブラウザ設定でクッキーの好みを管理できます。ご不明な点は contact.gerechtberg.com まで。"
+    }
+  },
+  "cookieBanner": {
+    "title": "クッキーを使用します",
+    "text": "必要なクッキーに加え、同意に基づき体験を向上させるためのクッキーも使用します。",
+    "accept": "すべて許可",
+    "reject": "不要を拒否",
+    "manage": "設定を管理",
+    "linkLabel": "詳細を見る"
   }
 }

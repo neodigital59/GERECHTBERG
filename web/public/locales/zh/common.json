@@ -20,7 +20,16 @@
     "totalDocuments": "文档总数",
     "signed": "已签名",
     "recentActivity": "最近活动",
-    "lastActivity": "最后活动"
+    "lastActivity": "最后活动",
+    "comingSoon": {
+      "title": "即将推出",
+      "email": "通过邮箱发送所选文档",
+      "signature": "文档电子签名",
+      "timestamp": "文档时间戳",
+      "note": "这些功能即将上线。",
+      "badge": "即将",
+      "tooltip": "即将可用"
+    }
   },
   "subscription": {
     "unknown": "未知订阅",
@@ -289,8 +298,8 @@
   },
   "pricing": {
     "title": "定价",
-    "subtitle": "针对所有套餐提供 7 天免费试用。",
-    "trial": "针对所有套餐提供 7 天免费试用。",
+    "subtitle": "",
+    "trial": "",
     "errorStart": "无法启动付款。",
     "basic": {
       "title": "基础",
@@ -310,9 +319,9 @@
     "loading": "加载中…",
     "error": "加载定价失败。",
     "plans": {
-      "basic": { "name": "基础", "price": "$20 / 月", "desc": "2 个文档 / 月", "info": "每月包含 2 个文档。" },
-      "pro": { "name": "专业版", "price": "$45 / 月", "desc": "15 个文档 + 客服", "info": "每月包含 15 个文档。+ 可访问客服。" },
-      "enterprise": { "name": "企业版", "price": "$200 / 月", "desc": "全部功能 + 客服", "info": "无限访问所有功能 + 客服。" }
+      "basic": { "name": "免费", "price": "0 € — 每月 2 个文档", "desc": "每月 2 个文档", "info": "每月包含 2 个文档。" },
+      "pro": { "name": "专业版", "price": "9,99 € / 月 — 15 个文档 + 客服", "desc": "15 个文档 + 客服", "info": "每月包含 15 个文档。+ 可访问客服。" },
+      "enterprise": { "name": "无限版", "price": "30 € / 月 — 全部功能 + 客服", "desc": "全部功能 + 客服", "info": "无限访问所有功能 + 客服。" }
     },
     "labels": {
       "perMonth": " / 月 —"
@@ -321,6 +330,32 @@
       "basic": "选择基础版",
       "pro": "选择专业版",
       "enterprise": "选择企业版"
+    },
+    "cards": {
+      "basic": {
+        "badge": "建议用于入门",
+        "items": {
+          "1": "多语言",
+          "2": "导出为电子邮件 / PDF / 打印 / WhatsApp",
+          "3": "每月 3 份文档/回复"
+        }
+      },
+      "pro": {
+        "badge": "建议给自由职业者",
+        "items": {
+          "1": "包含免费计划的全部",
+          "2": "每月 120 份文档/回复",
+          "3": "具体且可实施的解决方案"
+        }
+      },
+      "enterprise": {
+        "badge": "建议给团队",
+        "items": {
+          "1": "包含专业版计划的全部",
+          "2": "每月 500 份文档/回复",
+          "3": "优先支持"
+        }
+      }
     },
     "coaching": {
       "title": "收费条款（辅导）",
@@ -337,6 +372,92 @@
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "智能平台，用于创建、签署和时间戳您的信件和合同，支持导出和共享。",
+    "mainCards": {
+      "title": "主要功能",
+      "cards": {
+        "writing": { "title": "辅助撰写", "desc": "基于模板与引导说明，数分钟内生成可靠文档。" },
+        "export": { "title": "导出与分享", "desc": "导出为 PDF/DOCX，并在精确内容控制下轻松分享。" },
+        "multilingual": { "title": "高级多语言", "desc": "快速翻译（fr、en、de），并按使用场景语境化调整语气。" }
+      }
+    },
+    "appointment": {
+      "intro": "轻松在线预约律师或法律专家。确认后，您将即时收到安全的视频会议链接。无需出行，即可获得个性化陪伴。",
+      "processTitle": "流程简单快捷",
+      "process": {
+        "1": "在专家的日程中选择可用时段。",
+        "2": "确认预约并通过电子邮件即时收到安全链接。",
+        "3": "在约定时间，从任意设备加入视频会议。"
+      },
+      "pointsTitle": "要点",
+      "points": {
+        "simplicity": "简便——几次点击即可预约，无需来回沟通。",
+        "availability": "专家可用性——时段实时更新并即时确认。",
+        "remote": "远程咨询优势——无论身在何处，交流高效。",
+        "confidentiality": "保密性保障——唯一链接、受控访问与安全交流。"
+      },
+      "note": "视频会议链接自动生成、唯一且安全（https）。仅对已确认参与者开放，不暴露任何敏感数据。",
+      "whyTitle": "为什么选择视频会议？",
+      "why": {
+        "1": "节省时间、灵活机动，无需出行限制。",
+        "2": "通过实时共享文档，提升交流质量。",
+        "3": "受控保密性，访问仅限参与者。"
+      },
+      "availabilityTitle": "可用性与陪伴",
+      "availabilityDesc": "我们持续更新日程以提供合适时段。专家将根据您的情况一步步陪伴。"
+    },
+    "securityCards": {
+      "title": "安全与合规",
+      "cards": {
+        "dataProtection": { "title": "数据保护", "desc": "符合 GDPR，数据传输与存储加密，并记录访问日志。" },
+        "traceability": { "title": "可追溯与时间戳", "desc": "为文档加盖时间戳并跟踪操作，以提供完整性证明。" },
+        "availability": { "title": "可用性", "desc": "弹性架构与定期备份，保障服务连续性。" },
+        "signature": { "title": "电子签名", "desc": "具备审计轨迹的签署流程；即将在平台上线。" }
+      }
+    },
+    "results": {
+      "title": "关键结果",
+      "items": {
+        "1": "可立即应用的方案，更快做出决策。",
+        "2": "对步骤与所需文档有清晰把握。",
+        "3": "节省时间：现成模板、即时导出与分享。",
+        "4": "信任：内容一致、可追溯、版本可保存。"
+      }
+    },
+    "detailed": {
+      "title": "详细功能",
+      "items": {
+        "generation": "文档/回复生成：按方案说明每月配额（3 / 120 / 500）。应用场景：投诉、行政信函、合同、澄清说明。",
+        "multilangVsAdvanced": "多语言 vs 高级多语言：高级版本在复杂场景（术语、敏感语境）下提升覆盖与质量。",
+        "exportComplete": "完整导出：电子邮件、PDF、打印、WhatsApp。迷你流程：撰写 → 校验 → PDF 导出 → 发送邮件/WhatsApp。",
+        "priority": "优先级（高阶套餐）：重要请求享有优先访问与更快响应。",
+        "solutions": "具体方案：强调可执行的回答而非理论，并列出清晰步骤。"
+      }
+    },
+    "session": {
+      "title": "体验会",
+      "steps": {
+        "1": "预约安排。",
+        "2": "需求诊断。",
+        "3": "演示与交付物。",
+        "4": "即时行动计划。"
+      }
+    },
+    "benefits": {
+      "title": "客户收益",
+      "items": {
+        "1": "节省时间、降低成本、减少压力。",
+        "2": "质量与可靠性，无需等待数周即可快速决策。"
+      }
+    },
+    "trust": {
+      "title": "信任与安心",
+      "items": {
+        "1": "安全与隐私：数据托管，访问受控。",
+        "2": "可追溯性：版本记录，导出以便存档与取证。",
+        "3": "可访问与响应式：电脑与移动端均可使用。",
+        "4": "简单接入，取消不复杂。"
+      }
+    },
     "features": {
       "writing": {
         "title": "写作辅助",
@@ -412,8 +533,42 @@
     },
     "disclaimer": "以上信息是虚构的，用于说明应用程序功能。某些功能可能需要有效订阅。"
   },
+  "seeMore": "查看更多",
+  "contact": {
+    "title": "联系",
+    "subtitle": "我们快速、准确地答复。有关 GERECHTBERG 的问题，请选择最合适的渠道。",
+    "support": {
+      "title": "支持",
+      "description": "功能协助、使用问题与实施指导。",
+      "email": "contact.gerechtberg.com"
+    },
+    "form": {
+      "title": "快速表单",
+      "labels": { "name": "姓名", "email": "邮箱", "message": "留言" },
+      "placeholders": { "name": "您的姓名", "email": "you@example.com", "message": "描述您的需求" },
+      "submit": "发送",
+      "sending": "发送中…"
+    },
+    "errors": {
+      "required": "所有字段均为必填",
+      "invalidEmail": "邮箱无效",
+      "tooShort": "消息过短",
+      "sendFailed": "发送时出错",
+      "unknown": "未知错误"
+    },
+    "success": "谢谢！您的消息已成功发送。",
+    "note": "消息将被安全存储。我们会尽快回复。",
+    "links": {
+      "pricing": "查看定价",
+      "discover": "发现应用",
+      "dashboard": "前往仪表板"
+    }
+  },
   "appointments": {
+    "preFormTitle": "预预约表单",
     "title": "预约",
+    "subtitle": "与我们的团队安排咨询",
+    "bookNow": "立即预约",
     "description": "选择时间段并添加备注。你可以在下方查看即将到来的预约。",
     "form": {
       "titleLabel": "标题",
@@ -448,5 +603,86 @@
       "deleted": "已删除预约",
       "deleteError": "删除错误"
     }
+  },
+  "footer": {
+    "logoAlt": "GERECHTBERG 标志",
+    "partnerAlt": "GE 合作伙伴",
+    "copyright": "© {{year}} GERECHTBERG — 保留所有权利。",
+    "brand": { "tagline": "轻松创建、签署并加盖文档印章。" },
+    "columns": { "discover": "发现", "features": "功能", "resources": "资源", "contact": "联系" },
+    "links": { "presentation": "介绍" },
+    "features": {
+      "writing": "辅助撰写",
+      "signature": "电子签名",
+      "versions": "版本管理",
+      "multilingual": "高级多语言",
+      "export": "导出与分享"
+    },
+    "contact": { "email": "邮箱：{{email}}", "whatsapp": "WhatsApp：{{number}}", "address": "地址：{{city}}" },
+    "legal": { "imprint": "法律声明", "privacy": "隐私", "cookies": "Cookie" }
+  },
+  "newWizard": {
+    "templates": {
+      "motivation": "求职信",
+      "workContract": "劳动合同",
+      "serviceContract": "服务合同",
+      "certificate": "证明",
+      "residenceCertificate": "居住证明",
+      "terminationLetter": "解约函",
+      "nda": "保密协议（NDA）",
+      "adminLetter": "行政函件",
+      "resignationLetter": "辞职信"
+    },
+    "tones": {
+      "formal": "正式",
+      "neutral": "中性",
+      "friendly": "友好",
+      "professional": "专业"
+    }
+  }
+  ,
+  "legalPages": {
+    "imprint": {
+      "title": "法律声明",
+      "subtitle": "网站的监管信息与出版者。",
+      "editor": "出版者：GERECHTBERG。",
+      "address": "地址：德国，柏林。",
+      "contact": "联系：contact.gerechtberg.com — WhatsApp：+49 176 40416570。",
+      "hosting": "托管：Vercel（欧盟/美国），含 CDN。",
+      "liabilityTitle": "责任",
+      "liabilityText": "所提供信息仅供参考。因使用本网站而导致的任何直接或间接损害，GERECHTBERG 概不负责。"
+    },
+    "privacy": {
+      "title": "隐私",
+      "subtitle": "个人数据保护政策。",
+      "collectedTitle": "收集的数据",
+      "collectedText": "我们收集服务运行所需的数据（账户、文档、偏好）。数据将被安全保存。",
+      "purposesTitle": "目的",
+      "purposesText": "写作辅助、翻译、版本管理、共享与导出。",
+      "rightsTitle": "您的权利",
+      "rightsText": "您可通过 contact.gerechtberg.com 行使您的权利（访问、更正、删除）。",
+      "securityTitle": "安全",
+      "securityText": "传输中（TLS）与静态加密、严格的访问策略以及对关键操作的记录。"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "subtitle": "关于使用 cookies 及类似技术的信息。",
+      "typesTitle": "Cookies 类型",
+      "types": {
+        "necessary": "必要 cookies：网站的基本运行。",
+        "performance": "性能 cookies：改进与受众测量。",
+        "functionality": "功能性 cookies：偏好与个性化。"
+      },
+      "manageTitle": "管理",
+      "manageText": "您可以在浏览器设置中管理 cookies 偏好。如有疑问，请联系 contact.gerechtberg.com。"
+    }
+  },
+  "cookieBanner": {
+    "title": "我们使用 cookies",
+    "text": "我们使用必要的 cookies，并在您同意的情况下使用其他 cookies 以提升体验。",
+    "accept": "全部接受",
+    "reject": "拒绝非必要",
+    "manage": "管理偏好",
+    "linkLabel": "了解更多"
   }
 }

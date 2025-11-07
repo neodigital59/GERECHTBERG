@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-3 py-6 sm:p-6 text-sm text-black/70">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Image src="/logo-large.jpeg" alt="Logo GERECHTBERG" width={160} height={90} className="h-10 w-auto rounded" />
+            <Image src="/logo-large.jpeg" alt={t('footer.logoAlt', { defaultValue: t('homeV2.final.logoAlt') })} width={160} height={90} className="h-10 w-auto rounded" />
             <span className="font-semibold text-lg">GERECHTBERG</span>
           </div>
           <nav className="flex flex-wrap gap-4">
@@ -21,7 +21,18 @@ export default function Footer() {
             <Link href="/documents" className="hover:text-brand">{t("navigation.dashboard")}</Link>
           </nav>
         </div>
-        <p className="mt-3 text-xs text-black/50">© {new Date().getUTCFullYear()} GERECHTBERG — Tous droits réservés.</p>
+        {/* Image partenaire GE (réduite) */}
+        <div className="mt-3 h-10 sm:h-12 relative">
+          <Image
+            src="/GE.png"
+            alt={t('footer.partnerAlt', { defaultValue: 'GE Partner' })}
+            fill
+            className="object-contain object-center"
+            sizes="(max-width: 640px) 160px, 240px"
+            priority
+          />
+        </div>
+        <p className="mt-3 text-xs text-black/50">{t('footer.copyright', { year: new Date().getUTCFullYear(), defaultValue: `© ${new Date().getUTCFullYear()} GERECHTBERG — All rights reserved.` })}</p>
       </div>
     </footer>
   );

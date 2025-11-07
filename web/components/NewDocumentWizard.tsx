@@ -104,8 +104,55 @@ const LANGS = [
   { code: "is", label: "Íslenska" },
 ];
 
-function stepLabel(i: number) {
-  return ["Type", "Détails", "Rédaction", "Résultat", "Exporter"][i] || String(i);
+function stepLabel(i: number, t: (k: string) => string) {
+  const labels = [
+    t('newWizard.steps.type'),
+    t('newWizard.steps.details'),
+    t('newWizard.steps.writing'),
+    t('newWizard.steps.result'),
+    t('newWizard.steps.export'),
+  ];
+  return labels[i] || String(i);
+}
+
+function labelForType(typeDoc: string, t: (k: string) => string) {
+  switch (typeDoc) {
+    case "Lettre de motivation":
+      return t('newWizard.templates.motivation');
+    case "Contrat de travail":
+      return t('newWizard.templates.workContract');
+    case "Contrat de prestation de service":
+      return t('newWizard.templates.serviceContract');
+    case "Attestation":
+      return t('newWizard.templates.certificate');
+    case "Attestation de résidence":
+      return t('newWizard.templates.residenceCertificate');
+    case "Lettre administrative":
+      return t('newWizard.templates.adminLetter');
+    case "Lettre de résiliation":
+      return t('newWizard.templates.terminationLetter');
+    case "Accord de confidentialité":
+      return t('newWizard.templates.nda');
+    case "Lettre de démission":
+      return t('newWizard.templates.resignationLetter');
+    default:
+      return typeDoc;
+  }
+}
+
+function labelForTone(tone: string, t: (k: string) => string) {
+  switch (tone) {
+    case "Formel":
+      return t('newWizard.tones.formal');
+    case "Neutre":
+      return t('newWizard.tones.neutral');
+    case "Amical":
+      return t('newWizard.tones.friendly');
+    case "Professionnel":
+      return t('newWizard.tones.professional');
+    default:
+      return tone;
+  }
 }
 
 function buildAutoPrompt(typeDoc: string, pays: string, langue: string, ton: string, objectif: string) {
@@ -358,10 +405,10 @@ export default function NewDocumentWizard() {
           const reason = String(json?.reason || "").toLowerCase();
           const msg =
             reason === "insufficient_credits"
-              ? "Crédits OpenRouter épuisés. Ajoutez des crédits ou activez DEMO_MODE=true pour contenu d’exemple."
+              ? t('documentDetail.msg.creditsDepleted')
               : reason === "invalid_key"
-                ? "Clé API OpenRouter invalide. Vérifiez OPENROUTER_API_KEY dans .env.local puis redémarrez."
-                : json?.error || "Service indisponible.";
+                ? t('documentDetail.msg.invalidApiKey')
+                : json?.error || t('documentDetail.msg.translationServiceUnavailable');
           throw new Error(msg);
         }
         throw new Error(json?.error || "Erreur de création");
@@ -369,11 +416,11 @@ export default function NewDocumentWizard() {
       const text = json?.result || json?.text || "";
       setAiResult(text);
       setEditorContent(text);
-      addVersion("Rédaction", text);
+      addVersion(t('newWizard.versionLabels.writing'), text);
       setStep(3);
-      setMessage("Document rédigé");
+      setMessage(t('newWizard.messages.written'));
     } catch (e: any) {
-      setMessage(e.message || "Erreur lors de la création");
+      setMessage(e.message || t('newWizard.messages.createError'));
     } finally {
       setGenerating(false);
     }
@@ -398,20 +445,20 @@ export default function NewDocumentWizard() {
           const reason = String(json?.reason || "").toLowerCase();
           const msg =
             reason === "insufficient_credits"
-              ? "Crédits OpenRouter épuisés. Ajoutez des crédits ou activez DEMO_MODE=true pour contenu d’exemple."
+              ? t('documentDetail.msg.creditsDepleted')
               : reason === "invalid_key"
-                ? "Clé API OpenRouter invalide. Vérifiez OPENROUTER_API_KEY dans .env.local puis redémarrez."
-                : json?.error || "Service indisponible.";
+                ? t('documentDetail.msg.invalidApiKey')
+                : json?.error || t('documentDetail.msg.translationServiceUnavailable');
           throw new Error(msg);
         }
         throw new Error(json?.error || "Erreur d’amélioration");
       }
       const text = json?.result || json?.text || "";
       setEditorContent(text);
-      addVersion("Amélioration du texte", text);
-      setMessage("Texte amélioré");
+      addVersion(t('newWizard.versionLabels.improved'), text);
+      setMessage(t('newWizard.messages.improved'));
     } catch (e: any) {
-      setMessage(e.message || "Erreur d’amélioration");
+      setMessage(e.message || t('newWizard.messages.improveError'));
     } finally {
       setRephrasing(false);
     }
@@ -425,7 +472,7 @@ export default function NewDocumentWizard() {
         return;
       }
       if (!editorContent || !editorContent.trim()) {
-        setMessage("Rien à traduire. Rédigez ou collez du texte.");
+        setMessage(t('documentDetail.msg.nothingToTranslate'));
         return;
       }
       const r = await fetch("/api/translate", {
@@ -439,19 +486,19 @@ export default function NewDocumentWizard() {
           const reason = String(json?.reason || "").toLowerCase();
           const msg =
             reason === "insufficient_credits"
-              ? "Crédits OpenRouter épuisés. Ajoutez des crédits ou activez DEMO_MODE=true pour contenu d’exemple."
+              ? t('documentDetail.msg.creditsDepleted')
               : reason === "invalid_key"
-                ? "Clé API OpenRouter invalide. Vérifiez OPENROUTER_API_KEY dans .env.local puis redémarrez."
-                : json?.error || "Service indisponible.";
+                ? t('documentDetail.msg.invalidApiKey')
+                : json?.error || t('documentDetail.msg.translationServiceUnavailable');
           throw new Error(msg);
         }
-        throw new Error(json?.error || "Erreur traduction");
+      throw new Error(json?.error || t('documentDetail.msg.translationError'));
       }
       const text = json?.result || "";
       setEditorContent(text);
-      addVersion(`Traduction → ${target.toUpperCase()}`, text);
+      addVersion(`${t('newWizard.versionLabels.translation')} → ${target.toUpperCase()}`, text);
       setLangue(target);
-      setMessage("Texte traduit");
+      setMessage(t('documentDetail.msg.translated'));
     } catch (e: any) {
       setMessage(e.message || "Erreur de traduction");
     } finally {
@@ -552,7 +599,7 @@ export default function NewDocumentWizard() {
 
   function downloadPdf() {
     if (isEmptyWizardContent()) {
-      setMessage("Contenu vide. Ajoutez du texte avant de télécharger.");
+      setMessage(t('documentDetail.msg.emptyContent'));
       return;
     }
     const doc = new jsPDF({ unit: "pt", format: "a4" });
@@ -581,7 +628,7 @@ export default function NewDocumentWizard() {
 
   async function downloadDocx() {
     if (isEmptyWizardContent()) {
-      setMessage("Contenu vide. Ajoutez du texte avant de télécharger.");
+      setMessage(t('documentDetail.msg.emptyContent'));
       return;
     }
     const paragraphs: Paragraph[] = [];
@@ -609,15 +656,15 @@ export default function NewDocumentWizard() {
     if (navigator.share) {
       try {
         await navigator.share(shareData);
-        setMessage("Partagé");
+        setMessage(t('documentDetail.share.share'));
         return;
       } catch (_) {}
     }
     try {
       await navigator.clipboard.writeText(link || editorContent || "");
-      setMessage(link ? "Lien copié" : "Texte copié");
+      setMessage(t('documentDetail.msg.linkCopied'));
     } catch (e: any) {
-      setMessage("Impossible de partager");
+      setMessage(t('documentDetail.msg.verifyError'));
     }
   }
 
@@ -630,17 +677,17 @@ export default function NewDocumentWizard() {
 
   const helpText = useMemo(() => {
     const code = (pays || "").toUpperCase();
-    if (code === "FR") return "France: Respecter les formules de politesse et mentions légales usuelles.";
-    if (code === "DE") return "Allemagne: Préciser les références officielles (Aktenzeichen) si applicable.";
-    if (code === "BE") return "Belgique: Vérifier la langue appropriée (FR/NL/DE) selon la région.";
-    return "Sélectionnez un pays pour afficher l’aide contextuelle.";
-  }, [pays]);
+    if (code === "FR") return t('newWizard.help.FR');
+    if (code === "DE") return t('newWizard.help.DE');
+    if (code === "BE") return t('newWizard.help.BE');
+    return t('newWizard.help.default');
+  }, [pays, t]);
 
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-4">
         <div className="font-semibold text-xl">GERECHTBERG</div>
-        <div className="text-sm text-black/60">Rédaction de documents juridiques</div>
+        <div className="text-sm text-black/60">{t('newWizard.tagline')}</div>
       </div>
 
       {/* Stepper */}
@@ -653,9 +700,9 @@ export default function NewDocumentWizard() {
               step === i ? "bg-brand text-white border-brand" : "bg-white text-black border-black/20"
             )}
             onClick={() => setStep(i)}
-          >{stepLabel(i)}</button>
+          >{stepLabel(i, t)}</button>
         ))}
-        <span className="ml-2 text-sm text-black/60">{stepLabel(step)}</span>
+        <span className="ml-2 text-sm text-black/60">{stepLabel(step, t)}</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
@@ -663,54 +710,54 @@ export default function NewDocumentWizard() {
         <div className="p-4 border rounded bg-white">
           {step === 0 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-medium">Saisie libre</h2>
+              <h2 className="text-lg font-medium">{t('newWizard.freeInputTitle')}</h2>
               <div className="flex flex-col gap-2">
-                <input className="w-full border rounded p-2" value={freeText} onChange={(e)=>setFreeText(e.target.value)} placeholder="Écrivez votre besoin en une phrase (ex: Lettre de démission pour mon poste en Allemagne)" />
+                <input className="w-full border rounded p-2" value={freeText} onChange={(e)=>setFreeText(e.target.value)} placeholder={t('newWizard.freeInputPlaceholder')} />
                 <div className="flex gap-2">
-                  <button className="px-4 py-2 border rounded" onClick={handleQuickStart}>Interpréter</button>
-                  <button className="px-4 py-2 bg-brand text-white rounded" onClick={handleQuickGenerate}>Rédiger maintenant</button>
+                  <button className="px-4 py-2 border rounded" onClick={handleQuickStart}>{t('newWizard.interpret')}</button>
+                  <button className="px-4 py-2 bg-brand text-white rounded" onClick={handleQuickGenerate}>{t('newWizard.writeNow')}</button>
                 </div>
               </div>
-              <h2 className="text-lg font-medium mt-4">Informations de base</h2>
+              <h2 className="text-lg font-medium mt-4">{t('newWizard.baseInfoTitle')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium">Type de document</label>
+                  <label className="block text-sm font-medium">{t('newWizard.labels.docType')}</label>
                   <select className="mt-1 w-full border rounded p-2" value={typeDoc} onChange={(e)=>setTypeDoc(e.target.value)}>
-                    {DOC_TYPES.map((t)=> <option key={t} value={t}>{t}</option>)}
+                    {DOC_TYPES.map((d)=> <option key={d} value={d}>{labelForType(d, t)}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium">Pays d’application</label>
+                  <label className="block text-sm font-medium">{t('newWizard.labels.country')}</label>
                   <CountrySelect value={pays} onChange={(val: string)=>setPays(val)} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium">Langue</label>
+                  <label className="block text-sm font-medium">{t('newWizard.labels.language')}</label>
                   <select className="mt-1 w-full border rounded p-2" value={langue} onChange={(e)=>setLangue(e.target.value)}>
                     {LANGS.map((l)=> <option key={l.code} value={l.code}>{l.label}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium">Objectif</label>
-                  <input className="mt-1 w-full border rounded p-2" value={objectif} onChange={(e)=>setObjectif(e.target.value)} placeholder="ex: Demande d’emploi, Preuve de résidence" />
+                  <label className="block text-sm font-medium">{t('newWizard.labels.objective')}</label>
+                  <input className="mt-1 w-full border rounded p-2" value={objectif} onChange={(e)=>setObjectif(e.target.value)} placeholder={t('newWizard.objectivePlaceholder')} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium">Ton</label>
+                  <label className="block text-sm font-medium">{t('newWizard.labels.tone')}</label>
                   <select className="mt-1 w-full border rounded p-2" value={ton} onChange={(e)=>setTon(e.target.value)}>
-                    {TONES.map((t)=> <option key={t} value={t}>{t}</option>)}
+                    {TONES.map((toneOpt)=> <option key={toneOpt} value={toneOpt}>{labelForTone(toneOpt, t)}</option>)}
                   </select>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <button className="px-4 py-2 border rounded" onClick={applyTemplate}>Appliquer le modèle</button>
-                <button className="px-4 py-2 bg-brand text-white rounded" onClick={()=>{ if (!prompt) applyTemplate(); setStep(1); }}>Continuer</button>
+                <button className="px-4 py-2 border rounded" onClick={applyTemplate}>{t('newWizard.applyTemplate')}</button>
+                <button className="px-4 py-2 bg-brand text-white rounded" onClick={()=>{ if (!prompt) applyTemplate(); setStep(1); }}>{t('newWizard.continue')}</button>
               </div>
             </div>
           )}
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-medium">Contenu personnalisé</h2>
-              <textarea className="w-full border rounded p-2 h-40" value={prompt} onChange={(e)=>setPrompt(e.target.value)} placeholder="Décrivez votre besoin ou ajoutez des précisions" />
+              <h2 className="text-lg font-medium">{t('newWizard.customContentTitle')}</h2>
+              <textarea className="w-full border rounded p-2 h-40" value={prompt} onChange={(e)=>setPrompt(e.target.value)} placeholder={t('newWizard.customContentPlaceholder')} />
               <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
@@ -718,12 +765,12 @@ export default function NewDocumentWizard() {
                   checked={useAdvancedPromptOnly}
                   onChange={(e)=>setUseAdvancedPromptOnly(e.target.checked)}
                 />
-                <label htmlFor="useAdvancedPromptOnly" className="text-sm">Utiliser uniquement le prompt avancé</label>
+                <label htmlFor="useAdvancedPromptOnly" className="text-sm">{t('newWizard.useAdvancedOnly')}</label>
               </div>
-              <p className="text-xs text-black/60">Si coché, votre prompt sera utilisé tel quel pour générer le document complet.</p>
+              <p className="text-xs text-black/60">{t('newWizard.useAdvancedHint')}</p>
               <div className="flex items-center gap-3">
-                <button className="px-4 py-2 bg-brand text-white rounded disabled:opacity-50" disabled={generating} onClick={handleGenerate}>{generating?"Rédaction...":"Rédiger le document"}</button>
-                <button className="px-4 py-2 border rounded" onClick={()=>setStep(0)}>Retour</button>
+                <button className="px-4 py-2 bg-brand text-white rounded disabled:opacity-50" disabled={generating} onClick={handleGenerate}>{generating?t('newWizard.writingEllipsis'):t('newWizard.writeDocument')}</button>
+                <button className="px-4 py-2 border rounded" onClick={()=>setStep(0)}>{t('newWizard.back')}</button>
               </div>
               {message && (
                 <div className={`text-sm ${quotaLimit ? "text-red-600" : "text-blue-600"}`}>
@@ -735,25 +782,25 @@ export default function NewDocumentWizard() {
 
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-medium">Rédaction</h2>
-              <p className="text-sm text-black/60">Appuyez sur “Rédiger le document” pour créer le texte adapté.</p>
+              <h2 className="text-lg font-medium">{t('newWizard.writingTitle')}</h2>
+              <p className="text-sm text-black/60">{t('newWizard.writingHint')}</p>
             </div>
           )}
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-medium">Résultat</h2>
+              <h2 className="text-lg font-medium">{t('newWizard.resultTitle')}</h2>
               <textarea className="w-full border rounded p-2 h-60" value={editorContent} onChange={(e)=>setEditorContent(e.target.value)} />
               <div className="flex flex-wrap gap-3">
-                <button className="px-4 py-2 bg-brand text-white rounded disabled:opacity-50" disabled={rephrasing} onClick={handleRephrase}>{rephrasing?"Amélioration...":"Améliorer le texte"}</button>
+                <button className="px-4 py-2 bg-brand text-white rounded disabled:opacity-50" disabled={rephrasing} onClick={handleRephrase}>{rephrasing?t('newWizard.improvingEllipsis'):t('newWizard.improveText')}</button>
                 <div className="flex items-center gap-2">
                   <select className="border rounded p-2" value={langue} onChange={(e)=>handleTranslate(e.target.value)}>
                     {LANGS.map((l)=> <option key={l.code} value={l.code}>{l.label}</option>)}
                   </select>
-                  <button className="px-3 py-2 border rounded disabled:opacity-50" disabled={translating} onClick={()=>handleTranslate(langue)}>{translating?"Traduction...":"Traduire"}</button>
+                  <button className="px-3 py-2 border rounded disabled:opacity-50" disabled={translating} onClick={()=>handleTranslate(langue)}>{translating?t('newWizard.translatingEllipsis'):t('newWizard.translate')}</button>
                 </div>
-                <button className="px-4 py-2 border rounded disabled:opacity-50" disabled={saving} onClick={handleSaveDraft}>{saving?"Enregistrement...":"Enregistrer le brouillon"}</button>
-                <button className="px-4 py-2 border rounded" onClick={()=>setStep(4)}>Suivant</button>
+                <button className="px-4 py-2 border rounded disabled:opacity-50" disabled={saving} onClick={handleSaveDraft}>{saving?t('newWizard.savingEllipsis'):t('newWizard.saveDraft')}</button>
+                <button className="px-4 py-2 border rounded" onClick={()=>setStep(4)}>{t('newWizard.next')}</button>
               </div>
               {message && (
                 <div className={`text-sm ${quotaLimit ? "text-red-600" : "text-blue-600"}`}>
@@ -765,13 +812,13 @@ export default function NewDocumentWizard() {
 
           {step === 4 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-medium">Actions finales</h2>
+              <h2 className="text-lg font-medium">{t('newWizard.finalActionsTitle')}</h2>
               <div className="flex flex-wrap gap-3">
-                <button className="px-4 py-2 bg-gray-800 text-white rounded disabled:opacity-50" onClick={downloadPdf} disabled={isEmptyWizardContent()}>Télécharger PDF</button>
-                <button className="px-4 py-2 bg-gray-800 text-white rounded disabled:opacity-50" onClick={downloadDocx} disabled={isEmptyWizardContent()}>Télécharger DOCX</button>
-                <button className="px-4 py-2 border rounded" onClick={()=>setStep(3)}>Modifier</button>
-                <button className="px-4 py-2 border rounded" onClick={share}>Partager</button>
-                <button className="px-4 py-2 bg-brand text-white rounded" onClick={handleFinish}>Terminer</button>
+                <button className="px-4 py-2 bg-gray-800 text-white rounded disabled:opacity-50" onClick={downloadPdf} disabled={isEmptyWizardContent()}>{t('documentDetail.exports.downloadPdf')}</button>
+                <button className="px-4 py-2 bg-gray-800 text-white rounded disabled:opacity-50" onClick={downloadDocx} disabled={isEmptyWizardContent()}>{t('documentDetail.exports.downloadDocx')}</button>
+                <button className="px-4 py-2 border rounded" onClick={()=>setStep(3)}>{t('newWizard.edit')}</button>
+                <button className="px-4 py-2 border rounded" onClick={share}>{t('documentDetail.share.share')}</button>
+                <button className="px-4 py-2 bg-brand text-white rounded" onClick={handleFinish}>{t('newWizard.finish')}</button>
               </div>
               {message && (
                 <div className={`text-sm ${quotaLimit ? "text-red-600" : "text-blue-600"}`}>
@@ -786,14 +833,14 @@ export default function NewDocumentWizard() {
         <aside className="p-4 border rounded bg-white">
           <div className="flex items-center justify-between mb-2">
             <h3 className="font-medium hidden"></h3>
-            <button className="text-sm underline" onClick={()=>setSidebarOpen(!sidebarOpen)}>{sidebarOpen?"Réduire l'historique":"Ouvrir l'historique"}</button>
+            <button className="text-sm underline" onClick={()=>setSidebarOpen(!sidebarOpen)}>{sidebarOpen?t('newWizard.closeHistory'):t('newWizard.openHistory')}</button>
           </div>
           {sidebarOpen && (
             <div className="space-y-4 text-sm">
               <div>
-                <p className="font-medium">Historique des versions</p>
+                <p className="font-medium">{t('newWizard.versionsTitle')}</p>
                 <div className="mt-2 space-y-2 max-h-48 overflow-auto">
-                  {versions.length === 0 && <div className="text-black/60">Aucune version pour l’instant.</div>}
+                  {versions.length === 0 && <div className="text-black/60">{t('newWizard.noVersions')}</div>}
                   {versions.map(v=> (
                     <button key={v.id} className="block w-full text-left p-2 border rounded hover:bg-black/5" onClick={()=>setEditorContent(v.content)}>
                       <div className="font-medium">{v.label}</div>
@@ -803,27 +850,27 @@ export default function NewDocumentWizard() {
                 </div>
               </div>
               <div>
-                <p className="font-medium">Modèles suggérés</p>
+                <p className="font-medium">{t('newWizard.templatesTitle')}</p>
                 <div className="mt-2 flex flex-col gap-2">
-                  {["Lettre de motivation","Contrat de travail","Attestation de résidence","Lettre de résiliation","Accord de confidentialité (NDA)","Lettre administrative"].map(m => (
-                    <button key={m} className="px-3 py-2 border rounded text-left" onClick={()=>{ 
-                      setTypeDoc(m);
-                      const p = buildAutoPrompt(m, pays, langue, ton, objectif);
+                  {DOC_TYPES.map(d => (
+                    <button key={d} className="px-3 py-2 border rounded text-left" onClick={()=>{ 
+                      setTypeDoc(d);
+                      const p = buildAutoPrompt(d, pays, langue, ton, objectif);
                       setPrompt(p);
                       setStep(1);
                     }}>
-                      {m}
+                      {labelForType(d, t)}
                     </button>
                   ))}
                 </div>
               </div>
               <div>
-                <p className="font-medium">Aide contextuelle</p>
+                <p className="font-medium">{t('newWizard.helpTitle')}</p>
                 <p className="mt-1 text-black/70">{helpText}</p>
               </div>
               <div>
-                <p className="font-medium">Plan utilisateur</p>
-                <p className="text-black/60">Freemium / Premium / Pro selon votre compte.</p>
+                <p className="font-medium">{t('newWizard.planTitle')}</p>
+                <p className="text-black/60">{t('newWizard.planDesc')}</p>
               </div>
             </div>
           )}
