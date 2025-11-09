@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 export default function Footer() {
   const { t } = useTranslation();
   return (
-    <footer className="mt-10 border-t border-black/10 dark:border-white/10 bg-emerald-100">
+    <footer className="mt-10 border-t border-black/10 dark:border-white/10 bg-gray-100">
       <div className="max-w-5xl mx-auto px-3 py-6 sm:p-6 text-sm text-black/70">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">

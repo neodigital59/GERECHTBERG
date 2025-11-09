@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getSupabase } from "@/lib/supabaseUtils";
 
 function isEmailValid(email: string) {
@@ -14,6 +15,7 @@ function getRedirectBase() {
 }
 
 export default function ForgotPasswordPage() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -22,12 +24,12 @@ export default function ForgotPasswordPage() {
     e.preventDefault();
     setMessage(null);
     if (!isEmailValid(email)) {
-      setMessage("Email invalide");
+      setMessage(t('auth.invalid_email', { defaultValue: 'Email invalide' }));
       return;
     }
     const supabase = getSupabase();
     if (!supabase) {
-      setMessage("Service indisponible");
+      setMessage(t('auth.service_unavailable', { defaultValue: 'Service indisponible' }));
       return;
     }
     setLoading(true);
@@ -35,9 +37,9 @@ export default function ForgotPasswordPage() {
       const redirectTo = `${getRedirectBase()}/auth/reinitialiser`;
       const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
       if (error) throw error;
-      setMessage("Si un compte existe pour cet email, un lien de réinitialisation a été envoyé.");
+      setMessage(t('auth.reset_link_sent', { defaultValue: 'Si un compte existe pour cet email, un lien de réinitialisation a été envoyé.' }));
     } catch (err: any) {
-      setMessage(err.message || "Impossible d’envoyer le lien, réessayez plus tard.");
+      setMessage(err.message || t('auth.reset_link_failed', { defaultValue: 'Impossible d’envoyer le lien, réessayez plus tard.' }));
     } finally {
       setLoading(false);
     }
@@ -45,23 +47,23 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-sm mt-10">
-      <h1 className="text-xl font-semibold mb-4">Mot de passe oublié</h1>
+      <h1 className="text-xl font-semibold mb-4">{t('auth.forgot_title', { defaultValue: 'Mot de passe oublié' })}</h1>
       <form onSubmit={onSubmit} className="space-y-3">
         <input
           type="email"
-          placeholder="Votre email"
+          placeholder={t('auth.your_email', { defaultValue: 'Votre email' })}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full border rounded px-3 py-2"
           required
         />
         <button disabled={loading} className="w-full rounded bg-brand text-white py-2 hover:bg-brand/80">
-          {loading ? "Envoi…" : "Envoyer le lien de réinitialisation"}
+          {loading ? t('actions.sending', { defaultValue: 'Envoi…' }) : t('auth.send_reset_link', { defaultValue: 'Envoyer le lien de réinitialisation' })}
         </button>
       </form>
       {message && <p className="mt-3 text-sm text-black/70">{message}</p>}
       <p className="mt-4 text-sm">
-        <a href="/auth" className="text-brand hover:underline">Retour à la connexion</a>
+        <a href="/auth" className="text-brand hover:underline">{t('auth.back_to_signin', { defaultValue: 'Retour à la connexion' })}</a>
       </p>
     </div>
   );

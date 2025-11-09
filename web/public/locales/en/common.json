@@ -72,7 +72,31 @@
     "sign_in": "Sign in",
     "sign_up": "Sign up",
     "log_out": "Log out",
-    "continue_with_google": "Continue with Google"
+    "continue_with_google": "Continue with Google",
+    "password": "Password",
+    "password_confirm": "Confirm password",
+    "show_password": "Show password",
+    "hide_password": "Hide password",
+    "show_confirm": "Show confirmation",
+    "hide_confirm": "Hide confirmation",
+    "forgot_password": "Forgot password?",
+    "name": "Name",
+    "country": "Country",
+    "country_select": "Select a country",
+    "email": "Email",
+    "password_rules": "8+ characters, at least one lowercase, uppercase, digit, and symbol.",
+    "accept_terms_prefix": "I accept the",
+    "terms": "terms of service",
+    "already_registered": "Already registered?",
+    "new_here": "New here?",
+    "forgot_title": "Forgot password",
+    "your_email": "Your email",
+    "send_reset_link": "Send reset link",
+    "back_to_signin": "Back to sign in",
+    "invalid_email": "Invalid email",
+    "service_unavailable": "Service unavailable",
+    "reset_link_sent": "If an account exists for this email, a reset link has been sent.",
+    "reset_link_failed": "Unable to send the link, please try again later."
   },
   "settings": {
     "title": "Settings",
@@ -820,5 +844,14 @@
       "manageTitle": "Management",
       "manageText": "You can manage your cookie preferences from your browser settings. For any questions, contact contact.gerechtberg.com."
     }
+  },
+  "cookiePrefs": {
+    "title": "Manage preferences",
+    "desc": "Enable or disable non‑necessary cookies below.",
+    "save": "Save preferences",
+    "reset": "Reset",
+    "saved": "Preferences saved.",
+    "error": "Unable to save preferences.",
+    "resetMsg": "Preferences reset."
   }
 }

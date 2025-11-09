@@ -81,7 +81,31 @@
     "sign_in": "Anmelden",
     "sign_up": "Registrieren",
     "log_out": "Abmelden",
-    "continue_with_google": "Mit Google fortfahren"
+    "continue_with_google": "Mit Google fortfahren",
+    "password": "Passwort",
+    "password_confirm": "Passwort bestätigen",
+    "show_password": "Passwort anzeigen",
+    "hide_password": "Passwort ausblenden",
+    "show_confirm": "Bestätigung anzeigen",
+    "hide_confirm": "Bestätigung ausblenden",
+    "forgot_password": "Passwort vergessen?",
+    "name": "Name",
+    "country": "Land",
+    "country_select": "Land auswählen",
+    "email": "E-Mail",
+    "password_rules": "8+ Zeichen, mindestens ein Klein-, Großbuchstabe, Zahl und Symbol.",
+    "accept_terms_prefix": "Ich akzeptiere die",
+    "terms": "Nutzungsbedingungen",
+    "already_registered": "Bereits registriert?",
+    "new_here": "Neu hier?",
+    "forgot_title": "Passwort vergessen",
+    "your_email": "Ihre E-Mail",
+    "send_reset_link": "Link zum Zurücksetzen senden",
+    "back_to_signin": "Zur Anmeldung zurück",
+    "invalid_email": "Ungültige E-Mail",
+    "service_unavailable": "Dienst nicht verfügbar",
+    "reset_link_sent": "Falls ein Konto für diese E-Mail existiert, wurde ein Zurücksetzungslink gesendet.",
+    "reset_link_failed": "Link konnte nicht gesendet werden, bitte später erneut versuchen."
   },
   "settings": {
     "title": "Einstellungen",
@@ -795,5 +819,14 @@
     "reject": "Nicht notwendige ablehnen",
     "manage": "Präferenzen verwalten",
     "linkLabel": "Mehr erfahren"
+  },
+  "cookiePrefs": {
+    "title": "Präferenzen verwalten",
+    "desc": "Aktivieren oder deaktivieren Sie unten nicht notwendige Cookies.",
+    "save": "Präferenzen speichern",
+    "reset": "Zurücksetzen",
+    "saved": "Präferenzen gespeichert.",
+    "error": "Präferenzen konnten nicht gespeichert werden.",
+    "resetMsg": "Präferenzen zurückgesetzt."
   }
 }

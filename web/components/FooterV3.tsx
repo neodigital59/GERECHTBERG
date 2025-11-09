@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 export default function FooterV3() {
   const { t } = useTranslation();
   return (
-    <footer className="mt-10 bg-gradient-to-b from-white to-emerald-50 border-t border-black/10">
+    <footer className="mt-10 bg-gray-100 border-t border-black/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 text-sm">
         {/* Top: brand + short value prop */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6">

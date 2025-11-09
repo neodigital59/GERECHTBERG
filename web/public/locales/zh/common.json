@@ -56,6 +56,36 @@
     "appointments": "预约",
     "title": "导航"
   },
+  "auth": {
+    "sign_in": "登录",
+    "sign_up": "注册",
+    "log_out": "退出登录",
+    "continue_with_google": "使用 Google 继续",
+    "password": "密码",
+    "password_confirm": "确认密码",
+    "show_password": "显示密码",
+    "hide_password": "隐藏密码",
+    "show_confirm": "显示确认",
+    "hide_confirm": "隐藏确认",
+    "forgot_password": "忘记密码？",
+    "name": "姓名",
+    "country": "国家",
+    "country_select": "选择国家",
+    "email": "邮箱",
+    "password_rules": "至少 8 个字符，包含大小写字母、数字和符号。",
+    "accept_terms_prefix": "我接受",
+    "terms": "服务条款",
+    "already_registered": "已经注册？",
+    "new_here": "新用户？",
+    "forgot_title": "忘记密码",
+    "your_email": "你的邮箱",
+    "send_reset_link": "发送重置链接",
+    "back_to_signin": "返回登录",
+    "invalid_email": "邮箱无效",
+    "service_unavailable": "服务不可用",
+    "reset_link_sent": "如果该邮箱对应的账户存在，我们已发送重置链接。",
+    "reset_link_failed": "无法发送链接，请稍后再试。"
+  },
   "settings": {
     "title": "设置",
     "subtitle": "您的账户和应用程序偏好",
@@ -684,5 +714,14 @@
     "reject": "拒绝非必要",
     "manage": "管理偏好",
     "linkLabel": "了解更多"
+  },
+  "cookiePrefs": {
+    "title": "管理偏好",
+    "desc": "在下方启用或禁用非必要的 cookies。",
+    "save": "保存偏好",
+    "reset": "重置",
+    "saved": "偏好已保存。",
+    "error": "无法保存偏好。",
+    "resetMsg": "偏好已重置。"
   }
 }

@@ -72,7 +72,31 @@
     "sign_in": "Se connecter",
     "sign_up": "Créer un compte",
     "log_out": "Se déconnecter",
-    "continue_with_google": "Continuer avec Google"
+    "continue_with_google": "Continuer avec Google",
+    "password": "Mot de passe",
+    "password_confirm": "Confirmer le mot de passe",
+    "show_password": "Afficher le mot de passe",
+    "hide_password": "Masquer le mot de passe",
+    "show_confirm": "Afficher la confirmation",
+    "hide_confirm": "Masquer la confirmation",
+    "forgot_password": "Mot de passe oublié ?",
+    "name": "Nom",
+    "country": "Pays",
+    "country_select": "Sélectionner un pays",
+    "email": "Email",
+    "password_rules": "8+ caractères, au moins une minuscule, majuscule, chiffre et symbole.",
+    "accept_terms_prefix": "J’accepte les",
+    "terms": "conditions d’utilisation",
+    "already_registered": "Déjà inscrit ?",
+    "new_here": "Nouveau ici ?",
+    "forgot_title": "Mot de passe oublié",
+    "your_email": "Votre email",
+    "send_reset_link": "Envoyer le lien de réinitialisation",
+    "back_to_signin": "Retour à la connexion",
+    "invalid_email": "Email invalide",
+    "service_unavailable": "Service indisponible",
+    "reset_link_sent": "Si un compte existe pour cet email, un lien de réinitialisation a été envoyé.",
+    "reset_link_failed": "Impossible d’envoyer le lien, réessayez plus tard."
   },
   "settings": {
     "title": "Paramètres",
@@ -783,5 +807,14 @@
       "manageTitle": "Gestion",
       "manageText": "Vous pouvez gérer vos préférences de cookies depuis les paramètres de votre navigateur. Pour toute question, contactez contact.gerechtberg.com."
     }
+  },
+  "cookiePrefs": {
+    "title": "Gérer les préférences",
+    "desc": "Activez ou désactivez les cookies non nécessaires ci‑dessous.",
+    "save": "Enregistrer les préférences",
+    "reset": "Réinitialiser",
+    "saved": "Préférences enregistrées.",
+    "error": "Impossible d’enregistrer les préférences.",
+    "resetMsg": "Préférences réinitialisées."
   }
 }

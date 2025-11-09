@@ -56,6 +56,36 @@
     "appointments": "Appuntamenti",
     "title": "Navigazione"
   },
+  "auth": {
+    "sign_in": "Accedi",
+    "sign_up": "Crea account",
+    "log_out": "Esci",
+    "continue_with_google": "Continua con Google",
+    "password": "Password",
+    "password_confirm": "Conferma password",
+    "show_password": "Mostra password",
+    "hide_password": "Nascondi password",
+    "show_confirm": "Mostra conferma",
+    "hide_confirm": "Nascondi conferma",
+    "forgot_password": "Password dimenticata?",
+    "name": "Nome",
+    "country": "Paese",
+    "country_select": "Seleziona un paese",
+    "email": "Email",
+    "password_rules": "8+ caratteri, almeno una minuscola, maiuscola, cifra e simbolo.",
+    "accept_terms_prefix": "Accetto i",
+    "terms": "termini di servizio",
+    "already_registered": "Già registrato?",
+    "new_here": "Nuovo qui?",
+    "forgot_title": "Password dimenticata",
+    "your_email": "La tua email",
+    "send_reset_link": "Invia link di reset",
+    "back_to_signin": "Torna all’accesso",
+    "invalid_email": "Email non valida",
+    "service_unavailable": "Servizio non disponibile",
+    "reset_link_sent": "Se esiste un account per questa email, è stato inviato un link di reset.",
+    "reset_link_failed": "Impossibile inviare il link, riprova più tardi."
+  },
   "settings": {
     "title": "Impostazioni",
     "subtitle": "Preferenze per il tuo account e applicazione",
@@ -678,5 +708,14 @@
     "reject": "Rifiuta non necessari",
     "manage": "Gestisci preferenze",
     "linkLabel": "Scopri di più"
+  },
+  "cookiePrefs": {
+    "title": "Gestisci preferenze",
+    "desc": "Abilita o disabilita qui sotto i cookie non necessari.",
+    "save": "Salva preferenze",
+    "reset": "Reimposta",
+    "saved": "Preferenze salvate.",
+    "error": "Impossibile salvare le preferenze.",
+    "resetMsg": "Preferenze reimpostate."
   }
 }

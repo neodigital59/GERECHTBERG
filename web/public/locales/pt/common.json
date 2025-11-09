@@ -56,6 +56,36 @@
     "appointments": "Compromissos",
     "title": "Navegação"
   },
+  "auth": {
+    "sign_in": "Entrar",
+    "sign_up": "Criar conta",
+    "log_out": "Sair",
+    "continue_with_google": "Continuar com o Google",
+    "password": "Senha",
+    "password_confirm": "Confirmar senha",
+    "show_password": "Mostrar senha",
+    "hide_password": "Ocultar senha",
+    "show_confirm": "Mostrar confirmação",
+    "hide_confirm": "Ocultar confirmação",
+    "forgot_password": "Esqueceu a senha?",
+    "name": "Nome",
+    "country": "País",
+    "country_select": "Selecionar um país",
+    "email": "Email",
+    "password_rules": "8+ caracteres, pelo menos uma minúscula, maiúscula, dígito e símbolo.",
+    "accept_terms_prefix": "Eu aceito os",
+    "terms": "termos de serviço",
+    "already_registered": "Já registrado?",
+    "new_here": "Novo por aqui?",
+    "forgot_title": "Esqueceu a senha",
+    "your_email": "Seu email",
+    "send_reset_link": "Enviar link de redefinição",
+    "back_to_signin": "Voltar para entrar",
+    "invalid_email": "Email inválido",
+    "service_unavailable": "Serviço indisponível",
+    "reset_link_sent": "Se existir uma conta para este email, um link de redefinição foi enviado.",
+    "reset_link_failed": "Não foi possível enviar o link, tente novamente mais tarde."
+  },
   "settings": {
     "title": "Configurações",
     "subtitle": "Preferências para sua conta e aplicativo",
@@ -678,5 +708,14 @@
     "reject": "Rejeitar não necessários",
     "manage": "Gerenciar preferências",
     "linkLabel": "Saiba mais"
+  },
+  "cookiePrefs": {
+    "title": "Gerenciar preferências",
+    "desc": "Ative ou desative abaixo os cookies não necessários.",
+    "save": "Guardar preferências",
+    "reset": "Reiniciar",
+    "saved": "Preferências guardadas.",
+    "error": "Não foi possível guardar as preferências.",
+    "resetMsg": "Preferências reiniciadas."
   }
 }

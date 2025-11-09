@@ -56,6 +56,36 @@
     "appointments": "Randevular",
     "title": "Navigasyon"
   },
+  "auth": {
+    "sign_in": "Giriş yap",
+    "sign_up": "Hesap oluştur",
+    "log_out": "Çıkış yap",
+    "continue_with_google": "Google ile devam et",
+    "password": "Şifre",
+    "password_confirm": "Şifreyi doğrula",
+    "show_password": "Şifreyi göster",
+    "hide_password": "Şifreyi gizle",
+    "show_confirm": "Onayı göster",
+    "hide_confirm": "Onayı gizle",
+    "forgot_password": "Şifreyi mi unuttunuz?",
+    "name": "Ad",
+    "country": "Ülke",
+    "country_select": "Bir ülke seçin",
+    "email": "E-posta",
+    "password_rules": "8+ karakter, en az bir küçük, büyük harf, rakam ve sembol.",
+    "accept_terms_prefix": "Şunları kabul ediyorum:",
+    "terms": "hizmet şartları",
+    "already_registered": "Zaten kayıtlı mısınız?",
+    "new_here": "Burada yeni misiniz?",
+    "forgot_title": "Şifreyi unuttunuz",
+    "your_email": "E-postanız",
+    "send_reset_link": "Sıfırlama bağlantısı gönder",
+    "back_to_signin": "Girişe geri dön",
+    "invalid_email": "Geçersiz e-posta",
+    "service_unavailable": "Hizmet kullanılamıyor",
+    "reset_link_sent": "Bu e-posta için bir hesap varsa, sıfırlama bağlantısı gönderildi.",
+    "reset_link_failed": "Bağlantı gönderilemedi, lütfen daha sonra tekrar deneyin."
+  },
   "settings": {
     "title": "Ayarlar",
     "subtitle": "Hesabınız ve uygulamanız için tercihler",
@@ -677,5 +707,14 @@
     "reject": "Gereksizleri reddet",
     "manage": "Tercihleri yönet",
     "linkLabel": "Daha fazla bilgi"
+  },
+  "cookiePrefs": {
+    "title": "Tercihleri yönet",
+    "desc": "Aşağıda gerekli olmayan çerezleri etkinleştirin veya devre dışı bırakın.",
+    "save": "Tercihleri kaydet",
+    "reset": "Sıfırla",
+    "saved": "Tercihler kaydedildi.",
+    "error": "Tercihler kaydedilemedi.",
+    "resetMsg": "Tercihler sıfırlandı."
   }
 }

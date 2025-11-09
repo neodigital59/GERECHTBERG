@@ -56,6 +56,36 @@
     "appointments": "予約",
     "title": "ナビゲーション"
   },
+  "auth": {
+    "sign_in": "ログイン",
+    "sign_up": "アカウント作成",
+    "log_out": "ログアウト",
+    "continue_with_google": "Googleで続行",
+    "password": "パスワード",
+    "password_confirm": "パスワード確認",
+    "show_password": "パスワードを表示",
+    "hide_password": "パスワードを非表示",
+    "show_confirm": "確認を表示",
+    "hide_confirm": "確認を非表示",
+    "forgot_password": "パスワードをお忘れですか？",
+    "name": "氏名",
+    "country": "国",
+    "country_select": "国を選択",
+    "email": "メールアドレス",
+    "password_rules": "8文字以上で、英小文字・英大文字・数字・記号を含めてください。",
+    "accept_terms_prefix": "私は",
+    "terms": "利用規約",
+    "already_registered": "すでに登録していますか？",
+    "new_here": "初めてですか？",
+    "forgot_title": "パスワードをお忘れですか",
+    "your_email": "メールアドレス",
+    "send_reset_link": "リセットリンクを送信",
+    "back_to_signin": "ログインに戻る",
+    "invalid_email": "無効なメールアドレス",
+    "service_unavailable": "サービスを利用できません",
+    "reset_link_sent": "このメールに紐づくアカウントが存在する場合、リセットリンクを送信しました。",
+    "reset_link_failed": "リンクを送信できません。後で再試行してください。"
+  },
   "settings": {
     "title": "設定",
     "subtitle": "アカウントとアプリケーションの設定",
@@ -679,5 +709,14 @@
     "reject": "不要を拒否",
     "manage": "設定を管理",
     "linkLabel": "詳細を見る"
+  },
+  "cookiePrefs": {
+    "title": "設定を管理",
+    "desc": "下で不要なクッキーを有効・無効にできます。",
+    "save": "設定を保存",
+    "reset": "リセット",
+    "saved": "設定を保存しました。",
+    "error": "設定を保存できませんでした。",
+    "resetMsg": "設定をリセットしました。"
   }
 }

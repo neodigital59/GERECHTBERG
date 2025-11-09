@@ -156,21 +156,21 @@ export default function AuthPage() {
         <Image src="/Logo-Favicon.png" alt="GERECHTBERG" width={64} height={64} className="rounded" />
       </div>
       <h1 className="text-xl font-semibold mb-4">
-        {mode === "signup" ? "Créer un compte" : "Se connecter"}
+        {mode === "signup" ? t('auth.sign_up') : t('auth.sign_in')}
       </h1>
       <form onSubmit={handleSubmit} className="space-y-3">
         {mode === "signup" && (
           <>
             <input
               type="text"
-              placeholder="Nom"
+              placeholder={t('auth.name', { defaultValue: 'Nom' })}
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full border rounded px-3 py-2"
               required
             />
             <label className="flex flex-col text-sm">
-              Pays
+              {t('auth.country', { defaultValue: 'Pays' })}
               <select
                 value={country ?? ""}
                 onChange={(e) => setCountry(e.target.value || null)}
@@ -178,7 +178,7 @@ export default function AuthPage() {
                 className="w-full border rounded px-3 py-2"
               >
                 <option value="" disabled>
-                  Sélectionner un pays
+                  {t('auth.country_select', { defaultValue: 'Sélectionner un pays' })}
                 </option>
                 {countryOptions.map((o) => (
                   <option key={o.code} value={o.code}>
@@ -191,7 +191,7 @@ export default function AuthPage() {
         )}
         <input
           type="email"
-          placeholder="Email"
+          placeholder={t('auth.email', { defaultValue: 'Email' })}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full border rounded px-3 py-2"
@@ -200,7 +200,7 @@ export default function AuthPage() {
         <div>
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Mot de passe"
+            placeholder={t('auth.password', { defaultValue: 'Mot de passe' })}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full border rounded px-3 py-2"
@@ -209,13 +209,13 @@ export default function AuthPage() {
           />
           {mode === "signin" && (
             <p className="text-xs mt-2">
-              <a href="/auth/mot-de-passe-oublie" className="text-brand hover:underline">Mot de passe oublié ?</a>
+              <a href="/auth/mot-de-passe-oublie" className="text-brand hover:underline">{t('auth.forgot_password', { defaultValue: 'Mot de passe oublié ?' })}</a>
             </p>
           )}
           {mode === "signup" && (
             <input
               type={showConfirm ? "text" : "password"}
-              placeholder="Confirmer le mot de passe"
+              placeholder={t('auth.password_confirm', { defaultValue: 'Confirmer le mot de passe' })}
               value={passwordConfirm}
               onChange={(e) => setPasswordConfirm(e.target.value)}
               className="w-full border rounded px-3 py-2"
@@ -224,7 +224,7 @@ export default function AuthPage() {
           )}
           {mode === "signup" && (
             <p id="pw-help" className="text-xs text-black/60 mt-1">
-              8+ caractères, au moins une minuscule, majuscule, chiffre et symbole.
+              {t('auth.password_rules', { defaultValue: '8+ caractères, au moins une minuscule, majuscule, chiffre et symbole.' })}
             </p>
           )}
           <div className="flex items-center justify-end gap-3 mt-2">
@@ -233,7 +233,7 @@ export default function AuthPage() {
               onClick={() => setShowPassword((v) => !v)}
               className="text-xs text-black/60 hover:text-black border rounded px-2 py-1"
             >
-              {showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+              {showPassword ? t('auth.hide_password', { defaultValue: 'Masquer le mot de passe' }) : t('auth.show_password', { defaultValue: 'Afficher le mot de passe' })}
             </button>
             {mode === "signup" && (
               <button
@@ -241,7 +241,7 @@ export default function AuthPage() {
                 onClick={() => setShowConfirm((v) => !v)}
                 className="text-xs text-black/60 hover:text-black border rounded px-2 py-1"
               >
-                {showConfirm ? "Masquer la confirmation" : "Afficher la confirmation"}
+                {showConfirm ? t('auth.hide_confirm', { defaultValue: 'Masquer la confirmation' }) : t('auth.show_confirm', { defaultValue: 'Afficher la confirmation' })}
               </button>
             )}
           </div>
@@ -249,14 +249,14 @@ export default function AuthPage() {
         {mode === "signup" && (
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" checked={accept} onChange={(e) => setAccept(e.target.checked)} />
-            J’accepte les <a href="/" className="underline text-brand hover:opacity-80">conditions d’utilisation</a>
+            {t('auth.accept_terms_prefix', { defaultValue: 'J’accepte les' })} <a href="/" className="underline text-brand hover:opacity-80">{t('auth.terms', { defaultValue: 'conditions d’utilisation' })}</a>
           </label>
         )}
         <button
           disabled={loading}
           className="w-full rounded bg-brand text-white py-2 hover:bg-brand/80"
         >
-          {loading ? "Patientez…" : mode === "signup" ? t('auth.sign_up') : t('auth.sign_in')}
+          {loading ? t('actions.sending', { defaultValue: 'Patientez…' }) : mode === "signup" ? t('auth.sign_up') : t('auth.sign_in')}
         </button>
       </form>
       <div className="mt-4">
@@ -278,7 +278,7 @@ export default function AuthPage() {
       <p className="mt-4 text-sm">
         {mode === "signup" ? (
           <>
-            Déjà inscrit ?
+            {t('auth.already_registered', { defaultValue: 'Déjà inscrit ?' })}
             <button
               className="ml-1 text-brand hover:underline"
               onClick={() => setMode("signin")}
@@ -288,7 +288,7 @@ export default function AuthPage() {
           </>
         ) : (
           <>
-            Nouveau ici ?
+            {t('auth.new_here', { defaultValue: 'Nouveau ici ?' })}
             <button
               className="ml-1 text-brand hover:underline"
               onClick={() => setMode("signup")}
