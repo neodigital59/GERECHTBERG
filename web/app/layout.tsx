@@ -6,6 +6,7 @@ import ClientI18nProvider from "@/components/ClientI18nProvider";
 import FooterV3 from "@/components/FooterV3";
 import NavBarV2 from "@/components/NavBarV2";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import ChatWidget from "@/components/ChatWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,6 +61,7 @@ export default async function RootLayout({
           {children}
           <CookieConsentBanner />
           <FooterV3 />
+          <ChatWidget />
         </ClientI18nProvider>
       </body>
     </html>
