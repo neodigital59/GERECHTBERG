@@ -375,6 +375,9 @@
       "text2": "In demo mode, writing and translation show sample content."
     }
   },
+  "faq": {
+    "title": "FAQ"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Intelligent platform to create, sign and timestamp your letters and contracts, with export and sharing.",

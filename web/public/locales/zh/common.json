@@ -399,6 +399,9 @@
       }
     }
   },
+  "faq": {
+    "title": "常见问题"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "智能平台，用于创建、签署和时间戳您的信件和合同，支持导出和共享。",

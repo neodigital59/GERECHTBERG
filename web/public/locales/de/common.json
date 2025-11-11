@@ -354,6 +354,9 @@
       "text2": "Im Demo-Modus zeigen Schreiben und Übersetzung Beispielinhalte."
     }
   },
+  "faq": {
+    "title": "Häufig gestellte Fragen"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Intelligente Plattform zur Erstellung, Signierung und Zeitstempelung Ihrer Briefe und Verträge, mit Export und Freigabe.",

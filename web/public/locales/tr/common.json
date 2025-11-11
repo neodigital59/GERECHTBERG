@@ -391,6 +391,9 @@
       }
     }
   },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Mektuplarınızı ve sözleşmelerinizi oluşturmak, imzalamak ve zaman damgası eklemek için akıllı platform, dışa aktarma ve paylaşım ile.",

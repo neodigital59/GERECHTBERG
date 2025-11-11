@@ -308,6 +308,9 @@
       }
     }
   },
+  "faq": {
+    "title": "Preguntas frecuentes"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Plataforma inteligente para crear, firmar y marcar temporalmente sus cartas y contratos con exportación e intercambio.",

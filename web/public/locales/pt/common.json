@@ -308,6 +308,9 @@
       }
     }
   },
+  "faq": {
+    "title": "Perguntas frequentes"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Plataforma inteligente para criar, assinar e carimbar temporalmente suas cartas e contratos com exportação e compartilhamento.",

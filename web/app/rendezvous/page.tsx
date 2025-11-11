@@ -40,6 +40,9 @@ export default function RendezVousPage() {
   const [notes, setNotes] = useState("");
   const [startLocal, setStartLocal] = useState("");
   const [endLocal, setEndLocal] = useState("");
+  // Interaction tracking to avoid showing errors before user touches fields
+  const [touched, setTouched] = useState<{ title: boolean; start: boolean; end: boolean }>({ title: false, start: false, end: false });
+  const [submitted, setSubmitted] = useState(false);
 
   // Édition d’un rendez-vous existant
   const [editId, setEditId] = useState<string | null>(null);
@@ -134,6 +137,9 @@ export default function RendezVousPage() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    // Reveal validation messages on submit attempt
+    setSubmitted(true);
+    setTouched({ title: true, start: true, end: true });
     setSaving(true);
     setError(null);
     setSuccess(null);
@@ -351,10 +357,13 @@ export default function RendezVousPage() {
               placeholder={t("appointments.form.titlePlaceholder")}
               value={title}
               onChange={e => setTitle(e.target.value)}
+              onBlur={() => setTouched(prev => ({ ...prev, title: true }))}
               maxLength={200}
               required
             />
-            {fieldErrors.title && <p className="mt-1 text-xs text-red-600">{fieldErrors.title}</p>}
+            {(touched.title || submitted) && fieldErrors.title && (
+              <p className="mt-1 text-xs text-red-600">{fieldErrors.title}</p>
+            )}
           </div>
           <div>
             <label className="block text-sm mb-1">{t("appointments.form.notesLabel")}</label>
@@ -375,9 +384,12 @@ export default function RendezVousPage() {
                 className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
                 value={startLocal}
                 onChange={e => setStartLocal(e.target.value)}
+                onBlur={() => setTouched(prev => ({ ...prev, start: true }))}
                 required
               />
-              {fieldErrors.start && <p className="mt-1 text-xs text-red-600">{fieldErrors.start}</p>}
+              {(touched.start || submitted) && fieldErrors.start && (
+                <p className="mt-1 text-xs text-red-600">{fieldErrors.start}</p>
+              )}
             </div>
             <div>
               <label className="block text-sm mb-1">{t("appointments.form.endLabel")}</label>
@@ -386,9 +398,12 @@ export default function RendezVousPage() {
                 className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
                 value={endLocal}
                 onChange={e => setEndLocal(e.target.value)}
+                onBlur={() => setTouched(prev => ({ ...prev, end: true }))}
                 required
               />
-              {fieldErrors.end && <p className="mt-1 text-xs text-red-600">{fieldErrors.end}</p>}
+              {(touched.end || submitted) && fieldErrors.end && (
+                <p className="mt-1 text-xs text-red-600">{fieldErrors.end}</p>
+              )}
             </div>
           </div>
           <div>

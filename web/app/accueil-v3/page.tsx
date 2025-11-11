@@ -10,7 +10,7 @@ export default function AccueilV3Page() {
 
       {/* Hero */}
       <section className="relative overflow-hidden rounded-xl border bg-gradient-to-r from-emerald-50 to-emerald-100">
-        <div className="grid lg:grid-cols-2 gap-6 p-6 sm:p-8">
+        <div className="grid lg:grid-cols-2 items-stretch gap-6 p-6 sm:p-8">
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">{t('homeV2.hero.title')}</h1>
             <p className="text-sm sm:text-base text-black/70 max-w-xl leading-relaxed break-words">{t('homeV2.hero.desc')}</p>
@@ -25,9 +25,9 @@ export default function AccueilV3Page() {
               <span className="inline-flex items-center gap-2"><Image src="/avatar-placeholder.svg" alt={t('discover.features.signature.title')} width={18} height={18} /><span>{t('discover.features.signature.title')}</span></span>
             </div>
           </div>
-          <div className="relative rounded-xl overflow-hidden shadow-sm bg-white aspect-[21/9]">
+          <div className="relative rounded-xl overflow-hidden shadow-sm bg-white h-full min-h-[280px] lg:min-h-[380px]">
             <Image
-              src="/Hero3.png"
+              src="/Hero N1.png"
               alt={t('homeV2.hero.alt')}
               fill
               className="object-cover object-center"
@@ -39,7 +39,7 @@ export default function AccueilV3Page() {
       </section>
 
       {/* Section image + texte (remplace le bandeau confiance) */}
-      <section className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <section className="mt-4 grid grid-cols-1 sm:grid-cols-2 items-stretch gap-6">
         <div className="order-1 flex flex-col justify-center">
           <h2 className="text-xl sm:text-2xl font-semibold">{t('discover.title')}</h2>
           <p className="mt-2 text-sm sm:text-base text-black/70 leading-relaxed break-words">{t('discover.subtitle')}</p>
@@ -48,7 +48,7 @@ export default function AccueilV3Page() {
             <Link href="/documents/new" className="px-4 py-2 rounded bg-brand text-white hover:opacity-90">{t('homeV2.cta.create')}</Link>
           </div>
         </div>
-        <div className="order-2 relative rounded-xl overflow-hidden border bg-white aspect-[16/9] lg:aspect-[21/9]">
+        <div className="order-2 relative rounded-xl overflow-hidden border bg-white h-full min-h-[320px] sm:min-h-[360px] lg:min-h-[440px]">
           <Image src="/asset/Hero2.png" alt={t('homeV2.hero.alt')} fill className="object-cover object-center" />
         </div>
       </section>
@@ -62,11 +62,6 @@ export default function AccueilV3Page() {
               title: t('discover.features.writing.title'),
               img: "/redaction assiste.png",
               desc: t('discover.features.writing.description'),
-            },
-            {
-              title: t('discover.features.versions.title'),
-              img: "/gestion des versions.png",
-              desc: t('discover.features.versions.description'),
             },
             {
               title: t('discover.features.export.title'),
@@ -111,7 +106,7 @@ export default function AccueilV3Page() {
 
 
       {/* Sections alternées image + texte */}
-      <section className="mt-8 grid lg:grid-cols-2 gap-6">
+      <section className="mt-8 grid lg:grid-cols-2 items-stretch gap-6">
         <div className="order-2 lg:order-1 flex flex-col justify-center">
           <h2 className="text-xl sm:text-2xl font-semibold">{t('discover.features.writing.title')}</h2>
           <p className="mt-2 text-sm sm:text-base text-black/70 leading-relaxed break-words">{t('discover.features.writing.description')}</p>
@@ -120,38 +115,14 @@ export default function AccueilV3Page() {
             <Link href="/documents/new" className="px-4 py-2 rounded bg-brand text-white hover:opacity-90">{t('homeV2.cta.create')}</Link>
           </div>
         </div>
-        <div className="order-1 lg:order-2 relative rounded-xl overflow-hidden border bg-white aspect-[16/9] lg:aspect-[21/9]">
+        <div className="order-1 lg:order-2 relative rounded-xl overflow-hidden border bg-white h-full min-h-[320px] sm:min-h-[360px] lg:min-h-[440px]">
           <Image src="/1.png" alt={t('discover.features.writing.title')} fill className="object-cover object-center" />
         </div>
       </section>
 
-      <section className="mt-8 grid lg:grid-cols-2 gap-6">
-        <div className="relative rounded-xl overflow-hidden border bg-white aspect-[16/9] lg:aspect-[21/9]">
-          <Image src="/2.png" alt={t('discover.features.export.title')} fill className="object-cover object-center" />
-        </div>
-        <div className="flex flex-col justify-center">
-          <h2 className="text-xl sm:text-2xl font-semibold">{t('discover.features.export.title')}</h2>
-          <p className="mt-2 text-sm sm:text-base text-black/70 leading-relaxed break-words">{t('discover.features.export.description')}</p>
-          <div className="mt-3 flex gap-2">
-            <Link href="/rendezvous" className="px-4 py-2 rounded bg-brand text-white hover:opacity-90">{t("navigation.appointments")}</Link>
-            <Link href="/contact" className="px-4 py-2 rounded border hover:bg-black/5">{t("navigation.contact")}</Link>
-          </div>
-        </div>
-      </section>
+      {/* Section Export retirée */}
 
-      {/* Bandeau CTA */}
-      <section className="mt-6 rounded-xl p-6 bg-gradient-to-r from-emerald-100 to-emerald-200 border">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div>
-            <p className="font-medium">{t('homeV2.cta.tryNow')}</p>
-            <p className="text-sm text-black/70">{t('appointments.subtitle')}</p>
-          </div>
-          <div className="flex gap-2">
-            <Link href="/rendezvous" className="px-4 py-2 rounded bg-brand text-white hover:opacity-90">{t("navigation.appointments")}</Link>
-            <Link href="/contact" className="px-4 py-2 rounded border hover:bg-black/5">{t("navigation.contact")}</Link>
-          </div>
-        </div>
-      </section>
+      {/* Bandeau CTA retiré */}
 
       {/* Second CTA full-width */}
       <section className="mt-6 rounded-xl p-8 bg-gradient-to-b from-emerald-200 to-emerald-300 border blink-green">

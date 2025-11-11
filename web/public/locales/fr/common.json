@@ -345,6 +345,9 @@
       "text2": "En mode démo, la rédaction et la traduction affichent du contenu d'exemple."
     }
   },
+  "faq": {
+    "title": "Foire aux questions"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Plateforme intelligente pour créer, signer et horodater vos lettres et contrats, avec export et partage.",

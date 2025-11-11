@@ -308,6 +308,9 @@
       }
     }
   },
+  "faq": {
+    "title": "Domande frequenti"
+  },
   "discover": {
     "title": "GERECHTBERG",
     "subtitle": "Piattaforma intelligente per creare, firmare e timbrare le tue lettere e contratti con esportazione e condivisione.",
