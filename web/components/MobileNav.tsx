@@ -59,9 +59,14 @@ export default function MobileNav() {
               </button>
             </div>
             <nav className="flex flex-col py-2 overflow-y-auto">
-              <Link className="px-4 py-3 text-base hover:bg-black/5 flex items-center gap-3" href="/decouvert" onClick={() => setOpen(false)}>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="opacity-80"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
-                <span>{t("navigation.discover")}</span>
+              {/* Lien Découverte retiré */}
+              <Link className="px-4 py-3 text-base hover:bg-black/5 flex items-center gap-3" href="/documents/new" onClick={() => setOpen(false)}>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="opacity-80"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h8"/></svg>
+                <span>{t("navigation.document")}</span>
+              </Link>
+              <Link className="px-4 py-3 text-base hover:bg-black/5 flex items-center gap-3" href="/rendezvous" onClick={() => setOpen(false)}>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="opacity-80"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+                <span>{t("navigation.appointments")}</span>
               </Link>
               <Link className="px-4 py-3 text-base hover:bg-black/5 flex items-center gap-3" href="/tarifs" onClick={() => setOpen(false)}>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="opacity-80"><path d="M4 7h10l6 6-7 7-6-6V7z"/><path d="M8 7V3"/></svg>
@@ -71,17 +76,10 @@ export default function MobileNav() {
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="opacity-80"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
                 <span>{t("navigation.contact")}</span>
               </Link>
-              <Link className="px-4 py-3 text-base hover:bg-black/5 flex items-center gap-3" href="/rendezvous" onClick={() => setOpen(false)}>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="opacity-80"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
-                <span>{t("navigation.appointments")}</span>
-              </Link>
             </nav>
             <div className="mt-auto border-t px-4 py-3">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-start">
                 <LanguageSwitcher />
-                <Link href="/documents" onClick={() => setOpen(false)} className="px-3 py-2 rounded bg-brand text-white hover:bg-brand/80 text-sm">
-                  {t('navigation.dashboard')}
-                </Link>
               </div>
             </div>
           </div>

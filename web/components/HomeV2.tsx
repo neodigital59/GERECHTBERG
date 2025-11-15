@@ -18,7 +18,7 @@ export default function HomeV2() {
           <Image src="/asset/Hero2.png" alt={t('homeV2.hero.alt')} width={1200} height={675} priority sizes="100vw" className="w-full h-auto" />
         </div>
         <div className="flex flex-wrap gap-2 sm:gap-3">
-          <Link href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('homeV2.cta.create')}</Link>
+          <Link href="/documents/new" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('homeV2.cta.create')}</Link>
           <Link href="/decouvert" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('homeV2.cta.discover')}</Link>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function HomeV2() {
                   <li>{t('homeV2.services.documents.points.3')}</li>
                   </ul>
                   <div className="mt-3">
-                  <Link href="/documents" className="rounded px-3 py-1.5 bg-brand text-white hover:bg-brand/80">{t('homeV2.services.documents.cta')}</Link>
+                  <Link href="/documents/new" className="rounded px-3 py-1.5 bg-brand text-white hover:bg-brand/80">{t('homeV2.services.documents.cta')}</Link>
                   </div>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default function HomeV2() {
                   <li>{t('homeV2.services.translate.points.3')}</li>
                   </ul>
                   <div className="mt-3">
-                  <Link href="/documents" className="rounded px-3 py-1.5 border hover:text-brand">{t('homeV2.services.translate.cta')}</Link>
+                  <Link href="/documents/new" className="rounded px-3 py-1.5 border hover:text-brand">{t('homeV2.services.translate.cta')}</Link>
                   </div>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function HomeV2() {
           </div>
         </div>
         <div>
-          <Link href="/documents" className="rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('homeV2.cta.tryNow')}</Link>
+          <Link href="/documents/new" className="rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('homeV2.cta.tryNow')}</Link>
         </div>
       </section>
 
@@ -202,7 +202,7 @@ export default function HomeV2() {
         <p className="text-sm text-black/70">{t('homeV2.final.desc')}</p>
         <div className="flex flex-wrap gap-2 sm:gap-3">
           <Link href="/rendezvous" className="w-full sm:w-auto rounded px-4 py-2 border hover:text-brand">{t('homeV2.final.cta.appointment')}</Link>
-          <Link href="/documents" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('homeV2.final.cta.create')}</Link>
+          <Link href="/documents/new" className="w-full sm:w-auto rounded px-4 py-2 bg-brand text-white hover:bg-brand/80">{t('homeV2.final.cta.create')}</Link>
         </div>
       </section>
     </div>

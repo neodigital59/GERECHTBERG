@@ -28,7 +28,10 @@ export default function DocumentDetailPage() {
       const { data } = await supabase.from("documents").select("*").eq("id", id).maybeSingle();
       if (mounted) {
         setDoc(data);
-        setContent(data?.contenu ?? "");
+        // Préférer le champ contenu; si vide mais details présent, utiliser details comme fallback
+        const initial = (data?.contenu ?? "").trim();
+        const fallback = (data?.details ?? "").trim();
+        setContent(initial || fallback || "");
         setLang(data?.langue ?? "fr");
         setLoading(false);
       }
@@ -113,6 +116,14 @@ export default function DocumentDetailPage() {
   }
   function isEmptyContent(): boolean {
     return !content || !content.trim();
+  }
+
+  function statusLabel(st: string | null | undefined) {
+    const s = (st || "").toLowerCase();
+    if (s === "signé") return t("documentDetail.status.signed", "signé");
+    if (s === "horodaté") return t("documentDetail.status.timestamped", "horodaté");
+    if (s === "draft") return t("documentDetail.status.draft", "brouillon");
+    return s || t("documentDetail.status.draft", "brouillon");
   }
 
   function downloadTxt() {
@@ -227,45 +238,33 @@ export default function DocumentDetailPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold">{doc?.titre || t("documentDetail.untitled")}</h1>
-          <p className="text-sm text-black/60">{doc?.type || "—"} · {lang.toUpperCase()} · {doc?.statut || "brouillon"}</p>
+          <p className="text-sm text-black/60">{doc?.type || "—"} · {lang.toUpperCase()} · {statusLabel(doc?.statut)}</p>
         </div>
         <div className="flex items-center gap-2">
           <button className="px-3 py-2 rounded border" onClick={saveVersionAndUpdate} disabled={loading}>{t("documentDetail.actions.save")}</button>
-          <button className="px-3 py-2 rounded border" onClick={shareDocument}>{t("documentDetail.share.share")}</button>
+          <button className="px-3 py-2 rounded border" onClick={shareDocument}>{t("documentDetail.share.share", "Partager")}</button>
         </div>
       </div>
 
       <textarea value={content} onChange={(e)=>setContent(e.target.value)} className="w-full min-h-[240px] rounded border p-3" placeholder={t("documentDetail.placeholder", "Saisissez ou modifiez le contenu du document") || ""} />
 
-      {/* Fonctionnalités à venir: masquer signature et horodatage */}
-      <div className="rounded-xl border bg-white shadow-sm">
-        <div className="p-4 border-b">
-          <div className="font-semibold">{t('documentDetail.comingSoon.title', 'Fonctionnalités à venir')}</div>
-          <div className="text-black/60 text-sm">{t('documentDetail.comingSoon.desc', 'La signature électronique et l’horodatage seront bientôt disponibles.')}</div>
-        </div>
-        <div className="p-4 text-sm text-black/70">
-          <ul className="list-disc pl-5 space-y-1">
-            <li>{t('documentDetail.comingSoon.signature', 'Signature électronique des documents')}</li>
-            <li>{t('documentDetail.comingSoon.timestamp', 'Horodatage des documents')}</li>
-          </ul>
-        </div>
-      </div>
+      
 
       <div className="rounded-xl border bg-white shadow-sm">
         <div className="p-4 border-b">
-          <div className="font-semibold">Export</div>
-          <div className="text-black/60 text-sm">Télécharger en PDF, DOCX, TXT ou JSON</div>
+          <div className="font-semibold">{t("documentDetail.exports.title", "Export")}</div>
+          <div className="text-black/60 text-sm">{t("documentDetail.exports.hint", "Télécharger en PDF, DOCX, TXT ou JSON")}</div>
         </div>
         <div className="p-4 flex flex-wrap gap-3">
-          <button className="px-3 py-2 rounded border" onClick={downloadPdf}>PDF</button>
-          <button className="px-3 py-2 rounded border" onClick={downloadDocx}>DOCX</button>
-          <button className="px-3 py-2 rounded border" onClick={downloadTxt}>TXT</button>
-          <button className="px-3 py-2 rounded border" onClick={exportJSON}>JSON</button>
-          <button className="px-3 py-2 rounded border" onClick={copyLink}>{t("documentDetail.share.copyLink")}</button>
+          <button className="px-3 py-2 rounded border" onClick={downloadPdf}>{t("documentDetail.exports.downloadPdf", "PDF")}</button>
+          <button className="px-3 py-2 rounded border" onClick={downloadDocx}>{t("documentDetail.exports.downloadDocx", "DOCX")}</button>
+          <button className="px-3 py-2 rounded border" onClick={downloadTxt}>{t("documentDetail.exports.downloadTxt", "TXT")}</button>
+          <button className="px-3 py-2 rounded border" onClick={exportJSON}>{t("documentDetail.exports.exportJson", "JSON")}</button>
+          <button className="px-3 py-2 rounded border" onClick={copyLink}>{t("documentDetail.share.copyLink", "Copier le lien")}</button>
         </div>
       </div>
 
-      {message && <div className="rounded border p-3 text-sm" role="status">{message}</div>}
-    </div>
+  {message && <div className="rounded border p-3 text-sm" role="status">{message}</div>}
+  </div>
   );
 }

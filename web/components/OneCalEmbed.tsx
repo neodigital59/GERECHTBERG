@@ -65,7 +65,7 @@ export default function OneCalEmbed({ bookingUrl, className }: OneCalEmbedProps)
               {t("appointments.openInApp")}
             </button>
           )}
-          <Link href="/documents" className="px-3 py-2 rounded border hover:bg-black/5 text-sm">
+          <Link href="/documents/new" className="px-3 py-2 rounded border hover:bg-black/5 text-sm">
             {t("appointments.backToApp")}
           </Link>
         </div>

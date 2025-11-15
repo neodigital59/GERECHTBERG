@@ -15,10 +15,10 @@ export default function Footer() {
           </div>
           <nav className="flex flex-wrap gap-4">
             <Link href="/tarifs" className="hover:text-brand">{t("navigation.pricing")}</Link>
-            <Link href="/decouvert" className="hover:text-brand">{t("navigation.discover")}</Link>
+            {/* Lien Découverte retiré */}
             <Link href="/contact" className="hover:text-brand">{t("navigation.contact")}</Link>
             <Link href="/rendezvous" className="hover:text-brand">{t("navigation.appointments")}</Link>
-            <Link href="/documents" className="hover:text-brand">{t("navigation.dashboard")}</Link>
+            <Link href="/documents/new" className="hover:text-brand">{t("navigation.dashboard")}</Link>
           </nav>
         </div>
         {/* Image partenaire GE (réduite) */}

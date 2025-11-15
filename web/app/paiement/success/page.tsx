@@ -6,7 +6,7 @@ export default function SuccessPage() {
       <h1 className="text-2xl font-semibold">Paiement réussi ✅</h1>
       <p className="mt-3">Votre abonnement est actif. Merci !</p>
       <div className="mt-6 flex gap-3">
-        <Link href="/documents" className="px-4 py-2 bg-brand text-white rounded">Aller au tableau de bord</Link>
+        <Link href="/documents/new" className="px-4 py-2 bg-brand text-white rounded">Aller au tableau de bord</Link>
         <Link href="/tarifs" className="px-4 py-2 border rounded">Voir les tarifs</Link>
       </div>
     </div>

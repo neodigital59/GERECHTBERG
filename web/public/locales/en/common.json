@@ -12,7 +12,19 @@
     "clear": "Clear",
     "exportCsv": "Export CSV",
     "sending": "Sending…",
-    "backToDashboard": "Back to dashboard"
+    "backToDashboard": "Back to dashboard",
+    "cards": {
+      "documents": {
+        "badge": "Documents",
+        "title": "Generate a Document",
+        "desc": "Create, translate, and export official documents with AI."
+      },
+      "appointment": {
+        "badge": "Consultation",
+        "title": "Book an Expert",
+        "desc": "Schedule a 30‑minute consultation with a legal expert."
+      }
+    }
   },
   "dashboard": {
     "title": "Dashboard",
@@ -55,6 +67,7 @@
   "navigation": {
     "dashboard": "Dashboard",
     "newDocument": "New document",
+    "document": "Document",
     "pricing": "Pricing",
     "home": "Home",
     "settings": "Settings",
@@ -245,6 +258,7 @@
     },
     "exports": {
       "title": "Exports",
+      "hint": "Download as PDF, DOCX, TXT or JSON",
       "downloadPdf": "Download PDF",
       "downloadDocx": "Download Word (.docx)",
       "downloadTxt": "Download .txt",
@@ -370,9 +384,27 @@
       "compare": "Compare plans",
       "contact": "Contact us"
     },
-    "note": {
+  "note": {
       "text1": "Some advanced features (premium templates, signatures, timestamps) may require an active subscription.",
       "text2": "In demo mode, writing and translation show sample content."
+    }
+  },
+  "homeV3": {
+    "cta": {
+      "generate": "Start Generating",
+      "book": "Book Now"
+    },
+    "freeHero": {
+      "greeting": "Welcome to GERECHTBERG",
+      "simplify": "Your administrative procedures in Germany and Europe become simple and clear.",
+      "point1": "Official documents written and translated",
+      "point2": "Compliance guaranteed",
+      "point3": "Legal experts at your service",
+      "start": "Start now:",
+      "option1": "Talk to an expert",
+      "option2": "Or let Greta guide you step by step",
+      "imageAlt": "Free offer illustration",
+      "note": "Proof of residence may be required."
     }
   },
   "faq": {

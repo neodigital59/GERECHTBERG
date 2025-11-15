@@ -12,7 +12,19 @@
     "clear": "Temizle",
     "exportCsv": "CSV dışa aktar",
     "sending": "Gönderiliyor…",
-    "backToDashboard": "Kontrol paneline geri dön"
+    "backToDashboard": "Kontrol paneline geri dön",
+    "cards": {
+      "documents": {
+        "badge": "Belgeler",
+        "title": "Belge oluştur",
+        "desc": "Resmi belgeleri yapay zekâ ile oluştur, çevir ve dışa aktar."
+      },
+      "appointment": {
+        "badge": "Danışmanlık",
+        "title": "Uzman rezervasyonu",
+        "desc": "Bir hukuk uzmanıyla 30 dakikalık danışmanlık planlayın."
+      }
+    }
   },
   "dashboard": {
     "title": "Kontrol paneli",
@@ -44,6 +56,24 @@
     "subject": "Konu",
     "messageOptional": "Mesaj (isteğe bağlı)",
     "selectionLabel": "Seçim"
+  },
+  "homeV3": {
+    "cta": {
+      "generate": "Hemen başlayın",
+      "book": "Şimdi rezervasyon"
+    },
+    "freeHero": {
+      "greeting": "GERECHTBERG’e hoş geldiniz",
+      "simplify": "Almanya ve Avrupa’daki idari işlemleriniz daha basit ve anlaşılır.",
+      "point1": "Resmi belgeler — yazım ve çeviri",
+      "point2": "Uyumluluk garantisi",
+      "point3": "Hukuk uzmanları hizmetinizde",
+      "start": "Şimdi başlayın:",
+      "option1": "Bir uzmanla konuşun",
+      "option2": "Ya da Greta adım adım rehberlik etsin",
+      "imageAlt": "Ücretsiz teklif görseli",
+      "note": "İkamet kanıtı istenebilir."
+    }
   },
   "navigation": {
     "dashboard": "Kontrol paneli",
@@ -141,6 +171,7 @@
     },
     "exports": {
       "title": "Dışa aktarımlar",
+      "hint": "PDF, DOCX, TXT veya JSON olarak indir",
       "downloadPdf": "PDF indir",
       "downloadDocx": "Word (.docx) indir",
       "downloadTxt": ".txt indir",

@@ -83,3 +83,29 @@ body.auth-only footer {
   transform: rotate(2deg);
   transition: transform 200ms ease;
 }
+
+/* Animation d’attention pour cartes d’action (clignotement doux et accessible) */
+@keyframes card-attention {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.0);
+    transform: translateY(0);
+    outline-color: transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(46, 204, 113, 0.22);
+    transform: translateY(-1px);
+    outline-color: rgba(46, 204, 113, 0.35);
+  }
+}
+
+.animate-card-attention {
+  animation: card-attention 2.6s ease-in-out infinite;
+}
+
+.anim-delay-1200ms {
+  animation-delay: 1.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-card-attention, .anim-delay-1200ms { animation: none; }
+}

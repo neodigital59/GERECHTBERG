@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import RequireAuth from "@/components/RequireAuth";
 import { getSupabase } from "@/lib/supabaseUtils";
@@ -25,11 +26,12 @@ function toISO(datetimeLocal: string): string | null {
 
 export default function RendezVousPage() {
   const { t, i18n } = useTranslation();
+  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const [fieldErrors, setFieldErrors] = useState<{ title?: string; start?: string; end?: string }>({});
+  const [fieldErrors, setFieldErrors] = useState<{ title?: string }>({});
   const [list, setList] = useState<Appointment[]>([]);
   const [showSummary, setShowSummary] = useState(false);
   const [lastCreatedId, setLastCreatedId] = useState<string | null>(null);
@@ -38,11 +40,22 @@ export default function RendezVousPage() {
 
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
-  const [startLocal, setStartLocal] = useState("");
-  const [endLocal, setEndLocal] = useState("");
   // Interaction tracking to avoid showing errors before user touches fields
-  const [touched, setTouched] = useState<{ title: boolean; start: boolean; end: boolean }>({ title: false, start: false, end: false });
+  const [touched, setTouched] = useState<{ title: boolean }>({ title: false });
   const [submitted, setSubmitted] = useState(false);
+
+  // Pré-remplissage depuis la page d'actions (query params)
+  useEffect(() => {
+    try {
+      const preTitle = searchParams.get("title") || "";
+      const preNotes = searchParams.get("notes") || "";
+      if (preTitle) setTitle(preTitle);
+      if (preNotes) setNotes(preNotes);
+    } catch (_e) {
+      // ignore
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Édition d’un rendez-vous existant
   const [editId, setEditId] = useState<string | null>(null);
@@ -52,21 +65,15 @@ export default function RendezVousPage() {
   const [editEndLocal, setEditEndLocal] = useState("");
 
   const canSubmit = useMemo(() => {
-    return !!title && !!startLocal && !!endLocal && !saving && !fieldErrors.title && !fieldErrors.start && !fieldErrors.end;
-  }, [title, startLocal, endLocal, saving, fieldErrors]);
+    return !!title && !saving && !fieldErrors.title;
+  }, [title, saving, fieldErrors]);
 
   // Validation en temps réel
   useEffect(() => {
-    const errs: { title?: string; start?: string; end?: string } = {};
+    const errs: { title?: string } = {};
     if (!title.trim()) errs.title = "Titre requis";
-    // Dates valides et ordre
-    const s = startLocal ? new Date(startLocal).getTime() : NaN;
-    const e = endLocal ? new Date(endLocal).getTime() : NaN;
-    if (!startLocal || isNaN(s)) errs.start = "Date de début invalide";
-    if (!endLocal || isNaN(e)) errs.end = "Date de fin invalide";
-    if (!errs.start && !errs.end && s >= e) errs.end = "La fin doit être après le début";
     setFieldErrors(errs);
-  }, [title, startLocal, endLocal]);
+  }, [title]);
 
   useEffect(() => {
     let cancelled = false;
@@ -139,7 +146,7 @@ export default function RendezVousPage() {
     e.preventDefault();
     // Reveal validation messages on submit attempt
     setSubmitted(true);
-    setTouched({ title: true, start: true, end: true });
+    setTouched({ title: true });
     setSaving(true);
     setError(null);
     setSuccess(null);
@@ -151,11 +158,9 @@ export default function RendezVousPage() {
       return;
     }
     try {
-      const startIso = toISO(startLocal);
-      const endIso = toISO(endLocal);
-      if (!startIso || !endIso) {
-        throw new Error(t("appointments.messages.invalidDates"));
-      }
+      // Par défaut, le créneau est défini provisoirement; la planification réelle se fait après paiement via OneCal
+      const startIso = new Date().toISOString();
+      const endIso = new Date(Date.now() + 30 * 60 * 1000).toISOString();
       const { data: auth } = await supabase.auth.getUser();
       const uid = auth.user?.id;
       if (!uid) throw new Error(t("appointments.messages.sessionRequired"));
@@ -176,8 +181,6 @@ export default function RendezVousPage() {
       setSuccess(t("appointments.summary.created"));
       setTitle("");
       setNotes("");
-      setStartLocal("");
-      setEndLocal("");
       setLastCreatedId(created?.id || null);
       setLastCreated(created || null);
       setShowSummary(true);
@@ -240,27 +243,12 @@ export default function RendezVousPage() {
     }
   }
 
-  function toLocalInputValue(iso: string): string {
-    try {
-      const d = new Date(iso);
-      if (isNaN(d.getTime())) return "";
-      const yyyy = d.getFullYear();
-      const mm = String(d.getMonth() + 1).padStart(2, "0");
-      const dd = String(d.getDate()).padStart(2, "0");
-      const hh = String(d.getHours()).padStart(2, "0");
-      const mi = String(d.getMinutes()).padStart(2, "0");
-      return `${yyyy}-${mm}-${dd}T${hh}:${mi}`;
-    } catch {
-      return "";
-    }
-  }
+  // Suppression du calendrier de pré‑rendez‑vous: plus de sélection de dates avant paiement
 
   function startEdit(a: Appointment) {
     setEditId(a.id);
     setEditTitle(a.title);
     setEditNotes(a.notes || "");
-    setEditStartLocal(toLocalInputValue(a.start_time));
-    setEditEndLocal(toLocalInputValue(a.end_time));
     setSuccess(null);
     setError(null);
   }
@@ -269,8 +257,6 @@ export default function RendezVousPage() {
     setEditId(null);
     setEditTitle("");
     setEditNotes("");
-    setEditStartLocal("");
-    setEditEndLocal("");
   }
 
   async function saveEdit() {
@@ -285,15 +271,12 @@ export default function RendezVousPage() {
       return;
     }
     try {
-      const sIso = toISO(editStartLocal);
-      const eIso = toISO(editEndLocal);
-      if (!sIso || !eIso) throw new Error(t("appointments.messages.invalidDates"));
       const { error } = await supabase
         .from("appointments")
-        .update({ title: editTitle, notes: editNotes || null, start_time: sIso, end_time: eIso })
+        .update({ title: editTitle, notes: editNotes || null })
         .eq("id", editId);
       if (error) throw error;
-      setList(prev => prev.map(a => a.id === editId ? { ...a, title: editTitle, notes: editNotes || null, start_time: sIso!, end_time: eIso! } : a));
+      setList(prev => prev.map(a => a.id === editId ? { ...a, title: editTitle, notes: editNotes || null } : a));
       setSuccess(t("appointments.messages.updated"));
       cancelEdit();
     } catch (e: any) {
@@ -341,7 +324,6 @@ export default function RendezVousPage() {
           <OneCalEmbed className="mb-8" bookingUrl={onecalUrl} />
         )}
 
-        <h1 className="text-2xl font-semibold mb-3">{t("appointments.title")}</h1>
         <p className="text-sm text-black/70 mb-6">{t("appointments.description")}</p>
 
         <form onSubmit={onSubmit} className="space-y-4 border rounded-xl p-4 bg-white shadow-sm ring-1 ring-black/5">
@@ -376,36 +358,6 @@ export default function RendezVousPage() {
               maxLength={2000}
             />
           </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm mb-1">{t("appointments.form.startLabel")}</label>
-              <input
-                type="datetime-local"
-                className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
-                value={startLocal}
-                onChange={e => setStartLocal(e.target.value)}
-                onBlur={() => setTouched(prev => ({ ...prev, start: true }))}
-                required
-              />
-              {(touched.start || submitted) && fieldErrors.start && (
-                <p className="mt-1 text-xs text-red-600">{fieldErrors.start}</p>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm mb-1">{t("appointments.form.endLabel")}</label>
-              <input
-                type="datetime-local"
-                className="w-full border rounded px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition"
-                value={endLocal}
-                onChange={e => setEndLocal(e.target.value)}
-                onBlur={() => setTouched(prev => ({ ...prev, end: true }))}
-                required
-              />
-              {(touched.end || submitted) && fieldErrors.end && (
-                <p className="mt-1 text-xs text-red-600">{fieldErrors.end}</p>
-              )}
-            </div>
-          </div>
           <div>
             <button
               type="submit"
@@ -428,10 +380,6 @@ export default function RendezVousPage() {
               {lastCreated && (
                 <div className="mb-4 text-sm">
                   <div><span className="text-black/50">{t("appointments.form.titleLabel")}:</span> <span className="font-medium">{lastCreated.title}</span></div>
-                  <div className="text-black/70" suppressHydrationWarning>
-                    <span className="text-black/50">{t("appointments.form.startLabel")}:</span> {new Date(lastCreated.start_time).toLocaleString()} 
-                    <span className="text-black/50 ml-2">{t("appointments.form.endLabel")}:</span> {new Date(lastCreated.end_time).toLocaleString()}
-                  </div>
                   {lastCreated.notes && (
                     <div className="mt-1"><span className="text-black/50">{t("appointments.form.notesLabel")}:</span> {lastCreated.notes}</div>
                   )}
@@ -467,16 +415,6 @@ export default function RendezVousPage() {
                           <div>
                             <label className="block text-sm mb-1">{t("appointments.form.notesLabel")}</label>
                             <textarea className="w-full border rounded px-3 py-2" rows={3} value={editNotes} onChange={e => setEditNotes(e.target.value)} />
-                          </div>
-                          <div className="grid md:grid-cols-2 gap-3">
-                            <div>
-                              <label className="block text-sm mb-1">{t("appointments.form.startLabel")}</label>
-                              <input type="datetime-local" className="w-full border rounded px-3 py-2 text-sm sm:text-base" value={editStartLocal} onChange={e => setEditStartLocal(e.target.value)} />
-                            </div>
-                            <div>
-                              <label className="block text-sm mb-1">{t("appointments.form.endLabel")}</label>
-                              <input type="datetime-local" className="w-full border rounded px-3 py-2 text-sm sm:text-base" value={editEndLocal} onChange={e => setEditEndLocal(e.target.value)} />
-                            </div>
                           </div>
                           <div className="flex flex-col sm:flex-row gap-2">
                             <button className="w-full sm:w-auto px-3 py-2 rounded bg-brand text-white disabled:opacity-50" onClick={saveEdit} disabled={saving}>{t("appointments.edit.save")}</button>

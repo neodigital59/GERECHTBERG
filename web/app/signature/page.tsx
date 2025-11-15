@@ -21,7 +21,7 @@ export default function SignatureLandingPage() {
       </section>
       <section className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
         <a href="/rendezvous" className="w-full sm:flex-1 bg-brand text-white px-6 py-3 rounded-lg text-center font-medium hover:bg-brand/90">Planifier une démo</a>
-        <a href="/documents" className="w-full sm:flex-1 border border-brand text-brand px-6 py-3 rounded-lg text-center font-medium hover:bg-brand/5">Voir mes documents</a>
+        <a href="/documents/new" className="w-full sm:flex-1 border border-brand text-brand px-6 py-3 rounded-lg text-center font-medium hover:bg-brand/5">Voir mes documents</a>
       </section>
     </div>
   );

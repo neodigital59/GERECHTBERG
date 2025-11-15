@@ -12,7 +12,19 @@
     "clear": "クリア",
     "exportCsv": "CSV エクスポート",
     "sending": "送信中…",
-    "backToDashboard": "ダッシュボードに戻る"
+    "backToDashboard": "ダッシュボードに戻る",
+    "cards": {
+      "documents": {
+        "badge": "ドキュメント",
+        "title": "ドキュメントを作成",
+        "desc": "AIで公的ドキュメントを作成・翻訳・エクスポート。"
+      },
+      "appointment": {
+        "badge": "相談",
+        "title": "専門家を予約",
+        "desc": "法律専門家との30分相談を予約します。"
+      }
+    }
   },
   "dashboard": {
     "title": "ダッシュボード",
@@ -44,6 +56,24 @@
     "subject": "件名",
     "messageOptional": "メッセージ（オプション）",
     "selectionLabel": "選択"
+  },
+  "homeV3": {
+    "cta": {
+      "generate": "作成を開始",
+      "book": "今すぐ予約"
+    },
+    "freeHero": {
+      "greeting": "GERECHTBERGへようこそ",
+      "simplify": "ドイツ・欧州での行政手続きをわかりやすくシンプルに。",
+      "point1": "公的ドキュメントの作成と翻訳",
+      "point2": "適合性保証",
+      "point3": "法務の専門家がサポート",
+      "start": "今すぐはじめましょう：",
+      "option1": "専門家に相談する",
+      "option2": "Gretaがステップごとに案内します",
+      "imageAlt": "無料プランのイラスト",
+      "note": "居住証明が必要な場合があります。"
+    }
   },
   "navigation": {
     "dashboard": "ダッシュボード",
@@ -141,6 +171,7 @@
     },
     "exports": {
       "title": "エクスポート",
+      "hint": "PDF・DOCX・TXT・JSON でダウンロード",
       "downloadPdf": "PDF をダウンロード",
       "downloadDocx": "Word (.docx) をダウンロード",
       "downloadTxt": ".txt をダウンロード",

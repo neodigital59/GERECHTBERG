@@ -15,16 +15,7 @@ export default function NavBarV2() {
         <Link href="/" aria-label="GERECHTBERG" className="shrink-0">
           <Image src="/Logo-Favicon.png" alt="Logo GERECHTBERG" width={56} height={56} priority className="rounded w-12 h-12 sm:w-14 sm:h-14" />
         </Link>
-        {/* Recherche */}
-        <div className="hidden sm:block flex-1">
-          <div className="relative">
-            <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="absolute left-3 top-1/2 -translate-y-1/2 opacity-60">
-              <circle cx="11" cy="11" r="7" />
-              <path d="M20 20l-3-3" />
-            </svg>
-            <input type="text" placeholder="Rechercher" className="w-full rounded-full border px-10 py-2 sm:py-2.5 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-brand/40" />
-          </div>
-        </div>
+        {/* Barre de recherche retirée */}
         {/* Droite */}
         <div className="hidden sm:flex items-center gap-3">
           <LanguageSwitcher />

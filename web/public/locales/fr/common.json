@@ -12,7 +12,19 @@
     "clear": "Effacer",
     "exportCsv": "Exporter CSV",
     "sending": "Envoi…",
-    "backToDashboard": "Retour au tableau de bord"
+    "backToDashboard": "Retour au tableau de bord",
+    "cards": {
+      "documents": {
+        "badge": "Documents",
+        "title": "Générer un document",
+        "desc": "Créer, traduire et exporter des documents officiels avec l’IA."
+      },
+      "appointment": {
+        "badge": "Consultation",
+        "title": "Réserver un expert",
+        "desc": "Planifiez une consultation de 30 minutes avec un expert juridique."
+      }
+    }
   },
   "dashboard": {
     "title": "Tableau de bord",
@@ -55,6 +67,7 @@
   "navigation": {
     "dashboard": "Tableau de bord",
     "newDocument": "Nouveau document",
+    "document": "Document",
     "pricing": "Tarifs",
     "home": "Accueil",
     "settings": "Paramètres",
@@ -197,6 +210,12 @@
     "loading": "Chargement…",
     "notFound": "Document introuvable.",
     "untitled": "Sans titre",
+    "placeholder": "Saisissez ou modifiez le contenu du document",
+    "status": {
+      "draft": "brouillon",
+      "signed": "signé",
+      "timestamped": "horodaté"
+    },
     "actions": {
       "title": "Actions",
       "save": "Enregistrer",
@@ -213,8 +232,15 @@
         "de": "Allemand"
       }
     },
+    "comingSoon": {
+      "title": "Fonctionnalités à venir",
+      "desc": "La signature électronique et l’horodatage seront bientôt disponibles.",
+      "signature": "Signature électronique des documents",
+      "timestamp": "Horodatage des documents"
+    },
     "exports": {
       "title": "Exports",
+      "hint": "Télécharger en PDF, DOCX, TXT ou JSON",
       "downloadPdf": "Télécharger PDF",
       "downloadDocx": "Télécharger Word (.docx)",
       "downloadTxt": "Télécharger .txt",
@@ -340,9 +366,27 @@
       "compare": "Comparer les offres",
       "contact": "Nous contacter"
     },
-    "note": {
+  "note": {
       "text1": "Certaines fonctionnalités avancées (modèles premium, signatures, horodatages) peuvent nécessiter un abonnement actif.",
       "text2": "En mode démo, la rédaction et la traduction affichent du contenu d'exemple."
+    }
+  },
+  "homeV3": {
+    "cta": {
+      "generate": "Commencer la génération",
+      "book": "Réserver maintenant"
+    },
+    "freeHero": {
+      "greeting": "Bienvenue sur GERECHTBERG",
+      "simplify": "Vos démarches administratives en Allemagne et en Europe deviennent simples et claires.",
+      "point1": "Documents officiels rédigés et traduits",
+      "point2": "Conformité garantie",
+      "point3": "Experts en droit à votre écoute",
+      "start": "Commencez maintenant :",
+      "option1": "Parlez à un expert",
+      "option2": "Ou laissez Greta vous guider pas à pas",
+      "imageAlt": "Illustration de l'offre gratuite",
+      "note": "Preuve de résidence peut être requise."
     }
   },
   "faq": {
@@ -576,7 +620,7 @@
     "support": {
       "title": "Support",
       "description": "Assistance fonctionnelle, questions d'utilisation et conseils de mise en œuvre.",
-      "email": "contact.gerechtberg.com"
+      "email": "contact@gerechtberg.com"
     },
     "form": {
       "title": "Formulaire rapide",
@@ -601,9 +645,9 @@
     }
   },
   "appointments": {
-    "preFormTitle": "Formulaire de Pré Rendez Vous",
-    "title": "Pré‑rendez‑vous",
-    "description": "Ce formulaire vous permet de préparer votre rendez‑vous. Sélectionnez un créneau indicatif et ajoutez vos notes. L’accès à la réservation OneCal sera débloqué après confirmation de votre paiement.",
+    "preFormTitle": "Demande de rendez‑vous",
+    "title": "Prendre rendez‑vous",
+    "description": "Décrivez l’objet de votre demande et ajoutez des notes. Après paiement, vous choisirez votre créneau directement dans le calendrier.",
     "subtitle": "Planifiez votre consultation avec notre équipe",
     "bookNow": "Réserver maintenant",
     "openInApp": "Ouvrir dans l’application",
@@ -614,7 +658,7 @@
     "backToApp": "Retour à l’application",
     "summary": {
       "title": "Votre demande est enregistrée",
-      "text": "Votre rendez-vous est bien pris en compte. Cliquez sur ‘Payer maintenant’ pour finaliser le paiement. Une fois le paiement effectué, confirmez puis finalisez votre créneau.",
+      "text": "Votre demande est bien enregistrée. Cliquez sur ‘Payer maintenant’ pour confirmer votre consultation. Après paiement, planifiez votre créneau dans le calendrier.",
       "payNow": "Payer maintenant",
       "confirmPaid": "J’ai effectué mon paiement",
       "created": "Demande enregistrée"
@@ -624,13 +668,13 @@
       "next": "Vous pouvez maintenant finaliser votre créneau via le calendrier ci‑dessous."
     },
     "form": {
-      "titleLabel": "Titre",
-      "titlePlaceholder": "Ex: Consultation initiale",
+      "titleLabel": "Objet",
+      "titlePlaceholder": "Ex: Motif de votre demande",
       "notesLabel": "Notes",
       "notesPlaceholder": "Détails, contexte, objectifs…",
       "startLabel": "Début",
       "endLabel": "Fin",
-      "submit": "Planifier",
+      "submit": "Envoyer",
       "submitting": "Enregistrement…"
     },
     "list": {

@@ -206,7 +206,7 @@ export default function TarifsPage() {
 
       {/* Liens complémentaires */}
       <div className="mt-6 text-center">
-        <Link href="/documents" className="inline-flex items-center justify-center px-4 py-2.5 border rounded hover:bg-black/5">{t("actions.backToDashboard")}</Link>
+        <Link href="/documents/new" className="inline-flex items-center justify-center px-4 py-2.5 border rounded hover:bg-black/5">{t("actions.backToDashboard")}</Link>
       </div>
 
       {/* Coaching / contenu additionnel */}

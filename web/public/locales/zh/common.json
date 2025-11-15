@@ -12,7 +12,19 @@
     "clear": "清除",
     "exportCsv": "导出CSV",
     "sending": "发送中…",
-    "backToDashboard": "返回仪表板"
+    "backToDashboard": "返回仪表板",
+    "cards": {
+      "documents": {
+        "badge": "文档",
+        "title": "生成文档",
+        "desc": "使用 AI 创建、翻译并导出官方文档。"
+      },
+      "appointment": {
+        "badge": "咨询",
+        "title": "预约专家",
+        "desc": "预约与法律专家的 30 分钟咨询。"
+      }
+    }
   },
   "dashboard": {
     "title": "仪表板",
@@ -44,6 +56,24 @@
     "subject": "主题",
     "messageOptional": "消息（可选）",
     "selectionLabel": "选择"
+  },
+  "homeV3": {
+    "cta": {
+      "generate": "开始生成",
+      "book": "立即预约"
+    },
+    "freeHero": {
+      "greeting": "欢迎使用 GERECHTBERG",
+      "simplify": "让您在德国和欧洲的行政手续更加简单清晰。",
+      "point1": "官方文档撰写与翻译",
+      "point2": "合规性有保障",
+      "point3": "法律专家为您服务",
+      "start": "立即开始：",
+      "option1": "与专家沟通",
+      "option2": "或让 Greta 逐步引导您",
+      "imageAlt": "免费方案示意图",
+      "note": "可能需要提供居住证明。"
+    }
   },
   "navigation": {
     "dashboard": "仪表板",
@@ -141,6 +171,7 @@
     },
     "exports": {
       "title": "导出",
+      "hint": "下载为 PDF、DOCX、TXT 或 JSON",
       "downloadPdf": "下载PDF",
       "downloadDocx": "下载Word (.docx)",
       "downloadTxt": "下载.txt",

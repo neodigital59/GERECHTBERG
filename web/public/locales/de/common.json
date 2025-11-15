@@ -12,7 +12,19 @@
     "clear": "Leeren",
     "exportCsv": "CSV exportieren",
     "sending": "Senden…",
-    "backToDashboard": "Zurück zum Dashboard"
+    "backToDashboard": "Zurück zum Dashboard",
+    "cards": {
+      "documents": {
+        "badge": "Dokumente",
+        "title": "Dokument erstellen",
+        "desc": "Amtliche Dokumente mit KI erstellen, übersetzen und exportieren."
+      },
+      "appointment": {
+        "badge": "Beratung",
+        "title": "Experten buchen",
+        "desc": "Vereinbaren Sie eine 30‑minütige Beratung mit einem Rechtsexperten."
+      }
+    }
   },
   "dashboard": {
     "title": "Dashboard",
@@ -52,9 +64,28 @@
     "messageOptional": "Nachricht (optional)",
     "selectionLabel": "Auswahl"
   },
+  "homeV3": {
+    "cta": {
+      "generate": "Jetzt starten",
+      "book": "Jetzt buchen"
+    },
+    "freeHero": {
+      "greeting": "Willkommen bei GERECHTBERG",
+      "simplify": "Ihre Verwaltungsverfahren in Deutschland und Europa werden einfach und klar.",
+      "point1": "Amtliche Dokumente erstellt und übersetzt",
+      "point2": "Konformität garantiert",
+      "point3": "Rechtsexperten an Ihrer Seite",
+      "start": "Starten Sie jetzt:",
+      "option1": "Sprechen Sie mit einem Experten",
+      "option2": "Oder lassen Sie Greta Schritt für Schritt führen",
+      "imageAlt": "Illustration des Gratisangebots",
+      "note": "Wohnsitznachweis kann erforderlich sein."
+    }
+  },
   "navigation": {
     "dashboard": "Dashboard",
     "newDocument": "Neues Dokument",
+    "document": "Dokument",
     "pricing": "Preise",
     "home": "Startseite",
     "settings": "Einstellungen",
@@ -224,6 +255,7 @@
     },
     "exports": {
       "title": "Exporte",
+      "hint": "Als PDF, DOCX, TXT oder JSON herunterladen",
       "downloadPdf": "PDF herunterladen",
       "downloadDocx": "Word (.docx) herunterladen",
       "downloadTxt": ".txt herunterladen",

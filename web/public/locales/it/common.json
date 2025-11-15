@@ -12,7 +12,19 @@
     "clear": "Cancella",
     "exportCsv": "Esporta CSV",
     "sending": "Invio in corso…",
-    "backToDashboard": "Torna alla dashboard"
+    "backToDashboard": "Torna alla dashboard",
+    "cards": {
+      "documents": {
+        "badge": "Documenti",
+        "title": "Genera un documento",
+        "desc": "Crea, traduci ed esporta documenti ufficiali con IA."
+      },
+      "appointment": {
+        "badge": "Consulenza",
+        "title": "Prenota un esperto",
+        "desc": "Programma una consulenza di 30 minuti con un esperto legale."
+      }
+    }
   },
   "dashboard": {
     "title": "Dashboard",
@@ -44,6 +56,24 @@
     "subject": "Oggetto",
     "messageOptional": "Messaggio (opzionale)",
     "selectionLabel": "Selezione"
+  },
+  "homeV3": {
+    "cta": {
+      "generate": "Inizia ora",
+      "book": "Prenota ora"
+    },
+    "freeHero": {
+      "greeting": "Benvenuto su GERECHTBERG",
+      "simplify": "Le tue pratiche amministrative in Germania e in Europa diventano semplici e chiare.",
+      "point1": "Documenti ufficiali redatti e tradotti",
+      "point2": "Conformità garantita",
+      "point3": "Esperti legali al tuo fianco",
+      "start": "Inizia adesso:",
+      "option1": "Parla con un esperto",
+      "option2": "Oppure lascia che Greta ti guidi passo dopo passo",
+      "imageAlt": "Illustrazione dell'offerta gratuita",
+      "note": "Può essere richiesta la prova di residenza."
+    }
   },
   "navigation": {
     "dashboard": "Dashboard",
@@ -141,6 +171,7 @@
     },
     "exports": {
       "title": "Esportazioni",
+      "hint": "Scarica in PDF, DOCX, TXT o JSON",
       "downloadPdf": "Scarica PDF",
       "downloadDocx": "Scarica Word (.docx)",
       "downloadTxt": "Scarica .txt",

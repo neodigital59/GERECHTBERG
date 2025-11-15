@@ -12,7 +12,19 @@
     "clear": "مسح",
     "exportCsv": "تصدير CSV",
     "sending": "جاري الإرسال…",
-    "backToDashboard": "العودة إلى لوحة التحكم"
+    "backToDashboard": "العودة إلى لوحة التحكم",
+    "cards": {
+      "documents": {
+        "badge": "مستندات",
+        "title": "إنشاء مستند",
+        "desc": "أنشئ وترجم وصدّر مستندات رسمية باستخدام الذكاء الاصطناعي."
+      },
+      "appointment": {
+        "badge": "استشارة",
+        "title": "احجز خبيرًا",
+        "desc": "حدّد موعد استشارة لمدة 30 دقيقة مع خبير قانوني."
+      }
+    }
   },
   "dashboard": {
     "title": "لوحة التحكم",
@@ -44,6 +56,24 @@
     "subject": "الموضوع",
     "messageOptional": "الرسالة (اختيارية)",
     "selectionLabel": "التحديد"
+  },
+  "homeV3": {
+    "cta": {
+      "generate": "ابدأ الآن",
+      "book": "احجز الآن"
+    },
+    "freeHero": {
+      "greeting": "مرحبًا بك في GERECHTBERG",
+      "simplify": "إجراءاتك الإدارية في ألمانيا وأوروبا تصبح أبسط وأكثر وضوحًا.",
+      "point1": "مستندات رسمية مكتوبة ومترجمة",
+      "point2": "توافق مضمون",
+      "point3": "خبراء قانونيون في خدمتك",
+      "start": "ابدأ الآن:",
+      "option1": "تحدث إلى خبير",
+      "option2": "أو دع Greta ترشدك خطوة بخطوة",
+      "imageAlt": "توضيح العرض المجاني",
+      "note": "قد تُطلب إثبات الإقامة."
+    }
   },
   "navigation": {
     "dashboard": "لوحة التحكم",
@@ -141,6 +171,7 @@
     },
     "exports": {
       "title": "التصديرات",
+      "hint": "تحميل بصيغ PDF أو DOCX أو TXT أو JSON",
       "downloadPdf": "تحميل PDF",
       "downloadDocx": "تحميل Word (.docx)",
       "downloadTxt": "تحميل .txt",
